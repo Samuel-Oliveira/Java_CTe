@@ -5,7 +5,7 @@ Projeto Para implementação do Java-CTe Utilizando JAXB.
 
 Para Iniciar : 
 - Baixe o java-cte-2.00.0.jar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-2.00.0.jar) e o adicione às bibliotecas de Seu Projeto.
-- Baixe o Schemas.rar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas.rar) e extraia na sua Máquina.
+- Baixe o Schemas.rar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas2.00.rar) e extraia na sua Máquina.
 
 - Maven :
 ```
