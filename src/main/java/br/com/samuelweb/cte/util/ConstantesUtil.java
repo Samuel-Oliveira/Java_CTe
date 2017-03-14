@@ -28,6 +28,7 @@ public interface ConstantesUtil {
 		public static final String CCE = "cce";
 		public static final String PRESTACAO_DESACORDO = "prestacao";
 		public static final String GVT = "gvt";
+		public static final String MODAL_RODOVIARIO = "cteModalRodoviario";
 		
 	}
 	
@@ -46,6 +47,7 @@ public interface ConstantesUtil {
 		public static final String CCE = "evCCeCTe";
 		public static final String PRESTACAO_DESACORDO = "evPrestDesacordo";
 		public static final String GVT = "evGTV";
+		public static final String MODAL_RODOVIARIO = "cteModalRodoviario";
 		
 	}
 	
@@ -62,6 +64,9 @@ public interface ConstantesUtil {
 		public static final String PROC_CTEOS = "CteOSProc";
 		public static final String PROT_CTE = "TProtCTe";
 		public static final String PROT_CTEOS = "TProtCTeOS";
+		public static final String MODAL_RODOVIARIO = "Rodo";
+		public static final String MODAL_RODOVIARIO_V2 = "br.inf.portalfiscal.cte.schema_200.cteModalRodoviario.Rodo";
+		public static final String MODAL_RODOVIARIO_V3 = "br.inf.portalfiscal.cte.schema_300.cteModalRodoviario.Rodo";
 		
 		public static final String PROT_CTE_CONSULTA_RECIBO_V2 = "br.inf.portalfiscal.cte.schema_200.retConsReciCTe.TProtCTe";
 		public static final String PROT_CTE_CONSULTA_RECIBO_V3 = "br.inf.portalfiscal.cte.schema_300.retConsReciCTe.TProtCTe";

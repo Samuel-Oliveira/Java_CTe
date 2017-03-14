@@ -75,6 +75,9 @@ public class Validar implements ErrorHandler {
 		case ConstantesUtil.SERVICOS.GVT:
 			xsd = configuracoesCte.getPastaSchemas()+ "/" + ConstantesUtil.XSD.GVT + "_v" + configuracoesCte.getVersaoCte();
 			break;
+		case ConstantesUtil.SERVICOS.MODAL_RODOVIARIO:
+			xsd = configuracoesCte.getPastaSchemas()+ "/" + ConstantesUtil.XSD.MODAL_RODOVIARIO + "_v" + configuracoesCte.getVersaoCte();
+			break;
 		default:
 			throw new CteException("Não Encontrado XSD para:" + tipo);
 		}

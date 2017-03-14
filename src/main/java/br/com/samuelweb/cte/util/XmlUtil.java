@@ -370,6 +370,28 @@ public class XmlUtil {
 			}
 
 			break;
+			
+		case ConstantesUtil.XML.MODAL_RODOVIARIO:
+			
+			switch (obj.getClass().getName()) {
+
+			case ConstantesUtil.XML.MODAL_RODOVIARIO_V2:
+				context = JAXBContext.newInstance(br.inf.portalfiscal.cte.schema_200.cteModalRodoviario.Rodo.class);
+				element = new br.inf.portalfiscal.cte.schema_200.cteModalRodoviario.ObjectFactory()
+						.createRodo((br.inf.portalfiscal.cte.schema_200.cteModalRodoviario.Rodo) obj);
+				break;
+				
+			case ConstantesUtil.XML.MODAL_RODOVIARIO_V3:
+				context = JAXBContext.newInstance(br.inf.portalfiscal.cte.schema_300.cteModalRodoviario.Rodo.class);
+				element = new br.inf.portalfiscal.cte.schema_300.cteModalRodoviario.ObjectFactory()
+						.createRodo((br.inf.portalfiscal.cte.schema_300.cteModalRodoviario.Rodo) obj);
+				break;
+				
+			default:
+				throw new CteException("Objeto não mapeado no XmlUtil:" + obj.getClass().getName());
+			}
+
+			break;
 
 		default:
 			throw new CteException("Objeto não mapeado no XmlUtil:" + obj.getClass().getSimpleName());

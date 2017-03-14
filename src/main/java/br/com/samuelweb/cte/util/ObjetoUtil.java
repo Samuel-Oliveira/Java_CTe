@@ -3,7 +3,10 @@ package br.com.samuelweb.cte.util;
 import java.util.Collection;
 
 import javax.xml.bind.JAXB;
+import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -28,6 +31,13 @@ public final class ObjetoUtil {
 		} catch (ParserConfigurationException e) {
 			throw new CteException("Erro Ao Converter Objeto em Elemento: "+e.getMessage());
 		}
+	}
+	
+	public static <T> T elementToObject(Element element, Class<T> classe) throws JAXBException {
+
+		JAXBContext context = JAXBContext.newInstance(classe);
+		Unmarshaller unmarshaller = context.createUnmarshaller();
+		return unmarshaller.unmarshal(element, classe).getValue();
 	}
 
 	private ObjetoUtil() {
