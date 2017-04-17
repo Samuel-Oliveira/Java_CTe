@@ -48,7 +48,7 @@
 		<dependency>
 			<groupId>br.com.samuelweb</groupId>
 			<artifactId>cte-xsd</artifactId>
-			<version>2.00a.0_3.00.0</version>
+			<version>2.00a.0_3.00.1</version>
 		</dependency>
 		
 		<dependency>

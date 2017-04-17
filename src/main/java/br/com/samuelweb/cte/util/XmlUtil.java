@@ -22,7 +22,7 @@ import javax.xml.transform.stream.StreamSource;
 
 import br.com.samuelweb.cte.ConfiguracoesIniciaisCte;
 import br.com.samuelweb.cte.exception.CteException;
-import br.inf.portalfiscal.cte.schema_300.distDFeInt.DistDFeInt;
+import br.inf.portalfiscal.cte.schema_300.distdfeint.DistDFeInt;
 
 /**
  * Classe Responsavel por Metodos referentes ao XML
@@ -152,7 +152,7 @@ public class XmlUtil {
 
 		case ConstantesUtil.XML.DISTRIBUICAO_DFE:
 			context = JAXBContext.newInstance(DistDFeInt.class);
-			element = new br.inf.portalfiscal.cte.schema_300.distDFeInt.ObjectFactory()
+			element = new br.inf.portalfiscal.cte.schema_300.distdfeint.ObjectFactory()
 					.createDistDFeInt((DistDFeInt) obj);
 			break;
 

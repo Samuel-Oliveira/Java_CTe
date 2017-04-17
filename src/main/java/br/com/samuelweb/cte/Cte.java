@@ -4,10 +4,10 @@
 package br.com.samuelweb.cte;
 
 import br.com.samuelweb.cte.exception.CteException;
-import br.inf.portalfiscal.cte.schema_300.distDFeInt.DistDFeInt;
+import br.inf.portalfiscal.cte.schema_300.distdfeint.DistDFeInt;
 import br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe;
-import br.inf.portalfiscal.cte.schema_300.retDistDFeInt.RetDistDFeInt;
 import br.inf.portalfiscal.cte.schema_300.retEnviCTe.TRetCTeOS;
+import br.inf.portalfiscal.cte.schema_300.retdistdfeint.RetDistDFeInt;
 
 /**
  * @author Samuel Oliveira - samuk.exe@hotmail.com - www.samuelweb.com.br

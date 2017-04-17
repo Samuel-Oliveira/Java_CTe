@@ -43,6 +43,7 @@ public class WebServiceUtil {
 			}
 			
 			if(servico.equals(ConstantesUtil.SERVICOS.DISTRIBUICAO_DFE)){
+				secao = "CTe_AN_" + (config.getAmbiente().equals(ConstantesUtil.AMBIENTE.HOMOLOGACAO) ? "H" : "P");
 				url = ini.get(secao, servico);
 			}else{
 				url = ini.get(secao, servico + "_" + config.getVersaoCte());

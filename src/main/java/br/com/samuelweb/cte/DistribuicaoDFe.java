@@ -14,8 +14,8 @@ import br.com.samuelweb.cte.util.ConstantesUtil;
 import br.com.samuelweb.cte.util.ObjetoUtil;
 import br.com.samuelweb.cte.util.WebServiceUtil;
 import br.com.samuelweb.cte.util.XmlUtil;
-import br.inf.portalfiscal.cte.schema_300.distDFeInt.DistDFeInt;
-import br.inf.portalfiscal.cte.schema_300.retDistDFeInt.RetDistDFeInt;
+import br.inf.portalfiscal.cte.schema_300.distdfeint.DistDFeInt;
+import br.inf.portalfiscal.cte.schema_300.retdistdfeint.RetDistDFeInt;
 import br.inf.portalfiscal.www.cte.wsdl.CTeDistribuicaoDFe.CTeDistribuicaoDFeStub;
 
 
@@ -27,7 +27,7 @@ public class DistribuicaoDFe {
 	
 	private static CTeDistribuicaoDFeStub.CteDistDFeInteresseResponse result;
 	private static CertificadoUtil certUtil;
-
+	
 	/**
 	 * Classe Reponsavel Por Consultar as CTE na SEFAZ
 	 * 
@@ -55,7 +55,7 @@ public class DistribuicaoDFe {
 				}
 			}
 			
-			System.out.println("Xml: "+xml);
+			System.out.println("Xml DistDFe: "+xml);
 			
 			OMElement ome = AXIOMUtil.stringToOM(xml);
 			

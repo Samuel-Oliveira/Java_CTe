@@ -30,6 +30,7 @@ ________________________________________________________________________________
 ## v2.00.1 - 
 - Adicionado Cacert Atual
 - Adicionado Validação Para Modal Rodoviario
+- Adicionado DistDfe
 
 ## v2.00.0 - 17-02-2017
 - Versão Inicial Do Sistema
