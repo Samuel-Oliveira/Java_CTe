@@ -28,7 +28,7 @@ import java.security.cert.X509Certificate;
  */
 public class Cacert {
 
-	 private static final String CACERTS_NAME = "Cacert_Nfe_Nfce_Cte_10-03-17";  
+	 private static final String CACERTS_NAME = "Cacert_Nfe_Nfce_Cte_28-04-17";  
 	    private static final String CACERTS_PATH = "d:\\java\\util\\Cacert\\";  
 	    private static final char SEPARATOR = File.separatorChar;  
 	    private static final int TIMEOUT_WS = 30;  

@@ -23,7 +23,6 @@ public final class ConfiguracoesIniciaisCte {
 	private String versaoCte;
 	private ProxyUtil proxyUtil; 
 	private boolean contigenciaSCAN;
-	private boolean protocol;
 	
 	//Construtor Singleton
 	private ConfiguracoesIniciaisCte(){}
@@ -148,20 +147,6 @@ public final class ConfiguracoesIniciaisCte {
 	 */
 	public void setEstado(Estados estado) {
 		this.estado = estado;
-	}
-
-	/**
-	 * @return the protocol
-	 */
-	public boolean isProtocol() {
-		return protocol;
-	}
-
-	/**
-	 * @param protocol the protocol to set
-	 */
-	public void setProtocol(boolean protocol) {
-		this.protocol = protocol;
 	}
 
 }

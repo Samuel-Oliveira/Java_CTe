@@ -4,16 +4,13 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.PrivateKey;
-import java.security.Security;
 import java.security.UnrecoverableEntryException;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
@@ -188,67 +185,29 @@ public class CertificadoUtil {
 
 	}
 
-	@SuppressWarnings("restriction")
 	public void iniciaConfiguracoes() throws CteException {
 
-		System.setProperty("sun.security.ssl.allowUnsafeRenegotiation", "true");
-		System.setProperty("java.protocol.handler.pkgs", "com.sun.net.ssl.internal.www.protocol");
-		Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
+		try {
+			KeyStore ks = null;
 
-		System.clearProperty("javax.net.ssl.keyStore");
-		System.clearProperty("javax.net.ssl.keyStorePassword");
-		System.clearProperty("javax.net.ssl.trustStore");
-		
-		if(configuracoesCte.getProxy()!=null){
-			System.setProperty("http.proxyHost", configuracoesCte.getProxy().getProxyHostName());
-			System.setProperty("http.proxyPort", configuracoesCte.getProxy().getProxyPort());
-			System.setProperty("http.proxyUser", configuracoesCte.getProxy().getProxyUserName()); 
-			System.setProperty("http.proxyPassword", configuracoesCte.getProxy().getProxyPassWord()); 
-		}
+			Certificado certificado = configuracoesCte.getCertificado();
 
-		System.setProperty("jdk.tls.client.protocols", "TLSv1"); // Servidor do	Sefaz RS
-
-		if(configuracoesCte.getCertificado().getTipo().equals(Certificado.WINDOWS)){
-			System.setProperty("javax.net.ssl.keyStoreProvider", "SunMSCAPI");
-			System.setProperty("javax.net.ssl.keyStoreType", "Windows-MY");
-			System.setProperty("javax.net.ssl.keyStoreAlias", configuracoesCte.getCertificado().getNome());
-		}else if(configuracoesCte.getCertificado().getTipo().equals(Certificado.ARQUIVO)){
-			System.setProperty("javax.net.ssl.keyStoreType", "PKCS12");  
-			System.setProperty("javax.net.ssl.keyStore", configuracoesCte.getCertificado().getArquivo());  
-		}
-
-		System.setProperty("javax.net.ssl.keyStorePassword", configuracoesCte.getCertificado().getSenha());
-
-		System.setProperty("javax.net.ssl.trustStoreType", "JKS");
-		
-		//Extrair Cacert do Jar
-		String cacert = "";
-        try {
-            InputStream input = getClass().getResourceAsStream("/Cacert");
-            File file = File.createTempFile("tempfile", ".tmp");
-            OutputStream out = new FileOutputStream(file);
-            int read;
-            byte[] bytes = new byte[1024];
-
-            while ((read = input.read(bytes)) != -1) {
-                out.write(bytes, 0, read);
-            }
-            out.close();
-            cacert = file.getAbsolutePath();
-            file.deleteOnExit();
-        } catch (IOException ex) {
-            throw new CteException(ex.getMessage());
-        }
-	   
-		System.setProperty("javax.net.ssl.trustStore", cacert);
-		
-		if(configuracoesCte.isProtocol()){
-			try {
-				System.out.println("Modo Protocol Ativado.");
-				ativaProtocolo(configuracoesCte.getCertificado());
-			} catch (UnrecoverableKeyException | KeyStoreException | NoSuchAlgorithmException | NoSuchProviderException | CertificateException | IOException e) {
-				 throw new CteException(e.getMessage());
+			if (certificado.getTipo().equals(Certificado.WINDOWS)) {
+				ks = KeyStore.getInstance("Windows-MY", "SunMSCAPI");
+				ks.load(null, null);
+			} else if (certificado.getTipo().equals(Certificado.ARQUIVO)) {
+				ks = getKeyStore(configuracoesCte.getCertificado());
 			}
+
+			X509Certificate certificate = (X509Certificate) ks.getCertificate(certificado.getNome());
+			PrivateKey privateKey = (PrivateKey) ks.getKey(certificado.getNome(), certificado.getSenha().toCharArray());
+			SocketFactoryDinamico socketFactory = new SocketFactoryDinamico(certificate, privateKey);
+			socketFactory.setFileCacerts(getClass().getResourceAsStream("/Cacert"));
+			Protocol protocol = new Protocol("https", socketFactory, 443);
+			Protocol.registerProtocol("https", protocol);
+
+		} catch (UnrecoverableKeyException | KeyStoreException | NoSuchAlgorithmException | NoSuchProviderException | CertificateException | IOException e) {
+			throw new CteException(e.getMessage());
 		}
 		
 	}

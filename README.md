@@ -31,6 +31,7 @@ ________________________________________________________________________________
 - Adicionado Cacert Atual
 - Adicionado Validação Para Modal Rodoviario
 - Adicionado DistDfe
+- Atualizado Metodo De verificação do Certificado
 
 ## v2.00.0 - 17-02-2017
 - Versão Inicial Do Sistema
