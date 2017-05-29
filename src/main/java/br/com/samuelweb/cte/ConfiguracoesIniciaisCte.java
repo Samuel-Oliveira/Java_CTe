@@ -3,6 +3,7 @@
  */
 package br.com.samuelweb.cte;
 
+import br.com.samuelweb.certificado.Certificado;
 import br.com.samuelweb.cte.exception.CteException;
 import br.com.samuelweb.cte.util.Estados;
 import br.com.samuelweb.cte.util.ProxyUtil;

@@ -44,8 +44,10 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import br.com.samuelweb.certificado.Certificado;
+import br.com.samuelweb.certificado.CertificadoService;
+import br.com.samuelweb.certificado.exception.CertificadoException;
 import br.com.samuelweb.cte.exception.CteException;
-import br.com.samuelweb.cte.util.CertificadoUtil;
 import br.com.samuelweb.cte.util.XmlUtil;
 
 /**
@@ -118,7 +120,7 @@ public class Assinatura {
 				}
 			}
 		
-		} catch (SAXException | IOException | ParserConfigurationException | NoSuchAlgorithmException | InvalidAlgorithmParameterException | KeyStoreException | UnrecoverableEntryException | NoSuchProviderException | CertificateException | MarshalException | XMLSignatureException e) {
+		} catch (SAXException | IOException | ParserConfigurationException | NoSuchAlgorithmException | InvalidAlgorithmParameterException | KeyStoreException | UnrecoverableEntryException | NoSuchProviderException | CertificateException | MarshalException | XMLSignatureException | CertificadoException e) {
 			throw new CteException("Erro ao Assinar Cte"+e.getMessage());
 		}
 
@@ -181,32 +183,23 @@ public class Assinatura {
 		return document;
 	}
 
-	private static void loadCertificates(XMLSignatureFactory signatureFactory) throws KeyStoreException, NoSuchAlgorithmException, UnrecoverableEntryException, NoSuchProviderException, CertificateException, IOException, CteException {
+	private static void loadCertificates(XMLSignatureFactory signatureFactory) throws KeyStoreException, NoSuchAlgorithmException, UnrecoverableEntryException, NoSuchProviderException, CertificateException, IOException, CertificadoException {
 
 		Certificado certificado = configuracoesCte.getCertificado();
 		KeyStore.PrivateKeyEntry pkEntry = null;
-		KeyStore ks = null;
-		if(certificado.getTipo().equals(Certificado.WINDOWS)){
-			ks = KeyStore.getInstance("Windows-MY", "SunMSCAPI");
-		}else if(certificado.getTipo().equals(Certificado.ARQUIVO)){
-			ks = CertificadoUtil.getKeyStore(certificado);
-		}
-		
-		ks.load(null, null);
+		KeyStore keyStore = CertificadoService.getKeyStore(certificado);
 
-		pkEntry = (KeyStore.PrivateKeyEntry) ks.getEntry(certificado.getNome(), new KeyStore.PasswordProtection(certificado.getSenha().toCharArray()));
+		pkEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(certificado.getNome(), new KeyStore.PasswordProtection(certificado.getSenha().toCharArray()));
 		privateKey = pkEntry.getPrivateKey();
-		
-		X509Certificate cert = (X509Certificate) pkEntry.getCertificate();
 		
 		KeyInfoFactory keyInfoFactory = signatureFactory.getKeyInfoFactory();
 		List<X509Certificate> x509Content = new ArrayList<X509Certificate>();
 
-		x509Content.add(cert);
+		x509Content.add(CertificadoService.getCertificate(certificado, keyStore));
 		X509Data x509Data = keyInfoFactory.newX509Data(x509Content);
 		keyInfo = keyInfoFactory.newKeyInfo(Collections.singletonList(x509Data));
 	}
-
+	
 	private static String outputXML(Document doc) throws CteException {
 		
 		String xml = "";
