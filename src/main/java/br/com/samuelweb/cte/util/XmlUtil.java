@@ -94,6 +94,11 @@ public class XmlUtil {
 				element = new br.inf.portalfiscal.cte.schema_300.consStatServCTe.ObjectFactory()
 						.createConsStatServCte((br.inf.portalfiscal.cte.schema_300.consStatServCTe.TConsStatServ) obj);
 			} else {
+//				context = JAXBContext
+//						.newInstance(br.inf.portalfiscal.mdfe.schema_300.consStatServMDFe.TConsStatServ.class);
+//				element = new br.inf.portalfiscal.mdfe.schema_300.consStatServMDFe.ObjectFactory()
+//						.createConsStatServMDFe((br.inf.portalfiscal.mdfe.schema_300.consStatServMDFe.TConsStatServ) obj);
+				//TODO MDFE
 				context = JAXBContext
 						.newInstance(br.inf.portalfiscal.cte.schema_200.consStatServCTe.TConsStatServ.class);
 				element = new br.inf.portalfiscal.cte.schema_200.consStatServCTe.ObjectFactory()

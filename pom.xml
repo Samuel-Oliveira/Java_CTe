@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>br.com.samuelweb</groupId>
   <artifactId>java-cte</artifactId>
-  <version>2.00.1a</version>
+  <version>2.00.1b</version>
   <name>Java-CTe</name>
   
   	<!-- Repositorios SVN Autocom -->
@@ -41,21 +41,21 @@
 		<dependency>
 			<groupId>br.com.samuelweb</groupId>
 			<artifactId>cte-wsdl</artifactId>
-			<version>3.0.0</version>
+			<version>3.0.1</version>
 		</dependency>
 		
 		<!-- Certificado -->
 		<dependency>
 			<groupId>br.com.samuelweb</groupId>
 			<artifactId>java_certificado</artifactId>
-			<version>1.0</version>
+			<version>1.2</version>
 		</dependency>
 		
 		<!-- XSD CTe -->
 		<dependency>
 			<groupId>br.com.samuelweb</groupId>
 			<artifactId>cte-xsd</artifactId>
-			<version>2.00a.0_3.00.1</version>
+			<version>2.00a.0_3.00.3</version>
 		</dependency>
 		
 		<dependency>

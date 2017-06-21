@@ -1,6 +1,8 @@
 # Java-CTe [![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe)
 Projeto Para implementação do Java-CTe Utilizando JAXB.
 
+JavaDoc -> https://samuel-oliveira.github.io/Java_CTe/
+
 ## Gostou do Projeto? Dê sua colaboração: [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TX9K693QQYA6W)
 
 Para Iniciar : 
@@ -32,6 +34,7 @@ ________________________________________________________________________________
 - Adicionado Validação Para Modal Rodoviario
 - Adicionado DistDfe
 - Atualizado Metodo De verificação do Certificado
+- Adicionado JavaDocs
 - Removido a Parte de Certificado Digitais para outro Projeto.
 - **Atenção: Alterado o caminho do Objeto Certificado, refaça os Imports.** 
 
