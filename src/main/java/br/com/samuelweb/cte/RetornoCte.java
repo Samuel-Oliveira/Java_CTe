@@ -11,12 +11,12 @@ import javax.xml.stream.XMLStreamException;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 
-import br.com.samuelweb.cte.exception.CteException;
-import br.com.samuelweb.cte.util.CertificadoUtil;
-import br.com.samuelweb.cte.util.ConstantesUtil;
-import br.com.samuelweb.cte.util.ObjetoUtil;
-import br.com.samuelweb.cte.util.WebServiceUtil;
-import br.com.samuelweb.cte.util.XmlUtil;
+import br.com.samuelweb.exception.EmissorException;
+import br.com.samuelweb.util.CertificadoUtil;
+import br.com.samuelweb.util.ConstantesCte;
+import br.com.samuelweb.util.ObjetoUtil;
+import br.com.samuelweb.util.WebServiceUtil;
+import br.com.samuelweb.util.XmlUtil;
 import br.inf.portalfiscal.cte.schema_200.consReciCTe.TConsReciCTe;
 import br.inf.portalfiscal.cte.schema_200.retConsReciCTe.TRetConsReciCTe;
 import br.inf.portalfiscal.www.cte.wsdl.cteRetRecepcao.CteRetRecepcaoStub;
@@ -33,7 +33,7 @@ import br.inf.portalfiscal.www.cte.wsdl.cteRetRecepcao.CteRetRecepcaoStub.CteRet
 public class RetornoCte {
 
 	private static CteRetRecepcaoResult result;
-	private static ConfiguracoesIniciaisCte configuracoesCte;
+	private static ConfiguracoesIniciais configuracoesCte;
 	private static CertificadoUtil certUtil;
 
 	/**
@@ -43,7 +43,7 @@ public class RetornoCte {
 	 * @return String
 	 * @throws NfeException
 	 */
-	public static TRetConsReciCTe consultaRecibo(TConsReciCTe consReciCTe, boolean valida) throws CteException {
+	public static TRetConsReciCTe consultaRecibo(TConsReciCTe consReciCTe, boolean valida) throws EmissorException {
 
 		try {
 			/**
@@ -51,20 +51,20 @@ public class RetornoCte {
 			 */
 			certUtil = new CertificadoUtil();
 			certUtil.iniciaConfiguracoes();
-			configuracoesCte = ConfiguracoesIniciaisCte.getInstance();
+			configuracoesCte = ConfiguracoesIniciais.getInstance();
 
 			/**
 			 * Cria o xml
 			 */
-			String xml = XmlUtil.objectToXml(consReciCTe);
+			String xml = XmlUtil.objectCteToXml(consReciCTe);
 
 			/**
 			 * Valida o Xml caso sejá selecionado True
 			 */
 			if (valida) {
-				String erros = Validar.validaXml(xml, ConstantesUtil.SERVICOS.CONSULTA_RECIBO);
+				String erros = ValidarCte.validaXml(xml, ConstantesCte.SERVICOS.CONSULTA_RECIBO);
 				if (!ObjetoUtil.isEmpty(erros)) {
-					throw new CteException("Erro Na Validação do Xml: " + erros);
+					throw new EmissorException("Erro Na Validação do Xml: " + erros);
 				}
 			}
 
@@ -84,18 +84,18 @@ public class RetornoCte {
 			/**
 			 * Versao do XML
 			 */
-			cteCabecMsg.setVersaoDados(configuracoesCte.getVersaoCte());
+			cteCabecMsg.setVersaoDados(configuracoesCte.getVersao());
 
 			CteCabecMsgE cteCabecMsgE = new CteCabecMsgE();
 			cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
 
-			CteRetRecepcaoStub stub = new CteRetRecepcaoStub(WebServiceUtil.getUrl(ConstantesUtil.CTE, ConstantesUtil.SERVICOS.CONSULTA_RECIBO));
+			CteRetRecepcaoStub stub = new CteRetRecepcaoStub(WebServiceUtil.getUrl(ConstantesCte.CTE, ConstantesCte.SERVICOS.CONSULTA_RECIBO));
 			result = stub.cteRetRecepcao(dadosMsg, cteCabecMsgE);
 			
 			return  XmlUtil.xmlToObject(result.getExtraElement().toString(), TRetConsReciCTe.class);
 
 		} catch (RemoteException | XMLStreamException | JAXBException e) {
-			throw new CteException(e.getMessage());
+			throw new EmissorException(e.getMessage());
 		}
 
 	}

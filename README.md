@@ -36,6 +36,13 @@ ________________________________________________________________________________
 - Atualizado Metodo De verificação do Certificado
 - Adicionado JavaDocs
 - Removido a Parte de Certificado Digitais para outro Projeto.
+- Adicionado MDfe ao Projeto
+- Alterações:
+- 'ConfiguracoesIniciaisCte' para 'ConfiguracoesIniciais'
+- 'ConstantesUtil' para 'ConstantesCte'
+- 'CteException' para 'EmissorException'
+- 'VersaoCte' para 'Versao'
+- 'ObjectToXml' para 'ObjectCteToXml'
 - **Atenção: Alterado o caminho do Objeto Certificado, refaça os Imports.** 
 
 ## v2.00.0 - 17-02-2017
