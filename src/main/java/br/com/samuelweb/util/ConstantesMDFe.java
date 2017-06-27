@@ -55,6 +55,7 @@ public interface ConstantesMDFe {
         public static final String EVENTO = "TEvento";
         public static final String PROC_EVENTO = "TProcEvento";
         public static final String PROC_MDFE = "MdfeProc";
+        public static final String PROT_MDFE = "TProtMDFe";
         
         
         public static final String CANCELAR = "br.inf.portalfiscal.mdfe.schema_300.evCancMDFe.TEvento";

@@ -23,6 +23,7 @@ import javax.xml.transform.stream.StreamSource;
 import br.com.samuelweb.cte.ConfiguracoesIniciais;
 import br.com.samuelweb.exception.EmissorException;
 import br.inf.portalfiscal.cte.schema_300.distdfeint.DistDFeInt;
+import br.inf.portalfiscal.mdfe.schema_300.procMDFe.MdfeProc;
 
 /**
  * Classe Responsavel por Metodos referentes ao XML
@@ -451,6 +452,13 @@ public class XmlUtil {
 	                             .createMdfeProc((br.inf.portalfiscal.mdfe.schema_300.procMDFe.MdfeProc) obj);  
 	                break;
 
+	            case ConstantesMDFe.XML.PROT_MDFE:
+	                //Criar o  objeto procMDFe ou mdfeProc dentro do pacote env com o construtor
+	                context = JAXBContext.newInstance(br.inf.portalfiscal.mdfe.schema_300.retConsReciMDFe.TProtMDFe.class);
+	                element = new br.inf.portalfiscal.mdfe.schema_300.retConsReciMDFe.ObjectFactory()
+	                        .createTProtMDFe((br.inf.portalfiscal.mdfe.schema_300.retConsReciMDFe.TProtMDFe) obj);
+	                break;
+
 	            case ConstantesMDFe.XML.EVENTO:
 	                switch (obj.getClass().getName()) {
 	                    case ConstantesMDFe.XML.CANCELAR:
@@ -533,6 +541,19 @@ public class XmlUtil {
 
 		return XmlUtil.objectCteToXml(cteProc);
 	}
+	
+	public static String criaMdfeProc(br.inf.portalfiscal.mdfe.schema_300.procMDFe.TEnviMDFe enviMdfe, Object retorno) throws JAXBException, EmissorException {
+		MdfeProc mdfeProc = new MdfeProc();
+        
+        mdfeProc.setVersao("3.00");
+        mdfeProc.setMDFe(enviMdfe.getMDFe());
+        String xml = objectMdfeToXml(retorno);
+        mdfeProc.setProtMDFe(xmlToObject(xml, br.inf.portalfiscal.mdfe.schema_300.procMDFe.TProtMDFe.class));
+
+        String xmlFinal = objectMdfeToXml(mdfeProc);
+
+        return xmlFinal;
+    }
 
 	public static String removeAcentos(String str) {
 		str = str.replaceAll("\r", "");
