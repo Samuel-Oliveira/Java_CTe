@@ -11,12 +11,12 @@ import javax.xml.stream.XMLStreamException;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 
-import br.com.samuelweb.cte.exception.CteException;
-import br.com.samuelweb.cte.util.CertificadoUtil;
-import br.com.samuelweb.cte.util.ConstantesUtil;
-import br.com.samuelweb.cte.util.ObjetoUtil;
-import br.com.samuelweb.cte.util.WebServiceUtil;
-import br.com.samuelweb.cte.util.XmlUtil;
+import br.com.samuelweb.exception.EmissorException;
+import br.com.samuelweb.util.CertificadoUtil;
+import br.com.samuelweb.util.ConstantesCte;
+import br.com.samuelweb.util.ObjetoUtil;
+import br.com.samuelweb.util.WebServiceUtil;
+import br.com.samuelweb.util.XmlUtil;
 import br.inf.portalfiscal.cte.schema_300.retEnviCTe.TRetCTeOS;
 import br.inf.portalfiscal.www.cte.wsdl.CteRecepcao.CteRecepcaoStub;
 import br.inf.portalfiscal.www.cte.wsdl.CteRecepcao.CteRecepcaoStub.CteCabecMsg;
@@ -32,7 +32,7 @@ import br.inf.portalfiscal.www.cte.wsdl.CteRecepcao.CteRecepcaoStub.CteRecepcaoL
 public class EnvioCte {
 
 	private static CteRecepcaoLoteResult result;
-	private static ConfiguracoesIniciaisCte configuracoesCte;
+	private static ConfiguracoesIniciais configuracoesCte;
 	private static CertificadoUtil certUtil;
 
 	/**
@@ -42,11 +42,11 @@ public class EnvioCte {
 	 * @return TEnviCTe
 	 * @throws NfeException
 	 */
-	public static br.inf.portalfiscal.cte.schema_200.enviCTe.TEnviCTe montaCte2(br.inf.portalfiscal.cte.schema_200.enviCTe.TEnviCTe enviCTe, boolean valida) throws CteException {
+	public static br.inf.portalfiscal.cte.schema_200.enviCTe.TEnviCTe montaCte2(br.inf.portalfiscal.cte.schema_200.enviCTe.TEnviCTe enviCTe, boolean valida) throws EmissorException {
 		try {
-			return XmlUtil.xmlToObject( montaCte(XmlUtil.objectToXml(enviCTe) , valida), br.inf.portalfiscal.cte.schema_200.enviCTe.TEnviCTe.class);
+			return XmlUtil.xmlToObject( montaCte(XmlUtil.objectCteToXml(enviCTe) , valida), br.inf.portalfiscal.cte.schema_200.enviCTe.TEnviCTe.class);
 		} catch (JAXBException e) {
-			throw new CteException("Erro ao Montar Cte: "+e.getMessage());
+			throw new EmissorException("Erro ao Montar Cte: "+e.getMessage());
 		}
 	}
 	
@@ -57,28 +57,28 @@ public class EnvioCte {
 	 * @return TEnviCTe
 	 * @throws NfeException
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe montaCte3(br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe enviCTe, boolean valida) throws CteException {
+	public static br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe montaCte3(br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe enviCTe, boolean valida) throws EmissorException {
 		try {
-			return XmlUtil.xmlToObject( montaCte(XmlUtil.objectToXml(enviCTe) , valida), br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe.class);
+			return XmlUtil.xmlToObject( montaCte(XmlUtil.objectCteToXml(enviCTe) , valida), br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe.class);
 		} catch (JAXBException e) {
-			throw new CteException("Erro ao Montar Cte: "+e.getMessage());
+			throw new EmissorException("Erro ao Montar Cte: "+e.getMessage());
 		}
 	}
 	
-	private static String montaCte(String xml, boolean valida) throws CteException {
+	private static String montaCte(String xml, boolean valida) throws EmissorException {
 
 		/**
 		 * Assina o Xml
 		 */
-		xml = Assinatura.assinaCte(xml, Assinatura.CTE);
+		xml = Assinatura.assinar(xml, Assinatura.CTE);
 
 		/**
 		 * Valida o Xml caso sejá selecionado True
 		 */
 		if (valida) {
-			String erros = Validar.validaXml(xml, ConstantesUtil.SERVICOS.ENVIO_CTE);
+			String erros = ValidarCte.validaXml(xml, ConstantesCte.SERVICOS.ENVIO_CTE);
 			if (!ObjetoUtil.isEmpty(erros)) {
-				throw new CteException("Erro Na Validação do Xml: " + erros);
+				throw new EmissorException("Erro Na Validação do Xml: " + erros);
 			}
 		}
 
@@ -93,15 +93,15 @@ public class EnvioCte {
 	 * 
 	 * @param TEnviCTe
 	 * @return TRetEnviCTe
-	 * @throws CteException
+	 * @throws EmissorException
 	 */
-	public static TRetCTeOS enviaCteOS(br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe enviCTe) throws CteException {
+	public static TRetCTeOS enviaCteOS(br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe enviCTe) throws EmissorException {
 
 		try {
-			result = enviar(XmlUtil.objectToXml(enviCTe), ConstantesUtil.CTE_OS);
+			result = enviar(XmlUtil.objectCteToXml(enviCTe), ConstantesCte.CTE_OS);
 			return XmlUtil.xmlToObject(result.getExtraElement().toString(), TRetCTeOS.class);
 		} catch (JAXBException e) {
-			throw new CteException(e.getMessage());
+			throw new EmissorException(e.getMessage());
 		}
 
 	}
@@ -111,15 +111,15 @@ public class EnvioCte {
 	 * 
 	 * @param TEnviCTe
 	 * @return TRetEnviCTe
-	 * @throws CteException
+	 * @throws EmissorException
 	 */
-	public static br.inf.portalfiscal.cte.schema_200.retEnviCTe.TRetEnviCTe enviaCte2(br.inf.portalfiscal.cte.schema_200.enviCTe.TEnviCTe enviCTe) throws CteException {
+	public static br.inf.portalfiscal.cte.schema_200.retEnviCTe.TRetEnviCTe enviaCte2(br.inf.portalfiscal.cte.schema_200.enviCTe.TEnviCTe enviCTe) throws EmissorException {
 
 		try {
-			result = enviar(XmlUtil.objectToXml(enviCTe), ConstantesUtil.CTE);
+			result = enviar(XmlUtil.objectCteToXml(enviCTe), ConstantesCte.CTE);
 			return XmlUtil.xmlToObject(result.getExtraElement().toString(), br.inf.portalfiscal.cte.schema_200.retEnviCTe.TRetEnviCTe.class);
 		} catch (JAXBException e) {
-			throw new CteException(e.getMessage());
+			throw new EmissorException(e.getMessage());
 		}
 
 	}
@@ -129,15 +129,15 @@ public class EnvioCte {
 	 * 
 	 * @param TEnviCTe
 	 * @return TRetEnviCTe
-	 * @throws CteException
+	 * @throws EmissorException
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.retEnviCTe.TRetEnviCTe enviaCte3(br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe enviCTe) throws CteException {
+	public static br.inf.portalfiscal.cte.schema_300.retEnviCTe.TRetEnviCTe enviaCte3(br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe enviCTe) throws EmissorException {
 		
 		try {
-			result = enviar(XmlUtil.objectToXml(enviCTe), ConstantesUtil.CTE);
+			result = enviar(XmlUtil.objectCteToXml(enviCTe), ConstantesCte.CTE);
 			return XmlUtil.xmlToObject(result.getExtraElement().toString(), br.inf.portalfiscal.cte.schema_300.retEnviCTe.TRetEnviCTe.class);
 		} catch (JAXBException e) {
-			throw new CteException(e.getMessage());
+			throw new EmissorException(e.getMessage());
 		}
 		
 	}
@@ -147,9 +147,9 @@ public class EnvioCte {
 	 * 
 	 * @param TEnviCTe
 	 * @return TRetEnviCTe
-	 * @throws CteException
+	 * @throws EmissorException
 	 */
-	private static CteRecepcaoLoteResult enviar(String xml, String tipo) throws CteException {
+	private static CteRecepcaoLoteResult enviar(String xml, String tipo) throws EmissorException {
 
 		try {
 			/**
@@ -157,7 +157,7 @@ public class EnvioCte {
 			 */
 			certUtil = new CertificadoUtil();
 			certUtil.iniciaConfiguracoes();
-			configuracoesCte = ConfiguracoesIniciaisCte.getInstance();
+			configuracoesCte = ConfiguracoesIniciais.getInstance();
 
 			OMElement ome = AXIOMUtil.stringToOM(xml);
 
@@ -175,16 +175,16 @@ public class EnvioCte {
 			/**
 			 * Versao do XML
 			 */
-			cteCabecMsg.setVersaoDados(configuracoesCte.getVersaoCte());
+			cteCabecMsg.setVersaoDados(configuracoesCte.getVersao());
 
 			CteCabecMsgE cteCabecMsgE = new CteCabecMsgE();
 			cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
 
-			CteRecepcaoStub stub = new CteRecepcaoStub(WebServiceUtil.getUrl(tipo, ConstantesUtil.SERVICOS.ENVIO_CTE));
+			CteRecepcaoStub stub = new CteRecepcaoStub(WebServiceUtil.getUrl(tipo, ConstantesCte.SERVICOS.ENVIO_CTE));
 			return stub.cteRecepcaoLote(dadosMsg, cteCabecMsgE);
 
 		} catch (RemoteException | XMLStreamException e) {
-			throw new CteException(e.getMessage());
+			throw new EmissorException(e.getMessage());
 		}
 
 	}

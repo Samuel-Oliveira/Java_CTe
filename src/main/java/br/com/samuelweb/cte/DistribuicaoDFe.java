@@ -8,14 +8,14 @@ import javax.xml.stream.XMLStreamException;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 
-import br.com.samuelweb.cte.exception.CteException;
-import br.com.samuelweb.cte.util.CertificadoUtil;
-import br.com.samuelweb.cte.util.ConstantesUtil;
-import br.com.samuelweb.cte.util.ObjetoUtil;
-import br.com.samuelweb.cte.util.WebServiceUtil;
-import br.com.samuelweb.cte.util.XmlUtil;
-import br.inf.portalfiscal.cte.schema_300.distDFeInt.DistDFeInt;
-import br.inf.portalfiscal.cte.schema_300.retDistDFeInt.RetDistDFeInt;
+import br.com.samuelweb.exception.EmissorException;
+import br.com.samuelweb.util.CertificadoUtil;
+import br.com.samuelweb.util.ConstantesCte;
+import br.com.samuelweb.util.ObjetoUtil;
+import br.com.samuelweb.util.WebServiceUtil;
+import br.com.samuelweb.util.XmlUtil;
+import br.inf.portalfiscal.cte.schema_300.distdfeint.DistDFeInt;
+import br.inf.portalfiscal.cte.schema_300.retdistdfeint.RetDistDFeInt;
 import br.inf.portalfiscal.www.cte.wsdl.CTeDistribuicaoDFe.CTeDistribuicaoDFeStub;
 
 
@@ -27,14 +27,14 @@ public class DistribuicaoDFe {
 	
 	private static CTeDistribuicaoDFeStub.CteDistDFeInteresseResponse result;
 	private static CertificadoUtil certUtil;
-
+	
 	/**
 	 * Classe Reponsavel Por Consultar as CTE na SEFAZ
 	 * 
 	 * @param DistDFeInt
 	 * @return RetDistDFeInt
 	 */
-	public static RetDistDFeInt consultaCte(DistDFeInt distDFeInt, boolean valida) throws CteException{
+	public static RetDistDFeInt consultaCte(DistDFeInt distDFeInt, boolean valida) throws EmissorException{
 		
 		certUtil = new CertificadoUtil();
 
@@ -45,17 +45,17 @@ public class DistribuicaoDFe {
 			 */
 			certUtil.iniciaConfiguracoes();
 
-			String xml = XmlUtil.objectToXml(distDFeInt);
+			String xml = XmlUtil.objectCteToXml(distDFeInt);
 			
 			if(valida){
-				String erros = Validar.validaXml(xml, ConstantesUtil.SERVICOS.DISTRIBUICAO_DFE);
+				String erros = ValidarCte.validaXml(xml, ConstantesCte.SERVICOS.DISTRIBUICAO_DFE);
 				
 				if(!ObjetoUtil.isEmpty(erros)){
-					throw new CteException("Erro Na Validação do Xml: "+erros);
+					throw new EmissorException("Erro Na Validação do Xml: "+erros);
 				}
 			}
 			
-			System.out.println("Xml: "+xml);
+			System.out.println("Xml DistDFe: "+xml);
 			
 			OMElement ome = AXIOMUtil.stringToOM(xml);
 			
@@ -65,14 +65,14 @@ public class DistribuicaoDFe {
 			CTeDistribuicaoDFeStub.CteDistDFeInteresse distDFeInteresse = new CTeDistribuicaoDFeStub.CteDistDFeInteresse();  
 			distDFeInteresse.setCteDadosMsg(dadosMsgType0);  
 			  
-			CTeDistribuicaoDFeStub stub = new CTeDistribuicaoDFeStub( WebServiceUtil.getUrl(ConstantesUtil.CTE, ConstantesUtil.SERVICOS.DISTRIBUICAO_DFE));  
+			CTeDistribuicaoDFeStub stub = new CTeDistribuicaoDFeStub( WebServiceUtil.getUrl(ConstantesCte.CTE, ConstantesCte.SERVICOS.DISTRIBUICAO_DFE));  
 			result = stub.cteDistDFeInteresse(distDFeInteresse);  
 
 			return XmlUtil.xmlToObject(result.getCteDistDFeInteresseResult().getExtraElement().toString(), RetDistDFeInt.class);  
 
 
 		} catch (RemoteException | XMLStreamException | JAXBException e) {
-			throw new CteException(e.getMessage());
+			throw new EmissorException(e.getMessage());
 		}
 	}
 

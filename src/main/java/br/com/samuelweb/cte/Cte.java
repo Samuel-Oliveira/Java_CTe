@@ -3,11 +3,11 @@
  */
 package br.com.samuelweb.cte;
 
-import br.com.samuelweb.cte.exception.CteException;
-import br.inf.portalfiscal.cte.schema_300.distDFeInt.DistDFeInt;
+import br.com.samuelweb.exception.EmissorException;
+import br.inf.portalfiscal.cte.schema_300.distdfeint.DistDFeInt;
 import br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe;
-import br.inf.portalfiscal.cte.schema_300.retDistDFeInt.RetDistDFeInt;
 import br.inf.portalfiscal.cte.schema_300.retEnviCTe.TRetCTeOS;
+import br.inf.portalfiscal.cte.schema_300.retdistdfeint.RetDistDFeInt;
 
 /**
  * @author Samuel Oliveira - samuk.exe@hotmail.com - www.samuelweb.com.br
@@ -27,9 +27,9 @@ public class Cte {
 	 * 
 	 * @param TConsStatServ
 	 * @return TRetConsStatServ
-	 * @throws CteException
+	 * @throws EmissorException
 	 */
-	public static br.inf.portalfiscal.cte.schema_200.retConsStatServCTe.TRetConsStatServ statusServico(br.inf.portalfiscal.cte.schema_200.consStatServCTe.TConsStatServ consStatServ, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_200.retConsStatServCTe.TRetConsStatServ statusServico(br.inf.portalfiscal.cte.schema_200.consStatServCTe.TConsStatServ consStatServ, boolean valida) throws EmissorException{
 		
 		return Status.statusServico2(consStatServ , valida);
 		
@@ -40,9 +40,9 @@ public class Cte {
 	 * 
 	 * @param TConsStatServ
 	 * @return TRetConsStatServ
-	 * @throws CteException
+	 * @throws EmissorException
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.retConsStatServCTe.TRetConsStatServ statusServico(br.inf.portalfiscal.cte.schema_300.consStatServCTe.TConsStatServ consStatServ, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_300.retConsStatServCTe.TRetConsStatServ statusServico(br.inf.portalfiscal.cte.schema_300.consStatServCTe.TConsStatServ consStatServ, boolean valida) throws EmissorException{
 		
 		return Status.statusServico3(consStatServ , valida);
 		
@@ -53,9 +53,9 @@ public class Cte {
 	 * 
 	 * @param TConsReciCTe
 	 * @return TRetConsReciCTe
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_200.retConsSitCTe.TRetConsSitCTe consultaXml(br.inf.portalfiscal.cte.schema_200.consSitCTe.TConsSitCTe consReciCTe, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_200.retConsSitCTe.TRetConsSitCTe consultaXml(br.inf.portalfiscal.cte.schema_200.consSitCTe.TConsSitCTe consReciCTe, boolean valida) throws EmissorException{
 		
 		return ConsultaProtocolo.consultar2(consReciCTe , valida);
 		
@@ -66,9 +66,9 @@ public class Cte {
 	 * 
 	 * @param TConsReciCTe
 	 * @return TRetConsReciCTe
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.retConsSitCTe.TRetConsSitCTe consultaXml(br.inf.portalfiscal.cte.schema_300.consSitCTe.TConsSitCTe consReciCTe, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_300.retConsSitCTe.TRetConsSitCTe consultaXml(br.inf.portalfiscal.cte.schema_300.consSitCTe.TConsSitCTe consReciCTe, boolean valida) throws EmissorException{
 		
 		return ConsultaProtocolo.consultar3(consReciCTe , valida);
 		
@@ -80,9 +80,9 @@ public class Cte {
 	 * 
 	 * @param TInutCTe
 	 * @return TRetInutCTe
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_200.retInutCTe.TRetInutCTe inutilizacao(br.inf.portalfiscal.cte.schema_200.inutCTe.TInutCTe inutCTe, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_200.retInutCTe.TRetInutCTe inutilizacao(br.inf.portalfiscal.cte.schema_200.inutCTe.TInutCTe inutCTe, boolean valida) throws EmissorException{
 		
 		return Inutilizacao.inutilizar2(inutCTe , valida);
 		
@@ -94,9 +94,9 @@ public class Cte {
 	 * 
 	 * @param TInutCTe
 	 * @return TRetInutCTe
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.retInutCTe.TRetInutCTe inutilizacao(br.inf.portalfiscal.cte.schema_300.inutCTe.TInutCTe inutCTe, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_300.retInutCTe.TRetInutCTe inutilizacao(br.inf.portalfiscal.cte.schema_300.inutCTe.TInutCTe inutCTe, boolean valida) throws EmissorException{
 		
 		return Inutilizacao.inutilizar3(inutCTe , valida);
 		
@@ -107,9 +107,9 @@ public class Cte {
 	 * 
 	 * @param consSitCTe
 	 * @return TRetConsSitCTe
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static RetDistDFeInt distribuicaoDfe(DistDFeInt distDFeInt, boolean valida) throws CteException{
+	public static RetDistDFeInt distribuicaoDfe(DistDFeInt distDFeInt, boolean valida) throws EmissorException{
 		
 		return DistribuicaoDFe.consultaCte(distDFeInt , valida);
 		
@@ -120,9 +120,9 @@ public class Cte {
 	 * 
 	 * @param TEnviCTe
 	 * @return TEnviCTe
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_200.enviCTe.TEnviCTe montaCte(br.inf.portalfiscal.cte.schema_200.enviCTe.TEnviCTe enviCTe, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_200.enviCTe.TEnviCTe montaCte(br.inf.portalfiscal.cte.schema_200.enviCTe.TEnviCTe enviCTe, boolean valida) throws EmissorException{
 		
 		return EnvioCte.montaCte2(enviCTe , valida);
 				
@@ -133,9 +133,9 @@ public class Cte {
 	 * 
 	 * @param TEnviCTe
 	 * @return TEnviCTe
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe montaCte(br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe enviCTe, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe montaCte(br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe enviCTe, boolean valida) throws EmissorException{
 		
 		return EnvioCte.montaCte3(enviCTe , valida);
 		
@@ -146,9 +146,9 @@ public class Cte {
 	 * 
 	 * @param TEnviCTe
 	 * @return TRetConsReciCTe
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_200.retConsReciCTe.TRetConsReciCTe consultaRecibo(br.inf.portalfiscal.cte.schema_200.consReciCTe.TConsReciCTe consReciCTe, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_200.retConsReciCTe.TRetConsReciCTe consultaRecibo(br.inf.portalfiscal.cte.schema_200.consReciCTe.TConsReciCTe consReciCTe, boolean valida) throws EmissorException{
 		
 		return RetornoCte.consultaRecibo(consReciCTe , valida);
 		
@@ -159,9 +159,9 @@ public class Cte {
 	 * 
 	 * @param TEnviCTe
 	 * @return TRetEnviCTe
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_200.retEnviCTe.TRetEnviCTe enviarCte(br.inf.portalfiscal.cte.schema_200.enviCTe.TEnviCTe enviCTe) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_200.retEnviCTe.TRetEnviCTe enviarCte(br.inf.portalfiscal.cte.schema_200.enviCTe.TEnviCTe enviCTe) throws EmissorException{
 		
 		return EnvioCte.enviaCte2(enviCTe);
 		
@@ -172,9 +172,9 @@ public class Cte {
 	 * 
 	 * @param TEnviCTe
 	 * @return TRetEnviCTe
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.retEnviCTe.TRetEnviCTe enviarCte(br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe enviCTe) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_300.retEnviCTe.TRetEnviCTe enviarCte(br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe enviCTe) throws EmissorException{
 		
 		return EnvioCte.enviaCte3(enviCTe);
 		
@@ -185,9 +185,9 @@ public class Cte {
 	 * 
 	 * @param TEnviCTe
 	 * @return TRetEnviCTe
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static TRetCTeOS enviarCteOS(TEnviCTe enviCTe) throws CteException{
+	public static TRetCTeOS enviarCteOS(TEnviCTe enviCTe) throws EmissorException{
 		
 		return EnvioCte.enviaCteOS(enviCTe);
 		
@@ -198,9 +198,9 @@ public class Cte {
 	 * 
 	 * @param TEvento
 	 * @return TRetEvento
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_200.evCancCTe.TRetEvento cancelarCte(br.inf.portalfiscal.cte.schema_200.evCancCTe.TEvento evento, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_200.evCancCTe.TRetEvento cancelarCte(br.inf.portalfiscal.cte.schema_200.evCancCTe.TEvento evento, boolean valida) throws EmissorException{
 		
 		return Evento.cancelamento2(evento , valida);
 		
@@ -210,9 +210,9 @@ public class Cte {
 	 * 
 	 * @param TEvento
 	 * @return TRetEvento
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.evCancCTe.TRetEvento cancelarCte(br.inf.portalfiscal.cte.schema_300.evCancCTe.TEvento evento, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_300.evCancCTe.TRetEvento cancelarCte(br.inf.portalfiscal.cte.schema_300.evCancCTe.TEvento evento, boolean valida) throws EmissorException{
 		
 		return Evento.cancelamento3(evento , valida);
 		
@@ -223,9 +223,9 @@ public class Cte {
 	 * 
 	 * @param TEvento
 	 * @return TRetEvento
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.evEPECCTe.TRetEvento epecCte(br.inf.portalfiscal.cte.schema_300.evEPECCTe.TEvento evento, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_300.evEPECCTe.TRetEvento epecCte(br.inf.portalfiscal.cte.schema_300.evEPECCTe.TEvento evento, boolean valida) throws EmissorException{
 		
 		return Evento.epec(evento , valida);
 		
@@ -236,9 +236,9 @@ public class Cte {
 	 * 
 	 * @param TEvento
 	 * @return TRetEvento
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.evRegMultimodal.TRetEvento multimodalCte(br.inf.portalfiscal.cte.schema_300.evRegMultimodal.TEvento evento, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_300.evRegMultimodal.TRetEvento multimodalCte(br.inf.portalfiscal.cte.schema_300.evRegMultimodal.TEvento evento, boolean valida) throws EmissorException{
 		
 		return Evento.multimodal(evento , valida);
 		
@@ -249,9 +249,9 @@ public class Cte {
 	 * 
 	 * @param TEvento
 	 * @return TRetEvento
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_200.evCCeCTe.TRetEvento cceCte(br.inf.portalfiscal.cte.schema_200.evCCeCTe.TEvento evento, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_200.evCCeCTe.TRetEvento cceCte(br.inf.portalfiscal.cte.schema_200.evCCeCTe.TEvento evento, boolean valida) throws EmissorException{
 		
 		return Evento.cce2(evento , valida);
 		
@@ -262,9 +262,9 @@ public class Cte {
 	 * 
 	 * @param TEvento
 	 * @return TRetEvento
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.evCCeCTe.TRetEvento cceCte(br.inf.portalfiscal.cte.schema_300.evCCeCTe.TEvento evento, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_300.evCCeCTe.TRetEvento cceCte(br.inf.portalfiscal.cte.schema_300.evCCeCTe.TEvento evento, boolean valida) throws EmissorException{
 		
 		return Evento.cce3(evento , valida);
 		
@@ -275,9 +275,9 @@ public class Cte {
 	 * 
 	 * @param TEvento
 	 * @return TRetEvento
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.evPrestDesacordo.TRetEvento prestacaoDesacordoCte(br.inf.portalfiscal.cte.schema_300.evPrestDesacordo.TEvento evento, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_300.evPrestDesacordo.TRetEvento prestacaoDesacordoCte(br.inf.portalfiscal.cte.schema_300.evPrestDesacordo.TEvento evento, boolean valida) throws EmissorException{
 		
 		return Evento.prestacaoDesacordo(evento , valida);
 		
@@ -288,9 +288,9 @@ public class Cte {
 	 * 
 	 * @param TEvento
 	 * @return TRetEvento
-	 * @throws CteException 
+	 * @throws EmissorException 
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.evGTV.TRetEvento gvtCte(br.inf.portalfiscal.cte.schema_300.evGTV.TEvento evento, boolean valida) throws CteException{
+	public static br.inf.portalfiscal.cte.schema_300.evGTV.TRetEvento gvtCte(br.inf.portalfiscal.cte.schema_300.evGTV.TEvento evento, boolean valida) throws EmissorException{
 		
 		return Evento.gvt(evento , valida);
 		

@@ -39,14 +39,14 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
-import br.com.samuelweb.cte.exception.CteException;
-import br.com.samuelweb.cte.util.CertificadoUtil;
-import br.com.samuelweb.cte.util.XmlUtil;
+import br.com.samuelweb.certificado.Certificado;
+import br.com.samuelweb.certificado.CertificadoService;
+import br.com.samuelweb.certificado.exception.CertificadoException;
+import br.com.samuelweb.exception.EmissorException;
+import br.com.samuelweb.util.XmlUtil;
 
 /**
  * Classe Responsavel Por Assinar O Xml.
@@ -59,10 +59,14 @@ public class Assinatura {
 	public static final String INFINUT = "infInut";
 
 	public static final String EVENTO = "eventoCTe";
+	
+	public static final String EVENTOMDFE = "eventoMDFe";
 
 	public static final String CTE = "CTe";
 	
-	private static ConfiguracoesIniciaisCte configuracoesCte;
+	public static final String MDFE = "MDFe";
+	
+	private static ConfiguracoesIniciais configuracoesCte;
 
 	private static NodeList elements;
 
@@ -78,14 +82,14 @@ public class Assinatura {
 	 * @param certificado
 	 * @param tipo ('Cte' para nfe normal , 'infInut' para inutilizacao, 'evento' para eventos)
 	 * @return String do Xml Assinado
-	 * @throws CteException
+	 * @throws EmissorException
 	 */
-	public static String assinaCte(String stringXml ,String tipo) throws CteException{
+	public static String assinar(String stringXml ,String tipo) throws EmissorException{
 		
-		configuracoesCte = ConfiguracoesIniciaisCte.getInstance();
+		configuracoesCte = ConfiguracoesIniciais.getInstance();
 
 		stringXml = XmlUtil.removeAcentos(stringXml);
-		stringXml = assinaDocCTe(stringXml , tipo);
+		stringXml = assinaDoc(stringXml , tipo);
 
 		return stringXml;
 	}
@@ -99,7 +103,7 @@ public class Assinatura {
 	 * @return String do XMl Assinado
 	 * @throws Exception
 	 */
-	private static String assinaDocCTe(String xml, String tipo) throws CteException{
+	private static String assinaDoc(String xml, String tipo) throws EmissorException{
 
 		Document document = null;
 		
@@ -110,23 +114,23 @@ public class Assinatura {
 			loadCertificates(signatureFactory);
 	
 			if(tipo.equals(EVENTO)){
-				assinarCTe(tipo, signatureFactory, transformList, privateKey, keyInfo, document, 0);
+				assinar(tipo, signatureFactory, transformList, privateKey, keyInfo, document, 0);
 				
 			}else{
 				for (int i = 0; i < document.getDocumentElement().getElementsByTagName(tipo).getLength(); i++) {
-					assinarCTe(tipo, signatureFactory, transformList, privateKey, keyInfo, document, i);
+					assinar(tipo, signatureFactory, transformList, privateKey, keyInfo, document, i);
 				}
 			}
 		
-		} catch (SAXException | IOException | ParserConfigurationException | NoSuchAlgorithmException | InvalidAlgorithmParameterException | KeyStoreException | UnrecoverableEntryException | NoSuchProviderException | CertificateException | MarshalException | XMLSignatureException e) {
-			throw new CteException("Erro ao Assinar Cte"+e.getMessage());
+		} catch (SAXException | IOException | ParserConfigurationException | NoSuchAlgorithmException | InvalidAlgorithmParameterException | KeyStoreException | UnrecoverableEntryException | NoSuchProviderException | CertificateException | MarshalException | XMLSignatureException | CertificadoException e) {
+			throw new EmissorException("Erro ao Assinar Cte"+e.getMessage());
 		}
 
 		return outputXML(document);
 	
 	}
 
-	private static void assinarCTe(String tipo, XMLSignatureFactory fac, ArrayList<Transform> transformList, PrivateKey privateKey, KeyInfo ki, Document document, int indexCTe) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, MarshalException, XMLSignatureException{
+	private static void assinar(String tipo, XMLSignatureFactory fac, ArrayList<Transform> transformList, PrivateKey privateKey, KeyInfo ki, Document document, int indexCTe) throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, MarshalException, XMLSignatureException{
 
 		if (tipo.equals(EVENTO)) {
 			elements = document.getElementsByTagName("infEvento");
@@ -181,33 +185,24 @@ public class Assinatura {
 		return document;
 	}
 
-	private static void loadCertificates(XMLSignatureFactory signatureFactory) throws KeyStoreException, NoSuchAlgorithmException, UnrecoverableEntryException, NoSuchProviderException, CertificateException, IOException, CteException {
+	private static void loadCertificates(XMLSignatureFactory signatureFactory) throws KeyStoreException, NoSuchAlgorithmException, UnrecoverableEntryException, NoSuchProviderException, CertificateException, IOException, CertificadoException {
 
 		Certificado certificado = configuracoesCte.getCertificado();
 		KeyStore.PrivateKeyEntry pkEntry = null;
-		KeyStore ks = null;
-		if(certificado.getTipo().equals(Certificado.WINDOWS)){
-			ks = KeyStore.getInstance("Windows-MY", "SunMSCAPI");
-		}else if(certificado.getTipo().equals(Certificado.ARQUIVO)){
-			ks = CertificadoUtil.getKeyStore(certificado);
-		}
-		
-		ks.load(null, null);
+		KeyStore keyStore = CertificadoService.getKeyStore(certificado);
 
-		pkEntry = (KeyStore.PrivateKeyEntry) ks.getEntry(certificado.getNome(), new KeyStore.PasswordProtection(certificado.getSenha().toCharArray()));
+		pkEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(certificado.getNome(), new KeyStore.PasswordProtection(certificado.getSenha().toCharArray()));
 		privateKey = pkEntry.getPrivateKey();
-		
-		X509Certificate cert = (X509Certificate) pkEntry.getCertificate();
 		
 		KeyInfoFactory keyInfoFactory = signatureFactory.getKeyInfoFactory();
 		List<X509Certificate> x509Content = new ArrayList<X509Certificate>();
 
-		x509Content.add(cert);
+		x509Content.add(CertificadoService.getCertificate(certificado, keyStore));
 		X509Data x509Data = keyInfoFactory.newX509Data(x509Content);
 		keyInfo = keyInfoFactory.newKeyInfo(Collections.singletonList(x509Data));
 	}
-
-	private static String outputXML(Document doc) throws CteException {
+	
+	private static String outputXML(Document doc) throws EmissorException {
 		
 		String xml = "";
 
@@ -220,7 +215,7 @@ public class Assinatura {
 		xml = xml.replaceAll("\\r\\n", "");
 		xml = xml.replaceAll(" standalone=\"no\"", "");
 		}catch(TransformerException e){
-			throw new CteException("Erro ao Transformar Documento:"+e.getMessage());
+			throw new EmissorException("Erro ao Transformar Documento:"+e.getMessage());
 		}
 		
 		return xml;

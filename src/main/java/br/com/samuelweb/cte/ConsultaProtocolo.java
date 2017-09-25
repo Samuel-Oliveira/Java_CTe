@@ -8,12 +8,12 @@ import javax.xml.stream.XMLStreamException;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 
-import br.com.samuelweb.cte.exception.CteException;
-import br.com.samuelweb.cte.util.CertificadoUtil;
-import br.com.samuelweb.cte.util.ConstantesUtil;
-import br.com.samuelweb.cte.util.ObjetoUtil;
-import br.com.samuelweb.cte.util.WebServiceUtil;
-import br.com.samuelweb.cte.util.XmlUtil;
+import br.com.samuelweb.exception.EmissorException;
+import br.com.samuelweb.util.CertificadoUtil;
+import br.com.samuelweb.util.ConstantesCte;
+import br.com.samuelweb.util.ObjetoUtil;
+import br.com.samuelweb.util.WebServiceUtil;
+import br.com.samuelweb.util.XmlUtil;
 import br.inf.portalfiscal.www.cte.wsdl.CteConsulta.CteConsultaStub;
 import br.inf.portalfiscal.www.cte.wsdl.CteConsulta.CteConsultaStub.CteConsultaCTResult;
 
@@ -26,7 +26,7 @@ import br.inf.portalfiscal.www.cte.wsdl.CteConsulta.CteConsultaStub.CteConsultaC
 
 public class ConsultaProtocolo {
 
-	private static ConfiguracoesIniciaisCte configuracoesCte;
+	private static ConfiguracoesIniciais configuracoesCte;
 	private static CertificadoUtil certUtil;
 
 	/**
@@ -34,15 +34,15 @@ public class ConsultaProtocolo {
 	 * 
 	 * @param TConsSitCTe
 	 * @return TRetConsSitCTe
-	 * @throws CteException
+	 * @throws EmissorException
 	 */
 	public static br.inf.portalfiscal.cte.schema_200.retConsSitCTe.TRetConsSitCTe consultar2(
-			br.inf.portalfiscal.cte.schema_200.consSitCTe.TConsSitCTe consSitCTe, boolean valida) throws CteException {
+			br.inf.portalfiscal.cte.schema_200.consSitCTe.TConsSitCTe consSitCTe, boolean valida) throws EmissorException {
 
 		try {
-			return XmlUtil.xmlToObject(consultar(XmlUtil.objectToXml(consSitCTe), valida).getExtraElement().toString(), br.inf.portalfiscal.cte.schema_200.retConsSitCTe.TRetConsSitCTe.class);
+			return XmlUtil.xmlToObject(consultar(XmlUtil.objectCteToXml(consSitCTe), valida).getExtraElement().toString(), br.inf.portalfiscal.cte.schema_200.retConsSitCTe.TRetConsSitCTe.class);
 		} catch (JAXBException e) {
-			throw new CteException(e.getMessage());
+			throw new EmissorException(e.getMessage());
 		}
 
 	}
@@ -52,30 +52,30 @@ public class ConsultaProtocolo {
 	 * 
 	 * @param TConsSitCTe
 	 * @return TRetConsSitCTe
-	 * @throws CteException
+	 * @throws EmissorException
 	 */
 	public static br.inf.portalfiscal.cte.schema_300.retConsSitCTe.TRetConsSitCTe consultar3(
-			br.inf.portalfiscal.cte.schema_300.consSitCTe.TConsSitCTe consSitCTe, boolean valida) throws CteException {
+			br.inf.portalfiscal.cte.schema_300.consSitCTe.TConsSitCTe consSitCTe, boolean valida) throws EmissorException {
 		
 		try {
-			return XmlUtil.xmlToObject(consultar(XmlUtil.objectToXml(consSitCTe), valida).getExtraElement().toString(), br.inf.portalfiscal.cte.schema_300.retConsSitCTe.TRetConsSitCTe.class);
+			return XmlUtil.xmlToObject(consultar(XmlUtil.objectCteToXml(consSitCTe), valida).getExtraElement().toString(), br.inf.portalfiscal.cte.schema_300.retConsSitCTe.TRetConsSitCTe.class);
 		} catch (JAXBException e) {
-			throw new CteException(e.getMessage());
+			throw new EmissorException(e.getMessage());
 		}
 		
 	}
 	
-	public static CteConsultaCTResult consultar(String xml, boolean valida) throws CteException {
+	public static CteConsultaCTResult consultar(String xml, boolean valida) throws EmissorException {
 
 		try {
 			certUtil = new CertificadoUtil();
-			configuracoesCte = ConfiguracoesIniciaisCte.getInstance();
+			configuracoesCte = ConfiguracoesIniciais.getInstance();
 			certUtil.iniciaConfiguracoes();
 			
 			if (valida) {
-				String erros = Validar.validaXml(xml, ConstantesUtil.SERVICOS.CONSULTA_PROTOCOLO);
+				String erros = ValidarCte.validaXml(xml, ConstantesCte.SERVICOS.CONSULTA_PROTOCOLO);
 				if (!ObjetoUtil.isEmpty(erros)) {
-					throw new CteException("Erro Na Validação do Xml: " + erros);
+					throw new EmissorException("Erro Na Validação do Xml: " + erros);
 				}
 			}
 
@@ -87,18 +87,18 @@ public class ConsultaProtocolo {
 
 			CteConsultaStub.CteCabecMsg cteCabecMsg = new CteConsultaStub.CteCabecMsg();
 			cteCabecMsg.setCUF(String.valueOf(configuracoesCte.getEstado().getCodigoIbge()));
-			cteCabecMsg.setVersaoDados(configuracoesCte.getVersaoCte());
+			cteCabecMsg.setVersaoDados(configuracoesCte.getVersao());
 
 			CteConsultaStub.CteCabecMsgE cteCabecMsgE = new CteConsultaStub.CteCabecMsgE();
 			cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
 
 			CteConsultaStub stub = new CteConsultaStub(
-					WebServiceUtil.getUrl(ConstantesUtil.CTE, ConstantesUtil.SERVICOS.CONSULTA_PROTOCOLO));
+					WebServiceUtil.getUrl(ConstantesCte.CTE, ConstantesCte.SERVICOS.CONSULTA_PROTOCOLO));
 
 			return stub.cteConsultaCT(dadosMsg, cteCabecMsgE);
 
 		} catch (RemoteException | XMLStreamException e) {
-			throw new CteException(e.getMessage());
+			throw new EmissorException(e.getMessage());
 		}
 
 	}
