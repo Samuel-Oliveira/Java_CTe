@@ -6,7 +6,7 @@ JavaDoc -> https://samuel-oliveira.github.io/Java_CTe/
 ## Gostou do Projeto? Dê sua colaboração: [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TX9K693QQYA6W)
 
 Para Iniciar : 
-- Baixe o java-cte-2.00.1a.jar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-2.00.1a.jar) e o adicione às bibliotecas de Seu Projeto.
+- Baixe o java-cte-2.00.1d.jar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-2.00.1d.jar) e o adicione às bibliotecas de Seu Projeto.
 - Baixe o Schemas.rar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas2.00.rar) e extraia na sua Máquina.
 
 - Maven :
@@ -19,7 +19,7 @@ Para Iniciar :
 		<dependency>
 			<groupId>br.com.samuelweb</groupId>
 			<artifactId>java-cte</artifactId>
-			<version>2.00.1a</version>
+			<version>2.00.1d</version>
 		</dependency>
 ```
 
@@ -29,7 +29,7 @@ ________________________________________________________________________________
 
 # Historico de Versões
 
-## v2.00.1 - 
+## v2.00.1 - 25-09-2017
 - Adicionado Cacert Atual
 - Adicionado Validação Para Modal Rodoviario
 - Adicionado DistDfe

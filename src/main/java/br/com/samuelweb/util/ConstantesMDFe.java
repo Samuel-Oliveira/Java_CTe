@@ -61,6 +61,10 @@ public interface ConstantesMDFe {
         public static final String CANCELAR = "br.inf.portalfiscal.mdfe.schema_300.evCancMDFe.TEvento";
         public static final String ENCERRAR = "br.inf.portalfiscal.mdfe.schema_300.evEncMDFe.TEvento";
         public static final String INCLUIR_CONDUTOR = "br.inf.portalfiscal.mdfe.schema_300.evIncCondutorMDF.TEvento";
+
+        public static final String PROC_CANCELAR = "br.inf.portalfiscal.mdfe.schema_300.evCancMDFe.TProcEvento";
+        public static final String PROC_INCLUIR_CONDUTOR = "br.inf.portalfiscal.mdfe.schema_300.evIncCondutorMDF.TProcEvento";
+        public static final String PROC_ENCERRAR = "br.inf.portalfiscal.mdfe.schema_300.evEncMDFe.TProcEvento";
     }
 
     interface AMBIENTE {

@@ -36,8 +36,8 @@ public class XmlUtil {
 	/**
 	 * Transforma o String do XML em Objeto
 	 * 
-	 * @param String
-	 * @param Class<T>
+	 * @param xml
+	 * @param classe
 	 * @return <T> T
 	 */
 	public static <T> T xmlToObject(String xml, Class<T> classe) throws JAXBException {
@@ -481,6 +481,32 @@ public class XmlUtil {
 	                }
 
 	                break;
+
+				case ConstantesMDFe.XML.PROC_EVENTO:
+					switch (obj.getClass().getName()) {
+
+						case ConstantesMDFe.XML.PROC_CANCELAR:
+							context = JAXBContext.newInstance(br.inf.portalfiscal.mdfe.schema_300.evCancMDFe.TProcEvento.class);
+							element = new br.inf.portalfiscal.mdfe.schema_300.evCancMDFe.ObjectFactory()
+									.createTProcEvento((br.inf.portalfiscal.mdfe.schema_300.evCancMDFe.TProcEvento) obj);
+							break;
+						case ConstantesMDFe.XML.PROC_ENCERRAR:
+							context = JAXBContext.newInstance(br.inf.portalfiscal.mdfe.schema_300.evEncMDFe.TProcEvento.class);
+							element = new br.inf.portalfiscal.mdfe.schema_300.evEncMDFe.ObjectFactory()
+									.createTProcEvento((br.inf.portalfiscal.mdfe.schema_300.evEncMDFe.TProcEvento) obj);
+							break;
+
+						case ConstantesMDFe.XML.PROC_INCLUIR_CONDUTOR:
+							context = JAXBContext.newInstance(br.inf.portalfiscal.mdfe.schema_300.evIncCondutorMDF.TProcEvento.class);
+							element = new br.inf.portalfiscal.mdfe.schema_300.evIncCondutorMDF.ObjectFactory()
+									.createTProcEvento((br.inf.portalfiscal.mdfe.schema_300.evIncCondutorMDF.TProcEvento) obj);
+							break;
+
+						default:
+							throw new EmissorException("Objeto não mapeado no XmlUtil:" + obj.getClass().getName());
+					}
+
+					break;
 
 	            default:
 	                throw new EmissorException("Objeto não mapeado no XmlUtil:" + obj.getClass().getName());
