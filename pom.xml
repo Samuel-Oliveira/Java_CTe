@@ -8,27 +8,13 @@
   	<!-- Repositorios SVN Autocom -->
 	<repositories>
 		<repository>
-			<name>Repositorio Autocom Releases</name>
+			<name>Repositorio Autocom</name>
 			<id>Release</id>
-			<url>http://www.autocomsistemas.com.br:8081/nexus/content/repositories/autocom-snapshot/</url>
-		</repository>
-		<repository>
-			<name>Repositorio Autocom SnapShot</name>
-			<id>Snapshot</id>
 			<url>http://www.autocomsistemas.com.br:8081/nexus/content/repositories/autocom/</url>
 		</repository>
-		<repository>
-			<name>Repositorio Autocom Proxy</name>
-			<id>Proxy</id>
-			<url>http://www.autocomsistemas.com.br:8081/nexus/content/repositories/autocom-proxy/</url>
-		</repository>
-	</repositories>
+			</repositories>
 
 	<distributionManagement>
-		<snapshotRepository>
-			<id>autocom-snapshot</id>
-			<url>http://nexus.autocomsistemas.com.br/nexus/content/repositories/autocom-snapshot/</url>
-		</snapshotRepository>
 		<repository>
 			<id>autocom</id>
 			<url>http://nexus.autocomsistemas.com.br/nexus/content/repositories/autocom/</url>
