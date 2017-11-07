@@ -1,106 +1,67 @@
 package br.com.samuelweb.cte;
 
-import java.rmi.RemoteException;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.stream.XMLStreamException;
-
+import br.com.samuelweb.cte.dom.ConfiguracoesIniciais;
+import br.com.samuelweb.cte.exception.CteException;
+import br.com.samuelweb.cte.util.CertificadoUtil;
+import br.com.samuelweb.cte.util.ConstantesCte;
+import br.com.samuelweb.cte.util.WebServiceUtil;
+import br.com.samuelweb.cte.util.XmlUtil;
+import br.inf.portalfiscal.cte.schema_300.consSitCTe.TConsSitCTe;
+import br.inf.portalfiscal.cte.schema_300.retConsSitCTe.TRetConsSitCTe;
+import br.inf.portalfiscal.www.cte.wsdl.CteConsulta.CteConsultaStub;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 
-import br.com.samuelweb.exception.EmissorException;
-import br.com.samuelweb.util.CertificadoUtil;
-import br.com.samuelweb.util.ConstantesCte;
-import br.com.samuelweb.util.ObjetoUtil;
-import br.com.samuelweb.util.WebServiceUtil;
-import br.com.samuelweb.util.XmlUtil;
-import br.inf.portalfiscal.www.cte.wsdl.CteConsulta.CteConsultaStub;
-import br.inf.portalfiscal.www.cte.wsdl.CteConsulta.CteConsultaStub.CteConsultaCTResult;
+import javax.xml.bind.JAXBException;
+import javax.xml.stream.XMLStreamException;
+import java.rmi.RemoteException;
 
 /**
  * Classe responsavel por Consultar a Situaçao do CTE na SEFAZ.
- * 
+ *
  * @author Samuel Oliveira - samuk.exe@hotmail.com - www.samuelweb.com.br
- * 
  */
 
-public class ConsultaProtocolo {
+class ConsultaProtocolo {
 
-	private static ConfiguracoesIniciais configuracoesCte;
-	private static CertificadoUtil certUtil;
+    /**
+     * Classe Reponsavel Por Consultar o status da CTE na SEFAZ
+     *
+     * @param chave
+     * @return CteConsultaCTResult
+     * @throws CteException
+     */
+    static TRetConsSitCTe consultar(String chave) throws CteException {
 
-	/**
-	 * Classe Reponsavel Por Consultar o status da CTE na SEFAZ Versao 2.00
-	 * 
-	 * @param TConsSitCTe
-	 * @return TRetConsSitCTe
-	 * @throws EmissorException
-	 */
-	public static br.inf.portalfiscal.cte.schema_200.retConsSitCTe.TRetConsSitCTe consultar2(
-			br.inf.portalfiscal.cte.schema_200.consSitCTe.TConsSitCTe consSitCTe, boolean valida) throws EmissorException {
+        try {
+            ConfiguracoesIniciais configuracoesCte = ConfiguracoesIniciais.getInstance();
+            CertificadoUtil.iniciaConfiguracoes();
 
-		try {
-			return XmlUtil.xmlToObject(consultar(XmlUtil.objectCteToXml(consSitCTe), valida).getExtraElement().toString(), br.inf.portalfiscal.cte.schema_200.retConsSitCTe.TRetConsSitCTe.class);
-		} catch (JAXBException e) {
-			throw new EmissorException(e.getMessage());
-		}
+            TConsSitCTe consSitCTe = new TConsSitCTe();
+            consSitCTe.setVersao(configuracoesCte.getVersao());
+            consSitCTe.setTpAmb(configuracoesCte.getAmbiente());
+            consSitCTe.setXServ("CONSULTAR");
+            consSitCTe.setChCTe(chave);
 
-	}
+            OMElement ome = AXIOMUtil.stringToOM(XmlUtil.objectCteToXml(consSitCTe));
 
-	/**
-	 * Classe Reponsavel Por Consultar o status da CTE na SEFAZ Versao 3.00
-	 * 
-	 * @param TConsSitCTe
-	 * @return TRetConsSitCTe
-	 * @throws EmissorException
-	 */
-	public static br.inf.portalfiscal.cte.schema_300.retConsSitCTe.TRetConsSitCTe consultar3(
-			br.inf.portalfiscal.cte.schema_300.consSitCTe.TConsSitCTe consSitCTe, boolean valida) throws EmissorException {
-		
-		try {
-			return XmlUtil.xmlToObject(consultar(XmlUtil.objectCteToXml(consSitCTe), valida).getExtraElement().toString(), br.inf.portalfiscal.cte.schema_300.retConsSitCTe.TRetConsSitCTe.class);
-		} catch (JAXBException e) {
-			throw new EmissorException(e.getMessage());
-		}
-		
-	}
-	
-	public static CteConsultaCTResult consultar(String xml, boolean valida) throws EmissorException {
+            CteConsultaStub.CteDadosMsg dadosMsg = new CteConsultaStub.CteDadosMsg();
+            dadosMsg.setExtraElement(ome);
 
-		try {
-			certUtil = new CertificadoUtil();
-			configuracoesCte = ConfiguracoesIniciais.getInstance();
-			certUtil.iniciaConfiguracoes();
-			
-			if (valida) {
-				String erros = ValidarCte.validaXml(xml, ConstantesCte.SERVICOS.CONSULTA_PROTOCOLO);
-				if (!ObjetoUtil.isEmpty(erros)) {
-					throw new EmissorException("Erro Na Validação do Xml: " + erros);
-				}
-			}
+            CteConsultaStub.CteCabecMsg cteCabecMsg = new CteConsultaStub.CteCabecMsg();
+            cteCabecMsg.setCUF(String.valueOf(configuracoesCte.getEstado().getCodigoIbge()));
+            cteCabecMsg.setVersaoDados(configuracoesCte.getVersao());
 
-			System.out.println("Xml Consulta: " + xml);
-			OMElement ome = AXIOMUtil.stringToOM(xml);
+            CteConsultaStub.CteCabecMsgE cteCabecMsgE = new CteConsultaStub.CteCabecMsgE();
+            cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
 
-			CteConsultaStub.CteDadosMsg dadosMsg = new CteConsultaStub.CteDadosMsg();
-			dadosMsg.setExtraElement(ome);
+            CteConsultaStub stub = new CteConsultaStub(
+                    WebServiceUtil.getUrl(ConstantesCte.CTE, ConstantesCte.SERVICOS.CONSULTA_PROTOCOLO));
 
-			CteConsultaStub.CteCabecMsg cteCabecMsg = new CteConsultaStub.CteCabecMsg();
-			cteCabecMsg.setCUF(String.valueOf(configuracoesCte.getEstado().getCodigoIbge()));
-			cteCabecMsg.setVersaoDados(configuracoesCte.getVersao());
+            return XmlUtil.xmlToObject(stub.cteConsultaCT(dadosMsg, cteCabecMsgE).getExtraElement().toString(), TRetConsSitCTe.class);
 
-			CteConsultaStub.CteCabecMsgE cteCabecMsgE = new CteConsultaStub.CteCabecMsgE();
-			cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
-
-			CteConsultaStub stub = new CteConsultaStub(
-					WebServiceUtil.getUrl(ConstantesCte.CTE, ConstantesCte.SERVICOS.CONSULTA_PROTOCOLO));
-
-			return stub.cteConsultaCT(dadosMsg, cteCabecMsgE);
-
-		} catch (RemoteException | XMLStreamException e) {
-			throw new EmissorException(e.getMessage());
-		}
-
-	}
-
+        } catch (RemoteException | XMLStreamException | JAXBException e) {
+            throw new CteException(e.getMessage());
+        }
+    }
 }

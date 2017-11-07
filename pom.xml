@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>br.com.samuelweb</groupId>
   <artifactId>java-cte</artifactId>
-  <version>2.00.1</version>
+  <version>3.00.1</version>
   <name>Java-CTe</name>
   
   	<!-- Repositorios SVN Autocom -->
@@ -27,7 +27,7 @@
 		<dependency>
 			<groupId>br.com.samuelweb</groupId>
 			<artifactId>cte-wsdl</artifactId>
-			<version>3.0.1</version>
+			<version>3.0.2</version>
 		</dependency>
 		
 		<!-- Certificado -->
@@ -41,19 +41,7 @@
 		<dependency>
 			<groupId>br.com.samuelweb</groupId>
 			<artifactId>cte-xsd</artifactId>
-			<version>2.00a.0_3.00.6</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.apache.axis2</groupId>
-			<artifactId>axis2-transport-http</artifactId>
-			<version>1.6.2</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.apache.axis2</groupId>
-			<artifactId>axis2-transport-local</artifactId>
-			<version>1.6.2</version>
+			<version>3.00.1</version>
 		</dependency>
 		
 		<!-- Ini4J -->
@@ -61,6 +49,12 @@
 			<groupId>org.ini4j</groupId>
 			<artifactId>ini4j</artifactId>
 			<version>0.5.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.4.6</version>
 		</dependency>
 		
 	</dependencies>

@@ -1,39 +1,32 @@
-/**
- * 
- */
 package br.com.samuelweb.cte;
 
-import java.rmi.RemoteException;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.stream.XMLStreamException;
-
-import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.util.AXIOMUtil;
-
-import br.com.samuelweb.exception.EmissorException;
-import br.com.samuelweb.util.CertificadoUtil;
-import br.com.samuelweb.util.ConstantesCte;
-import br.com.samuelweb.util.ObjetoUtil;
-import br.com.samuelweb.util.WebServiceUtil;
-import br.com.samuelweb.util.XmlUtil;
-import br.inf.portalfiscal.cte.schema_200.consReciCTe.TConsReciCTe;
-import br.inf.portalfiscal.cte.schema_200.retConsReciCTe.TRetConsReciCTe;
+import br.com.samuelweb.cte.dom.ConfiguracoesIniciais;
+import br.com.samuelweb.cte.exception.CteException;
+import br.com.samuelweb.cte.util.CertificadoUtil;
+import br.com.samuelweb.cte.util.ConstantesCte;
+import br.com.samuelweb.cte.util.WebServiceUtil;
+import br.com.samuelweb.cte.util.XmlUtil;
+import br.inf.portalfiscal.cte.schema_300.consReciCTe.TConsReciCTe;
+import br.inf.portalfiscal.cte.schema_300.retConsReciCTe.TRetConsReciCTe;
 import br.inf.portalfiscal.www.cte.wsdl.cteRetRecepcao.CteRetRecepcaoStub;
 import br.inf.portalfiscal.www.cte.wsdl.cteRetRecepcao.CteRetRecepcaoStub.CteCabecMsg;
 import br.inf.portalfiscal.www.cte.wsdl.cteRetRecepcao.CteRetRecepcaoStub.CteCabecMsgE;
 import br.inf.portalfiscal.www.cte.wsdl.cteRetRecepcao.CteRetRecepcaoStub.CteDadosMsg;
 import br.inf.portalfiscal.www.cte.wsdl.cteRetRecepcao.CteRetRecepcaoStub.CteRetRecepcaoResult;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.util.AXIOMUtil;
+
+import javax.xml.bind.JAXBException;
+import javax.xml.stream.XMLStreamException;
+import java.rmi.RemoteException;
 
 /**
  * Classe Responsavel por Consultar o Recibo da Cte.
  * 
  * @author Samuel Oliveira - samuk.exe@hotmail.com - www.samuelweb.com.br
  */
-public class RetornoCte {
+class RetornoCte {
 
-	private static CteRetRecepcaoResult result;
-	private static ConfiguracoesIniciais configuracoesCte;
 	private static CertificadoUtil certUtil;
 
 	/**
@@ -43,32 +36,28 @@ public class RetornoCte {
 	 * @return String
 	 * @throws NfeException
 	 */
-	public static TRetConsReciCTe consultaRecibo(TConsReciCTe consReciCTe, boolean valida) throws EmissorException {
+	static TRetConsReciCTe consultaRecibo(String recibo) throws CteException {
 
 		try {
 			/**
 			 * Informacoes do Certificado Digital.
 			 */
-			certUtil = new CertificadoUtil();
-			certUtil.iniciaConfiguracoes();
-			configuracoesCte = ConfiguracoesIniciais.getInstance();
+			CertificadoUtil.iniciaConfiguracoes();
+			ConfiguracoesIniciais configuracoesCte = ConfiguracoesIniciais.getInstance();
+
+			TConsReciCTe consReciCTe = new TConsReciCTe();
+			consReciCTe.setVersao(configuracoesCte.getVersao());
+			consReciCTe.setTpAmb(configuracoesCte.getAmbiente());
+			consReciCTe.setNRec(recibo);
 
 			/**
 			 * Cria o xml
 			 */
 			String xml = XmlUtil.objectCteToXml(consReciCTe);
 
-			/**
-			 * Valida o Xml caso sejá selecionado True
-			 */
-			if (valida) {
-				String erros = ValidarCte.validaXml(xml, ConstantesCte.SERVICOS.CONSULTA_RECIBO);
-				if (!ObjetoUtil.isEmpty(erros)) {
-					throw new EmissorException("Erro Na Validação do Xml: " + erros);
-				}
+			if(configuracoesCte.isLog()){
+				System.out.println("Xml Consulta Recibo: " + xml);
 			}
-
-			System.out.println("Xml Consulta Recibo: " + xml);
 
 			OMElement ome = AXIOMUtil.stringToOM(xml);
 
@@ -90,12 +79,12 @@ public class RetornoCte {
 			cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
 
 			CteRetRecepcaoStub stub = new CteRetRecepcaoStub(WebServiceUtil.getUrl(ConstantesCte.CTE, ConstantesCte.SERVICOS.CONSULTA_RECIBO));
-			result = stub.cteRetRecepcao(dadosMsg, cteCabecMsgE);
+			CteRetRecepcaoResult result = stub.cteRetRecepcao(dadosMsg, cteCabecMsgE);
 			
 			return  XmlUtil.xmlToObject(result.getExtraElement().toString(), TRetConsReciCTe.class);
 
 		} catch (RemoteException | XMLStreamException | JAXBException e) {
-			throw new EmissorException(e.getMessage());
+			throw new CteException(e.getMessage());
 		}
 
 	}

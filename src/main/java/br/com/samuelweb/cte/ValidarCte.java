@@ -1,27 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.samuelweb.cte;
 
 import java.io.File;
 
-import br.com.samuelweb.exception.EmissorException;
-import br.com.samuelweb.util.ConstantesCte;
-import br.com.samuelweb.util.Valida;
+import br.com.samuelweb.cte.dom.ConfiguracoesIniciais;
+import br.com.samuelweb.cte.exception.CteException;
+import br.com.samuelweb.cte.util.ConstantesCte;
+import br.com.samuelweb.cte.util.Valida;
 
 /**
  *
- * @author john
+ * @author Samuel Oliveira
  */
 public class ValidarCte extends Valida {
     
+    public static String validaXml(String xml, String tipo) throws CteException {
 
-
-    public static String validaXml(String xml, String tipo) throws EmissorException {
-
-        String errosValidacao = null;
+        String errosValidacao;
 
         configuracoes = ConfiguracoesIniciais.getInstance();
 
@@ -66,13 +60,13 @@ public class ValidarCte extends Valida {
                 xsd = configuracoes.getPastaSchemas() + "/" + ConstantesCte.XSD.GVT + "_v" + configuracoes.getVersao();
                 break;
             default:
-                throw new EmissorException("Não Encontrado XSD para:" + tipo);
+                throw new CteException("Não Encontrado XSD para:" + tipo);
         }
 
         xsd += ".xsd";
 
         if (!new File(xsd).exists()) {
-            throw new EmissorException("Schema Nfe não Localizado: " + xsd);
+            throw new CteException("Schema Nfe não Localizado: " + xsd);
         }
 
         ValidarCte validar = new ValidarCte();
