@@ -14,6 +14,8 @@ import br.inf.portalfiscal.www.cte.wsdl.CteRecepcao.CteRecepcaoStub.CteRecepcaoL
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 
+import java.util.Iterator;
+
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 import java.rmi.RemoteException;
@@ -117,6 +119,16 @@ class EnvioCte {
             ConfiguracoesIniciais configuracoesCte = ConfiguracoesIniciais.getInstance();
 
             OMElement ome = AXIOMUtil.stringToOM(xml);
+
+            if(configuracoesCte.getEstado().equals(Estados.PR)){
+                Iterator children = ome.getChildrenWithLocalName("CTe");
+                while (children.hasNext()) {
+                    OMElement omElement = (OMElement) children.next();
+                    if (omElement != null && "CTe".equals(omElement.getLocalName())) {
+                        omElement.addAttribute("xmlns", "http://www.portalfiscal.inf.br/cte", null);
+                    }
+                }
+            }
 
             if (configuracoesCte.isLog()) {
                 System.out.println("Cte para Envio: " + ome.toString());

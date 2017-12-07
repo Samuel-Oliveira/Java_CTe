@@ -4,7 +4,7 @@ Projeto Para implementação do Java-CTe Utilizando JAXB.
 ## Gostou do Projeto? Dê sua colaboração: [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TX9K693QQYA6W)
 
 Para Iniciar : 
-- Baixe o java-cte-3.00.1.jar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-3.00.1.jar) e o adicione às bibliotecas de Seu Projeto.
+- Baixe o java-cte-3.00.2.jar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-3.00.2.jar) e o adicione às bibliotecas de Seu Projeto.
 - Baixe o Schemas.rar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas.rar) e extraia na sua Máquina.
 
 - Maven :
@@ -17,7 +17,7 @@ Para Iniciar :
 		<dependency>
 			<groupId>br.com.samuelweb</groupId>
 			<artifactId>java-cte</artifactId>
-			<version>3.00.1</version>
+			<version>3.00.2</version>
 		</dependency>
 ```
 
@@ -26,6 +26,10 @@ Veja a Wiki https://github.com/Samuel-Oliveira/Java_CTe/wiki, para ter um Tutori
 ________________________________________________________________________________________________
 
 # Historico de Versões
+
+## v3.00.2 - 07-12-2017
+- Atualizado Cacert
+- Corrigido Erro Namespace PR
 
 ## v3.00.1 - 07-11-2017
 - Atualizado Cacert
