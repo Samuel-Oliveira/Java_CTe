@@ -2,6 +2,7 @@ package br.com.samuelweb.cte;
 
 import br.com.samuelweb.cte.dom.ConfiguracoesWebCte;
 import br.com.samuelweb.cte.exception.CteException;
+import br.com.samuelweb.cte.util.CertificadoUtil;
 import br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe;
 import br.inf.portalfiscal.cte.schema_300.retConsStatServCTe.TRetConsStatServ;
 import br.inf.portalfiscal.cte.schema_300.retEnviCTe.TRetCTeOS;
@@ -70,7 +71,7 @@ public class CteWeb {
 	public static RetDistDFeInt distribuicaoDfe(ConfiguracoesWebCte config, String tipoCliente, String cpfCnpj,
 			String nsu) throws CteException {
 
-		return DistribuicaoDFe.consultaCte(config, tipoCliente, cpfCnpj, nsu);
+		return DistribuicaoDFe.consultaCte(CertificadoUtil.iniciaConfiguracoes(config), tipoCliente, cpfCnpj, nsu);
 
 	}
 
@@ -84,7 +85,7 @@ public class CteWeb {
 	public static br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe montaCte(ConfiguracoesWebCte config,
 			br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe enviCTe, boolean valida) throws CteException {
 
-		return EnvioCte.montaCte(config, enviCTe, valida);
+		return EnvioCte.montaCte(CertificadoUtil.iniciaConfiguracoes(config), enviCTe, valida);
 
 	}
 
@@ -98,7 +99,7 @@ public class CteWeb {
 	public static br.inf.portalfiscal.cte.schema_300.retEnviCTe.TRetEnviCTe enviarCte(ConfiguracoesWebCte config,
 			br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe enviCTe) throws CteException {
 
-		return EnvioCte.enviaCte(config, enviCTe);
+		return EnvioCte.enviaCte(CertificadoUtil.iniciaConfiguracoes(config), enviCTe);
 
 	}
 
@@ -111,7 +112,7 @@ public class CteWeb {
 	 */
 	public static TRetCTeOS enviarCteOS(ConfiguracoesWebCte config, TEnviCTe enviCTe) throws CteException {
 
-		return EnvioCte.enviaCteOS(config, enviCTe);
+		return EnvioCte.enviaCteOS(CertificadoUtil.iniciaConfiguracoes(config), enviCTe);
 
 	}
 
@@ -139,7 +140,7 @@ public class CteWeb {
 	public static br.inf.portalfiscal.cte.schema_300.evEPECCTe.TRetEvento epecCte(ConfiguracoesWebCte config,
 			br.inf.portalfiscal.cte.schema_300.evEPECCTe.TEvento evento, boolean valida) throws CteException {
 
-		return Evento.epec(config, evento, valida);
+		return Evento.epec(CertificadoUtil.iniciaConfiguracoes(config), evento, valida);
 
 	}
 
@@ -168,7 +169,7 @@ public class CteWeb {
 	public static br.inf.portalfiscal.cte.schema_300.evCCeCTe.TRetEvento cceCte(ConfiguracoesWebCte config,
 			br.inf.portalfiscal.cte.schema_300.evCCeCTe.TEvento evento, boolean valida) throws CteException {
 
-		return Evento.cce(config, evento, valida);
+		return Evento.cce(CertificadoUtil.iniciaConfiguracoes(config), evento, valida);
 
 	}
 
@@ -197,7 +198,7 @@ public class CteWeb {
 	public static br.inf.portalfiscal.cte.schema_300.evGTV.TRetEvento gvtCte(ConfiguracoesWebCte config,
 			br.inf.portalfiscal.cte.schema_300.evGTV.TEvento evento, boolean valida) throws CteException {
 
-		return Evento.gvt(config, evento, valida);
+		return Evento.gvt(CertificadoUtil.iniciaConfiguracoes(config), evento, valida);
 
 	}
 
@@ -211,7 +212,7 @@ public class CteWeb {
 	public static br.inf.portalfiscal.cte.schema_300.retConsReciCTe.TRetConsReciCTe consultaRecibo(
 			ConfiguracoesWebCte config, String recibo) throws CteException {
 
-		return RetornoCte.consultaRecibo(config, recibo);
+		return RetornoCte.consultaRecibo(CertificadoUtil.iniciaConfiguracoes(config), recibo);
 
 	}
 }

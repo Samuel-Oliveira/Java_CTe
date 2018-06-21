@@ -3,6 +3,7 @@ package br.com.samuelweb.cte.util;
 import br.com.samuelweb.certificado.CertificadoService;
 import br.com.samuelweb.certificado.exception.CertificadoException;
 import br.com.samuelweb.cte.dom.ConfiguracoesIniciais;
+import br.com.samuelweb.cte.dom.ConfiguracoesWebCte;
 import br.com.samuelweb.cte.exception.CteException;
 
 /**
@@ -24,5 +25,18 @@ public class CertificadoUtil {
 		}
 
 		return ConfiguracoesIniciais.getInstance();
+	}
+
+	public static ConfiguracoesWebCte iniciaConfiguracoes(ConfiguracoesWebCte config) throws CteException {
+
+		try {
+			CertificadoService.inicializaCertificado(config.getCertificado(),
+					CertificadoUtil.class.getResourceAsStream("/Cacert"));
+
+		} catch (CertificadoException e) {
+			throw new CteException(e.getMessage());
+		}
+
+		return config;
 	}
 }
