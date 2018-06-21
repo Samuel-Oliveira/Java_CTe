@@ -13,13 +13,16 @@ import br.com.samuelweb.cte.exception.CteException;
  */
 public class CertificadoUtil {
 
-	public static void iniciaConfiguracoes() throws CteException {
+	public static ConfiguracoesIniciais iniciaConfiguracoes() throws CteException {
 
 		try {
-			CertificadoService.inicializaCertificado(ConfiguracoesIniciais.getInstance().getCertificado(),CertificadoUtil.class.getResourceAsStream("/Cacert"));
+			CertificadoService.inicializaCertificado(ConfiguracoesIniciais.getInstance().getCertificado(),
+					CertificadoUtil.class.getResourceAsStream("/Cacert"));
 
 		} catch (CertificadoException e) {
 			throw new CteException(e.getMessage());
 		}
+
+		return ConfiguracoesIniciais.getInstance();
 	}
 }

@@ -3,22 +3,32 @@
  */
 package br.com.samuelweb.cte.util;
 
-import br.com.samuelweb.cte.dom.ConfiguracoesIniciais;
-import br.com.samuelweb.cte.exception.CteException;
-import br.inf.portalfiscal.cte.schema_300.distdfeint.DistDFeInt;
-
-import javax.xml.bind.*;
-import javax.xml.datatype.DatatypeConfigurationException;
-import javax.xml.datatype.DatatypeConstants;
-import javax.xml.datatype.DatatypeFactory;
-import javax.xml.datatype.XMLGregorianCalendar;
-import javax.xml.transform.stream.StreamSource;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.text.Normalizer;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.GregorianCalendar;
 import java.util.zip.GZIPInputStream;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeConstants;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.transform.stream.StreamSource;
+
+import br.com.samuelweb.cte.exception.CteException;
+import br.inf.portalfiscal.cte.schema_300.distdfeint.DistDFeInt;
 
 /**
  * Classe Responsavel por Metodos referentes ao XML
@@ -42,7 +52,7 @@ public class XmlUtil {
 
 		return unmarshaller.unmarshal(new StreamSource(new StringReader(xml)), classe).getValue();
 	}
-	
+
 	/**
 	 * Le o Arquivo XML e retona String
 	 * 
@@ -63,7 +73,7 @@ public class XmlUtil {
 			}
 			in.close();
 		} catch (IOException e) {
-			throw new CteException("Ler Xml: "+ e.getMessage());
+			throw new CteException("Ler Xml: " + e.getMessage());
 		}
 		return xml.toString();
 	}
@@ -79,39 +89,36 @@ public class XmlUtil {
 		JAXBContext context;
 		JAXBElement<?> element;
 
-		String versao = ConfiguracoesIniciais.getInstance().getVersao();
-
 		switch (obj.getClass().getSimpleName()) {
 
 		case ConstantesCte.XML.STATUS_SERVICO:
-				context = JAXBContext
-						.newInstance(br.inf.portalfiscal.cte.schema_300.consStatServCTe.TConsStatServ.class);
-				element = new br.inf.portalfiscal.cte.schema_300.consStatServCTe.ObjectFactory()
-						.createConsStatServCte((br.inf.portalfiscal.cte.schema_300.consStatServCTe.TConsStatServ) obj);
+			context = JAXBContext.newInstance(br.inf.portalfiscal.cte.schema_300.consStatServCTe.TConsStatServ.class);
+			element = new br.inf.portalfiscal.cte.schema_300.consStatServCTe.ObjectFactory()
+					.createConsStatServCte((br.inf.portalfiscal.cte.schema_300.consStatServCTe.TConsStatServ) obj);
 			break;
 
 		case ConstantesCte.XML.ENVIO_CTE:
-				context = JAXBContext.newInstance(br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe.class);
-				element = new br.inf.portalfiscal.cte.schema_300.enviCTe.ObjectFactory()
-						.createEnviCTe((br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe) obj);
+			context = JAXBContext.newInstance(br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe.class);
+			element = new br.inf.portalfiscal.cte.schema_300.enviCTe.ObjectFactory()
+					.createEnviCTe((br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe) obj);
 			break;
 
 		case ConstantesCte.XML.CONSULTA_RECIBO:
-				context = JAXBContext.newInstance(br.inf.portalfiscal.cte.schema_300.consReciCTe.TConsReciCTe.class);
-				element = new br.inf.portalfiscal.cte.schema_300.consReciCTe.ObjectFactory()
-						.createConsReciCTe((br.inf.portalfiscal.cte.schema_300.consReciCTe.TConsReciCTe) obj);
+			context = JAXBContext.newInstance(br.inf.portalfiscal.cte.schema_300.consReciCTe.TConsReciCTe.class);
+			element = new br.inf.portalfiscal.cte.schema_300.consReciCTe.ObjectFactory()
+					.createConsReciCTe((br.inf.portalfiscal.cte.schema_300.consReciCTe.TConsReciCTe) obj);
 			break;
 
 		case ConstantesCte.XML.INUTILIZACAO:
-				context = JAXBContext.newInstance(br.inf.portalfiscal.cte.schema_300.inutCTe.TInutCTe.class);
-				element = new br.inf.portalfiscal.cte.schema_300.inutCTe.ObjectFactory()
-						.createInutCTe((br.inf.portalfiscal.cte.schema_300.inutCTe.TInutCTe) obj);
+			context = JAXBContext.newInstance(br.inf.portalfiscal.cte.schema_300.inutCTe.TInutCTe.class);
+			element = new br.inf.portalfiscal.cte.schema_300.inutCTe.ObjectFactory()
+					.createInutCTe((br.inf.portalfiscal.cte.schema_300.inutCTe.TInutCTe) obj);
 			break;
 
 		case ConstantesCte.XML.CONSULTA_PROTOCOLO:
-				context = JAXBContext.newInstance(br.inf.portalfiscal.cte.schema_300.consSitCTe.TConsSitCTe.class);
-				element = new br.inf.portalfiscal.cte.schema_300.consSitCTe.ObjectFactory()
-						.createConsSitCTe((br.inf.portalfiscal.cte.schema_300.consSitCTe.TConsSitCTe) obj);
+			context = JAXBContext.newInstance(br.inf.portalfiscal.cte.schema_300.consSitCTe.TConsSitCTe.class);
+			element = new br.inf.portalfiscal.cte.schema_300.consSitCTe.ObjectFactory()
+					.createConsSitCTe((br.inf.portalfiscal.cte.schema_300.consSitCTe.TConsSitCTe) obj);
 
 			break;
 
@@ -155,23 +162,23 @@ public class XmlUtil {
 				element = new br.inf.portalfiscal.cte.schema_300.evPrestDesacordo.ObjectFactory()
 						.createTProcEvento((br.inf.portalfiscal.cte.schema_300.evPrestDesacordo.TProcEvento) obj);
 				break;
-				
+
 			case ConstantesCte.XML.PROC_GVT:
 				context = JAXBContext.newInstance(br.inf.portalfiscal.cte.schema_300.evGTV.TProcEvento.class);
 				element = new br.inf.portalfiscal.cte.schema_300.evGTV.ObjectFactory()
 						.createTProcEvento((br.inf.portalfiscal.cte.schema_300.evGTV.TProcEvento) obj);
 				break;
-				
+
 			default:
 				throw new CteException("Objeto não mapeado no XmlUtil:" + obj.getClass().getName());
-			}		
-			
+			}
+
 			break;
 
 		case ConstantesCte.XML.PROC_CTE:
-				context = JAXBContext.newInstance(br.inf.portalfiscal.cte.schema_300.enviCTe.CteProc.class);
-				element = new br.inf.portalfiscal.cte.schema_300.enviCTe.ObjectFactory()
-						.createCteProc((br.inf.portalfiscal.cte.schema_300.enviCTe.CteProc) obj);
+			context = JAXBContext.newInstance(br.inf.portalfiscal.cte.schema_300.enviCTe.CteProc.class);
+			element = new br.inf.portalfiscal.cte.schema_300.enviCTe.ObjectFactory()
+					.createCteProc((br.inf.portalfiscal.cte.schema_300.enviCTe.CteProc) obj);
 			break;
 
 		case ConstantesCte.XML.PROC_CTEOS:
@@ -223,7 +230,7 @@ public class XmlUtil {
 			default:
 				throw new CteException("Objeto não mapeado no XmlUtil:" + obj.getClass().getName());
 			}
-			
+
 			break;
 
 		case ConstantesCte.XML.PROT_CTE:
@@ -247,7 +254,7 @@ public class XmlUtil {
 			}
 
 			break;
-			
+
 		case ConstantesCte.XML.PROT_CTEOS:
 
 			switch (obj.getClass().getName()) {
@@ -257,15 +264,15 @@ public class XmlUtil {
 				element = new br.inf.portalfiscal.cte.schema_300.retEnviCTe.ObjectFactory()
 						.createTProcCTeOS((br.inf.portalfiscal.cte.schema_300.retEnviCTe.TProtCTeOS) obj);
 				break;
-				
+
 			default:
 				throw new CteException("Objeto não mapeado no XmlUtil:" + obj.getClass().getName());
 			}
 
 			break;
-			
+
 		case ConstantesCte.XML.MODAL_RODOVIARIO:
-			
+
 			switch (obj.getClass().getName()) {
 
 			case ConstantesCte.XML.MODAL_RODOVIARIO:
@@ -273,7 +280,7 @@ public class XmlUtil {
 				element = new br.inf.portalfiscal.cte.schema_300.cteModalRodoviario.ObjectFactory()
 						.createRodo((br.inf.portalfiscal.cte.schema_300.cteModalRodoviario.Rodo) obj);
 				break;
-				
+
 			default:
 				throw new CteException("Objeto não mapeado no XmlUtil:" + obj.getClass().getName());
 			}
@@ -283,7 +290,7 @@ public class XmlUtil {
 		default:
 			throw new CteException("Objeto não mapeado no XmlUtil:" + obj.getClass().getSimpleName());
 		}
-		
+
 		Marshaller marshaller = context.createMarshaller();
 
 		marshaller.setProperty("jaxb.encoding", "Unicode");
@@ -296,7 +303,6 @@ public class XmlUtil {
 		return replacesCte("<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + sw.toString());
 
 	}
-	
 
 	public static String gZipToXml(byte[] conteudo) throws CteException, IOException {
 		if (conteudo == null || conteudo.length == 0) {
@@ -320,11 +326,12 @@ public class XmlUtil {
 		br.inf.portalfiscal.cte.schema_300.enviCTe.CteProc cteProc = new br.inf.portalfiscal.cte.schema_300.enviCTe.CteProc();
 		cteProc.setVersao("3.00");
 		cteProc.setCTe(enviCte.getCTe().get(0));
-		cteProc.setProtCTe(xmlToObject(objectCteToXml(retorno),	br.inf.portalfiscal.cte.schema_300.enviCTe.TProtCTe.class));
+		cteProc.setProtCTe(
+				xmlToObject(objectCteToXml(retorno), br.inf.portalfiscal.cte.schema_300.enviCTe.TProtCTe.class));
 
 		return XmlUtil.objectCteToXml(cteProc);
 	}
-	
+
 	public static String removeAcentos(String str) {
 		str = str.replaceAll("\r", "");
 		str = str.replaceAll("\t", "");
@@ -348,7 +355,7 @@ public class XmlUtil {
 		xml = xml.replaceAll(" xmlns=\"\"", "");
 		return xml;
 	}
-	
+
 	public static String dataCte(LocalDateTime data) throws CteException {
 		XMLGregorianCalendar xmlCalendar;
 		try {

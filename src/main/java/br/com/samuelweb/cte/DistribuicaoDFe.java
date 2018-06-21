@@ -1,83 +1,78 @@
 package br.com.samuelweb.cte;
 
-import br.com.samuelweb.cte.dom.ConfiguracoesIniciais;
+import java.rmi.RemoteException;
+
+import javax.xml.bind.JAXBException;
+import javax.xml.stream.XMLStreamException;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.util.AXIOMUtil;
+
+import br.com.samuelweb.cte.dom.Configuracoes;
 import br.com.samuelweb.cte.exception.CteException;
-import br.com.samuelweb.cte.util.CertificadoUtil;
 import br.com.samuelweb.cte.util.ConstantesCte;
 import br.com.samuelweb.cte.util.WebServiceUtil;
 import br.com.samuelweb.cte.util.XmlUtil;
 import br.inf.portalfiscal.cte.schema_300.distdfeint.DistDFeInt;
 import br.inf.portalfiscal.cte.schema_300.retdistdfeint.RetDistDFeInt;
 import br.inf.portalfiscal.www.cte.wsdl.CTeDistribuicaoDFe.CTeDistribuicaoDFeStub;
-import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.util.AXIOMUtil;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.stream.XMLStreamException;
-import java.rmi.RemoteException;
-
 
 /**
  * @author Samuel Oliveira - samuk.exe@hotmail.com - www.samuelweb.com.br
  */
 class DistribuicaoDFe {
 
+	/**
+	 * Classe Reponsavel Por Consultar as CTE na SEFAZ
+	 *
+	 * @param DistDFeInt
+	 * @return RetDistDFeInt
+	 */
+	static RetDistDFeInt consultaCte(Configuracoes config, String tipoCliente, String cpfCnpj, String nsu)
+			throws CteException {
 
-    /**
-     * Classe Reponsavel Por Consultar as CTE na SEFAZ
-     *
-     * @param DistDFeInt
-     * @return RetDistDFeInt
-     */
-    static RetDistDFeInt consultaCte(String tipoCliente, String cpfCnpj, String nsu) throws CteException {
+		try {
 
-        try {
+			DistDFeInt distDfe = new DistDFeInt();
+			distDfe.setCUFAutor(config.getEstado().getCodigoIbge());
+			distDfe.setTpAmb(config.getAmbiente());
+			distDfe.setVersao(ConstantesCte.VERSAO.DISTRIBUICAO);
 
-            /**
-             * Carrega Informaçoes do Certificado Digital.
-             */
-            CertificadoUtil.iniciaConfiguracoes();
-            ConfiguracoesIniciais config = ConfiguracoesIniciais.getInstance();
+			if (ConstantesCte.TIPOS.CNPJ.equals(tipoCliente)) {
+				distDfe.setCNPJ(cpfCnpj);
+			} else {
+				distDfe.setCPF(cpfCnpj);
+			}
 
-            DistDFeInt distDfe = new DistDFeInt();
-            distDfe.setCUFAutor(config.getEstado().getCodigoIbge());
-            distDfe.setTpAmb(config.getAmbiente());
-            distDfe.setVersao(ConstantesCte.VERSAO.DISTRIBUICAO);
+			DistDFeInt.DistNSU distNSU = new DistDFeInt.DistNSU();
+			distNSU.setUltNSU(nsu);
 
-            if (ConstantesCte.TIPOS.CNPJ.equals(tipoCliente)) {
-                distDfe.setCNPJ(cpfCnpj);
-            } else {
-                distDfe.setCPF(cpfCnpj);
-            }
+			distDfe.setDistNSU(distNSU);
 
-            DistDFeInt.DistNSU distNSU = new DistDFeInt.DistNSU();
-            distNSU.setUltNSU(nsu);
+			String xml = XmlUtil.objectCteToXml(distDfe);
 
-            distDfe.setDistNSU(distNSU);
+			if (config.isLog()) {
+				System.out.println("Xml DistDFe: " + xml);
+			}
 
-            String xml = XmlUtil.objectCteToXml(distDfe);
+			OMElement ome = AXIOMUtil.stringToOM(xml);
 
-            if (config.isLog()) {
-                System.out.println("Xml DistDFe: " + xml);
-            }
+			CTeDistribuicaoDFeStub.CteDadosMsg_type0 dadosMsgType0 = new CTeDistribuicaoDFeStub.CteDadosMsg_type0();
+			dadosMsgType0.setExtraElement(ome);
 
-            OMElement ome = AXIOMUtil.stringToOM(xml);
+			CTeDistribuicaoDFeStub.CteDistDFeInteresse distDFeInteresse = new CTeDistribuicaoDFeStub.CteDistDFeInteresse();
+			distDFeInteresse.setCteDadosMsg(dadosMsgType0);
 
-            CTeDistribuicaoDFeStub.CteDadosMsg_type0 dadosMsgType0 = new CTeDistribuicaoDFeStub.CteDadosMsg_type0();
-            dadosMsgType0.setExtraElement(ome);
+			CTeDistribuicaoDFeStub stub = new CTeDistribuicaoDFeStub(
+					WebServiceUtil.getUrl(config, ConstantesCte.CTE, ConstantesCte.SERVICOS.DISTRIBUICAO_DFE));
+			CTeDistribuicaoDFeStub.CteDistDFeInteresseResponse result = stub.cteDistDFeInteresse(distDFeInteresse);
 
-            CTeDistribuicaoDFeStub.CteDistDFeInteresse distDFeInteresse = new CTeDistribuicaoDFeStub.CteDistDFeInteresse();
-            distDFeInteresse.setCteDadosMsg(dadosMsgType0);
+			return XmlUtil.xmlToObject(result.getCteDistDFeInteresseResult().getExtraElement().toString(),
+					RetDistDFeInt.class);
 
-            CTeDistribuicaoDFeStub stub = new CTeDistribuicaoDFeStub(WebServiceUtil.getUrl(ConstantesCte.CTE, ConstantesCte.SERVICOS.DISTRIBUICAO_DFE));
-            CTeDistribuicaoDFeStub.CteDistDFeInteresseResponse result = stub.cteDistDFeInteresse(distDFeInteresse);
-
-            return XmlUtil.xmlToObject(result.getCteDistDFeInteresseResult().getExtraElement().toString(), RetDistDFeInt.class);
-
-        } catch (RemoteException | XMLStreamException | JAXBException e) {
-            throw new CteException(e.getMessage());
-        }
-    }
-
+		} catch (RemoteException | XMLStreamException | JAXBException e) {
+			throw new CteException(e.getMessage());
+		}
+	}
 
 }

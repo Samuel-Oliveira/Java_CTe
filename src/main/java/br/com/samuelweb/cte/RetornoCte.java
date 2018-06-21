@@ -1,8 +1,15 @@
 package br.com.samuelweb.cte;
 
-import br.com.samuelweb.cte.dom.ConfiguracoesIniciais;
+import java.rmi.RemoteException;
+
+import javax.xml.bind.JAXBException;
+import javax.xml.stream.XMLStreamException;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.util.AXIOMUtil;
+
+import br.com.samuelweb.cte.dom.Configuracoes;
 import br.com.samuelweb.cte.exception.CteException;
-import br.com.samuelweb.cte.util.CertificadoUtil;
 import br.com.samuelweb.cte.util.ConstantesCte;
 import br.com.samuelweb.cte.util.WebServiceUtil;
 import br.com.samuelweb.cte.util.XmlUtil;
@@ -13,12 +20,6 @@ import br.inf.portalfiscal.www.cte.wsdl.cteRetRecepcao.CteRetRecepcaoStub.CteCab
 import br.inf.portalfiscal.www.cte.wsdl.cteRetRecepcao.CteRetRecepcaoStub.CteCabecMsgE;
 import br.inf.portalfiscal.www.cte.wsdl.cteRetRecepcao.CteRetRecepcaoStub.CteDadosMsg;
 import br.inf.portalfiscal.www.cte.wsdl.cteRetRecepcao.CteRetRecepcaoStub.CteRetRecepcaoResult;
-import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.util.AXIOMUtil;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.stream.XMLStreamException;
-import java.rmi.RemoteException;
 
 /**
  * Classe Responsavel por Consultar o Recibo da Cte.
@@ -27,8 +28,6 @@ import java.rmi.RemoteException;
  */
 class RetornoCte {
 
-	private static CertificadoUtil certUtil;
-
 	/**
 	 * Metodo para Consultar o Recibo da CTE..
 	 * 
@@ -36,18 +35,13 @@ class RetornoCte {
 	 * @return String
 	 * @throws NfeException
 	 */
-	static TRetConsReciCTe consultaRecibo(String recibo) throws CteException {
+	static TRetConsReciCTe consultaRecibo(Configuracoes config, String recibo) throws CteException {
 
 		try {
-			/**
-			 * Informacoes do Certificado Digital.
-			 */
-			CertificadoUtil.iniciaConfiguracoes();
-			ConfiguracoesIniciais configuracoesCte = ConfiguracoesIniciais.getInstance();
 
 			TConsReciCTe consReciCTe = new TConsReciCTe();
-			consReciCTe.setVersao(configuracoesCte.getVersao());
-			consReciCTe.setTpAmb(configuracoesCte.getAmbiente());
+			consReciCTe.setVersao(config.getVersao());
+			consReciCTe.setTpAmb(config.getAmbiente());
 			consReciCTe.setNRec(recibo);
 
 			/**
@@ -55,7 +49,7 @@ class RetornoCte {
 			 */
 			String xml = XmlUtil.objectCteToXml(consReciCTe);
 
-			if(configuracoesCte.isLog()){
+			if (config.isLog()) {
 				System.out.println("Xml Consulta Recibo: " + xml);
 			}
 
@@ -68,20 +62,21 @@ class RetornoCte {
 			/**
 			 * Codigo do Estado.
 			 */
-			cteCabecMsg.setCUF(String.valueOf(configuracoesCte.getEstado().getCodigoIbge()));
+			cteCabecMsg.setCUF(String.valueOf(config.getEstado().getCodigoIbge()));
 
 			/**
 			 * Versao do XML
 			 */
-			cteCabecMsg.setVersaoDados(configuracoesCte.getVersao());
+			cteCabecMsg.setVersaoDados(config.getVersao());
 
 			CteCabecMsgE cteCabecMsgE = new CteCabecMsgE();
 			cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
 
-			CteRetRecepcaoStub stub = new CteRetRecepcaoStub(WebServiceUtil.getUrl(ConstantesCte.CTE, ConstantesCte.SERVICOS.CONSULTA_RECIBO));
+			CteRetRecepcaoStub stub = new CteRetRecepcaoStub(
+					WebServiceUtil.getUrl(config, ConstantesCte.CTE, ConstantesCte.SERVICOS.CONSULTA_RECIBO));
 			CteRetRecepcaoResult result = stub.cteRetRecepcao(dadosMsg, cteCabecMsgE);
-			
-			return  XmlUtil.xmlToObject(result.getExtraElement().toString(), TRetConsReciCTe.class);
+
+			return XmlUtil.xmlToObject(result.getExtraElement().toString(), TRetConsReciCTe.class);
 
 		} catch (RemoteException | XMLStreamException | JAXBException e) {
 			throw new CteException(e.getMessage());
