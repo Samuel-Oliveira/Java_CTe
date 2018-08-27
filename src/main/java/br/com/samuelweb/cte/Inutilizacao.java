@@ -1,17 +1,22 @@
 package br.com.samuelweb.cte;
 
-import br.com.samuelweb.cte.dom.ConfiguracoesIniciais;
-import br.com.samuelweb.cte.exception.CteException;
-import br.com.samuelweb.cte.util.*;
-import br.inf.portalfiscal.cte.schema_300.inutCTe.TInutCTe;
-import br.inf.portalfiscal.cte.schema_300.retInutCTe.TRetInutCTe;
-import br.inf.portalfiscal.www.cte.wsdl.cteinutilizacao.CteInutilizacaoStub;
-import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.util.AXIOMUtil;
+import java.rmi.RemoteException;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
-import java.rmi.RemoteException;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.util.AXIOMUtil;
+
+import br.com.samuelweb.cte.dom.Configuracoes;
+import br.com.samuelweb.cte.exception.CteException;
+import br.com.samuelweb.cte.util.ConstantesCte;
+import br.com.samuelweb.cte.util.ObjetoUtil;
+import br.com.samuelweb.cte.util.WebServiceUtil;
+import br.com.samuelweb.cte.util.XmlUtil;
+import br.inf.portalfiscal.cte.schema_300.inutCTe.TInutCTe;
+import br.inf.portalfiscal.cte.schema_300.retInutCTe.TRetInutCTe;
+import br.inf.portalfiscal.www.cte.wsdl.cteinutilizacao.CteInutilizacaoStub;
 
 /**
  * Classe Responsavel por inutilizar uma Faixa de numeracao da Cte.
@@ -20,47 +25,44 @@ import java.rmi.RemoteException;
  */
 class Inutilizacao {
 
+	static TRetInutCTe inutilizar(Configuracoes config, TInutCTe inutCte, boolean valida) throws CteException {
+		try {
 
-    static TRetInutCTe inutilizar(TInutCTe inutCte, boolean valida) throws CteException {
-        try {
+			String xml = Assinatura.assinar(config, XmlUtil.objectCteToXml(inutCte), Assinatura.INFINUT);
 
-            ConfiguracoesIniciais configuracoesCte = ConfiguracoesIniciais.getInstance();
-            CertificadoUtil.iniciaConfiguracoes();
+			if (valida) {
+				String erros = ValidarCte.validaXml(config, xml, ConstantesCte.SERVICOS.INUTILIZACAO);
+				if (!ObjetoUtil.isEmpty(erros)) {
+					throw new CteException("Erro Na Validação do Xml: " + erros);
+				}
+			}
 
+			if (config.isLog()) {
+				System.out.println("Xml Inutilizar: " + xml);
+			}
 
-            String xml = Assinatura.assinar(XmlUtil.objectCteToXml(inutCte), Assinatura.INFINUT);
+			OMElement ome = AXIOMUtil.stringToOM(xml);
 
-            if (valida) {
-                String erros = ValidarCte.validaXml(xml, ConstantesCte.SERVICOS.INUTILIZACAO);
-                if (!ObjetoUtil.isEmpty(erros)) {
-                    throw new CteException("Erro Na Validação do Xml: " + erros);
-                }
-            }
+			CteInutilizacaoStub.CteDadosMsg dadosMsg = new CteInutilizacaoStub.CteDadosMsg();
+			dadosMsg.setExtraElement(ome);
 
-            if (configuracoesCte.isLog()) {
-                System.out.println("Xml Inutilizar: " + xml);
-            }
+			CteInutilizacaoStub.CteCabecMsg CteCabecMsg = new CteInutilizacaoStub.CteCabecMsg();
+			CteCabecMsg.setCUF(String.valueOf(config.getEstado().getCodigoIbge()));
+			CteCabecMsg.setVersaoDados(config.getVersao());
 
-            OMElement ome = AXIOMUtil.stringToOM(xml);
+			CteInutilizacaoStub.CteCabecMsgE CteCabecMsgE = new CteInutilizacaoStub.CteCabecMsgE();
+			CteCabecMsgE.setCteCabecMsg(CteCabecMsg);
 
-            CteInutilizacaoStub.CteDadosMsg dadosMsg = new CteInutilizacaoStub.CteDadosMsg();
-            dadosMsg.setExtraElement(ome);
+			CteInutilizacaoStub stub = new CteInutilizacaoStub(
+					WebServiceUtil.getUrl(config, ConstantesCte.CTE, ConstantesCte.SERVICOS.INUTILIZACAO));
 
-            CteInutilizacaoStub.CteCabecMsg CteCabecMsg = new CteInutilizacaoStub.CteCabecMsg();
-            CteCabecMsg.setCUF(String.valueOf(configuracoesCte.getEstado().getCodigoIbge()));
-            CteCabecMsg.setVersaoDados(configuracoesCte.getVersao());
+			return XmlUtil.xmlToObject(stub.cteInutilizacaoCT(dadosMsg, CteCabecMsgE).getExtraElement().toString(),
+					TRetInutCTe.class);
 
-            CteInutilizacaoStub.CteCabecMsgE CteCabecMsgE = new CteInutilizacaoStub.CteCabecMsgE();
-            CteCabecMsgE.setCteCabecMsg(CteCabecMsg);
+		} catch (RemoteException | XMLStreamException | JAXBException e) {
+			throw new CteException(e.getMessage());
+		}
 
-            CteInutilizacaoStub stub = new CteInutilizacaoStub(WebServiceUtil.getUrl(ConstantesCte.CTE, ConstantesCte.SERVICOS.INUTILIZACAO));
-
-            return XmlUtil.xmlToObject(stub.cteInutilizacaoCT(dadosMsg, CteCabecMsgE).getExtraElement().toString(), TRetInutCTe.class);
-
-        } catch (RemoteException | XMLStreamException | JAXBException e) {
-            throw new CteException(e.getMessage());
-        }
-
-    }
+	}
 
 }

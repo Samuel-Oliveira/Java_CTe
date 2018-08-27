@@ -1,5 +1,6 @@
 package br.com.samuelweb.cte;
 
+import br.com.samuelweb.cte.dom.ConfiguracoesWebCte;
 import br.com.samuelweb.cte.exception.CteException;
 import br.com.samuelweb.cte.util.CertificadoUtil;
 import br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe;
@@ -11,12 +12,12 @@ import br.inf.portalfiscal.cte.schema_300.retdistdfeint.RetDistDFeInt;
  * @author Samuel Oliveira - samuk.exe@hotmail.com - www.samuelweb.com.br
  *
  */
-public class Cte {
+public class CteWeb {
 
 	/**
 	 * Construtor privado
 	 */
-	private Cte() {
+	private CteWeb() {
 	}
 
 	/**
@@ -25,9 +26,9 @@ public class Cte {
 	 * @return TRetConsStatServ
 	 * @throws CteException
 	 */
-	public static TRetConsStatServ statusServico() throws CteException {
+	public static TRetConsStatServ statusServico(ConfiguracoesWebCte config) throws CteException {
 
-		return Status.statusServico(CertificadoUtil.iniciaConfiguracoes());
+		return Status.statusServico(config);
 
 	}
 
@@ -38,10 +39,10 @@ public class Cte {
 	 * @return TRetConsReciCTe
 	 * @throws CteException
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.retConsSitCTe.TRetConsSitCTe consultaXml(String chave)
-			throws CteException {
+	public static br.inf.portalfiscal.cte.schema_300.retConsSitCTe.TRetConsSitCTe consultaXml(
+			ConfiguracoesWebCte config, String chave) throws CteException {
 
-		return ConsultaProtocolo.consultar(CertificadoUtil.iniciaConfiguracoes(), chave);
+		return ConsultaProtocolo.consultar(config, chave);
 
 	}
 
@@ -53,10 +54,10 @@ public class Cte {
 	 * @return TRetInutCTe
 	 * @throws CteException
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.retInutCTe.TRetInutCTe inutilizacao(
+	public static br.inf.portalfiscal.cte.schema_300.retInutCTe.TRetInutCTe inutilizacao(ConfiguracoesWebCte config,
 			br.inf.portalfiscal.cte.schema_300.inutCTe.TInutCTe inutCTe, boolean valida) throws CteException {
 
-		return Inutilizacao.inutilizar(CertificadoUtil.iniciaConfiguracoes(), inutCTe, valida);
+		return Inutilizacao.inutilizar(config, inutCTe, valida);
 
 	}
 
@@ -67,9 +68,10 @@ public class Cte {
 	 * @return TRetConsSitCTe
 	 * @throws CteException
 	 */
-	public static RetDistDFeInt distribuicaoDfe(String tipoCliente, String cpfCnpj, String nsu) throws CteException {
+	public static RetDistDFeInt distribuicaoDfe(ConfiguracoesWebCte config, String tipoCliente, String cpfCnpj,
+			String nsu) throws CteException {
 
-		return DistribuicaoDFe.consultaCte(CertificadoUtil.iniciaConfiguracoes(), tipoCliente, cpfCnpj, nsu);
+		return DistribuicaoDFe.consultaCte(CertificadoUtil.iniciaConfiguracoes(config), tipoCliente, cpfCnpj, nsu);
 
 	}
 
@@ -80,10 +82,10 @@ public class Cte {
 	 * @return TEnviCTe
 	 * @throws CteException
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe montaCte(
+	public static br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe montaCte(ConfiguracoesWebCte config,
 			br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe enviCTe, boolean valida) throws CteException {
 
-		return EnvioCte.montaCte(CertificadoUtil.iniciaConfiguracoes(), enviCTe, valida);
+		return EnvioCte.montaCte(CertificadoUtil.iniciaConfiguracoes(config), enviCTe, valida);
 
 	}
 
@@ -94,10 +96,10 @@ public class Cte {
 	 * @return TRetEnviCTe
 	 * @throws CteException
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.retEnviCTe.TRetEnviCTe enviarCte(
+	public static br.inf.portalfiscal.cte.schema_300.retEnviCTe.TRetEnviCTe enviarCte(ConfiguracoesWebCte config,
 			br.inf.portalfiscal.cte.schema_300.enviCTe.TEnviCTe enviCTe) throws CteException {
 
-		return EnvioCte.enviaCte(CertificadoUtil.iniciaConfiguracoes(), enviCTe);
+		return EnvioCte.enviaCte(CertificadoUtil.iniciaConfiguracoes(config), enviCTe);
 
 	}
 
@@ -108,9 +110,9 @@ public class Cte {
 	 * @return TRetEnviCTe
 	 * @throws CteException
 	 */
-	public static TRetCTeOS enviarCteOS(TEnviCTe enviCTe) throws CteException {
+	public static TRetCTeOS enviarCteOS(ConfiguracoesWebCte config, TEnviCTe enviCTe) throws CteException {
 
-		return EnvioCte.enviaCteOS(CertificadoUtil.iniciaConfiguracoes(), enviCTe);
+		return EnvioCte.enviaCteOS(CertificadoUtil.iniciaConfiguracoes(config), enviCTe);
 
 	}
 
@@ -121,10 +123,10 @@ public class Cte {
 	 * @return TRetEvento
 	 * @throws CteException
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.evCancCTe.TRetEvento cancelarCte(
+	public static br.inf.portalfiscal.cte.schema_300.evCancCTe.TRetEvento cancelarCte(ConfiguracoesWebCte config,
 			br.inf.portalfiscal.cte.schema_300.evCancCTe.TEvento evento, boolean valida) throws CteException {
 
-		return Evento.cancelamento(CertificadoUtil.iniciaConfiguracoes(), evento, valida);
+		return Evento.cancelamento(config, evento, valida);
 
 	}
 
@@ -135,10 +137,10 @@ public class Cte {
 	 * @return TRetEvento
 	 * @throws CteException
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.evEPECCTe.TRetEvento epecCte(
+	public static br.inf.portalfiscal.cte.schema_300.evEPECCTe.TRetEvento epecCte(ConfiguracoesWebCte config,
 			br.inf.portalfiscal.cte.schema_300.evEPECCTe.TEvento evento, boolean valida) throws CteException {
 
-		return Evento.epec(CertificadoUtil.iniciaConfiguracoes(), evento, valida);
+		return Evento.epec(CertificadoUtil.iniciaConfiguracoes(config), evento, valida);
 
 	}
 
@@ -150,9 +152,10 @@ public class Cte {
 	 * @throws CteException
 	 */
 	public static br.inf.portalfiscal.cte.schema_300.evRegMultimodal.TRetEvento multimodalCte(
-			br.inf.portalfiscal.cte.schema_300.evRegMultimodal.TEvento evento, boolean valida) throws CteException {
+			ConfiguracoesWebCte config, br.inf.portalfiscal.cte.schema_300.evRegMultimodal.TEvento evento,
+			boolean valida) throws CteException {
 
-		return Evento.multimodal(CertificadoUtil.iniciaConfiguracoes(), evento, valida);
+		return Evento.multimodal(config, evento, valida);
 
 	}
 
@@ -163,10 +166,10 @@ public class Cte {
 	 * @return TRetEvento
 	 * @throws CteException
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.evCCeCTe.TRetEvento cceCte(
+	public static br.inf.portalfiscal.cte.schema_300.evCCeCTe.TRetEvento cceCte(ConfiguracoesWebCte config,
 			br.inf.portalfiscal.cte.schema_300.evCCeCTe.TEvento evento, boolean valida) throws CteException {
 
-		return Evento.cce(CertificadoUtil.iniciaConfiguracoes(), evento, valida);
+		return Evento.cce(CertificadoUtil.iniciaConfiguracoes(config), evento, valida);
 
 	}
 
@@ -178,9 +181,10 @@ public class Cte {
 	 * @throws CteException
 	 */
 	public static br.inf.portalfiscal.cte.schema_300.evPrestDesacordo.TRetEvento prestacaoDesacordoCte(
-			br.inf.portalfiscal.cte.schema_300.evPrestDesacordo.TEvento evento, boolean valida) throws CteException {
+			ConfiguracoesWebCte config, br.inf.portalfiscal.cte.schema_300.evPrestDesacordo.TEvento evento,
+			boolean valida) throws CteException {
 
-		return Evento.prestacaoDesacordo(CertificadoUtil.iniciaConfiguracoes(), evento, valida);
+		return Evento.prestacaoDesacordo(config, evento, valida);
 
 	}
 
@@ -191,10 +195,10 @@ public class Cte {
 	 * @return TRetEvento
 	 * @throws CteException
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.evGTV.TRetEvento gvtCte(
+	public static br.inf.portalfiscal.cte.schema_300.evGTV.TRetEvento gvtCte(ConfiguracoesWebCte config,
 			br.inf.portalfiscal.cte.schema_300.evGTV.TEvento evento, boolean valida) throws CteException {
 
-		return Evento.gvt(CertificadoUtil.iniciaConfiguracoes(), evento, valida);
+		return Evento.gvt(CertificadoUtil.iniciaConfiguracoes(config), evento, valida);
 
 	}
 
@@ -205,10 +209,10 @@ public class Cte {
 	 * @return TRetConsReciCTe
 	 * @throws CteException
 	 */
-	public static br.inf.portalfiscal.cte.schema_300.retConsReciCTe.TRetConsReciCTe consultaRecibo(String recibo)
-			throws CteException {
+	public static br.inf.portalfiscal.cte.schema_300.retConsReciCTe.TRetConsReciCTe consultaRecibo(
+			ConfiguracoesWebCte config, String recibo) throws CteException {
 
-		return RetornoCte.consultaRecibo(CertificadoUtil.iniciaConfiguracoes(), recibo);
+		return RetornoCte.consultaRecibo(CertificadoUtil.iniciaConfiguracoes(config), recibo);
 
 	}
 }

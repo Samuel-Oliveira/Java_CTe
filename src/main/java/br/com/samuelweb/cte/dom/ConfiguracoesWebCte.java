@@ -1,51 +1,41 @@
 /**
- * 
+ *
  */
 package br.com.samuelweb.cte.dom;
 
 import br.com.samuelweb.certificado.Certificado;
-import br.com.samuelweb.cte.exception.CteException;
 import br.com.samuelweb.cte.util.Estados;
 import br.com.samuelweb.cte.util.ProxyUtil;
 
 /**
  * @author Samuel Oliveira
- *
- *         Inicia Configurações Cte.
+ *         <p>
+ *         Inicia Configurações Nfe.
  */
-public final class ConfiguracoesIniciais implements Configuracoes {
-
-	private static ConfiguracoesIniciais instance;
+public class ConfiguracoesWebCte implements Configuracoes {
 
 	private Estados estado;
 	private String ambiente;
 	private Certificado certificado;
 	private String pastaSchemas;
-	private String versao;
+	private String versaoNfe;
 	private ProxyUtil proxyUtil;
+	private Integer timeout;
 	private boolean contigenciaSCAN;
 	private boolean log = true;
 
 	// Construtor Singleton
-	private ConfiguracoesIniciais() {
+	private ConfiguracoesWebCte() {
 	}
 
-	// Construtor Privado
-	private ConfiguracoesIniciais(Estados estado, String ambiente, Certificado certificado, String pastaSchemas,
-			String versaoCte) {
-
-		instance = new ConfiguracoesIniciais();
+	public static ConfiguracoesWebCte iniciaConfiguracoes(Estados estado, String ambiente, Certificado certificado,
+			String pastaSchemas, String versaoCte) {
+		ConfiguracoesWebCte instance = new ConfiguracoesWebCte();
 		instance.setEstado(estado);
 		instance.setAmbiente(ambiente);
 		instance.setCertificado(certificado);
 		instance.setPastaSchemas(pastaSchemas);
 		instance.setVersao(versaoCte);
-
-	}
-
-	public static ConfiguracoesIniciais iniciaConfiguracoes(Estados estado, String ambiente, Certificado certificado,
-			String pastaSchemas, String versaoCte) {
-		new ConfiguracoesIniciais(estado, ambiente, certificado, pastaSchemas, versaoCte);
 		if (instance.log) {
 			System.out.println("Api Java Cte Versão 3.00.1 - Samuel Olivera - samuk.exe@hotmail.com");
 			System.out.println("Certificado: " + certificado.getTipo().toUpperCase() + " - "
@@ -53,14 +43,6 @@ public final class ConfiguracoesIniciais implements Configuracoes {
 			System.out.println("Ambiente: " + (ambiente.equals("1") ? "Produção" : "Homologação") + " - Estado: "
 					+ estado.getNome() + " - Versão: " + versaoCte);
 		}
-		return instance;
-	}
-
-	public static ConfiguracoesIniciais getInstance() throws CteException {
-		if (instance == null) {
-			throw new CteException("Configurações Não Foram Inicializadas.");
-		}
-
 		return instance;
 	}
 
@@ -79,23 +61,23 @@ public final class ConfiguracoesIniciais implements Configuracoes {
 	 * @param pastaSchemas
 	 *            the pastaSchemas to set
 	 */
-	public void setPastaSchemas(String pastaSchemas) {
+	private void setPastaSchemas(String pastaSchemas) {
 		this.pastaSchemas = pastaSchemas;
 	}
 
 	/**
-	 * @return the versaoCte
+	 * @return the versaoNfe
 	 */
 	public String getVersao() {
-		return versao;
+		return versaoNfe;
 	}
 
 	/**
-	 * @param versaoCte
-	 *            the versaoCte to set
+	 * @param versaoNfe
+	 *            the versaoNfe to set
 	 */
-	public void setVersao(String versaoCte) {
-		this.versao = versaoCte;
+	private void setVersao(String versaoNfe) {
+		this.versaoNfe = versaoNfe;
 	}
 
 	/**
@@ -129,7 +111,6 @@ public final class ConfiguracoesIniciais implements Configuracoes {
 	}
 
 	/**
-	 * 
 	 * @return configuracao do proxy
 	 */
 	public ProxyUtil getProxy() {
@@ -137,14 +118,14 @@ public final class ConfiguracoesIniciais implements Configuracoes {
 	}
 
 	/**
-	 * @return the contigencia
+	 * @return the contigenciaSCAN
 	 */
 	public boolean isContigenciaSCAN() {
 		return contigenciaSCAN;
 	}
 
 	/**
-	 * @param contigencia
+	 * @param contigenciaSCAN
 	 *            the contigencia to set
 	 */
 	public void setContigenciaSCAN(boolean contigenciaSCAN) {
@@ -162,7 +143,7 @@ public final class ConfiguracoesIniciais implements Configuracoes {
 	 * @param estado
 	 *            the estado to set
 	 */
-	public void setEstado(Estados estado) {
+	private void setEstado(Estados estado) {
 		this.estado = estado;
 	}
 
@@ -174,4 +155,19 @@ public final class ConfiguracoesIniciais implements Configuracoes {
 		this.log = log;
 	}
 
+	public ProxyUtil getProxyUtil() {
+		return proxyUtil;
+	}
+
+	public void setProxyUtil(ProxyUtil proxyUtil) {
+		this.proxyUtil = proxyUtil;
+	}
+
+	public Integer getTimeout() {
+		return timeout;
+	}
+
+	public void setTimeout(Integer timeout) {
+		this.timeout = timeout;
+	}
 }
