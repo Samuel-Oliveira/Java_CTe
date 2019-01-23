@@ -11,36 +11,20 @@ public class CteException extends Exception {
 	
 	String message;
 	
-	/**
-	 * Construtor da classe.
-	 * 
-	 * @param e
-	 */
 	public CteException(Throwable e) {
 		super(e);
 	}
 
 	
-	/**
-	 * Construtor da classe.
-	 * 
-	 * @param code
-	 */
 	public CteException(String message) {
 		this((Throwable) null);
 		this.message = message;
 	}
 
-	/**
-	 * @return the message
-	 */
 	public String getMessage() {
 		return message;
 	}
 
-	/**
-	 * @param message the message to set
-	 */
 	public void setMessage(String message) {
 		this.message = message;
 	}

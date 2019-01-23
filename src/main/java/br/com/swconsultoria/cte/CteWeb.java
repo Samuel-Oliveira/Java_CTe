@@ -27,25 +27,27 @@ public class CteWeb {
 	private CteWeb() {
 	}
 
-	/**
-	 * Metodo Responsavel Consultar o Status de Serviço do Servidor de Cte da Sefaz
-	 *
-	 * @return TRetConsStatServ
-	 * @throws CteException
-	 */
+    /**
+     * Metodo Responsavel Consultar o Status de Serviço do Servidor de Cte da Sefaz
+     *
+     * @param config
+     * @return
+     * @throws CteException
+     */
 	public static TRetConsStatServ statusServico(ConfiguracoesWebCte config) throws CteException {
 
         return Status.statusServico(CertificadoUtil.iniciaConfiguracoes(config));
 
 	}
 
-	/**
-	 * Classe Reponsavel Por Consultar o status da CTE na SEFAZ
-	 *
-	 * @param TConsReciCTe
-	 * @return TRetConsReciCTe
-	 * @throws CteException
-	 */
+    /**
+     * Classe Reponsavel Por Consultar o status da CTE na SEFAZ
+     *
+     * @param config
+     * @param chave
+     * @return
+     * @throws CteException
+     */
     public static TRetConsSitCTe consultaXml(
 			ConfiguracoesWebCte config, String chave) throws CteException {
 
@@ -53,14 +55,16 @@ public class CteWeb {
 
 	}
 
-	/**
-	 * Classe Reponsavel Por Inutilizar a CTE na SEFAZ No tipo Informar
-	 * ConstantesUtil.CTE ou ConstantesUtil.NFCE
-	 *
-	 * @param TInutCTe
-	 * @return TRetInutCTe
-	 * @throws CteException
-	 */
+    /**
+     * Classe Reponsavel Por Inutilizar a CTE na SEFAZ No tipo Informar
+     * ConstantesUtil.CTE ou ConstantesUtil.NFCE
+     *
+     * @param config
+     * @param inutCTe
+     * @param valida
+     * @return
+     * @throws CteException
+     */
     public static TRetInutCTe inutilizacao(ConfiguracoesWebCte config,
                                            TInutCTe inutCTe, boolean valida) throws CteException {
 
@@ -68,13 +72,16 @@ public class CteWeb {
 
 	}
 
-	/**
-	 * Classe Reponsavel Por Consultar a Distribuiçao da CTE na SEFAZ
-	 *
-	 * @param consSitCTe
-	 * @return TRetConsSitCTe
-	 * @throws CteException
-	 */
+    /**
+     * Classe Reponsavel Por Consultar a Distribuiçao da CTE na SEFAZ
+     *
+     * @param config
+     * @param tipoCliente
+     * @param cpfCnpj
+     * @param nsu
+     * @return
+     * @throws CteException
+     */
 	public static RetDistDFeInt distribuicaoDfe(ConfiguracoesWebCte config, String tipoCliente, String cpfCnpj,
                                                 String nsu) throws CteException {
 
@@ -82,13 +89,15 @@ public class CteWeb {
 
 	}
 
-	/**
-	 * Metodo para Montar a CTE.
-	 *
-	 * @param TEnviCTe
-	 * @return TEnviCTe
-	 * @throws CteException
-	 */
+    /**
+     * Metodo para Montar a CTE.
+     *
+     * @param config
+     * @param enviCTe
+     * @param valida
+     * @return
+     * @throws CteException
+     */
     public static TEnviCTe montaCte(ConfiguracoesWebCte config,
                                     TEnviCTe enviCTe, boolean valida) throws CteException {
 
@@ -96,13 +105,14 @@ public class CteWeb {
 
 	}
 
-	/**
-	 * Metodo para Enviar a CTE.
-	 *
-	 * @param TEnviCTe
-	 * @return TRetEnviCTe
-	 * @throws CteException
-	 */
+    /**
+     * Metodo para Enviar a CTE.
+     *
+     * @param config
+     * @param enviCTe
+     * @return
+     * @throws CteException
+     */
     public static TRetEnviCTe enviarCte(ConfiguracoesWebCte config,
                                         TEnviCTe enviCTe) throws CteException {
 
@@ -110,26 +120,29 @@ public class CteWeb {
 
 	}
 
-	/**
-	 * Metodo para Enviar a CTEOS.
-	 *
-	 * @param TEnviCTe
-	 * @return TRetEnviCTe
-	 * @throws CteException
-	 */
+    /**
+     * Metodo para Enviar a CTEOS.
+     *
+     * @param config
+     * @param enviCTe
+     * @return
+     * @throws CteException
+     */
 	public static TRetCTeOS enviarCteOS(ConfiguracoesWebCte config, TEnviCTe enviCTe) throws CteException {
 
 		return EnvioCte.enviaCteOS(CertificadoUtil.iniciaConfiguracoes(config), enviCTe);
 
 	}
 
-	/**
-	 * Metodo para Cancelar a CTE 3.00
-	 *
-	 * @param TEvento
-	 * @return TRetEvento
-	 * @throws CteException
-	 */
+    /**
+     * Metodo para Cancelar a CTE 3.00
+     *
+     * @param config
+     * @param evento
+     * @param valida
+     * @return
+     * @throws CteException
+     */
     public static br.com.swconsultoria.cte.schema_300.evCancCTe.TRetEvento cancelarCte(ConfiguracoesWebCte config,
                                                                                        br.com.swconsultoria.cte.schema_300.evCancCTe.TEvento evento, boolean valida) throws CteException {
 
@@ -137,13 +150,15 @@ public class CteWeb {
 
 	}
 
-	/**
-	 * Metodo para Evento EPEC da CTE.
-	 *
-	 * @param TEvento
-	 * @return TRetEvento
-	 * @throws CteException
-	 */
+    /**
+     * Metodo para Evento EPEC da CTE.
+     *
+     * @param config
+     * @param evento
+     * @param valida
+     * @return
+     * @throws CteException
+     */
     public static TRetEvento epecCte(ConfiguracoesWebCte config,
                                      TEvento evento, boolean valida) throws CteException {
 
@@ -151,13 +166,15 @@ public class CteWeb {
 
 	}
 
-	/**
-	 * Metodo para Evento MULTIMODAL da CTE.
-	 *
-	 * @param TEvento
-	 * @return TRetEvento
-	 * @throws CteException
-	 */
+    /**
+     * Metodo para Evento MULTIMODAL da CTE.
+     *
+     * @param config
+     * @param evento
+     * @param valida
+     * @return
+     * @throws CteException
+     */
     public static br.com.swconsultoria.cte.schema_300.evRegMultimodal.TRetEvento multimodalCte(
             ConfiguracoesWebCte config, br.com.swconsultoria.cte.schema_300.evRegMultimodal.TEvento evento,
 			boolean valida) throws CteException {
@@ -166,13 +183,15 @@ public class CteWeb {
 
 	}
 
-	/**
-	 * Metodo para Evento CCE da CTE 3.00.
-	 *
-	 * @param TEvento
-	 * @return TRetEvento
-	 * @throws CteException
-	 */
+    /**
+     * Metodo para Evento CCE da CTE 3.00.
+     *
+     * @param config
+     * @param evento
+     * @param valida
+     * @return
+     * @throws CteException
+     */
     public static br.com.swconsultoria.cte.schema_300.evCCeCTe.TRetEvento cceCte(ConfiguracoesWebCte config,
                                                                                  br.com.swconsultoria.cte.schema_300.evCCeCTe.TEvento evento, boolean valida) throws CteException {
 
@@ -180,13 +199,15 @@ public class CteWeb {
 
 	}
 
-	/**
-	 * Metodo para Evento PrestacaoDesacordo da CTE.
-	 *
-	 * @param TEvento
-	 * @return TRetEvento
-	 * @throws CteException
-	 */
+    /**
+     * Metodo para Evento PrestacaoDesacordo da CTE.
+     *
+     * @param config
+     * @param evento
+     * @param valida
+     * @return
+     * @throws CteException
+     */
     public static br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TRetEvento prestacaoDesacordoCte(
             ConfiguracoesWebCte config, br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TEvento evento,
 			boolean valida) throws CteException {
@@ -195,13 +216,15 @@ public class CteWeb {
 
 	}
 
-	/**
-	 * Metodo para Evento GVT da CTE.
-	 *
-	 * @param TEvento
-	 * @return TRetEvento
-	 * @throws CteException
-	 */
+    /**
+     * Metodo para Evento GVT da CTE.
+     *
+     * @param config
+     * @param evento
+     * @param valida
+     * @return
+     * @throws CteException
+     */
     public static br.com.swconsultoria.cte.schema_300.evGTV.TRetEvento gvtCte(ConfiguracoesWebCte config,
                                                                               br.com.swconsultoria.cte.schema_300.evGTV.TEvento evento, boolean valida) throws CteException {
 
@@ -209,13 +232,14 @@ public class CteWeb {
 
 	}
 
-	/**
-	 * Metodo para Consulta Recibo CTE.
-	 *
-	 * @param TEnviCTe
-	 * @return TRetConsReciCTe
-	 * @throws CteException
-	 */
+    /**
+     * Metodo para Consulta Recibo CTE.
+     *
+     * @param config
+     * @param recibo
+     * @return
+     * @throws CteException
+     */
     public static TRetConsReciCTe consultaRecibo(
 			ConfiguracoesWebCte config, String recibo) throws CteException {
 

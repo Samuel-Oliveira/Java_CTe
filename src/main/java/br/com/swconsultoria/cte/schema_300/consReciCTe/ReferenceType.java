@@ -12,34 +12,34 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  *
  * <pre>
- * &lt;complexType name="ReferenceType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="Transforms" type="{http://www.w3.org/2000/09/xmldsig#}TransformsType"/>
- *         &lt;element name="DigestMethod">
- *           &lt;complexType>
- *             &lt;complexContent>
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                 &lt;attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/2000/09/xmldsig#sha1" />
- *               &lt;/restriction>
- *             &lt;/complexContent>
- *           &lt;/complexType>
- *         &lt;/element>
- *         &lt;element name="DigestValue" type="{http://www.w3.org/2000/09/xmldsig#}DigestValueType"/>
- *       &lt;/sequence>
- *       &lt;attribute name="Id" type="{http://www.w3.org/2001/XMLSchema}ID" />
- *       &lt;attribute name="URI" use="required">
- *         &lt;simpleType>
- *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyURI">
- *             &lt;minLength value="2"/>
- *           &lt;/restriction>
- *         &lt;/simpleType>
- *       &lt;/attribute>
- *       &lt;attribute name="Type" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * <complexType name="ReferenceType">
+ *   <complexContent>
+ *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       <sequence>
+ *         <element name="Transforms" type="{http://www.w3.org/2000/09/xmldsig#}TransformsType"/>
+ *         <element name="DigestMethod">
+ *           <complexType>
+ *             <complexContent>
+ *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 <attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/2000/09/xmldsig#sha1" />
+ *               </restriction>
+ *             </complexContent>
+ *           </complexType>
+ *         </element>
+ *         <element name="DigestValue" type="{http://www.w3.org/2000/09/xmldsig#}DigestValueType"/>
+ *       </sequence>
+ *       <attribute name="Id" type="{http://www.w3.org/2001/XMLSchema}ID" />
+ *       <attribute name="URI" use="required">
+ *         <simpleType>
+ *           <restriction base="{http://www.w3.org/2001/XMLSchema}anyURI">
+ *             <minLength value="2"/>
+ *           </restriction>
+ *         </simpleType>
+ *       </attribute>
+ *       <attribute name="Type" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+ *     </restriction>
+ *   </complexContent>
+ * </complexType>
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -194,13 +194,13 @@ public class ReferenceType {
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      *
      * <pre>
-     * &lt;complexType>
-     *   &lt;complexContent>
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *       &lt;attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/2000/09/xmldsig#sha1" />
-     *     &lt;/restriction>
-     *   &lt;/complexContent>
-     * &lt;/complexType>
+     * <complexType>
+     *   <complexContent>
+     *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       <attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/2000/09/xmldsig#sha1" />
+     *     </restriction>
+     *   </complexContent>
+     * </complexType>
      * </pre>
      */
     @XmlAccessorType(XmlAccessType.FIELD)
