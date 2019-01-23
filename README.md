@@ -1,24 +1,24 @@
-# Java-CTe[![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe)
-Projeto Para implementação do Java-CTe Utilizando JAXB.
+# Java-CTe[![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe) [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java_cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java_cte/3.00.4/jar)
+API Java para consumo do WebService de CTe
+
+## Dúvidas, Sugestões ou Consultoria
+Entre no Discord do Projeto: https://discord.gg/ZXpqnaV
 
 ## Gostou do Projeto? Dê sua colaboração: [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TX9K693QQYA6W)
 
 Para Iniciar : 
-- Baixe o java-cte-3.00.3.jar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-3.00.3.jar) e o adicione às bibliotecas de Seu Projeto.
+- Caso use Libs baixe o java-cte-3.00.4.jar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-3.00.4.jar) e o adicione às bibliotecas de Seu Projeto.
+
 - Baixe o Schemas.rar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas.rar) e extraia na sua Máquina.
 
-- Maven :
+
+- Caso use Maven :
 ```
-	    <repository>
-			<name>Repositorio Autocom</name>
-			<id>Release</id>
-			<url>http://www.autocomsistemas.com.br:8081/nexus/content/repositories/autocom/</url>
-		</repository>
-		<dependency>
-			<groupId>br.com.samuelweb</groupId>
-			<artifactId>java-cte</artifactId>
-			<version>3.00.3</version>
-		</dependency>
+<dependency>
+    <groupId>br.com.swconsultoria</groupId>
+    <artifactId>java-cte</artifactId>
+    <version>3.00.4</version>
+</dependency>
 ```
 
 Veja a Wiki https://github.com/Samuel-Oliveira/Java_CTe/wiki, para ter um Tutorial Completo.
@@ -26,6 +26,15 @@ Veja a Wiki https://github.com/Samuel-Oliveira/Java_CTe/wiki, para ter um Tutori
 ________________________________________________________________________________________________
 
 # Historico de Versões
+
+## v3.00.4 - 22-01-2019
+- Adicionado Mais conversões Object->String
+- Atualizado Cacert
+- Atualizado biblioteca de certificados
+- Melhoria no Nome de Classes.
+- Corrigido erros Nas COnfigurações Web
+- Adicionado Todos os Schemas e WSDL
+- Adicionado ao Maven Central
 
 ## v3.00.3 - 27-08-2018
 - Implementado Padrão Web
@@ -38,7 +47,7 @@ ________________________________________________________________________________
 - Atualizado Cacert
 - Corrigido conflito com Nfe
 - Atualizado para rodar somente com Versão 3.00
-- Removido MDFe Para Outro Projeto
+- Removido CTe Para Outro Projeto
 - Atualizado Layout e Melhorias de velocidade.
 
 ## v2.00.1 - 25-09-2017
