@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.com.swconsultoria</groupId>
     <artifactId>java-cte</artifactId>
-    <version>3.00.5-SNAPSHOT</version>
+    <version>3.00.4-SNAPSHOT</version>
     <name>Java_CTe</name>
     <description>API Java para consumo do WebService de CTe</description>
     <url>https://github.com/Samuel-Oliveira/Java_CTe</url>
@@ -24,6 +24,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
