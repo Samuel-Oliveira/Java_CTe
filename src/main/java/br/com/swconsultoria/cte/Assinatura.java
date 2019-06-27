@@ -43,6 +43,7 @@ import java.util.List;
 class Assinatura {
 
     public static final String CTE = "CTe";
+    public static final String CTE_OS = "CTeOS";
     static final String INFINUT = "infInut";
     static final String EVENTO = "eventoCTe";
     private static ConfiguracoesCte configuracoesCte;
@@ -65,8 +66,8 @@ class Assinatura {
 
         configuracoesCte = config;
 
-//		stringXml = XmlCteUtil.removeAcentos(stringXml);
         stringXml = assinaDoc(stringXml, tipo);
+        stringXml = stringXml.replaceAll("&#13;", ""); // Java 11
 
         return stringXml;
     }
@@ -87,7 +88,7 @@ class Assinatura {
             ArrayList<Transform> transformList = signatureFactory(signatureFactory);
             loadCertificates(signatureFactory);
 
-            if (tipo.equals(EVENTO)) {
+            if (tipo.equals(EVENTO) || tipo.equals(CTE_OS)) {
                 assinar(tipo, signatureFactory, transformList, privateKey, keyInfo, document, 0);
 
             } else {
@@ -139,7 +140,7 @@ class Assinatura {
 
         DOMSignContext dsc;
 
-        if (tipo.equals(INFINUT) || tipo.equals(EVENTO)) {
+        if (tipo.equals(INFINUT) || tipo.equals(EVENTO) || tipo.equals(CTE_OS)) {
             dsc = new DOMSignContext(privateKey, document.getFirstChild());
         } else {
             dsc = new DOMSignContext(privateKey,

@@ -60,15 +60,15 @@ public final class ConfiguracoesIniciaisCte implements ConfiguracoesCte {
         }
 
 		if (instance.log) {
-            System.out.println("Api Java Cte Versão 3.00.4 - Samuel Olivera - samuel@swconsultoria.com.br");
-			System.out.println("Certificado: " + certificado.getTipo().toUpperCase() + " - "
+            System.out.println("Api Java Cte Versão 3.00.5 - Samuel Olivera - samuel@swconsultoria.com.br");
+			System.out.println("Certificado: " + certificado.getTipoCertificado().getDescricao().toUpperCase() + " - "
 					+ certificado.getNome().toUpperCase() + " - Vencimento: " + certificado.getVencimento());
 			System.out.println("Ambiente: " + (ambiente.equals("1") ? "Produção" : "Homologação") + " - Estado: "
                     + estado.getNome() + " - Versão: " + ConstantesCte.VERSAO.CTE);
         }
 
         if (!certificado.isValido()) {
-            throw new CertificadoException("Certificado Vencido");
+            throw new CertificadoException("Certificado Vencido!");
         }
 		return instance;
 	}

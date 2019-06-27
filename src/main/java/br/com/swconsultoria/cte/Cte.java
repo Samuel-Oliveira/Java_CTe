@@ -1,6 +1,7 @@
 package br.com.swconsultoria.cte;
 
 import br.com.swconsultoria.cte.exception.CteException;
+import br.com.swconsultoria.cte.schema_300.cteOS.TCTeOS;
 import br.com.swconsultoria.cte.schema_300.enviCTe.TEnviCTe;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TEvento;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TRetEvento;
@@ -97,6 +98,21 @@ public class Cte {
 	}
 
     /**
+     * Metodo para Montar a CTE OS.
+     *
+     * @param TCTeOS
+     * @param valida
+     * @return
+     * @throws CteException
+     */
+    public static TCTeOS montaCteOS(
+			TCTeOS enviCTe, boolean valida) throws CteException {
+
+		return EnvioCteOS.montaCteOS(CertificadoUtil.iniciaConfiguracoes(), enviCTe, valida);
+
+	}
+
+    /**
      * Metodo para Enviar a CTE.
      *
      * @param enviCTe
@@ -117,9 +133,9 @@ public class Cte {
      * @return
      * @throws CteException
      */
-	public static TRetCTeOS enviarCteOS(TEnviCTe enviCTe) throws CteException {
+	public static TRetCTeOS enviarCteOS(TCTeOS enviCTe) throws CteException {
 
-		return EnvioCte.enviaCteOS(CertificadoUtil.iniciaConfiguracoes(), enviCTe);
+		return EnvioCteOS.enviaCteOS(CertificadoUtil.iniciaConfiguracoes(), enviCTe);
 
 	}
 

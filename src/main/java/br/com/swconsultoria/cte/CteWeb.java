@@ -2,6 +2,7 @@ package br.com.swconsultoria.cte;
 
 import br.com.swconsultoria.cte.dom.ConfiguracoesWebCte;
 import br.com.swconsultoria.cte.exception.CteException;
+import br.com.swconsultoria.cte.schema_300.cteOS.TCTeOS;
 import br.com.swconsultoria.cte.schema_300.enviCTe.TEnviCTe;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TEvento;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TRetEvento;
@@ -120,17 +121,31 @@ public class CteWeb {
 
 	}
 
-    /**
-     * Metodo para Enviar a CTEOS.
-     *
-     * @param config
-     * @param enviCTe
-     * @return
-     * @throws CteException
-     */
-	public static TRetCTeOS enviarCteOS(ConfiguracoesWebCte config, TEnviCTe enviCTe) throws CteException {
+	/**
+	 * Metodo para Enviar a CTEOS.
+	 *
+	 * @param enviCTe
+	 * @return
+	 * @throws CteException
+	 */
+	public static TRetCTeOS enviarCteOS(ConfiguracoesWebCte config,TCTeOS enviCTe) throws CteException {
 
-		return EnvioCte.enviaCteOS(CertificadoUtil.iniciaConfiguracoes(config), enviCTe);
+		return EnvioCteOS.enviaCteOS(CertificadoUtil.iniciaConfiguracoes(config), enviCTe);
+
+	}
+
+	/**
+	 * Metodo para Montar a CTE OS.
+	 *
+	 * @param TCTeOS
+	 * @param valida
+	 * @return
+	 * @throws CteException
+	 */
+	public static TCTeOS montaCteOS(ConfiguracoesWebCte config,
+			TCTeOS enviCTe, boolean valida) throws CteException {
+
+		return EnvioCteOS.montaCteOS(CertificadoUtil.iniciaConfiguracoes(config), enviCTe, valida);
 
 	}
 

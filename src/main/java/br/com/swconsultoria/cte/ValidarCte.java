@@ -23,6 +23,9 @@ class ValidarCte extends Valida {
             case ConstantesCte.SERVICOS.ENVIO_CTE:
                 xsd = config.getPastaSchemas() + "/" + ConstantesCte.XSD.ENVIO_CTE + "_v" + ConstantesCte.VERSAO.CTE;
                 break;
+            case ConstantesCte.SERVICOS.ENVIO_CTE_OS:
+                xsd = config.getPastaSchemas() + "/" + ConstantesCte.XSD.ENVIO_CTE_OS + "_v" + ConstantesCte.VERSAO.CTE;
+                break;
             case ConstantesCte.SERVICOS.CONSULTA_RECIBO:
                 xsd = config.getPastaSchemas() + "/" + ConstantesCte.XSD.CONSULTA_RECIBO + "_v" + ConstantesCte.VERSAO.CTE;
                 break;

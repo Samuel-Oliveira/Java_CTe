@@ -17,6 +17,7 @@ public interface ConstantesCte {
 		
 		String STATUS_SERVICO = "CTeStatusServico";
 		String ENVIO_CTE = "CTeRecepcao";
+		String ENVIO_CTE_OS = "CTeRecepcaoOS";
 		String CONSULTA_RECIBO = "CTeRetRecepcao";
 		String INUTILIZACAO = "CTeInutilizacao";
 		String CONSULTA_PROTOCOLO = "CTeConsultaProtocolo";
@@ -36,6 +37,7 @@ public interface ConstantesCte {
 		
 		String STATUS_SERVICO = "consStatServCTe";
 		String ENVIO_CTE = "enviCTe";
+		String ENVIO_CTE_OS = "CTeOS";
 		String CONSULTA_RECIBO = "consReciCTe";
 		String INUTILIZACAO = "inutCTe";
 		String CONSULTA_PROTOCOLO = "consSitCTe";
@@ -54,6 +56,7 @@ public interface ConstantesCte {
 	interface XML {
 		String STATUS_SERVICO = "TConsStatServ";
 		String ENVIO_CTE = "TEnviCTe";
+		String ENVIO_CTE_OS = "TCTeOS";
 		String CONSULTA_RECIBO = "TConsReciCTe";
 		String INUTILIZACAO = "TInutCTe";
 		String CONSULTA_PROTOCOLO = "TConsSitCTe";

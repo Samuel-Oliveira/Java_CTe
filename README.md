@@ -11,7 +11,6 @@ Para Iniciar :
 
 - Baixe o Schemas.rar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas.rar) e extraia na sua Máquina.
 
-
 - Caso use Maven :
 ```
 <dependency>
@@ -26,6 +25,13 @@ Veja a Wiki https://github.com/Samuel-Oliveira/Java_CTe/wiki, para ter um Tutori
 ________________________________________________________________________________________________
 
 # Historico de Versões
+
+## v3.00.5
+- Removido Endereços versão 2.00
+- Limpeza de Classes
+- Adicionado WSDL CTe-OS
+- Corrigido Chamadas para CTe-OS
+- Adiciona Url WebServices Cte-OS
 
 ## v3.00.4 - 22-01-2019
 - Adicionado Mais conversões Object->String
@@ -68,5 +74,3 @@ ________________________________________________________________________________
 
 ## v2.00.0 - 17-02-2017
 - Versão Inicial Do Sistema
-
-Outras Duvidas Entrar em Contato samuk.exe@hotmail.com
