@@ -1,3 +1,10 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:58:03 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.retEventoCTe;
 
@@ -9,9 +16,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Classe Java de X509DataType complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType name="X509DataType">
  *   &lt;complexContent>
@@ -23,21 +30,24 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "X509DataType", propOrder = {
-        "x509Certificate"
+@XmlType(name = "X509DataType", namespace = "http://www.w3.org/2000/09/xmldsig#", propOrder = {
+    "x509Certificate"
 })
 public class X509DataType {
 
-    @XmlElement(name = "X509Certificate", required = true)
+    @XmlElement(name = "X509Certificate", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected byte[] x509Certificate;
 
     /**
      * Obtém o valor da propriedade x509Certificate.
-     *
-     * @return possible object is
-     * byte[]
+     * 
+     * @return
+     *     possible object is
+     *     byte[]
      */
     public byte[] getX509Certificate() {
         return x509Certificate;
@@ -45,9 +55,10 @@ public class X509DataType {
 
     /**
      * Define o valor da propriedade x509Certificate.
-     *
-     * @param value allowed object is
-     *              byte[]
+     * 
+     * @param value
+     *     allowed object is
+     *     byte[]
      */
     public void setX509Certificate(byte[] value) {
         this.x509Certificate = value;

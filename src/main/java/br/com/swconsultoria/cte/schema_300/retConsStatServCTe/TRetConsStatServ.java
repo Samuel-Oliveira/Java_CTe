@@ -1,17 +1,28 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:56:01 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.retConsStatServCTe;
 
-import javax.xml.bind.annotation.*;
 import java.math.BigInteger;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * Tipo Resultado da Consulta do Status do Serviço CTe
- *
+ * 
  * <p>Classe Java de TRetConsStatServ complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType name="TRetConsStatServ">
  *   &lt;complexContent>
@@ -52,44 +63,51 @@ import java.math.BigInteger;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TRetConsStatServ", propOrder = {
-        "tpAmb",
-        "verAplic",
-        "cStat",
-        "xMotivo",
-        "cuf",
-        "dhRecbto",
-        "tMed",
-        "dhRetorno",
-        "xObs"
+@XmlType(name = "TRetConsStatServ", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
+    "tpAmb",
+    "verAplic",
+    "cStat",
+    "xMotivo",
+    "cuf",
+    "dhRecbto",
+    "tMed",
+    "dhRetorno",
+    "xObs"
 })
 public class TRetConsStatServ {
 
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String tpAmb;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String verAplic;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String cStat;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String xMotivo;
-    @XmlElement(name = "cUF", required = true)
+    @XmlElement(name = "cUF", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String cuf;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String dhRecbto;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected BigInteger tMed;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected String dhRetorno;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected String xObs;
     @XmlAttribute(name = "versao", required = true)
     protected String versao;
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getTpAmb() {
         return tpAmb;
@@ -97,9 +115,11 @@ public class TRetConsStatServ {
 
     /**
      * Define o valor da propriedade tpAmb.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -107,9 +127,11 @@ public class TRetConsStatServ {
 
     /**
      * Obtém o valor da propriedade verAplic.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getVerAplic() {
         return verAplic;
@@ -117,9 +139,11 @@ public class TRetConsStatServ {
 
     /**
      * Define o valor da propriedade verAplic.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setVerAplic(String value) {
         this.verAplic = value;
@@ -127,9 +151,11 @@ public class TRetConsStatServ {
 
     /**
      * Obtém o valor da propriedade cStat.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCStat() {
         return cStat;
@@ -137,9 +163,11 @@ public class TRetConsStatServ {
 
     /**
      * Define o valor da propriedade cStat.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCStat(String value) {
         this.cStat = value;
@@ -147,9 +175,11 @@ public class TRetConsStatServ {
 
     /**
      * Obtém o valor da propriedade xMotivo.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getXMotivo() {
         return xMotivo;
@@ -157,9 +187,11 @@ public class TRetConsStatServ {
 
     /**
      * Define o valor da propriedade xMotivo.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setXMotivo(String value) {
         this.xMotivo = value;
@@ -167,9 +199,11 @@ public class TRetConsStatServ {
 
     /**
      * Obtém o valor da propriedade cuf.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCUF() {
         return cuf;
@@ -177,9 +211,11 @@ public class TRetConsStatServ {
 
     /**
      * Define o valor da propriedade cuf.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCUF(String value) {
         this.cuf = value;
@@ -187,9 +223,11 @@ public class TRetConsStatServ {
 
     /**
      * Obtém o valor da propriedade dhRecbto.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDhRecbto() {
         return dhRecbto;
@@ -197,9 +235,11 @@ public class TRetConsStatServ {
 
     /**
      * Define o valor da propriedade dhRecbto.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDhRecbto(String value) {
         this.dhRecbto = value;
@@ -207,9 +247,11 @@ public class TRetConsStatServ {
 
     /**
      * Obtém o valor da propriedade tMed.
-     *
-     * @return possible object is
-     * {@link BigInteger }
+     * 
+     * @return
+     *     possible object is
+     *     {@link BigInteger }
+     *     
      */
     public BigInteger getTMed() {
         return tMed;
@@ -217,9 +259,11 @@ public class TRetConsStatServ {
 
     /**
      * Define o valor da propriedade tMed.
-     *
-     * @param value allowed object is
-     *              {@link BigInteger }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link BigInteger }
+     *     
      */
     public void setTMed(BigInteger value) {
         this.tMed = value;
@@ -227,9 +271,11 @@ public class TRetConsStatServ {
 
     /**
      * Obtém o valor da propriedade dhRetorno.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDhRetorno() {
         return dhRetorno;
@@ -237,9 +283,11 @@ public class TRetConsStatServ {
 
     /**
      * Define o valor da propriedade dhRetorno.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDhRetorno(String value) {
         this.dhRetorno = value;
@@ -247,9 +295,11 @@ public class TRetConsStatServ {
 
     /**
      * Obtém o valor da propriedade xObs.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getXObs() {
         return xObs;
@@ -257,9 +307,11 @@ public class TRetConsStatServ {
 
     /**
      * Define o valor da propriedade xObs.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setXObs(String value) {
         this.xObs = value;
@@ -267,9 +319,11 @@ public class TRetConsStatServ {
 
     /**
      * Obtém o valor da propriedade versao.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getVersao() {
         return versao;
@@ -277,9 +331,11 @@ public class TRetConsStatServ {
 
     /**
      * Define o valor da propriedade versao.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setVersao(String value) {
         this.versao = value;

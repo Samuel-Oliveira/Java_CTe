@@ -1,14 +1,25 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:50:29 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.evRegMultimodal;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Classe Java de anonymous complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -47,12 +58,14 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "descEvento",
-        "xRegistro",
-        "nDoc"
+    "descEvento",
+    "xRegistro",
+    "nDoc"
 })
 @XmlRootElement(name = "evRegMultimodal", namespace = "http://www.portalfiscal.inf.br/cte")
 public class EvRegMultimodal {
@@ -66,9 +79,11 @@ public class EvRegMultimodal {
 
     /**
      * Obtém o valor da propriedade descEvento.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDescEvento() {
         return descEvento;
@@ -76,9 +91,11 @@ public class EvRegMultimodal {
 
     /**
      * Define o valor da propriedade descEvento.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDescEvento(String value) {
         this.descEvento = value;
@@ -86,9 +103,11 @@ public class EvRegMultimodal {
 
     /**
      * Obtém o valor da propriedade xRegistro.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getXRegistro() {
         return xRegistro;
@@ -96,9 +115,11 @@ public class EvRegMultimodal {
 
     /**
      * Define o valor da propriedade xRegistro.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setXRegistro(String value) {
         this.xRegistro = value;
@@ -106,9 +127,11 @@ public class EvRegMultimodal {
 
     /**
      * Obtém o valor da propriedade nDoc.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNDoc() {
         return nDoc;
@@ -116,9 +139,11 @@ public class EvRegMultimodal {
 
     /**
      * Define o valor da propriedade nDoc.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNDoc(String value) {
         this.nDoc = value;

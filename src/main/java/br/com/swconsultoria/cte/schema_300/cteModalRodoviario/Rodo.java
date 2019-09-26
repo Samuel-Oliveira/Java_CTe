@@ -1,16 +1,28 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:43:52 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.cteModalRodoviario;
 
-import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Classe Java de anonymous complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -76,24 +88,29 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "rntrc",
-        "occ"
+    "rntrc",
+    "occ"
 })
-@XmlRootElement(name = "rodo")
+@XmlRootElement(name = "rodo", namespace = "http://www.portalfiscal.inf.br/cte")
 public class Rodo {
 
-    @XmlElement(name = "RNTRC", required = true)
+    @XmlElement(name = "RNTRC", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String rntrc;
-    protected List<Occ> occ;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+    protected List<Rodo.Occ> occ;
 
     /**
      * Obtém o valor da propriedade rntrc.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getRNTRC() {
         return rntrc;
@@ -101,9 +118,11 @@ public class Rodo {
 
     /**
      * Define o valor da propriedade rntrc.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setRNTRC(String value) {
         this.rntrc = value;
@@ -111,27 +130,29 @@ public class Rodo {
 
     /**
      * Gets the value of the occ property.
-     *
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the occ property.
-     *
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getOcc().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Occ }
+     * {@link Rodo.Occ }
+     * 
+     * 
      */
-    public List<Occ> getOcc() {
+    public List<Rodo.Occ> getOcc() {
         if (occ == null) {
-            occ = new ArrayList<Occ>();
+            occ = new ArrayList<Rodo.Occ>();
         }
         return this.occ;
     }
@@ -139,9 +160,9 @@ public class Rodo {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -191,29 +212,34 @@ public class Rodo {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "serie",
-            "nOcc",
-            "dEmi",
-            "emiOcc"
+        "serie",
+        "nOcc",
+        "dEmi",
+        "emiOcc"
     })
     public static class Occ {
 
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
         protected String serie;
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String nOcc;
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String dEmi;
-        @XmlElement(required = true)
-        protected EmiOcc emiOcc;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+        protected Rodo.Occ.EmiOcc emiOcc;
 
         /**
          * Obtém o valor da propriedade serie.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getSerie() {
             return serie;
@@ -221,9 +247,11 @@ public class Rodo {
 
         /**
          * Define o valor da propriedade serie.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setSerie(String value) {
             this.serie = value;
@@ -231,9 +259,11 @@ public class Rodo {
 
         /**
          * Obtém o valor da propriedade nOcc.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getNOcc() {
             return nOcc;
@@ -241,9 +271,11 @@ public class Rodo {
 
         /**
          * Define o valor da propriedade nOcc.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setNOcc(String value) {
             this.nOcc = value;
@@ -251,9 +283,11 @@ public class Rodo {
 
         /**
          * Obtém o valor da propriedade dEmi.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getDEmi() {
             return dEmi;
@@ -261,9 +295,11 @@ public class Rodo {
 
         /**
          * Define o valor da propriedade dEmi.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setDEmi(String value) {
             this.dEmi = value;
@@ -271,30 +307,34 @@ public class Rodo {
 
         /**
          * Obtém o valor da propriedade emiOcc.
-         *
-         * @return possible object is
-         * {@link EmiOcc }
+         * 
+         * @return
+         *     possible object is
+         *     {@link Rodo.Occ.EmiOcc }
+         *     
          */
-        public EmiOcc getEmiOcc() {
+        public Rodo.Occ.EmiOcc getEmiOcc() {
             return emiOcc;
         }
 
         /**
          * Define o valor da propriedade emiOcc.
-         *
-         * @param value allowed object is
-         *              {@link EmiOcc }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link Rodo.Occ.EmiOcc }
+         *     
          */
-        public void setEmiOcc(EmiOcc value) {
+        public void setEmiOcc(Rodo.Occ.EmiOcc value) {
             this.emiOcc = value;
         }
 
 
         /**
          * <p>Classe Java de anonymous complex type.
-         *
+         * 
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         *
+         * 
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -317,31 +357,38 @@ public class Rodo {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
+         * 
+         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-                "cnpj",
-                "cInt",
-                "ie",
-                "uf",
-                "fone"
+            "cnpj",
+            "cInt",
+            "ie",
+            "uf",
+            "fone"
         })
         public static class EmiOcc {
 
-            @XmlElement(name = "CNPJ", required = true)
+            @XmlElement(name = "CNPJ", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String cnpj;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String cInt;
-            @XmlElement(name = "IE", required = true)
+            @XmlElement(name = "IE", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String ie;
-            @XmlElement(name = "UF", required = true)
+            @XmlElement(name = "UF", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+            @XmlSchemaType(name = "string")
             protected TUf uf;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String fone;
 
             /**
              * Obtém o valor da propriedade cnpj.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getCNPJ() {
                 return cnpj;
@@ -349,9 +396,11 @@ public class Rodo {
 
             /**
              * Define o valor da propriedade cnpj.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -359,9 +408,11 @@ public class Rodo {
 
             /**
              * Obtém o valor da propriedade cInt.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getCInt() {
                 return cInt;
@@ -369,9 +420,11 @@ public class Rodo {
 
             /**
              * Define o valor da propriedade cInt.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setCInt(String value) {
                 this.cInt = value;
@@ -379,9 +432,11 @@ public class Rodo {
 
             /**
              * Obtém o valor da propriedade ie.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getIE() {
                 return ie;
@@ -389,9 +444,11 @@ public class Rodo {
 
             /**
              * Define o valor da propriedade ie.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setIE(String value) {
                 this.ie = value;
@@ -399,9 +456,11 @@ public class Rodo {
 
             /**
              * Obtém o valor da propriedade uf.
-             *
-             * @return possible object is
-             * {@link TUf }
+             * 
+             * @return
+             *     possible object is
+             *     {@link TUf }
+             *     
              */
             public TUf getUF() {
                 return uf;
@@ -409,9 +468,11 @@ public class Rodo {
 
             /**
              * Define o valor da propriedade uf.
-             *
-             * @param value allowed object is
-             *              {@link TUf }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link TUf }
+             *     
              */
             public void setUF(TUf value) {
                 this.uf = value;
@@ -419,9 +480,11 @@ public class Rodo {
 
             /**
              * Obtém o valor da propriedade fone.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getFone() {
                 return fone;
@@ -429,9 +492,11 @@ public class Rodo {
 
             /**
              * Define o valor da propriedade fone.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setFone(String value) {
                 this.fone = value;

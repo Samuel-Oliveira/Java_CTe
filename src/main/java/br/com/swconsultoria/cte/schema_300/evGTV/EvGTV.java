@@ -1,16 +1,28 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:49:41 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.evGTV;
 
-import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Classe Java de anonymous complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -21,6 +33,7 @@ import java.util.List;
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *               &lt;whiteSpace value="preserve"/>
  *               &lt;enumeration value="Informações da GTV"/>
+ *               &lt;enumeration value="Informacoes da GTV"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
@@ -171,11 +184,13 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "descEvento",
-        "infGTV"
+    "descEvento",
+    "infGTV"
 })
 @XmlRootElement(name = "evGTV", namespace = "http://www.portalfiscal.inf.br/cte")
 public class EvGTV {
@@ -183,13 +198,15 @@ public class EvGTV {
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String descEvento;
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
-    protected List<InfGTV> infGTV;
+    protected List<EvGTV.InfGTV> infGTV;
 
     /**
      * Obtém o valor da propriedade descEvento.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDescEvento() {
         return descEvento;
@@ -197,9 +214,11 @@ public class EvGTV {
 
     /**
      * Define o valor da propriedade descEvento.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDescEvento(String value) {
         this.descEvento = value;
@@ -207,27 +226,29 @@ public class EvGTV {
 
     /**
      * Gets the value of the infGTV property.
-     *
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the infGTV property.
-     *
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInfGTV().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link InfGTV }
+     * {@link EvGTV.InfGTV }
+     * 
+     * 
      */
-    public List<InfGTV> getInfGTV() {
+    public List<EvGTV.InfGTV> getInfGTV() {
         if (infGTV == null) {
-            infGTV = new ArrayList<InfGTV>();
+            infGTV = new ArrayList<EvGTV.InfGTV>();
         }
         return this.infGTV;
     }
@@ -235,9 +256,9 @@ public class EvGTV {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -380,22 +401,24 @@ public class EvGTV {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "nDoc",
-            "id",
-            "serie",
-            "subserie",
-            "dEmi",
-            "ndv",
-            "qCarga",
-            "infEspecie",
-            "rem",
-            "dest",
-            "placa",
-            "uf",
-            "rntrc"
+        "nDoc",
+        "id",
+        "serie",
+        "subserie",
+        "dEmi",
+        "ndv",
+        "qCarga",
+        "infEspecie",
+        "rem",
+        "dest",
+        "placa",
+        "uf",
+        "rntrc"
     })
     public static class InfGTV {
 
@@ -414,23 +437,26 @@ public class EvGTV {
         @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String qCarga;
         @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
-        protected List<InfEspecie> infEspecie;
+        protected List<EvGTV.InfGTV.InfEspecie> infEspecie;
         @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
-        protected Rem rem;
+        protected EvGTV.InfGTV.Rem rem;
         @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
-        protected Dest dest;
+        protected EvGTV.InfGTV.Dest dest;
         @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
         protected String placa;
         @XmlElement(name = "UF", namespace = "http://www.portalfiscal.inf.br/cte")
+        @XmlSchemaType(name = "string")
         protected TUf uf;
         @XmlElement(name = "RNTRC", namespace = "http://www.portalfiscal.inf.br/cte")
         protected String rntrc;
 
         /**
          * Obtém o valor da propriedade nDoc.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getNDoc() {
             return nDoc;
@@ -438,9 +464,11 @@ public class EvGTV {
 
         /**
          * Define o valor da propriedade nDoc.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setNDoc(String value) {
             this.nDoc = value;
@@ -448,9 +476,11 @@ public class EvGTV {
 
         /**
          * Obtém o valor da propriedade id.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getId() {
             return id;
@@ -458,9 +488,11 @@ public class EvGTV {
 
         /**
          * Define o valor da propriedade id.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setId(String value) {
             this.id = value;
@@ -468,9 +500,11 @@ public class EvGTV {
 
         /**
          * Obtém o valor da propriedade serie.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getSerie() {
             return serie;
@@ -478,9 +512,11 @@ public class EvGTV {
 
         /**
          * Define o valor da propriedade serie.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setSerie(String value) {
             this.serie = value;
@@ -488,9 +524,11 @@ public class EvGTV {
 
         /**
          * Obtém o valor da propriedade subserie.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getSubserie() {
             return subserie;
@@ -498,9 +536,11 @@ public class EvGTV {
 
         /**
          * Define o valor da propriedade subserie.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setSubserie(String value) {
             this.subserie = value;
@@ -508,9 +548,11 @@ public class EvGTV {
 
         /**
          * Obtém o valor da propriedade dEmi.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getDEmi() {
             return dEmi;
@@ -518,9 +560,11 @@ public class EvGTV {
 
         /**
          * Define o valor da propriedade dEmi.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setDEmi(String value) {
             this.dEmi = value;
@@ -528,9 +572,11 @@ public class EvGTV {
 
         /**
          * Obtém o valor da propriedade ndv.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getNDV() {
             return ndv;
@@ -538,9 +584,11 @@ public class EvGTV {
 
         /**
          * Define o valor da propriedade ndv.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setNDV(String value) {
             this.ndv = value;
@@ -548,9 +596,11 @@ public class EvGTV {
 
         /**
          * Obtém o valor da propriedade qCarga.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getQCarga() {
             return qCarga;
@@ -558,9 +608,11 @@ public class EvGTV {
 
         /**
          * Define o valor da propriedade qCarga.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setQCarga(String value) {
             this.qCarga = value;
@@ -568,76 +620,88 @@ public class EvGTV {
 
         /**
          * Gets the value of the infEspecie property.
-         *
+         * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the infEspecie property.
-         *
+         * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getInfEspecie().add(newItem);
          * </pre>
-         *
-         *
+         * 
+         * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link InfEspecie }
+         * {@link EvGTV.InfGTV.InfEspecie }
+         * 
+         * 
          */
-        public List<InfEspecie> getInfEspecie() {
+        public List<EvGTV.InfGTV.InfEspecie> getInfEspecie() {
             if (infEspecie == null) {
-                infEspecie = new ArrayList<InfEspecie>();
+                infEspecie = new ArrayList<EvGTV.InfGTV.InfEspecie>();
             }
             return this.infEspecie;
         }
 
         /**
          * Obtém o valor da propriedade rem.
-         *
-         * @return possible object is
-         * {@link Rem }
+         * 
+         * @return
+         *     possible object is
+         *     {@link EvGTV.InfGTV.Rem }
+         *     
          */
-        public Rem getRem() {
+        public EvGTV.InfGTV.Rem getRem() {
             return rem;
         }
 
         /**
          * Define o valor da propriedade rem.
-         *
-         * @param value allowed object is
-         *              {@link Rem }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link EvGTV.InfGTV.Rem }
+         *     
          */
-        public void setRem(Rem value) {
+        public void setRem(EvGTV.InfGTV.Rem value) {
             this.rem = value;
         }
 
         /**
          * Obtém o valor da propriedade dest.
-         *
-         * @return possible object is
-         * {@link Dest }
+         * 
+         * @return
+         *     possible object is
+         *     {@link EvGTV.InfGTV.Dest }
+         *     
          */
-        public Dest getDest() {
+        public EvGTV.InfGTV.Dest getDest() {
             return dest;
         }
 
         /**
          * Define o valor da propriedade dest.
-         *
-         * @param value allowed object is
-         *              {@link Dest }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link EvGTV.InfGTV.Dest }
+         *     
          */
-        public void setDest(Dest value) {
+        public void setDest(EvGTV.InfGTV.Dest value) {
             this.dest = value;
         }
 
         /**
          * Obtém o valor da propriedade placa.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getPlaca() {
             return placa;
@@ -645,9 +709,11 @@ public class EvGTV {
 
         /**
          * Define o valor da propriedade placa.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setPlaca(String value) {
             this.placa = value;
@@ -655,9 +721,11 @@ public class EvGTV {
 
         /**
          * Obtém o valor da propriedade uf.
-         *
-         * @return possible object is
-         * {@link TUf }
+         * 
+         * @return
+         *     possible object is
+         *     {@link TUf }
+         *     
          */
         public TUf getUF() {
             return uf;
@@ -665,9 +733,11 @@ public class EvGTV {
 
         /**
          * Define o valor da propriedade uf.
-         *
-         * @param value allowed object is
-         *              {@link TUf }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link TUf }
+         *     
          */
         public void setUF(TUf value) {
             this.uf = value;
@@ -675,9 +745,11 @@ public class EvGTV {
 
         /**
          * Obtém o valor da propriedade rntrc.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getRNTRC() {
             return rntrc;
@@ -685,9 +757,11 @@ public class EvGTV {
 
         /**
          * Define o valor da propriedade rntrc.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setRNTRC(String value) {
             this.rntrc = value;
@@ -696,9 +770,9 @@ public class EvGTV {
 
         /**
          * <p>Classe Java de anonymous complex type.
-         *
+         * 
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         *
+         * 
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -728,14 +802,16 @@ public class EvGTV {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
+         * 
+         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-                "cnpj",
-                "cpf",
-                "ie",
-                "uf",
-                "xNome"
+            "cnpj",
+            "cpf",
+            "ie",
+            "uf",
+            "xNome"
         })
         public static class Dest {
 
@@ -746,15 +822,18 @@ public class EvGTV {
             @XmlElement(name = "IE", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String ie;
             @XmlElement(name = "UF", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+            @XmlSchemaType(name = "string")
             protected TUf uf;
             @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String xNome;
 
             /**
              * Obtém o valor da propriedade cnpj.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getCNPJ() {
                 return cnpj;
@@ -762,9 +841,11 @@ public class EvGTV {
 
             /**
              * Define o valor da propriedade cnpj.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -772,9 +853,11 @@ public class EvGTV {
 
             /**
              * Obtém o valor da propriedade cpf.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getCPF() {
                 return cpf;
@@ -782,9 +865,11 @@ public class EvGTV {
 
             /**
              * Define o valor da propriedade cpf.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -792,9 +877,11 @@ public class EvGTV {
 
             /**
              * Obtém o valor da propriedade ie.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getIE() {
                 return ie;
@@ -802,9 +889,11 @@ public class EvGTV {
 
             /**
              * Define o valor da propriedade ie.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setIE(String value) {
                 this.ie = value;
@@ -812,9 +901,11 @@ public class EvGTV {
 
             /**
              * Obtém o valor da propriedade uf.
-             *
-             * @return possible object is
-             * {@link TUf }
+             * 
+             * @return
+             *     possible object is
+             *     {@link TUf }
+             *     
              */
             public TUf getUF() {
                 return uf;
@@ -822,9 +913,11 @@ public class EvGTV {
 
             /**
              * Define o valor da propriedade uf.
-             *
-             * @param value allowed object is
-             *              {@link TUf }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link TUf }
+             *     
              */
             public void setUF(TUf value) {
                 this.uf = value;
@@ -832,9 +925,11 @@ public class EvGTV {
 
             /**
              * Obtém o valor da propriedade xNome.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getXNome() {
                 return xNome;
@@ -842,9 +937,11 @@ public class EvGTV {
 
             /**
              * Define o valor da propriedade xNome.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setXNome(String value) {
                 this.xNome = value;
@@ -855,9 +952,9 @@ public class EvGTV {
 
         /**
          * <p>Classe Java de anonymous complex type.
-         *
+         * 
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         *
+         * 
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -880,11 +977,13 @@ public class EvGTV {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
+         * 
+         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-                "tpEspecie",
-                "vEspecie"
+            "tpEspecie",
+            "vEspecie"
         })
         public static class InfEspecie {
 
@@ -895,9 +994,11 @@ public class EvGTV {
 
             /**
              * Obtém o valor da propriedade tpEspecie.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getTpEspecie() {
                 return tpEspecie;
@@ -905,9 +1006,11 @@ public class EvGTV {
 
             /**
              * Define o valor da propriedade tpEspecie.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setTpEspecie(String value) {
                 this.tpEspecie = value;
@@ -915,9 +1018,11 @@ public class EvGTV {
 
             /**
              * Obtém o valor da propriedade vEspecie.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getVEspecie() {
                 return vEspecie;
@@ -925,9 +1030,11 @@ public class EvGTV {
 
             /**
              * Define o valor da propriedade vEspecie.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setVEspecie(String value) {
                 this.vEspecie = value;
@@ -938,9 +1045,9 @@ public class EvGTV {
 
         /**
          * <p>Classe Java de anonymous complex type.
-         *
+         * 
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         *
+         * 
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -970,14 +1077,16 @@ public class EvGTV {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
+         * 
+         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-                "cnpj",
-                "cpf",
-                "ie",
-                "uf",
-                "xNome"
+            "cnpj",
+            "cpf",
+            "ie",
+            "uf",
+            "xNome"
         })
         public static class Rem {
 
@@ -988,15 +1097,18 @@ public class EvGTV {
             @XmlElement(name = "IE", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String ie;
             @XmlElement(name = "UF", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+            @XmlSchemaType(name = "string")
             protected TUf uf;
             @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String xNome;
 
             /**
              * Obtém o valor da propriedade cnpj.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getCNPJ() {
                 return cnpj;
@@ -1004,9 +1116,11 @@ public class EvGTV {
 
             /**
              * Define o valor da propriedade cnpj.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;
@@ -1014,9 +1128,11 @@ public class EvGTV {
 
             /**
              * Obtém o valor da propriedade cpf.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getCPF() {
                 return cpf;
@@ -1024,9 +1140,11 @@ public class EvGTV {
 
             /**
              * Define o valor da propriedade cpf.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setCPF(String value) {
                 this.cpf = value;
@@ -1034,9 +1152,11 @@ public class EvGTV {
 
             /**
              * Obtém o valor da propriedade ie.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getIE() {
                 return ie;
@@ -1044,9 +1164,11 @@ public class EvGTV {
 
             /**
              * Define o valor da propriedade ie.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setIE(String value) {
                 this.ie = value;
@@ -1054,9 +1176,11 @@ public class EvGTV {
 
             /**
              * Obtém o valor da propriedade uf.
-             *
-             * @return possible object is
-             * {@link TUf }
+             * 
+             * @return
+             *     possible object is
+             *     {@link TUf }
+             *     
              */
             public TUf getUF() {
                 return uf;
@@ -1064,9 +1188,11 @@ public class EvGTV {
 
             /**
              * Define o valor da propriedade uf.
-             *
-             * @param value allowed object is
-             *              {@link TUf }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link TUf }
+             *     
              */
             public void setUF(TUf value) {
                 this.uf = value;
@@ -1074,9 +1200,11 @@ public class EvGTV {
 
             /**
              * Obtém o valor da propriedade xNome.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getXNome() {
                 return xNome;
@@ -1084,9 +1212,11 @@ public class EvGTV {
 
             /**
              * Define o valor da propriedade xNome.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setXNome(String value) {
                 this.xNome = value;

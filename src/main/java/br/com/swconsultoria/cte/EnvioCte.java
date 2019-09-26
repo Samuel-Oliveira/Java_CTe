@@ -1,10 +1,16 @@
 package br.com.swconsultoria.cte;
 
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
+import br.com.swconsultoria.cte.dom.enuns.AssinaturaEnum;
+import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
+import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_300.enviCTe.TEnviCTe;
 import br.com.swconsultoria.cte.schema_300.retEnviCTe.TRetEnviCTe;
-import br.com.swconsultoria.cte.util.*;
+import br.com.swconsultoria.cte.util.ConstantesCte;
+import br.com.swconsultoria.cte.util.LoggerUtil;
+import br.com.swconsultoria.cte.util.WebServiceCteUtil;
+import br.com.swconsultoria.cte.util.XmlCteUtil;
 import br.com.swconsultoria.cte.wsdl.CteRecepcao.CteRecepcaoStub;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
@@ -24,34 +30,38 @@ class EnvioCte {
     /**
      * Metodo para Montar a CTE
      *
-     * @param TEnviNFe
+     * @param TEnviCTe
      * @return TEnviCTe
-     * @throws NfeException
+     * @throws CteException
      */
     static TEnviCTe montaCte(ConfiguracoesCte config, TEnviCTe enviCTe, boolean valida) throws CteException {
         try {
 
             /**
+             * Cria o xml
+             */
+            String xml = XmlCteUtil.objectToXml(enviCTe);
+
+            /**
              * Assina o Xml
              */
-            String xml = Assinatura.assinar(config, XmlCteUtil.objectCteToXml(enviCTe), Assinatura.CTE);
+            xml = Assinar.assinaCte(config, xml, AssinaturaEnum.CTE);
+
+            //Retira Quebra de Linha
+            xml = xml.replaceAll(System.lineSeparator(), "");
+
+            LoggerUtil.log(EnvioCte.class, "[XML-ASSINADO]: " + xml);
 
             /**
              * Valida o Xml caso sejá selecionado True
              */
             if (valida) {
-                String erros = ValidarCte.validaXml(config, xml, ConstantesCte.SERVICOS.ENVIO_CTE);
-                if (!ObjetoUtil.isEmpty(erros)) {
-                    throw new CteException("Erro Na Validação do Xml: " + erros);
-                }
-            }
-
-            if (config.isLog()) {
-                System.out.println("Cte Assinado: " + xml);
+                new Validar().validaXml(config, xml, ServicosEnum.ENVIO_CTE);
             }
 
             return XmlCteUtil.xmlToObject(xml, TEnviCTe.class);
-        } catch (JAXBException e) {
+
+        } catch (Exception e) {
             throw new CteException(e.getMessage());
         }
 
@@ -67,29 +77,12 @@ class EnvioCte {
     static TRetEnviCTe enviaCte(ConfiguracoesCte config, TEnviCTe enviCTe) throws CteException {
 
         try {
-            CteRecepcaoStub.CteRecepcaoLoteResult result = enviar(config, XmlCteUtil.objectCteToXml(enviCTe));
-            return XmlCteUtil.xmlToObject(result.getExtraElement().toString(),
-                    TRetEnviCTe.class);
-        } catch (JAXBException e) {
-            throw new CteException(e.getMessage());
-        }
 
-    }
-
-    /**
-     * Metodo para Enviar
-     *
-     * @param TEnviCTe
-     * @return TRetEnviCTe
-     * @throws CteException
-     */
-    private static CteRecepcaoStub.CteRecepcaoLoteResult enviar(ConfiguracoesCte config, String xml) throws CteException {
-
-        try {
+            String xml = XmlCteUtil.objectToXml(enviCTe);
 
             OMElement ome = AXIOMUtil.stringToOM(xml);
 
-            if (config.getEstado().equals(Estados.PR)) {
+            if (config.getEstado().equals(EstadosEnum.PR)) {
                 Iterator<?> children = ome.getChildrenWithLocalName("CTe");
                 while (children.hasNext()) {
                     OMElement omElement = (OMElement) children.next();
@@ -99,9 +92,7 @@ class EnvioCte {
                 }
             }
 
-            if (config.isLog()) {
-                System.out.println("Cte para Envio: " + ome.toString());
-            }
+            LoggerUtil.log(EnvioCte.class, "[XML-ENVIO]: " + xml);
 
             CteRecepcaoStub.CteDadosMsg dadosMsg = new CteRecepcaoStub.CteDadosMsg();
             dadosMsg.setExtraElement(ome);
@@ -110,7 +101,7 @@ class EnvioCte {
             /**
              * Codigo do Estado.
              */
-            cteCabecMsg.setCUF(String.valueOf(config.getEstado().getCodigoIbge()));
+            cteCabecMsg.setCUF(String.valueOf(config.getEstado().getCodigoUF()));
 
             /**
              * Versao do XML
@@ -121,10 +112,13 @@ class EnvioCte {
             cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
 
             CteRecepcaoStub stub = new CteRecepcaoStub(
-                    WebServiceUtil.getUrl(config, ConstantesCte.CTE, ConstantesCte.SERVICOS.ENVIO_CTE));
-            return stub.cteRecepcaoLote(dadosMsg, cteCabecMsgE);
+                    WebServiceCteUtil.getUrl(config, ServicosEnum.ENVIO_CTE));
+            CteRecepcaoStub.CteRecepcaoLoteResult result = stub.cteRecepcaoLote(dadosMsg, cteCabecMsgE);
 
-        } catch (RemoteException | XMLStreamException e) {
+            return XmlCteUtil.xmlToObject(result.getExtraElement().toString(),
+                    TRetEnviCTe.class);
+
+        } catch (RemoteException | XMLStreamException | JAXBException e) {
             throw new CteException(e.getMessage());
         }
 

@@ -1,16 +1,28 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 09:59:16 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.procEventoCTe;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * Tipo procEvento
- *
+ * 
  * <p>Classe Java de TProcEvento complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType name="TProcEvento">
  *   &lt;complexContent>
@@ -25,20 +37,22 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TProcEvento", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
-        "eventoCTe",
-        "retEventoCTe"
+    "eventoCTe",
+    "retEventoCTe"
 })
 @XmlSeeAlso({
-        ProcEventoCTe.class
+    ProcEventoCTe.class
 })
 public class TProcEvento {
 
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected TEvento eventoCTe;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected TRetEvento retEventoCTe;
     @XmlAttribute(name = "versao", required = true)
     protected String versao;
@@ -47,9 +61,11 @@ public class TProcEvento {
 
     /**
      * Obtém o valor da propriedade eventoCTe.
-     *
-     * @return possible object is
-     * {@link TEvento }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TEvento }
+     *     
      */
     public TEvento getEventoCTe() {
         return eventoCTe;
@@ -57,9 +73,11 @@ public class TProcEvento {
 
     /**
      * Define o valor da propriedade eventoCTe.
-     *
-     * @param value allowed object is
-     *              {@link TEvento }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TEvento }
+     *     
      */
     public void setEventoCTe(TEvento value) {
         this.eventoCTe = value;
@@ -67,9 +85,11 @@ public class TProcEvento {
 
     /**
      * Obtém o valor da propriedade retEventoCTe.
-     *
-     * @return possible object is
-     * {@link TRetEvento }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TRetEvento }
+     *     
      */
     public TRetEvento getRetEventoCTe() {
         return retEventoCTe;
@@ -77,9 +97,11 @@ public class TProcEvento {
 
     /**
      * Define o valor da propriedade retEventoCTe.
-     *
-     * @param value allowed object is
-     *              {@link TRetEvento }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TRetEvento }
+     *     
      */
     public void setRetEventoCTe(TRetEvento value) {
         this.retEventoCTe = value;
@@ -87,9 +109,11 @@ public class TProcEvento {
 
     /**
      * Obtém o valor da propriedade versao.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getVersao() {
         return versao;
@@ -97,9 +121,11 @@ public class TProcEvento {
 
     /**
      * Define o valor da propriedade versao.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -107,9 +133,11 @@ public class TProcEvento {
 
     /**
      * Obtém o valor da propriedade ipTransmissor.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getIpTransmissor() {
         return ipTransmissor;
@@ -117,9 +145,11 @@ public class TProcEvento {
 
     /**
      * Define o valor da propriedade ipTransmissor.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setIpTransmissor(String value) {
         this.ipTransmissor = value;

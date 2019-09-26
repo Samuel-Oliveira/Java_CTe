@@ -1,16 +1,27 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:55:16 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.retConsSitCTe;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * Tipo Pedido de Consulta da Situação Atual do Conhecimento de Transporte eletrônico
- *
+ * 
  * <p>Classe Java de TConsSitCTe complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType name="TConsSitCTe">
  *   &lt;complexContent>
@@ -30,29 +41,33 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TConsSitCTe", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
-        "tpAmb",
-        "xServ",
-        "chCTe"
+    "tpAmb",
+    "xServ",
+    "chCTe"
 })
 public class TConsSitCTe {
 
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String tpAmb;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String xServ;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String chCTe;
     @XmlAttribute(name = "versao", required = true)
     protected String versao;
 
     /**
      * Obtém o valor da propriedade tpAmb.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getTpAmb() {
         return tpAmb;
@@ -60,9 +75,11 @@ public class TConsSitCTe {
 
     /**
      * Define o valor da propriedade tpAmb.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setTpAmb(String value) {
         this.tpAmb = value;
@@ -70,9 +87,11 @@ public class TConsSitCTe {
 
     /**
      * Obtém o valor da propriedade xServ.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getXServ() {
         return xServ;
@@ -80,9 +99,11 @@ public class TConsSitCTe {
 
     /**
      * Define o valor da propriedade xServ.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setXServ(String value) {
         this.xServ = value;
@@ -90,9 +111,11 @@ public class TConsSitCTe {
 
     /**
      * Obtém o valor da propriedade chCTe.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getChCTe() {
         return chCTe;
@@ -100,9 +123,11 @@ public class TConsSitCTe {
 
     /**
      * Define o valor da propriedade chCTe.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setChCTe(String value) {
         this.chCTe = value;
@@ -110,9 +135,11 @@ public class TConsSitCTe {
 
     /**
      * Obtém o valor da propriedade versao.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getVersao() {
         return versao;
@@ -120,9 +147,11 @@ public class TConsSitCTe {
 
     /**
      * Define o valor da propriedade versao.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setVersao(String value) {
         this.versao = value;

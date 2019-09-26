@@ -1,14 +1,26 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 09:57:43 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.procCTeOS;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Classe Java de anonymous complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -23,18 +35,20 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "cTeOS",
-        "protCTe"
+    "cTeOS",
+    "protCTe"
 })
-@XmlRootElement(name = "cteOSProc")
+@XmlRootElement(name = "cteOSProc", namespace = "http://www.portalfiscal.inf.br/cte")
 public class CteOSProc {
 
-    @XmlElement(name = "CTeOS", required = true)
+    @XmlElement(name = "CTeOS", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected TCTeOS cTeOS;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected TProtCTeOS protCTe;
     @XmlAttribute(name = "versao", required = true)
     protected String versao;
@@ -43,9 +57,11 @@ public class CteOSProc {
 
     /**
      * Obtém o valor da propriedade cTeOS.
-     *
-     * @return possible object is
-     * {@link TCTeOS }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TCTeOS }
+     *     
      */
     public TCTeOS getCTeOS() {
         return cTeOS;
@@ -53,9 +69,11 @@ public class CteOSProc {
 
     /**
      * Define o valor da propriedade cTeOS.
-     *
-     * @param value allowed object is
-     *              {@link TCTeOS }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TCTeOS }
+     *     
      */
     public void setCTeOS(TCTeOS value) {
         this.cTeOS = value;
@@ -63,9 +81,11 @@ public class CteOSProc {
 
     /**
      * Obtém o valor da propriedade protCTe.
-     *
-     * @return possible object is
-     * {@link TProtCTeOS }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TProtCTeOS }
+     *     
      */
     public TProtCTeOS getProtCTe() {
         return protCTe;
@@ -73,9 +93,11 @@ public class CteOSProc {
 
     /**
      * Define o valor da propriedade protCTe.
-     *
-     * @param value allowed object is
-     *              {@link TProtCTeOS }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TProtCTeOS }
+     *     
      */
     public void setProtCTe(TProtCTeOS value) {
         this.protCTe = value;
@@ -83,9 +105,11 @@ public class CteOSProc {
 
     /**
      * Obtém o valor da propriedade versao.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getVersao() {
         return versao;
@@ -93,9 +117,11 @@ public class CteOSProc {
 
     /**
      * Define o valor da propriedade versao.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -103,9 +129,11 @@ public class CteOSProc {
 
     /**
      * Obtém o valor da propriedade ipTransmissor.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getIpTransmissor() {
         return ipTransmissor;
@@ -113,9 +141,11 @@ public class CteOSProc {
 
     /**
      * Define o valor da propriedade ipTransmissor.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setIpTransmissor(String value) {
         this.ipTransmissor = value;

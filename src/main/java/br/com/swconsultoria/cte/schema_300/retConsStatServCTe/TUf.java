@@ -1,3 +1,10 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:56:01 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.retConsStatServCTe;
 
@@ -7,7 +14,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Classe Java de TUf.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * <p>
  * <pre>
@@ -45,8 +52,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
+ * 
  */
-@XmlType(name = "TUf")
+@XmlType(name = "TUf", namespace = "http://www.portalfiscal.inf.br/cte")
 @XmlEnum
 public enum TUf {
 
@@ -79,12 +87,12 @@ public enum TUf {
     TO,
     EX;
 
-    public static TUf fromValue(String v) {
-        return valueOf(v);
-    }
-
     public String value() {
         return name();
+    }
+
+    public static TUf fromValue(String v) {
+        return valueOf(v);
     }
 
 }

@@ -1,19 +1,27 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:43:52 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.cteModalRodoviario;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * Tipo Dados do Endereço
- *
+ * 
  * <p>Classe Java de TEndeEmi complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType name="TEndeEmi">
  *   &lt;complexContent>
@@ -75,43 +83,50 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TEndeEmi", propOrder = {
-        "xLgr",
-        "nro",
-        "xCpl",
-        "xBairro",
-        "cMun",
-        "xMun",
-        "cep",
-        "uf",
-        "fone"
+@XmlType(name = "TEndeEmi", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
+    "xLgr",
+    "nro",
+    "xCpl",
+    "xBairro",
+    "cMun",
+    "xMun",
+    "cep",
+    "uf",
+    "fone"
 })
 public class TEndeEmi {
 
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String xLgr;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String nro;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected String xCpl;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String xBairro;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String cMun;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String xMun;
-    @XmlElement(name = "CEP")
+    @XmlElement(name = "CEP", namespace = "http://www.portalfiscal.inf.br/cte")
     protected String cep;
-    @XmlElement(name = "UF", required = true)
+    @XmlElement(name = "UF", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+    @XmlSchemaType(name = "string")
     protected TUFSemEX uf;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected String fone;
 
     /**
      * Obtém o valor da propriedade xLgr.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getXLgr() {
         return xLgr;
@@ -119,9 +134,11 @@ public class TEndeEmi {
 
     /**
      * Define o valor da propriedade xLgr.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setXLgr(String value) {
         this.xLgr = value;
@@ -129,9 +146,11 @@ public class TEndeEmi {
 
     /**
      * Obtém o valor da propriedade nro.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNro() {
         return nro;
@@ -139,9 +158,11 @@ public class TEndeEmi {
 
     /**
      * Define o valor da propriedade nro.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNro(String value) {
         this.nro = value;
@@ -149,9 +170,11 @@ public class TEndeEmi {
 
     /**
      * Obtém o valor da propriedade xCpl.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getXCpl() {
         return xCpl;
@@ -159,9 +182,11 @@ public class TEndeEmi {
 
     /**
      * Define o valor da propriedade xCpl.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setXCpl(String value) {
         this.xCpl = value;
@@ -169,9 +194,11 @@ public class TEndeEmi {
 
     /**
      * Obtém o valor da propriedade xBairro.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getXBairro() {
         return xBairro;
@@ -179,9 +206,11 @@ public class TEndeEmi {
 
     /**
      * Define o valor da propriedade xBairro.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setXBairro(String value) {
         this.xBairro = value;
@@ -189,9 +218,11 @@ public class TEndeEmi {
 
     /**
      * Obtém o valor da propriedade cMun.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCMun() {
         return cMun;
@@ -199,9 +230,11 @@ public class TEndeEmi {
 
     /**
      * Define o valor da propriedade cMun.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCMun(String value) {
         this.cMun = value;
@@ -209,9 +242,11 @@ public class TEndeEmi {
 
     /**
      * Obtém o valor da propriedade xMun.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getXMun() {
         return xMun;
@@ -219,9 +254,11 @@ public class TEndeEmi {
 
     /**
      * Define o valor da propriedade xMun.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setXMun(String value) {
         this.xMun = value;
@@ -229,9 +266,11 @@ public class TEndeEmi {
 
     /**
      * Obtém o valor da propriedade cep.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCEP() {
         return cep;
@@ -239,9 +278,11 @@ public class TEndeEmi {
 
     /**
      * Define o valor da propriedade cep.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCEP(String value) {
         this.cep = value;
@@ -249,9 +290,11 @@ public class TEndeEmi {
 
     /**
      * Obtém o valor da propriedade uf.
-     *
-     * @return possible object is
-     * {@link TUFSemEX }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TUFSemEX }
+     *     
      */
     public TUFSemEX getUF() {
         return uf;
@@ -259,9 +302,11 @@ public class TEndeEmi {
 
     /**
      * Define o valor da propriedade uf.
-     *
-     * @param value allowed object is
-     *              {@link TUFSemEX }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TUFSemEX }
+     *     
      */
     public void setUF(TUFSemEX value) {
         this.uf = value;
@@ -269,9 +314,11 @@ public class TEndeEmi {
 
     /**
      * Obtém o valor da propriedade fone.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getFone() {
         return fone;
@@ -279,9 +326,11 @@ public class TEndeEmi {
 
     /**
      * Define o valor da propriedade fone.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setFone(String value) {
         this.fone = value;

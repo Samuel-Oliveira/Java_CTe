@@ -1,18 +1,30 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:50:51 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.inutCTe;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  * Tipo Pedido de Inutilização de Numeração do Conhecimento de Transporte eletrônico
- *
+ * 
  * <p>Classe Java de TInutCTe complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType name="TInutCTe">
  *   &lt;complexContent>
@@ -63,16 +75,18 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TInutCTe", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
-        "infInut",
-        "signature"
+    "infInut",
+    "signature"
 })
 public class TInutCTe {
 
-    @XmlElement(required = true)
-    protected InfInut infInut;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+    protected TInutCTe.InfInut infInut;
     @XmlElement(name = "Signature", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected SignatureType signature;
     @XmlAttribute(name = "versao", required = true)
@@ -80,29 +94,35 @@ public class TInutCTe {
 
     /**
      * Obtém o valor da propriedade infInut.
-     *
-     * @return possible object is
-     * {@link InfInut }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TInutCTe.InfInut }
+     *     
      */
-    public InfInut getInfInut() {
+    public TInutCTe.InfInut getInfInut() {
         return infInut;
     }
 
     /**
      * Define o valor da propriedade infInut.
-     *
-     * @param value allowed object is
-     *              {@link InfInut }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TInutCTe.InfInut }
+     *     
      */
-    public void setInfInut(InfInut value) {
+    public void setInfInut(TInutCTe.InfInut value) {
         this.infInut = value;
     }
 
     /**
      * Obtém o valor da propriedade signature.
-     *
-     * @return possible object is
-     * {@link SignatureType }
+     * 
+     * @return
+     *     possible object is
+     *     {@link SignatureType }
+     *     
      */
     public SignatureType getSignature() {
         return signature;
@@ -110,9 +130,11 @@ public class TInutCTe {
 
     /**
      * Define o valor da propriedade signature.
-     *
-     * @param value allowed object is
-     *              {@link SignatureType }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link SignatureType }
+     *     
      */
     public void setSignature(SignatureType value) {
         this.signature = value;
@@ -120,9 +142,11 @@ public class TInutCTe {
 
     /**
      * Obtém o valor da propriedade versao.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getVersao() {
         return versao;
@@ -130,9 +154,11 @@ public class TInutCTe {
 
     /**
      * Define o valor da propriedade versao.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -141,9 +167,9 @@ public class TInutCTe {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -177,19 +203,21 @@ public class TInutCTe {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "tpAmb",
-            "xServ",
-            "cuf",
-            "ano",
-            "cnpj",
-            "mod",
-            "serie",
-            "nctIni",
-            "nctFin",
-            "xJust"
+        "tpAmb",
+        "xServ",
+        "cuf",
+        "ano",
+        "cnpj",
+        "mod",
+        "serie",
+        "nctIni",
+        "nctFin",
+        "xJust"
     })
     public static class InfInut {
 
@@ -220,9 +248,11 @@ public class TInutCTe {
 
         /**
          * Obtém o valor da propriedade tpAmb.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getTpAmb() {
             return tpAmb;
@@ -230,9 +260,11 @@ public class TInutCTe {
 
         /**
          * Define o valor da propriedade tpAmb.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setTpAmb(String value) {
             this.tpAmb = value;
@@ -240,9 +272,11 @@ public class TInutCTe {
 
         /**
          * Obtém o valor da propriedade xServ.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getXServ() {
             return xServ;
@@ -250,9 +284,11 @@ public class TInutCTe {
 
         /**
          * Define o valor da propriedade xServ.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setXServ(String value) {
             this.xServ = value;
@@ -260,9 +296,11 @@ public class TInutCTe {
 
         /**
          * Obtém o valor da propriedade cuf.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCUF() {
             return cuf;
@@ -270,9 +308,11 @@ public class TInutCTe {
 
         /**
          * Define o valor da propriedade cuf.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCUF(String value) {
             this.cuf = value;
@@ -280,6 +320,7 @@ public class TInutCTe {
 
         /**
          * Obtém o valor da propriedade ano.
+         * 
          */
         public short getAno() {
             return ano;
@@ -287,6 +328,7 @@ public class TInutCTe {
 
         /**
          * Define o valor da propriedade ano.
+         * 
          */
         public void setAno(short value) {
             this.ano = value;
@@ -294,9 +336,11 @@ public class TInutCTe {
 
         /**
          * Obtém o valor da propriedade cnpj.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCNPJ() {
             return cnpj;
@@ -304,9 +348,11 @@ public class TInutCTe {
 
         /**
          * Define o valor da propriedade cnpj.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCNPJ(String value) {
             this.cnpj = value;
@@ -314,9 +360,11 @@ public class TInutCTe {
 
         /**
          * Obtém o valor da propriedade mod.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getMod() {
             return mod;
@@ -324,9 +372,11 @@ public class TInutCTe {
 
         /**
          * Define o valor da propriedade mod.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setMod(String value) {
             this.mod = value;
@@ -334,9 +384,11 @@ public class TInutCTe {
 
         /**
          * Obtém o valor da propriedade serie.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getSerie() {
             return serie;
@@ -344,9 +396,11 @@ public class TInutCTe {
 
         /**
          * Define o valor da propriedade serie.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setSerie(String value) {
             this.serie = value;
@@ -354,9 +408,11 @@ public class TInutCTe {
 
         /**
          * Obtém o valor da propriedade nctIni.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getNCTIni() {
             return nctIni;
@@ -364,9 +420,11 @@ public class TInutCTe {
 
         /**
          * Define o valor da propriedade nctIni.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setNCTIni(String value) {
             this.nctIni = value;
@@ -374,9 +432,11 @@ public class TInutCTe {
 
         /**
          * Obtém o valor da propriedade nctFin.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getNCTFin() {
             return nctFin;
@@ -384,9 +444,11 @@ public class TInutCTe {
 
         /**
          * Define o valor da propriedade nctFin.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setNCTFin(String value) {
             this.nctFin = value;
@@ -394,9 +456,11 @@ public class TInutCTe {
 
         /**
          * Obtém o valor da propriedade xJust.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getXJust() {
             return xJust;
@@ -404,9 +468,11 @@ public class TInutCTe {
 
         /**
          * Define o valor da propriedade xJust.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setXJust(String value) {
             this.xJust = value;
@@ -414,9 +480,11 @@ public class TInutCTe {
 
         /**
          * Obtém o valor da propriedade id.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getId() {
             return id;
@@ -424,9 +492,11 @@ public class TInutCTe {
 
         /**
          * Define o valor da propriedade id.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setId(String value) {
             this.id = value;

@@ -1,16 +1,27 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:41:38 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.cteModalAereo;
 
-import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Classe Java de anonymous complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -159,35 +170,41 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "nMinu",
-        "noca",
-        "dPrevAereo",
-        "natCarga",
-        "tarifa",
-        "peri"
+    "nMinu",
+    "noca",
+    "dPrevAereo",
+    "natCarga",
+    "tarifa",
+    "peri"
 })
-@XmlRootElement(name = "aereo")
+@XmlRootElement(name = "aereo", namespace = "http://www.portalfiscal.inf.br/cte")
 public class Aereo {
 
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected String nMinu;
-    @XmlElement(name = "nOCA")
+    @XmlElement(name = "nOCA", namespace = "http://www.portalfiscal.inf.br/cte")
     protected String noca;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String dPrevAereo;
-    @XmlElement(required = true)
-    protected NatCarga natCarga;
-    @XmlElement(required = true)
-    protected Tarifa tarifa;
-    protected List<Peri> peri;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+    protected Aereo.NatCarga natCarga;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+    protected Aereo.Tarifa tarifa;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+    protected List<Aereo.Peri> peri;
 
     /**
      * Obtém o valor da propriedade nMinu.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNMinu() {
         return nMinu;
@@ -195,9 +212,11 @@ public class Aereo {
 
     /**
      * Define o valor da propriedade nMinu.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNMinu(String value) {
         this.nMinu = value;
@@ -205,9 +224,11 @@ public class Aereo {
 
     /**
      * Obtém o valor da propriedade noca.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNOCA() {
         return noca;
@@ -215,9 +236,11 @@ public class Aereo {
 
     /**
      * Define o valor da propriedade noca.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNOCA(String value) {
         this.noca = value;
@@ -225,9 +248,11 @@ public class Aereo {
 
     /**
      * Obtém o valor da propriedade dPrevAereo.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDPrevAereo() {
         return dPrevAereo;
@@ -235,9 +260,11 @@ public class Aereo {
 
     /**
      * Define o valor da propriedade dPrevAereo.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDPrevAereo(String value) {
         this.dPrevAereo = value;
@@ -245,67 +272,77 @@ public class Aereo {
 
     /**
      * Obtém o valor da propriedade natCarga.
-     *
-     * @return possible object is
-     * {@link NatCarga }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Aereo.NatCarga }
+     *     
      */
-    public NatCarga getNatCarga() {
+    public Aereo.NatCarga getNatCarga() {
         return natCarga;
     }
 
     /**
      * Define o valor da propriedade natCarga.
-     *
-     * @param value allowed object is
-     *              {@link NatCarga }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Aereo.NatCarga }
+     *     
      */
-    public void setNatCarga(NatCarga value) {
+    public void setNatCarga(Aereo.NatCarga value) {
         this.natCarga = value;
     }
 
     /**
      * Obtém o valor da propriedade tarifa.
-     *
-     * @return possible object is
-     * {@link Tarifa }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Aereo.Tarifa }
+     *     
      */
-    public Tarifa getTarifa() {
+    public Aereo.Tarifa getTarifa() {
         return tarifa;
     }
 
     /**
      * Define o valor da propriedade tarifa.
-     *
-     * @param value allowed object is
-     *              {@link Tarifa }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Aereo.Tarifa }
+     *     
      */
-    public void setTarifa(Tarifa value) {
+    public void setTarifa(Aereo.Tarifa value) {
         this.tarifa = value;
     }
 
     /**
      * Gets the value of the peri property.
-     *
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the peri property.
-     *
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getPeri().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Peri }
+     * {@link Aereo.Peri }
+     * 
+     * 
      */
-    public List<Peri> getPeri() {
+    public List<Aereo.Peri> getPeri() {
         if (peri == null) {
-            peri = new ArrayList<Peri>();
+            peri = new ArrayList<Aereo.Peri>();
         }
         return this.peri;
     }
@@ -313,9 +350,9 @@ public class Aereo {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -357,22 +394,28 @@ public class Aereo {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "xDime",
-            "cInfManu"
+        "xDime",
+        "cInfManu"
     })
     public static class NatCarga {
 
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
         protected String xDime;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
         protected List<String> cInfManu;
 
         /**
          * Obtém o valor da propriedade xDime.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getXDime() {
             return xDime;
@@ -380,9 +423,11 @@ public class Aereo {
 
         /**
          * Define o valor da propriedade xDime.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setXDime(String value) {
             this.xDime = value;
@@ -390,23 +435,25 @@ public class Aereo {
 
         /**
          * Gets the value of the cInfManu property.
-         *
+         * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the cInfManu property.
-         *
+         * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getCInfManu().add(newItem);
          * </pre>
-         *
-         *
+         * 
+         * 
          * <p>
          * Objects of the following type(s) are allowed in the list
          * {@link String }
+         * 
+         * 
          */
         public List<String> getCInfManu() {
             if (cInfManu == null) {
@@ -420,9 +467,9 @@ public class Aereo {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -473,27 +520,31 @@ public class Aereo {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "nonu",
-            "qTotEmb",
-            "infTotAP"
+        "nonu",
+        "qTotEmb",
+        "infTotAP"
     })
     public static class Peri {
 
-        @XmlElement(name = "nONU", required = true)
+        @XmlElement(name = "nONU", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String nonu;
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String qTotEmb;
-        @XmlElement(required = true)
-        protected InfTotAP infTotAP;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+        protected Aereo.Peri.InfTotAP infTotAP;
 
         /**
          * Obtém o valor da propriedade nonu.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getNONU() {
             return nonu;
@@ -501,9 +552,11 @@ public class Aereo {
 
         /**
          * Define o valor da propriedade nonu.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setNONU(String value) {
             this.nonu = value;
@@ -511,9 +564,11 @@ public class Aereo {
 
         /**
          * Obtém o valor da propriedade qTotEmb.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getQTotEmb() {
             return qTotEmb;
@@ -521,9 +576,11 @@ public class Aereo {
 
         /**
          * Define o valor da propriedade qTotEmb.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setQTotEmb(String value) {
             this.qTotEmb = value;
@@ -531,30 +588,34 @@ public class Aereo {
 
         /**
          * Obtém o valor da propriedade infTotAP.
-         *
-         * @return possible object is
-         * {@link InfTotAP }
+         * 
+         * @return
+         *     possible object is
+         *     {@link Aereo.Peri.InfTotAP }
+         *     
          */
-        public InfTotAP getInfTotAP() {
+        public Aereo.Peri.InfTotAP getInfTotAP() {
             return infTotAP;
         }
 
         /**
          * Define o valor da propriedade infTotAP.
-         *
-         * @param value allowed object is
-         *              {@link InfTotAP }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link Aereo.Peri.InfTotAP }
+         *     
          */
-        public void setInfTotAP(InfTotAP value) {
+        public void setInfTotAP(Aereo.Peri.InfTotAP value) {
             this.infTotAP = value;
         }
 
 
         /**
          * <p>Classe Java de anonymous complex type.
-         *
+         * 
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         *
+         * 
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -579,24 +640,28 @@ public class Aereo {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
+         * 
+         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-                "qTotProd",
-                "uniAP"
+            "qTotProd",
+            "uniAP"
         })
         public static class InfTotAP {
 
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String qTotProd;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String uniAP;
 
             /**
              * Obtém o valor da propriedade qTotProd.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getQTotProd() {
                 return qTotProd;
@@ -604,9 +669,11 @@ public class Aereo {
 
             /**
              * Define o valor da propriedade qTotProd.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setQTotProd(String value) {
                 this.qTotProd = value;
@@ -614,9 +681,11 @@ public class Aereo {
 
             /**
              * Obtém o valor da propriedade uniAP.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getUniAP() {
                 return uniAP;
@@ -624,9 +693,11 @@ public class Aereo {
 
             /**
              * Define o valor da propriedade uniAP.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setUniAP(String value) {
                 this.uniAP = value;
@@ -639,9 +710,9 @@ public class Aereo {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -672,26 +743,31 @@ public class Aereo {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "cl",
-            "cTar",
-            "vTar"
+        "cl",
+        "cTar",
+        "vTar"
     })
     public static class Tarifa {
 
-        @XmlElement(name = "CL", required = true)
+        @XmlElement(name = "CL", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String cl;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
         protected String cTar;
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String vTar;
 
         /**
          * Obtém o valor da propriedade cl.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCL() {
             return cl;
@@ -699,9 +775,11 @@ public class Aereo {
 
         /**
          * Define o valor da propriedade cl.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCL(String value) {
             this.cl = value;
@@ -709,9 +787,11 @@ public class Aereo {
 
         /**
          * Obtém o valor da propriedade cTar.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCTar() {
             return cTar;
@@ -719,9 +799,11 @@ public class Aereo {
 
         /**
          * Define o valor da propriedade cTar.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCTar(String value) {
             this.cTar = value;
@@ -729,9 +811,11 @@ public class Aereo {
 
         /**
          * Obtém o valor da propriedade vTar.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVTar() {
             return vTar;
@@ -739,9 +823,11 @@ public class Aereo {
 
         /**
          * Define o valor da propriedade vTar.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVTar(String value) {
             this.vTar = value;

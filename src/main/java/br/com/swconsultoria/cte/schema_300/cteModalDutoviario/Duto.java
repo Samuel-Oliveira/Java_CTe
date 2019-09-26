@@ -1,14 +1,25 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:42:26 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.cteModalDutoviario;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Classe Java de anonymous complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -22,27 +33,32 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "vTar",
-        "dIni",
-        "dFim"
+    "vTar",
+    "dIni",
+    "dFim"
 })
-@XmlRootElement(name = "duto")
+@XmlRootElement(name = "duto", namespace = "http://www.portalfiscal.inf.br/cte")
 public class Duto {
 
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected String vTar;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String dIni;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String dFim;
 
     /**
      * Obtém o valor da propriedade vTar.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getVTar() {
         return vTar;
@@ -50,9 +66,11 @@ public class Duto {
 
     /**
      * Define o valor da propriedade vTar.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setVTar(String value) {
         this.vTar = value;
@@ -60,9 +78,11 @@ public class Duto {
 
     /**
      * Obtém o valor da propriedade dIni.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDIni() {
         return dIni;
@@ -70,9 +90,11 @@ public class Duto {
 
     /**
      * Define o valor da propriedade dIni.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDIni(String value) {
         this.dIni = value;
@@ -80,9 +102,11 @@ public class Duto {
 
     /**
      * Obtém o valor da propriedade dFim.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDFim() {
         return dFim;
@@ -90,9 +114,11 @@ public class Duto {
 
     /**
      * Define o valor da propriedade dFim.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDFim(String value) {
         this.dFim = value;

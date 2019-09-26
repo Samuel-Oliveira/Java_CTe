@@ -1,16 +1,27 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:47:55 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.evCCeCTe;
 
-import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Classe Java de anonymous complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -84,12 +95,14 @@ import java.util.List;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "descEvento",
-        "infCorrecao",
-        "xCondUso"
+    "descEvento",
+    "infCorrecao",
+    "xCondUso"
 })
 @XmlRootElement(name = "evCCeCTe", namespace = "http://www.portalfiscal.inf.br/cte")
 public class EvCCeCTe {
@@ -97,15 +110,17 @@ public class EvCCeCTe {
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String descEvento;
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
-    protected List<InfCorrecao> infCorrecao;
+    protected List<EvCCeCTe.InfCorrecao> infCorrecao;
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String xCondUso;
 
     /**
      * Obtém o valor da propriedade descEvento.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDescEvento() {
         return descEvento;
@@ -113,9 +128,11 @@ public class EvCCeCTe {
 
     /**
      * Define o valor da propriedade descEvento.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDescEvento(String value) {
         this.descEvento = value;
@@ -123,36 +140,40 @@ public class EvCCeCTe {
 
     /**
      * Gets the value of the infCorrecao property.
-     *
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the infCorrecao property.
-     *
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getInfCorrecao().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link InfCorrecao }
+     * {@link EvCCeCTe.InfCorrecao }
+     * 
+     * 
      */
-    public List<InfCorrecao> getInfCorrecao() {
+    public List<EvCCeCTe.InfCorrecao> getInfCorrecao() {
         if (infCorrecao == null) {
-            infCorrecao = new ArrayList<InfCorrecao>();
+            infCorrecao = new ArrayList<EvCCeCTe.InfCorrecao>();
         }
         return this.infCorrecao;
     }
 
     /**
      * Obtém o valor da propriedade xCondUso.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getXCondUso() {
         return xCondUso;
@@ -160,9 +181,11 @@ public class EvCCeCTe {
 
     /**
      * Define o valor da propriedade xCondUso.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setXCondUso(String value) {
         this.xCondUso = value;
@@ -171,9 +194,9 @@ public class EvCCeCTe {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -219,13 +242,15 @@ public class EvCCeCTe {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "grupoAlterado",
-            "campoAlterado",
-            "valorAlterado",
-            "nroItemAlterado"
+        "grupoAlterado",
+        "campoAlterado",
+        "valorAlterado",
+        "nroItemAlterado"
     })
     public static class InfCorrecao {
 
@@ -240,9 +265,11 @@ public class EvCCeCTe {
 
         /**
          * Obtém o valor da propriedade grupoAlterado.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getGrupoAlterado() {
             return grupoAlterado;
@@ -250,9 +277,11 @@ public class EvCCeCTe {
 
         /**
          * Define o valor da propriedade grupoAlterado.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setGrupoAlterado(String value) {
             this.grupoAlterado = value;
@@ -260,9 +289,11 @@ public class EvCCeCTe {
 
         /**
          * Obtém o valor da propriedade campoAlterado.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCampoAlterado() {
             return campoAlterado;
@@ -270,9 +301,11 @@ public class EvCCeCTe {
 
         /**
          * Define o valor da propriedade campoAlterado.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCampoAlterado(String value) {
             this.campoAlterado = value;
@@ -280,9 +313,11 @@ public class EvCCeCTe {
 
         /**
          * Obtém o valor da propriedade valorAlterado.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getValorAlterado() {
             return valorAlterado;
@@ -290,9 +325,11 @@ public class EvCCeCTe {
 
         /**
          * Define o valor da propriedade valorAlterado.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setValorAlterado(String value) {
             this.valorAlterado = value;
@@ -300,9 +337,11 @@ public class EvCCeCTe {
 
         /**
          * Obtém o valor da propriedade nroItemAlterado.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getNroItemAlterado() {
             return nroItemAlterado;
@@ -310,9 +349,11 @@ public class EvCCeCTe {
 
         /**
          * Define o valor da propriedade nroItemAlterado.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setNroItemAlterado(String value) {
             this.nroItemAlterado = value;

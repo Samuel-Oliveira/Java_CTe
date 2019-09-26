@@ -1,16 +1,29 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 09:57:43 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.procCTeOS;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  * <p>Classe Java de ReferenceType complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType name="ReferenceType">
  *   &lt;complexContent>
@@ -41,20 +54,22 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ReferenceType", namespace = "http://www.w3.org/2000/09/xmldsig#", propOrder = {
-        "transforms",
-        "digestMethod",
-        "digestValue"
+    "transforms",
+    "digestMethod",
+    "digestValue"
 })
 public class ReferenceType {
 
-    @XmlElement(name = "Transforms", required = true)
+    @XmlElement(name = "Transforms", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected TransformsType transforms;
-    @XmlElement(name = "DigestMethod", required = true)
-    protected DigestMethod digestMethod;
-    @XmlElement(name = "DigestValue", required = true)
+    @XmlElement(name = "DigestMethod", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
+    protected ReferenceType.DigestMethod digestMethod;
+    @XmlElement(name = "DigestValue", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected byte[] digestValue;
     @XmlAttribute(name = "Id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
@@ -69,9 +84,11 @@ public class ReferenceType {
 
     /**
      * Obtém o valor da propriedade transforms.
-     *
-     * @return possible object is
-     * {@link TransformsType }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TransformsType }
+     *     
      */
     public TransformsType getTransforms() {
         return transforms;
@@ -79,9 +96,11 @@ public class ReferenceType {
 
     /**
      * Define o valor da propriedade transforms.
-     *
-     * @param value allowed object is
-     *              {@link TransformsType }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TransformsType }
+     *     
      */
     public void setTransforms(TransformsType value) {
         this.transforms = value;
@@ -89,29 +108,34 @@ public class ReferenceType {
 
     /**
      * Obtém o valor da propriedade digestMethod.
-     *
-     * @return possible object is
-     * {@link DigestMethod }
+     * 
+     * @return
+     *     possible object is
+     *     {@link ReferenceType.DigestMethod }
+     *     
      */
-    public DigestMethod getDigestMethod() {
+    public ReferenceType.DigestMethod getDigestMethod() {
         return digestMethod;
     }
 
     /**
      * Define o valor da propriedade digestMethod.
-     *
-     * @param value allowed object is
-     *              {@link DigestMethod }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ReferenceType.DigestMethod }
+     *     
      */
-    public void setDigestMethod(DigestMethod value) {
+    public void setDigestMethod(ReferenceType.DigestMethod value) {
         this.digestMethod = value;
     }
 
     /**
      * Obtém o valor da propriedade digestValue.
-     *
-     * @return possible object is
-     * byte[]
+     * 
+     * @return
+     *     possible object is
+     *     byte[]
      */
     public byte[] getDigestValue() {
         return digestValue;
@@ -119,9 +143,10 @@ public class ReferenceType {
 
     /**
      * Define o valor da propriedade digestValue.
-     *
-     * @param value allowed object is
-     *              byte[]
+     * 
+     * @param value
+     *     allowed object is
+     *     byte[]
      */
     public void setDigestValue(byte[] value) {
         this.digestValue = value;
@@ -129,9 +154,11 @@ public class ReferenceType {
 
     /**
      * Obtém o valor da propriedade id.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getId() {
         return id;
@@ -139,9 +166,11 @@ public class ReferenceType {
 
     /**
      * Define o valor da propriedade id.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setId(String value) {
         this.id = value;
@@ -149,9 +178,11 @@ public class ReferenceType {
 
     /**
      * Obtém o valor da propriedade uri.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getURI() {
         return uri;
@@ -159,9 +190,11 @@ public class ReferenceType {
 
     /**
      * Define o valor da propriedade uri.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setURI(String value) {
         this.uri = value;
@@ -169,9 +202,11 @@ public class ReferenceType {
 
     /**
      * Obtém o valor da propriedade type.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getType() {
         return type;
@@ -179,9 +214,11 @@ public class ReferenceType {
 
     /**
      * Define o valor da propriedade type.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setType(String value) {
         this.type = value;
@@ -190,9 +227,9 @@ public class ReferenceType {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -202,6 +239,8 @@ public class ReferenceType {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
@@ -213,9 +252,11 @@ public class ReferenceType {
 
         /**
          * Obtém o valor da propriedade algorithm.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getAlgorithm() {
             if (algorithm == null) {
@@ -227,9 +268,11 @@ public class ReferenceType {
 
         /**
          * Define o valor da propriedade algorithm.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setAlgorithm(String value) {
             this.algorithm = value;

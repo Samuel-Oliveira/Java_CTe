@@ -1,14 +1,25 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:44:39 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.cteMultiModal;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Classe Java de anonymous complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -81,27 +92,32 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "cotm",
-        "indNegociavel",
-        "seg"
+    "cotm",
+    "indNegociavel",
+    "seg"
 })
-@XmlRootElement(name = "multimodal")
+@XmlRootElement(name = "multimodal", namespace = "http://www.portalfiscal.inf.br/cte")
 public class Multimodal {
 
-    @XmlElement(name = "COTM", required = true)
+    @XmlElement(name = "COTM", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String cotm;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String indNegociavel;
-    protected Seg seg;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+    protected Multimodal.Seg seg;
 
     /**
      * Obtém o valor da propriedade cotm.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getCOTM() {
         return cotm;
@@ -109,9 +125,11 @@ public class Multimodal {
 
     /**
      * Define o valor da propriedade cotm.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setCOTM(String value) {
         this.cotm = value;
@@ -119,9 +137,11 @@ public class Multimodal {
 
     /**
      * Obtém o valor da propriedade indNegociavel.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getIndNegociavel() {
         return indNegociavel;
@@ -129,9 +149,11 @@ public class Multimodal {
 
     /**
      * Define o valor da propriedade indNegociavel.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setIndNegociavel(String value) {
         this.indNegociavel = value;
@@ -139,30 +161,34 @@ public class Multimodal {
 
     /**
      * Obtém o valor da propriedade seg.
-     *
-     * @return possible object is
-     * {@link Seg }
+     * 
+     * @return
+     *     possible object is
+     *     {@link Multimodal.Seg }
+     *     
      */
-    public Seg getSeg() {
+    public Multimodal.Seg getSeg() {
         return seg;
     }
 
     /**
      * Define o valor da propriedade seg.
-     *
-     * @param value allowed object is
-     *              {@link Seg }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Multimodal.Seg }
+     *     
      */
-    public void setSeg(Seg value) {
+    public void setSeg(Multimodal.Seg value) {
         this.seg = value;
     }
 
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -208,47 +234,55 @@ public class Multimodal {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "infSeg",
-            "nApol",
-            "nAver"
+        "infSeg",
+        "nApol",
+        "nAver"
     })
     public static class Seg {
 
-        @XmlElement(required = true)
-        protected InfSeg infSeg;
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+        protected Multimodal.Seg.InfSeg infSeg;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String nApol;
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String nAver;
 
         /**
          * Obtém o valor da propriedade infSeg.
-         *
-         * @return possible object is
-         * {@link InfSeg }
+         * 
+         * @return
+         *     possible object is
+         *     {@link Multimodal.Seg.InfSeg }
+         *     
          */
-        public InfSeg getInfSeg() {
+        public Multimodal.Seg.InfSeg getInfSeg() {
             return infSeg;
         }
 
         /**
          * Define o valor da propriedade infSeg.
-         *
-         * @param value allowed object is
-         *              {@link InfSeg }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link Multimodal.Seg.InfSeg }
+         *     
          */
-        public void setInfSeg(InfSeg value) {
+        public void setInfSeg(Multimodal.Seg.InfSeg value) {
             this.infSeg = value;
         }
 
         /**
          * Obtém o valor da propriedade nApol.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getNApol() {
             return nApol;
@@ -256,9 +290,11 @@ public class Multimodal {
 
         /**
          * Define o valor da propriedade nApol.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setNApol(String value) {
             this.nApol = value;
@@ -266,9 +302,11 @@ public class Multimodal {
 
         /**
          * Obtém o valor da propriedade nAver.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getNAver() {
             return nAver;
@@ -276,9 +314,11 @@ public class Multimodal {
 
         /**
          * Define o valor da propriedade nAver.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setNAver(String value) {
             this.nAver = value;
@@ -287,9 +327,9 @@ public class Multimodal {
 
         /**
          * <p>Classe Java de anonymous complex type.
-         *
+         * 
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         *
+         * 
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -309,24 +349,28 @@ public class Multimodal {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
+         * 
+         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-                "xSeg",
-                "cnpj"
+            "xSeg",
+            "cnpj"
         })
         public static class InfSeg {
 
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String xSeg;
-            @XmlElement(name = "CNPJ", required = true)
+            @XmlElement(name = "CNPJ", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String cnpj;
 
             /**
              * Obtém o valor da propriedade xSeg.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getXSeg() {
                 return xSeg;
@@ -334,9 +378,11 @@ public class Multimodal {
 
             /**
              * Define o valor da propriedade xSeg.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setXSeg(String value) {
                 this.xSeg = value;
@@ -344,9 +390,11 @@ public class Multimodal {
 
             /**
              * Obtém o valor da propriedade cnpj.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getCNPJ() {
                 return cnpj;
@@ -354,9 +402,11 @@ public class Multimodal {
 
             /**
              * Define o valor da propriedade cnpj.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setCNPJ(String value) {
                 this.cnpj = value;

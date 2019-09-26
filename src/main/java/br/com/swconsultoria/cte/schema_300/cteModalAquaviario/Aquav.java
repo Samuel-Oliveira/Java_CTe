@@ -1,16 +1,27 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:41:58 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.cteModalAquaviario;
 
-import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Classe Java de anonymous complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -150,45 +161,64 @@ import java.util.List;
  *             &lt;/complexContent>
  *           &lt;/complexType>
  *         &lt;/element>
+ *         &lt;element name="tpNav" minOccurs="0">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *               &lt;whiteSpace value="preserve"/>
+ *               &lt;enumeration value="0"/>
+ *               &lt;enumeration value="1"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "vPrest",
-        "vafrmm",
-        "xNavio",
-        "balsa",
-        "nViag",
-        "direc",
-        "irin",
-        "detCont"
+    "vPrest",
+    "vafrmm",
+    "xNavio",
+    "balsa",
+    "nViag",
+    "direc",
+    "irin",
+    "detCont",
+    "tpNav"
 })
-@XmlRootElement(name = "aquav")
+@XmlRootElement(name = "aquav", namespace = "http://www.portalfiscal.inf.br/cte")
 public class Aquav {
 
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String vPrest;
-    @XmlElement(name = "vAFRMM", required = true)
+    @XmlElement(name = "vAFRMM", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String vafrmm;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String xNavio;
-    protected List<Balsa> balsa;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+    protected List<Aquav.Balsa> balsa;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected String nViag;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String direc;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String irin;
-    protected List<DetCont> detCont;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+    protected List<Aquav.DetCont> detCont;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+    protected String tpNav;
 
     /**
      * Obtém o valor da propriedade vPrest.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getVPrest() {
         return vPrest;
@@ -196,9 +226,11 @@ public class Aquav {
 
     /**
      * Define o valor da propriedade vPrest.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setVPrest(String value) {
         this.vPrest = value;
@@ -206,9 +238,11 @@ public class Aquav {
 
     /**
      * Obtém o valor da propriedade vafrmm.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getVAFRMM() {
         return vafrmm;
@@ -216,9 +250,11 @@ public class Aquav {
 
     /**
      * Define o valor da propriedade vafrmm.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setVAFRMM(String value) {
         this.vafrmm = value;
@@ -226,9 +262,11 @@ public class Aquav {
 
     /**
      * Obtém o valor da propriedade xNavio.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getXNavio() {
         return xNavio;
@@ -236,9 +274,11 @@ public class Aquav {
 
     /**
      * Define o valor da propriedade xNavio.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setXNavio(String value) {
         this.xNavio = value;
@@ -246,36 +286,40 @@ public class Aquav {
 
     /**
      * Gets the value of the balsa property.
-     *
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the balsa property.
-     *
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getBalsa().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Balsa }
+     * {@link Aquav.Balsa }
+     * 
+     * 
      */
-    public List<Balsa> getBalsa() {
+    public List<Aquav.Balsa> getBalsa() {
         if (balsa == null) {
-            balsa = new ArrayList<Balsa>();
+            balsa = new ArrayList<Aquav.Balsa>();
         }
         return this.balsa;
     }
 
     /**
      * Obtém o valor da propriedade nViag.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getNViag() {
         return nViag;
@@ -283,9 +327,11 @@ public class Aquav {
 
     /**
      * Define o valor da propriedade nViag.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setNViag(String value) {
         this.nViag = value;
@@ -293,9 +339,11 @@ public class Aquav {
 
     /**
      * Obtém o valor da propriedade direc.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDirec() {
         return direc;
@@ -303,9 +351,11 @@ public class Aquav {
 
     /**
      * Define o valor da propriedade direc.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDirec(String value) {
         this.direc = value;
@@ -313,9 +363,11 @@ public class Aquav {
 
     /**
      * Obtém o valor da propriedade irin.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getIrin() {
         return irin;
@@ -323,9 +375,11 @@ public class Aquav {
 
     /**
      * Define o valor da propriedade irin.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setIrin(String value) {
         this.irin = value;
@@ -333,37 +387,63 @@ public class Aquav {
 
     /**
      * Gets the value of the detCont property.
-     *
+     * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the detCont property.
-     *
+     * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getDetCont().add(newItem);
      * </pre>
-     *
-     *
+     * 
+     * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link DetCont }
+     * {@link Aquav.DetCont }
+     * 
+     * 
      */
-    public List<DetCont> getDetCont() {
+    public List<Aquav.DetCont> getDetCont() {
         if (detCont == null) {
-            detCont = new ArrayList<DetCont>();
+            detCont = new ArrayList<Aquav.DetCont>();
         }
         return this.detCont;
+    }
+
+    /**
+     * Obtém o valor da propriedade tpNav.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTpNav() {
+        return tpNav;
+    }
+
+    /**
+     * Define o valor da propriedade tpNav.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTpNav(String value) {
+        this.tpNav = value;
     }
 
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -382,21 +462,25 @@ public class Aquav {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "xBalsa"
+        "xBalsa"
     })
     public static class Balsa {
 
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String xBalsa;
 
         /**
          * Obtém o valor da propriedade xBalsa.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getXBalsa() {
             return xBalsa;
@@ -404,9 +488,11 @@ public class Aquav {
 
         /**
          * Define o valor da propriedade xBalsa.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setXBalsa(String value) {
             this.xBalsa = value;
@@ -417,9 +503,9 @@ public class Aquav {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -498,25 +584,31 @@ public class Aquav {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "nCont",
-            "lacre",
-            "infDoc"
+        "nCont",
+        "lacre",
+        "infDoc"
     })
     public static class DetCont {
 
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String nCont;
-        protected List<Lacre> lacre;
-        protected InfDoc infDoc;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+        protected List<Aquav.DetCont.Lacre> lacre;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+        protected Aquav.DetCont.InfDoc infDoc;
 
         /**
          * Obtém o valor da propriedade nCont.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getNCont() {
             return nCont;
@@ -524,9 +616,11 @@ public class Aquav {
 
         /**
          * Define o valor da propriedade nCont.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setNCont(String value) {
             this.nCont = value;
@@ -534,57 +628,63 @@ public class Aquav {
 
         /**
          * Gets the value of the lacre property.
-         *
+         * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
          * This is why there is not a <CODE>set</CODE> method for the lacre property.
-         *
+         * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
          *    getLacre().add(newItem);
          * </pre>
-         *
-         *
+         * 
+         * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link Lacre }
+         * {@link Aquav.DetCont.Lacre }
+         * 
+         * 
          */
-        public List<Lacre> getLacre() {
+        public List<Aquav.DetCont.Lacre> getLacre() {
             if (lacre == null) {
-                lacre = new ArrayList<Lacre>();
+                lacre = new ArrayList<Aquav.DetCont.Lacre>();
             }
             return this.lacre;
         }
 
         /**
          * Obtém o valor da propriedade infDoc.
-         *
-         * @return possible object is
-         * {@link InfDoc }
+         * 
+         * @return
+         *     possible object is
+         *     {@link Aquav.DetCont.InfDoc }
+         *     
          */
-        public InfDoc getInfDoc() {
+        public Aquav.DetCont.InfDoc getInfDoc() {
             return infDoc;
         }
 
         /**
          * Define o valor da propriedade infDoc.
-         *
-         * @param value allowed object is
-         *              {@link InfDoc }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link Aquav.DetCont.InfDoc }
+         *     
          */
-        public void setInfDoc(InfDoc value) {
+        public void setInfDoc(Aquav.DetCont.InfDoc value) {
             this.infDoc = value;
         }
 
 
         /**
          * <p>Classe Java de anonymous complex type.
-         *
+         * 
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         *
+         * 
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -634,67 +734,75 @@ public class Aquav {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
+         * 
+         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-                "infNF",
-                "infNFe"
+            "infNF",
+            "infNFe"
         })
         public static class InfDoc {
 
-            protected List<InfNF> infNF;
-            protected List<InfNFe> infNFe;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected List<Aquav.DetCont.InfDoc.InfNF> infNF;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected List<Aquav.DetCont.InfDoc.InfNFe> infNFe;
 
             /**
              * Gets the value of the infNF property.
-             *
+             * 
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the infNF property.
-             *
+             * 
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getInfNF().add(newItem);
              * </pre>
-             *
-             *
+             * 
+             * 
              * <p>
              * Objects of the following type(s) are allowed in the list
-             * {@link InfNF }
+             * {@link Aquav.DetCont.InfDoc.InfNF }
+             * 
+             * 
              */
-            public List<InfNF> getInfNF() {
+            public List<Aquav.DetCont.InfDoc.InfNF> getInfNF() {
                 if (infNF == null) {
-                    infNF = new ArrayList<InfNF>();
+                    infNF = new ArrayList<Aquav.DetCont.InfDoc.InfNF>();
                 }
                 return this.infNF;
             }
 
             /**
              * Gets the value of the infNFe property.
-             *
+             * 
              * <p>
              * This accessor method returns a reference to the live list,
              * not a snapshot. Therefore any modification you make to the
              * returned list will be present inside the JAXB object.
              * This is why there is not a <CODE>set</CODE> method for the infNFe property.
-             *
+             * 
              * <p>
              * For example, to add a new item, do as follows:
              * <pre>
              *    getInfNFe().add(newItem);
              * </pre>
-             *
-             *
+             * 
+             * 
              * <p>
              * Objects of the following type(s) are allowed in the list
-             * {@link InfNFe }
+             * {@link Aquav.DetCont.InfDoc.InfNFe }
+             * 
+             * 
              */
-            public List<InfNFe> getInfNFe() {
+            public List<Aquav.DetCont.InfDoc.InfNFe> getInfNFe() {
                 if (infNFe == null) {
-                    infNFe = new ArrayList<InfNFe>();
+                    infNFe = new ArrayList<Aquav.DetCont.InfDoc.InfNFe>();
                 }
                 return this.infNFe;
             }
@@ -702,9 +810,9 @@ public class Aquav {
 
             /**
              * <p>Classe Java de anonymous complex type.
-             *
+             * 
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             *
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -732,26 +840,31 @@ public class Aquav {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                    "serie",
-                    "nDoc",
-                    "unidRat"
+                "serie",
+                "nDoc",
+                "unidRat"
             })
             public static class InfNF {
 
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String serie;
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String nDoc;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String unidRat;
 
                 /**
                  * Obtém o valor da propriedade serie.
-                 *
-                 * @return possible object is
-                 * {@link String }
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link String }
+                 *     
                  */
                 public String getSerie() {
                     return serie;
@@ -759,9 +872,11 @@ public class Aquav {
 
                 /**
                  * Define o valor da propriedade serie.
-                 *
-                 * @param value allowed object is
-                 *              {@link String }
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link String }
+                 *     
                  */
                 public void setSerie(String value) {
                     this.serie = value;
@@ -769,9 +884,11 @@ public class Aquav {
 
                 /**
                  * Obtém o valor da propriedade nDoc.
-                 *
-                 * @return possible object is
-                 * {@link String }
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link String }
+                 *     
                  */
                 public String getNDoc() {
                     return nDoc;
@@ -779,9 +896,11 @@ public class Aquav {
 
                 /**
                  * Define o valor da propriedade nDoc.
-                 *
-                 * @param value allowed object is
-                 *              {@link String }
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link String }
+                 *     
                  */
                 public void setNDoc(String value) {
                     this.nDoc = value;
@@ -789,9 +908,11 @@ public class Aquav {
 
                 /**
                  * Obtém o valor da propriedade unidRat.
-                 *
-                 * @return possible object is
-                 * {@link String }
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link String }
+                 *     
                  */
                 public String getUnidRat() {
                     return unidRat;
@@ -799,9 +920,11 @@ public class Aquav {
 
                 /**
                  * Define o valor da propriedade unidRat.
-                 *
-                 * @param value allowed object is
-                 *              {@link String }
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link String }
+                 *     
                  */
                 public void setUnidRat(String value) {
                     this.unidRat = value;
@@ -812,9 +935,9 @@ public class Aquav {
 
             /**
              * <p>Classe Java de anonymous complex type.
-             *
+             * 
              * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-             *
+             * 
              * <pre>
              * &lt;complexType>
              *   &lt;complexContent>
@@ -827,23 +950,28 @@ public class Aquav {
              *   &lt;/complexContent>
              * &lt;/complexType>
              * </pre>
+             * 
+             * 
              */
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                    "chave",
-                    "unidRat"
+                "chave",
+                "unidRat"
             })
             public static class InfNFe {
 
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String chave;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String unidRat;
 
                 /**
                  * Obtém o valor da propriedade chave.
-                 *
-                 * @return possible object is
-                 * {@link String }
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link String }
+                 *     
                  */
                 public String getChave() {
                     return chave;
@@ -851,9 +979,11 @@ public class Aquav {
 
                 /**
                  * Define o valor da propriedade chave.
-                 *
-                 * @param value allowed object is
-                 *              {@link String }
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link String }
+                 *     
                  */
                 public void setChave(String value) {
                     this.chave = value;
@@ -861,9 +991,11 @@ public class Aquav {
 
                 /**
                  * Obtém o valor da propriedade unidRat.
-                 *
-                 * @return possible object is
-                 * {@link String }
+                 * 
+                 * @return
+                 *     possible object is
+                 *     {@link String }
+                 *     
                  */
                 public String getUnidRat() {
                     return unidRat;
@@ -871,9 +1003,11 @@ public class Aquav {
 
                 /**
                  * Define o valor da propriedade unidRat.
-                 *
-                 * @param value allowed object is
-                 *              {@link String }
+                 * 
+                 * @param value
+                 *     allowed object is
+                 *     {@link String }
+                 *     
                  */
                 public void setUnidRat(String value) {
                     this.unidRat = value;
@@ -886,9 +1020,9 @@ public class Aquav {
 
         /**
          * <p>Classe Java de anonymous complex type.
-         *
+         * 
          * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-         *
+         * 
          * <pre>
          * &lt;complexType>
          *   &lt;complexContent>
@@ -907,21 +1041,25 @@ public class Aquav {
          *   &lt;/complexContent>
          * &lt;/complexType>
          * </pre>
+         * 
+         * 
          */
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-                "nLacre"
+            "nLacre"
         })
         public static class Lacre {
 
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String nLacre;
 
             /**
              * Obtém o valor da propriedade nLacre.
-             *
-             * @return possible object is
-             * {@link String }
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
              */
             public String getNLacre() {
                 return nLacre;
@@ -929,9 +1067,11 @@ public class Aquav {
 
             /**
              * Define o valor da propriedade nLacre.
-             *
-             * @param value allowed object is
-             *              {@link String }
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
              */
             public void setNLacre(String value) {
                 this.nLacre = value;

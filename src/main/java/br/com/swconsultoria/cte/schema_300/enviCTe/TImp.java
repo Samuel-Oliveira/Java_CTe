@@ -1,3 +1,10 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:46:03 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.enviCTe;
 
@@ -9,11 +16,11 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * Tipo Dados do Imposto CT-e
- *
+ * 
  * <p>Classe Java de TImp complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType name="TImp">
  *   &lt;complexContent>
@@ -180,180 +187,210 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TImp", propOrder = {
-        "icms00",
-        "icms20",
-        "icms45",
-        "icms60",
-        "icms90",
-        "icmsOutraUF",
-        "icmssn"
+@XmlType(name = "TImp", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
+    "icms00",
+    "icms20",
+    "icms45",
+    "icms60",
+    "icms90",
+    "icmsOutraUF",
+    "icmssn"
 })
 public class TImp {
 
-    @XmlElement(name = "ICMS00")
-    protected ICMS00 icms00;
-    @XmlElement(name = "ICMS20")
-    protected ICMS20 icms20;
-    @XmlElement(name = "ICMS45")
-    protected ICMS45 icms45;
-    @XmlElement(name = "ICMS60")
-    protected ICMS60 icms60;
-    @XmlElement(name = "ICMS90")
-    protected ICMS90 icms90;
-    @XmlElement(name = "ICMSOutraUF")
-    protected ICMSOutraUF icmsOutraUF;
-    @XmlElement(name = "ICMSSN")
-    protected ICMSSN icmssn;
+    @XmlElement(name = "ICMS00", namespace = "http://www.portalfiscal.inf.br/cte")
+    protected TImp.ICMS00 icms00;
+    @XmlElement(name = "ICMS20", namespace = "http://www.portalfiscal.inf.br/cte")
+    protected TImp.ICMS20 icms20;
+    @XmlElement(name = "ICMS45", namespace = "http://www.portalfiscal.inf.br/cte")
+    protected TImp.ICMS45 icms45;
+    @XmlElement(name = "ICMS60", namespace = "http://www.portalfiscal.inf.br/cte")
+    protected TImp.ICMS60 icms60;
+    @XmlElement(name = "ICMS90", namespace = "http://www.portalfiscal.inf.br/cte")
+    protected TImp.ICMS90 icms90;
+    @XmlElement(name = "ICMSOutraUF", namespace = "http://www.portalfiscal.inf.br/cte")
+    protected TImp.ICMSOutraUF icmsOutraUF;
+    @XmlElement(name = "ICMSSN", namespace = "http://www.portalfiscal.inf.br/cte")
+    protected TImp.ICMSSN icmssn;
 
     /**
      * Obtém o valor da propriedade icms00.
-     *
-     * @return possible object is
-     * {@link ICMS00 }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TImp.ICMS00 }
+     *     
      */
-    public ICMS00 getICMS00() {
+    public TImp.ICMS00 getICMS00() {
         return icms00;
     }
 
     /**
      * Define o valor da propriedade icms00.
-     *
-     * @param value allowed object is
-     *              {@link ICMS00 }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TImp.ICMS00 }
+     *     
      */
-    public void setICMS00(ICMS00 value) {
+    public void setICMS00(TImp.ICMS00 value) {
         this.icms00 = value;
     }
 
     /**
      * Obtém o valor da propriedade icms20.
-     *
-     * @return possible object is
-     * {@link ICMS20 }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TImp.ICMS20 }
+     *     
      */
-    public ICMS20 getICMS20() {
+    public TImp.ICMS20 getICMS20() {
         return icms20;
     }
 
     /**
      * Define o valor da propriedade icms20.
-     *
-     * @param value allowed object is
-     *              {@link ICMS20 }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TImp.ICMS20 }
+     *     
      */
-    public void setICMS20(ICMS20 value) {
+    public void setICMS20(TImp.ICMS20 value) {
         this.icms20 = value;
     }
 
     /**
      * Obtém o valor da propriedade icms45.
-     *
-     * @return possible object is
-     * {@link ICMS45 }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TImp.ICMS45 }
+     *     
      */
-    public ICMS45 getICMS45() {
+    public TImp.ICMS45 getICMS45() {
         return icms45;
     }
 
     /**
      * Define o valor da propriedade icms45.
-     *
-     * @param value allowed object is
-     *              {@link ICMS45 }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TImp.ICMS45 }
+     *     
      */
-    public void setICMS45(ICMS45 value) {
+    public void setICMS45(TImp.ICMS45 value) {
         this.icms45 = value;
     }
 
     /**
      * Obtém o valor da propriedade icms60.
-     *
-     * @return possible object is
-     * {@link ICMS60 }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TImp.ICMS60 }
+     *     
      */
-    public ICMS60 getICMS60() {
+    public TImp.ICMS60 getICMS60() {
         return icms60;
     }
 
     /**
      * Define o valor da propriedade icms60.
-     *
-     * @param value allowed object is
-     *              {@link ICMS60 }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TImp.ICMS60 }
+     *     
      */
-    public void setICMS60(ICMS60 value) {
+    public void setICMS60(TImp.ICMS60 value) {
         this.icms60 = value;
     }
 
     /**
      * Obtém o valor da propriedade icms90.
-     *
-     * @return possible object is
-     * {@link ICMS90 }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TImp.ICMS90 }
+     *     
      */
-    public ICMS90 getICMS90() {
+    public TImp.ICMS90 getICMS90() {
         return icms90;
     }
 
     /**
      * Define o valor da propriedade icms90.
-     *
-     * @param value allowed object is
-     *              {@link ICMS90 }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TImp.ICMS90 }
+     *     
      */
-    public void setICMS90(ICMS90 value) {
+    public void setICMS90(TImp.ICMS90 value) {
         this.icms90 = value;
     }
 
     /**
      * Obtém o valor da propriedade icmsOutraUF.
-     *
-     * @return possible object is
-     * {@link ICMSOutraUF }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TImp.ICMSOutraUF }
+     *     
      */
-    public ICMSOutraUF getICMSOutraUF() {
+    public TImp.ICMSOutraUF getICMSOutraUF() {
         return icmsOutraUF;
     }
 
     /**
      * Define o valor da propriedade icmsOutraUF.
-     *
-     * @param value allowed object is
-     *              {@link ICMSOutraUF }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TImp.ICMSOutraUF }
+     *     
      */
-    public void setICMSOutraUF(ICMSOutraUF value) {
+    public void setICMSOutraUF(TImp.ICMSOutraUF value) {
         this.icmsOutraUF = value;
     }
 
     /**
      * Obtém o valor da propriedade icmssn.
-     *
-     * @return possible object is
-     * {@link ICMSSN }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TImp.ICMSSN }
+     *     
      */
-    public ICMSSN getICMSSN() {
+    public TImp.ICMSSN getICMSSN() {
         return icmssn;
     }
 
     /**
      * Define o valor da propriedade icmssn.
-     *
-     * @param value allowed object is
-     *              {@link ICMSSN }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TImp.ICMSSN }
+     *     
      */
-    public void setICMSSN(ICMSSN value) {
+    public void setICMSSN(TImp.ICMSSN value) {
         this.icmssn = value;
     }
 
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -375,30 +412,34 @@ public class TImp {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "cst",
-            "vbc",
-            "picms",
-            "vicms"
+        "cst",
+        "vbc",
+        "picms",
+        "vicms"
     })
     public static class ICMS00 {
 
-        @XmlElement(name = "CST", required = true)
+        @XmlElement(name = "CST", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String cst;
-        @XmlElement(name = "vBC", required = true)
+        @XmlElement(name = "vBC", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String vbc;
-        @XmlElement(name = "pICMS", required = true)
+        @XmlElement(name = "pICMS", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String picms;
-        @XmlElement(name = "vICMS", required = true)
+        @XmlElement(name = "vICMS", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String vicms;
 
         /**
          * Obtém o valor da propriedade cst.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCST() {
             return cst;
@@ -406,9 +447,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade cst.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCST(String value) {
             this.cst = value;
@@ -416,9 +459,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade vbc.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVBC() {
             return vbc;
@@ -426,9 +471,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade vbc.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVBC(String value) {
             this.vbc = value;
@@ -436,9 +483,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade picms.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getPICMS() {
             return picms;
@@ -446,9 +495,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade picms.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setPICMS(String value) {
             this.picms = value;
@@ -456,9 +507,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade vicms.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVICMS() {
             return vicms;
@@ -466,9 +519,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade vicms.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVICMS(String value) {
             this.vicms = value;
@@ -479,9 +534,9 @@ public class TImp {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -504,33 +559,37 @@ public class TImp {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "cst",
-            "pRedBC",
-            "vbc",
-            "picms",
-            "vicms"
+        "cst",
+        "pRedBC",
+        "vbc",
+        "picms",
+        "vicms"
     })
     public static class ICMS20 {
 
-        @XmlElement(name = "CST", required = true)
+        @XmlElement(name = "CST", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String cst;
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String pRedBC;
-        @XmlElement(name = "vBC", required = true)
+        @XmlElement(name = "vBC", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String vbc;
-        @XmlElement(name = "pICMS", required = true)
+        @XmlElement(name = "pICMS", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String picms;
-        @XmlElement(name = "vICMS", required = true)
+        @XmlElement(name = "vICMS", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String vicms;
 
         /**
          * Obtém o valor da propriedade cst.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCST() {
             return cst;
@@ -538,9 +597,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade cst.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCST(String value) {
             this.cst = value;
@@ -548,9 +609,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade pRedBC.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getPRedBC() {
             return pRedBC;
@@ -558,9 +621,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade pRedBC.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setPRedBC(String value) {
             this.pRedBC = value;
@@ -568,9 +633,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade vbc.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVBC() {
             return vbc;
@@ -578,9 +645,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade vbc.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVBC(String value) {
             this.vbc = value;
@@ -588,9 +657,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade picms.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getPICMS() {
             return picms;
@@ -598,9 +669,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade picms.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setPICMS(String value) {
             this.picms = value;
@@ -608,9 +681,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade vicms.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVICMS() {
             return vicms;
@@ -618,9 +693,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade vicms.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVICMS(String value) {
             this.vicms = value;
@@ -631,9 +708,9 @@ public class TImp {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -654,21 +731,25 @@ public class TImp {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "cst"
+        "cst"
     })
     public static class ICMS45 {
 
-        @XmlElement(name = "CST", required = true)
+        @XmlElement(name = "CST", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String cst;
 
         /**
          * Obtém o valor da propriedade cst.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCST() {
             return cst;
@@ -676,9 +757,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade cst.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCST(String value) {
             this.cst = value;
@@ -689,9 +772,9 @@ public class TImp {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -714,32 +797,37 @@ public class TImp {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "cst",
-            "vbcstRet",
-            "vicmsstRet",
-            "picmsstRet",
-            "vCred"
+        "cst",
+        "vbcstRet",
+        "vicmsstRet",
+        "picmsstRet",
+        "vCred"
     })
     public static class ICMS60 {
 
-        @XmlElement(name = "CST", required = true)
+        @XmlElement(name = "CST", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String cst;
-        @XmlElement(name = "vBCSTRet", required = true)
+        @XmlElement(name = "vBCSTRet", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String vbcstRet;
-        @XmlElement(name = "vICMSSTRet", required = true)
+        @XmlElement(name = "vICMSSTRet", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String vicmsstRet;
-        @XmlElement(name = "pICMSSTRet", required = true)
+        @XmlElement(name = "pICMSSTRet", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String picmsstRet;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
         protected String vCred;
 
         /**
          * Obtém o valor da propriedade cst.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCST() {
             return cst;
@@ -747,9 +835,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade cst.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCST(String value) {
             this.cst = value;
@@ -757,9 +847,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade vbcstRet.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVBCSTRet() {
             return vbcstRet;
@@ -767,9 +859,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade vbcstRet.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVBCSTRet(String value) {
             this.vbcstRet = value;
@@ -777,9 +871,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade vicmsstRet.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVICMSSTRet() {
             return vicmsstRet;
@@ -787,9 +883,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade vicmsstRet.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVICMSSTRet(String value) {
             this.vicmsstRet = value;
@@ -797,9 +895,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade picmsstRet.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getPICMSSTRet() {
             return picmsstRet;
@@ -807,9 +907,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade picmsstRet.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setPICMSSTRet(String value) {
             this.picmsstRet = value;
@@ -817,9 +919,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade vCred.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVCred() {
             return vCred;
@@ -827,9 +931,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade vCred.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVCred(String value) {
             this.vCred = value;
@@ -840,9 +946,9 @@ public class TImp {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -866,34 +972,40 @@ public class TImp {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "cst",
-            "pRedBC",
-            "vbc",
-            "picms",
-            "vicms",
-            "vCred"
+        "cst",
+        "pRedBC",
+        "vbc",
+        "picms",
+        "vicms",
+        "vCred"
     })
     public static class ICMS90 {
 
-        @XmlElement(name = "CST", required = true)
+        @XmlElement(name = "CST", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String cst;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
         protected String pRedBC;
-        @XmlElement(name = "vBC", required = true)
+        @XmlElement(name = "vBC", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String vbc;
-        @XmlElement(name = "pICMS", required = true)
+        @XmlElement(name = "pICMS", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String picms;
-        @XmlElement(name = "vICMS", required = true)
+        @XmlElement(name = "vICMS", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String vicms;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
         protected String vCred;
 
         /**
          * Obtém o valor da propriedade cst.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCST() {
             return cst;
@@ -901,9 +1013,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade cst.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCST(String value) {
             this.cst = value;
@@ -911,9 +1025,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade pRedBC.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getPRedBC() {
             return pRedBC;
@@ -921,9 +1037,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade pRedBC.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setPRedBC(String value) {
             this.pRedBC = value;
@@ -931,9 +1049,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade vbc.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVBC() {
             return vbc;
@@ -941,9 +1061,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade vbc.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVBC(String value) {
             this.vbc = value;
@@ -951,9 +1073,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade picms.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getPICMS() {
             return picms;
@@ -961,9 +1085,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade picms.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setPICMS(String value) {
             this.picms = value;
@@ -971,9 +1097,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade vicms.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVICMS() {
             return vicms;
@@ -981,9 +1109,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade vicms.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVICMS(String value) {
             this.vicms = value;
@@ -991,9 +1121,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade vCred.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVCred() {
             return vCred;
@@ -1001,9 +1133,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade vCred.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVCred(String value) {
             this.vCred = value;
@@ -1014,9 +1148,9 @@ public class TImp {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -1039,32 +1173,37 @@ public class TImp {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "cst",
-            "pRedBCOutraUF",
-            "vbcOutraUF",
-            "picmsOutraUF",
-            "vicmsOutraUF"
+        "cst",
+        "pRedBCOutraUF",
+        "vbcOutraUF",
+        "picmsOutraUF",
+        "vicmsOutraUF"
     })
     public static class ICMSOutraUF {
 
-        @XmlElement(name = "CST", required = true)
+        @XmlElement(name = "CST", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String cst;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
         protected String pRedBCOutraUF;
-        @XmlElement(name = "vBCOutraUF", required = true)
+        @XmlElement(name = "vBCOutraUF", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String vbcOutraUF;
-        @XmlElement(name = "pICMSOutraUF", required = true)
+        @XmlElement(name = "pICMSOutraUF", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String picmsOutraUF;
-        @XmlElement(name = "vICMSOutraUF", required = true)
+        @XmlElement(name = "vICMSOutraUF", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String vicmsOutraUF;
 
         /**
          * Obtém o valor da propriedade cst.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCST() {
             return cst;
@@ -1072,9 +1211,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade cst.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCST(String value) {
             this.cst = value;
@@ -1082,9 +1223,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade pRedBCOutraUF.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getPRedBCOutraUF() {
             return pRedBCOutraUF;
@@ -1092,9 +1235,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade pRedBCOutraUF.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setPRedBCOutraUF(String value) {
             this.pRedBCOutraUF = value;
@@ -1102,9 +1247,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade vbcOutraUF.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVBCOutraUF() {
             return vbcOutraUF;
@@ -1112,9 +1259,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade vbcOutraUF.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVBCOutraUF(String value) {
             this.vbcOutraUF = value;
@@ -1122,9 +1271,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade picmsOutraUF.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getPICMSOutraUF() {
             return picmsOutraUF;
@@ -1132,9 +1283,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade picmsOutraUF.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setPICMSOutraUF(String value) {
             this.picmsOutraUF = value;
@@ -1142,9 +1295,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade vicmsOutraUF.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVICMSOutraUF() {
             return vicmsOutraUF;
@@ -1152,9 +1307,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade vicmsOutraUF.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVICMSOutraUF(String value) {
             this.vicmsOutraUF = value;
@@ -1165,9 +1322,9 @@ public class TImp {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -1194,24 +1351,28 @@ public class TImp {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "cst",
-            "indSN"
+        "cst",
+        "indSN"
     })
     public static class ICMSSN {
 
-        @XmlElement(name = "CST", required = true)
+        @XmlElement(name = "CST", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String cst;
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String indSN;
 
         /**
          * Obtém o valor da propriedade cst.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCST() {
             return cst;
@@ -1219,9 +1380,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade cst.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCST(String value) {
             this.cst = value;
@@ -1229,9 +1392,11 @@ public class TImp {
 
         /**
          * Obtém o valor da propriedade indSN.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getIndSN() {
             return indSN;
@@ -1239,9 +1404,11 @@ public class TImp {
 
         /**
          * Define o valor da propriedade indSN.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setIndSN(String value) {
             this.indSN = value;

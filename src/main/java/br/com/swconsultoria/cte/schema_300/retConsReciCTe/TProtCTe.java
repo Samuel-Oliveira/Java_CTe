@@ -1,18 +1,31 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:54:47 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.retConsReciCTe;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  * Tipo Protocolo de status resultado do processamento da CT-e
- *
+ * 
  * <p>Classe Java de TProtCTe complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType name="TProtCTe">
  *   &lt;complexContent>
@@ -42,11 +55,28 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *             &lt;/complexContent>
  *           &lt;/complexType>
  *         &lt;/element>
+ *         &lt;element name="infFisco" minOccurs="0">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="cMsg">
+ *                     &lt;simpleType>
+ *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TStat">
+ *                       &lt;/restriction>
+ *                     &lt;/simpleType>
+ *                   &lt;/element>
+ *                   &lt;element name="xMsg" type="{http://www.portalfiscal.inf.br/cte}TMotivo"/>
+ *                 &lt;/sequence>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
  *         &lt;element ref="{http://www.w3.org/2000/09/xmldsig#}Signature" minOccurs="0"/>
  *       &lt;/sequence>
  *       &lt;attribute name="versao" use="required">
  *         &lt;simpleType>
- *           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TVerConsReciCTe">
+ *           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TVerCTe">
  *           &lt;/restriction>
  *         &lt;/simpleType>
  *       &lt;/attribute>
@@ -54,16 +84,21 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TProtCTe", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
-        "infProt",
-        "signature"
+    "infProt",
+    "infFisco",
+    "signature"
 })
 public class TProtCTe {
 
-    @XmlElement(required = true)
-    protected InfProt infProt;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+    protected TProtCTe.InfProt infProt;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+    protected TProtCTe.InfFisco infFisco;
     @XmlElement(name = "Signature", namespace = "http://www.w3.org/2000/09/xmldsig#")
     protected SignatureType signature;
     @XmlAttribute(name = "versao", required = true)
@@ -71,29 +106,59 @@ public class TProtCTe {
 
     /**
      * Obtém o valor da propriedade infProt.
-     *
-     * @return possible object is
-     * {@link InfProt }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TProtCTe.InfProt }
+     *     
      */
-    public InfProt getInfProt() {
+    public TProtCTe.InfProt getInfProt() {
         return infProt;
     }
 
     /**
      * Define o valor da propriedade infProt.
-     *
-     * @param value allowed object is
-     *              {@link InfProt }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TProtCTe.InfProt }
+     *     
      */
-    public void setInfProt(InfProt value) {
+    public void setInfProt(TProtCTe.InfProt value) {
         this.infProt = value;
     }
 
     /**
+     * Obtém o valor da propriedade infFisco.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TProtCTe.InfFisco }
+     *     
+     */
+    public TProtCTe.InfFisco getInfFisco() {
+        return infFisco;
+    }
+
+    /**
+     * Define o valor da propriedade infFisco.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TProtCTe.InfFisco }
+     *     
+     */
+    public void setInfFisco(TProtCTe.InfFisco value) {
+        this.infFisco = value;
+    }
+
+    /**
      * Obtém o valor da propriedade signature.
-     *
-     * @return possible object is
-     * {@link SignatureType }
+     * 
+     * @return
+     *     possible object is
+     *     {@link SignatureType }
+     *     
      */
     public SignatureType getSignature() {
         return signature;
@@ -101,9 +166,11 @@ public class TProtCTe {
 
     /**
      * Define o valor da propriedade signature.
-     *
-     * @param value allowed object is
-     *              {@link SignatureType }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link SignatureType }
+     *     
      */
     public void setSignature(SignatureType value) {
         this.signature = value;
@@ -111,9 +178,11 @@ public class TProtCTe {
 
     /**
      * Obtém o valor da propriedade versao.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getVersao() {
         return versao;
@@ -121,9 +190,11 @@ public class TProtCTe {
 
     /**
      * Define o valor da propriedade versao.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -132,9 +203,97 @@ public class TProtCTe {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="cMsg">
+     *           &lt;simpleType>
+     *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TStat">
+     *             &lt;/restriction>
+     *           &lt;/simpleType>
+     *         &lt;/element>
+     *         &lt;element name="xMsg" type="{http://www.portalfiscal.inf.br/cte}TMotivo"/>
+     *       &lt;/sequence>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "cMsg",
+        "xMsg"
+    })
+    public static class InfFisco {
+
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+        protected String cMsg;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+        protected String xMsg;
+
+        /**
+         * Obtém o valor da propriedade cMsg.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getCMsg() {
+            return cMsg;
+        }
+
+        /**
+         * Define o valor da propriedade cMsg.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setCMsg(String value) {
+            this.cMsg = value;
+        }
+
+        /**
+         * Obtém o valor da propriedade xMsg.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getXMsg() {
+            return xMsg;
+        }
+
+        /**
+         * Define o valor da propriedade xMsg.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setXMsg(String value) {
+            this.xMsg = value;
+        }
+
+    }
+
+
+    /**
+     * <p>Classe Java de anonymous complex type.
+     * 
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -159,17 +318,19 @@ public class TProtCTe {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "tpAmb",
-            "verAplic",
-            "chCTe",
-            "dhRecbto",
-            "nProt",
-            "digVal",
-            "cStat",
-            "xMotivo"
+        "tpAmb",
+        "verAplic",
+        "chCTe",
+        "dhRecbto",
+        "nProt",
+        "digVal",
+        "cStat",
+        "xMotivo"
     })
     public static class InfProt {
 
@@ -197,9 +358,11 @@ public class TProtCTe {
 
         /**
          * Obtém o valor da propriedade tpAmb.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getTpAmb() {
             return tpAmb;
@@ -207,9 +370,11 @@ public class TProtCTe {
 
         /**
          * Define o valor da propriedade tpAmb.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setTpAmb(String value) {
             this.tpAmb = value;
@@ -217,9 +382,11 @@ public class TProtCTe {
 
         /**
          * Obtém o valor da propriedade verAplic.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVerAplic() {
             return verAplic;
@@ -227,9 +394,11 @@ public class TProtCTe {
 
         /**
          * Define o valor da propriedade verAplic.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVerAplic(String value) {
             this.verAplic = value;
@@ -237,9 +406,11 @@ public class TProtCTe {
 
         /**
          * Obtém o valor da propriedade chCTe.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getChCTe() {
             return chCTe;
@@ -247,9 +418,11 @@ public class TProtCTe {
 
         /**
          * Define o valor da propriedade chCTe.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setChCTe(String value) {
             this.chCTe = value;
@@ -257,9 +430,11 @@ public class TProtCTe {
 
         /**
          * Obtém o valor da propriedade dhRecbto.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getDhRecbto() {
             return dhRecbto;
@@ -267,9 +442,11 @@ public class TProtCTe {
 
         /**
          * Define o valor da propriedade dhRecbto.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setDhRecbto(String value) {
             this.dhRecbto = value;
@@ -277,9 +454,11 @@ public class TProtCTe {
 
         /**
          * Obtém o valor da propriedade nProt.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getNProt() {
             return nProt;
@@ -287,9 +466,11 @@ public class TProtCTe {
 
         /**
          * Define o valor da propriedade nProt.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setNProt(String value) {
             this.nProt = value;
@@ -297,9 +478,10 @@ public class TProtCTe {
 
         /**
          * Obtém o valor da propriedade digVal.
-         *
-         * @return possible object is
-         * byte[]
+         * 
+         * @return
+         *     possible object is
+         *     byte[]
          */
         public byte[] getDigVal() {
             return digVal;
@@ -307,9 +489,10 @@ public class TProtCTe {
 
         /**
          * Define o valor da propriedade digVal.
-         *
-         * @param value allowed object is
-         *              byte[]
+         * 
+         * @param value
+         *     allowed object is
+         *     byte[]
          */
         public void setDigVal(byte[] value) {
             this.digVal = value;
@@ -317,9 +500,11 @@ public class TProtCTe {
 
         /**
          * Obtém o valor da propriedade cStat.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCStat() {
             return cStat;
@@ -327,9 +512,11 @@ public class TProtCTe {
 
         /**
          * Define o valor da propriedade cStat.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCStat(String value) {
             this.cStat = value;
@@ -337,9 +524,11 @@ public class TProtCTe {
 
         /**
          * Obtém o valor da propriedade xMotivo.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getXMotivo() {
             return xMotivo;
@@ -347,9 +536,11 @@ public class TProtCTe {
 
         /**
          * Define o valor da propriedade xMotivo.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setXMotivo(String value) {
             this.xMotivo = value;
@@ -357,9 +548,11 @@ public class TProtCTe {
 
         /**
          * Obtém o valor da propriedade id.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getId() {
             return id;
@@ -367,9 +560,11 @@ public class TProtCTe {
 
         /**
          * Define o valor da propriedade id.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setId(String value) {
             this.id = value;

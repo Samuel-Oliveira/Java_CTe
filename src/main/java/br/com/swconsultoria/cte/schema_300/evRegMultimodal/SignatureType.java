@@ -1,16 +1,29 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:50:29 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.evRegMultimodal;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  * <p>Classe Java de SignatureType complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType name="SignatureType">
  *   &lt;complexContent>
@@ -25,20 +38,22 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "SignatureType", propOrder = {
-        "signedInfo",
-        "signatureValue",
-        "keyInfo"
+@XmlType(name = "SignatureType", namespace = "http://www.w3.org/2000/09/xmldsig#", propOrder = {
+    "signedInfo",
+    "signatureValue",
+    "keyInfo"
 })
 public class SignatureType {
 
-    @XmlElement(name = "SignedInfo", required = true)
+    @XmlElement(name = "SignedInfo", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected SignedInfoType signedInfo;
-    @XmlElement(name = "SignatureValue", required = true)
+    @XmlElement(name = "SignatureValue", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected SignatureValueType signatureValue;
-    @XmlElement(name = "KeyInfo", required = true)
+    @XmlElement(name = "KeyInfo", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected KeyInfoType keyInfo;
     @XmlAttribute(name = "Id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
@@ -48,9 +63,11 @@ public class SignatureType {
 
     /**
      * Obtém o valor da propriedade signedInfo.
-     *
-     * @return possible object is
-     * {@link SignedInfoType }
+     * 
+     * @return
+     *     possible object is
+     *     {@link SignedInfoType }
+     *     
      */
     public SignedInfoType getSignedInfo() {
         return signedInfo;
@@ -58,9 +75,11 @@ public class SignatureType {
 
     /**
      * Define o valor da propriedade signedInfo.
-     *
-     * @param value allowed object is
-     *              {@link SignedInfoType }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link SignedInfoType }
+     *     
      */
     public void setSignedInfo(SignedInfoType value) {
         this.signedInfo = value;
@@ -68,9 +87,11 @@ public class SignatureType {
 
     /**
      * Obtém o valor da propriedade signatureValue.
-     *
-     * @return possible object is
-     * {@link SignatureValueType }
+     * 
+     * @return
+     *     possible object is
+     *     {@link SignatureValueType }
+     *     
      */
     public SignatureValueType getSignatureValue() {
         return signatureValue;
@@ -78,9 +99,11 @@ public class SignatureType {
 
     /**
      * Define o valor da propriedade signatureValue.
-     *
-     * @param value allowed object is
-     *              {@link SignatureValueType }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link SignatureValueType }
+     *     
      */
     public void setSignatureValue(SignatureValueType value) {
         this.signatureValue = value;
@@ -88,9 +111,11 @@ public class SignatureType {
 
     /**
      * Obtém o valor da propriedade keyInfo.
-     *
-     * @return possible object is
-     * {@link KeyInfoType }
+     * 
+     * @return
+     *     possible object is
+     *     {@link KeyInfoType }
+     *     
      */
     public KeyInfoType getKeyInfo() {
         return keyInfo;
@@ -98,9 +123,11 @@ public class SignatureType {
 
     /**
      * Define o valor da propriedade keyInfo.
-     *
-     * @param value allowed object is
-     *              {@link KeyInfoType }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link KeyInfoType }
+     *     
      */
     public void setKeyInfo(KeyInfoType value) {
         this.keyInfo = value;
@@ -108,9 +135,11 @@ public class SignatureType {
 
     /**
      * Obtém o valor da propriedade id.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getId() {
         return id;
@@ -118,9 +147,11 @@ public class SignatureType {
 
     /**
      * Define o valor da propriedade id.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setId(String value) {
         this.id = value;

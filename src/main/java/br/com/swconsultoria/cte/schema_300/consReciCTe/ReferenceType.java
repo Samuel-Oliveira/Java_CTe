@@ -1,60 +1,75 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:39:18 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.consReciCTe;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  * <p>Classe Java de ReferenceType complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
- * <complexType name="ReferenceType">
- *   <complexContent>
- *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       <sequence>
- *         <element name="Transforms" type="{http://www.w3.org/2000/09/xmldsig#}TransformsType"/>
- *         <element name="DigestMethod">
- *           <complexType>
- *             <complexContent>
- *               <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *                 <attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/2000/09/xmldsig#sha1" />
- *               </restriction>
- *             </complexContent>
- *           </complexType>
- *         </element>
- *         <element name="DigestValue" type="{http://www.w3.org/2000/09/xmldsig#}DigestValueType"/>
- *       </sequence>
- *       <attribute name="Id" type="{http://www.w3.org/2001/XMLSchema}ID" />
- *       <attribute name="URI" use="required">
- *         <simpleType>
- *           <restriction base="{http://www.w3.org/2001/XMLSchema}anyURI">
- *             <minLength value="2"/>
- *           </restriction>
- *         </simpleType>
- *       </attribute>
- *       <attribute name="Type" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *     </restriction>
- *   </complexContent>
- * </complexType>
+ * &lt;complexType name="ReferenceType">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="Transforms" type="{http://www.w3.org/2000/09/xmldsig#}TransformsType"/>
+ *         &lt;element name="DigestMethod">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/2000/09/xmldsig#sha1" />
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="DigestValue" type="{http://www.w3.org/2000/09/xmldsig#}DigestValueType"/>
+ *       &lt;/sequence>
+ *       &lt;attribute name="Id" type="{http://www.w3.org/2001/XMLSchema}ID" />
+ *       &lt;attribute name="URI" use="required">
+ *         &lt;simpleType>
+ *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyURI">
+ *             &lt;minLength value="2"/>
+ *           &lt;/restriction>
+ *         &lt;/simpleType>
+ *       &lt;/attribute>
+ *       &lt;attribute name="Type" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ReferenceType", propOrder = {
-        "transforms",
-        "digestMethod",
-        "digestValue"
+@XmlType(name = "ReferenceType", namespace = "http://www.w3.org/2000/09/xmldsig#", propOrder = {
+    "transforms",
+    "digestMethod",
+    "digestValue"
 })
 public class ReferenceType {
 
-    @XmlElement(name = "Transforms", required = true)
+    @XmlElement(name = "Transforms", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected TransformsType transforms;
-    @XmlElement(name = "DigestMethod", required = true)
-    protected DigestMethod digestMethod;
-    @XmlElement(name = "DigestValue", required = true)
+    @XmlElement(name = "DigestMethod", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
+    protected ReferenceType.DigestMethod digestMethod;
+    @XmlElement(name = "DigestValue", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected byte[] digestValue;
     @XmlAttribute(name = "Id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
@@ -69,9 +84,11 @@ public class ReferenceType {
 
     /**
      * Obtém o valor da propriedade transforms.
-     *
-     * @return possible object is
-     * {@link TransformsType }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TransformsType }
+     *     
      */
     public TransformsType getTransforms() {
         return transforms;
@@ -79,9 +96,11 @@ public class ReferenceType {
 
     /**
      * Define o valor da propriedade transforms.
-     *
-     * @param value allowed object is
-     *              {@link TransformsType }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TransformsType }
+     *     
      */
     public void setTransforms(TransformsType value) {
         this.transforms = value;
@@ -89,29 +108,34 @@ public class ReferenceType {
 
     /**
      * Obtém o valor da propriedade digestMethod.
-     *
-     * @return possible object is
-     * {@link DigestMethod }
+     * 
+     * @return
+     *     possible object is
+     *     {@link ReferenceType.DigestMethod }
+     *     
      */
-    public DigestMethod getDigestMethod() {
+    public ReferenceType.DigestMethod getDigestMethod() {
         return digestMethod;
     }
 
     /**
      * Define o valor da propriedade digestMethod.
-     *
-     * @param value allowed object is
-     *              {@link DigestMethod }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ReferenceType.DigestMethod }
+     *     
      */
-    public void setDigestMethod(DigestMethod value) {
+    public void setDigestMethod(ReferenceType.DigestMethod value) {
         this.digestMethod = value;
     }
 
     /**
      * Obtém o valor da propriedade digestValue.
-     *
-     * @return possible object is
-     * byte[]
+     * 
+     * @return
+     *     possible object is
+     *     byte[]
      */
     public byte[] getDigestValue() {
         return digestValue;
@@ -119,9 +143,10 @@ public class ReferenceType {
 
     /**
      * Define o valor da propriedade digestValue.
-     *
-     * @param value allowed object is
-     *              byte[]
+     * 
+     * @param value
+     *     allowed object is
+     *     byte[]
      */
     public void setDigestValue(byte[] value) {
         this.digestValue = value;
@@ -129,9 +154,11 @@ public class ReferenceType {
 
     /**
      * Obtém o valor da propriedade id.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getId() {
         return id;
@@ -139,9 +166,11 @@ public class ReferenceType {
 
     /**
      * Define o valor da propriedade id.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setId(String value) {
         this.id = value;
@@ -149,9 +178,11 @@ public class ReferenceType {
 
     /**
      * Obtém o valor da propriedade uri.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getURI() {
         return uri;
@@ -159,9 +190,11 @@ public class ReferenceType {
 
     /**
      * Define o valor da propriedade uri.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setURI(String value) {
         this.uri = value;
@@ -169,9 +202,11 @@ public class ReferenceType {
 
     /**
      * Obtém o valor da propriedade type.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getType() {
         return type;
@@ -179,9 +214,11 @@ public class ReferenceType {
 
     /**
      * Define o valor da propriedade type.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setType(String value) {
         this.type = value;
@@ -190,18 +227,20 @@ public class ReferenceType {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
-     * <complexType>
-     *   <complexContent>
-     *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
-     *       <attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/2000/09/xmldsig#sha1" />
-     *     </restriction>
-     *   </complexContent>
-     * </complexType>
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/2000/09/xmldsig#sha1" />
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "")
@@ -213,9 +252,11 @@ public class ReferenceType {
 
         /**
          * Obtém o valor da propriedade algorithm.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getAlgorithm() {
             if (algorithm == null) {
@@ -227,9 +268,11 @@ public class ReferenceType {
 
         /**
          * Define o valor da propriedade algorithm.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setAlgorithm(String value) {
             this.algorithm = value;

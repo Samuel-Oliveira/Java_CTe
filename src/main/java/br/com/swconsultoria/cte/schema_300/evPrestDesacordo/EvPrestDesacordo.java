@@ -1,14 +1,25 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:50:03 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.evPrestDesacordo;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * <p>Classe Java de anonymous complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -19,6 +30,7 @@ import javax.xml.bind.annotation.*;
  *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
  *               &lt;whiteSpace value="preserve"/>
  *               &lt;enumeration value="Prestação do Serviço em Desacordo"/>
+ *               &lt;enumeration value="Prestacao do Servico em Desacordo"/>
  *             &lt;/restriction>
  *           &lt;/simpleType>
  *         &lt;/element>
@@ -44,12 +56,14 @@ import javax.xml.bind.annotation.*;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-        "descEvento",
-        "indDesacordoOper",
-        "xObs"
+    "descEvento",
+    "indDesacordoOper",
+    "xObs"
 })
 @XmlRootElement(name = "evPrestDesacordo", namespace = "http://www.portalfiscal.inf.br/cte")
 public class EvPrestDesacordo {
@@ -63,9 +77,11 @@ public class EvPrestDesacordo {
 
     /**
      * Obtém o valor da propriedade descEvento.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getDescEvento() {
         return descEvento;
@@ -73,9 +89,11 @@ public class EvPrestDesacordo {
 
     /**
      * Define o valor da propriedade descEvento.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setDescEvento(String value) {
         this.descEvento = value;
@@ -83,9 +101,11 @@ public class EvPrestDesacordo {
 
     /**
      * Obtém o valor da propriedade indDesacordoOper.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getIndDesacordoOper() {
         return indDesacordoOper;
@@ -93,9 +113,11 @@ public class EvPrestDesacordo {
 
     /**
      * Define o valor da propriedade indDesacordoOper.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setIndDesacordoOper(String value) {
         this.indDesacordoOper = value;
@@ -103,9 +125,11 @@ public class EvPrestDesacordo {
 
     /**
      * Obtém o valor da propriedade xObs.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getXObs() {
         return xObs;
@@ -113,9 +137,11 @@ public class EvPrestDesacordo {
 
     /**
      * Define o valor da propriedade xObs.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setXObs(String value) {
         this.xObs = value;

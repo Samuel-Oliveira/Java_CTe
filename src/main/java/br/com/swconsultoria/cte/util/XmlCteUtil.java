@@ -11,17 +11,18 @@ import br.com.swconsultoria.cte.schema_300.consStatServCTe.TConsStatServ;
 import br.com.swconsultoria.cte.schema_300.cteModalRodoviario.Rodo;
 import br.com.swconsultoria.cte.schema_300.cteOS.TCTeOS;
 import br.com.swconsultoria.cte.schema_300.distdfeint.DistDFeInt;
-import br.com.swconsultoria.cte.schema_300.enviCTe.CteProc;
 import br.com.swconsultoria.cte.schema_300.enviCTe.TEnviCTe;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TEvento;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TProcEvento;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TRetEvento;
 import br.com.swconsultoria.cte.schema_300.inutCTe.TInutCTe;
+import br.com.swconsultoria.cte.schema_300.inutCTe.TProcInutCTe;
+import br.com.swconsultoria.cte.schema_300.procCTe.CteProc;
 import br.com.swconsultoria.cte.schema_300.procCTeOS.CteOSProc;
+import br.com.swconsultoria.cte.schema_300.retCTeOS.TProtCTeOS;
 import br.com.swconsultoria.cte.schema_300.retConsReciCTe.TProtCTe;
 import br.com.swconsultoria.cte.schema_300.retConsReciCTe.TRetConsReciCTe;
 import br.com.swconsultoria.cte.schema_300.retConsSitCTe.TRetConsSitCTe;
-import br.com.swconsultoria.cte.schema_300.retEnviCTe.TProtCTeOS;
 import br.com.swconsultoria.cte.schema_300.retEnviCTe.TRetEnviCTe;
 import br.com.swconsultoria.cte.schema_300.retInutCTe.TRetInutCTe;
 
@@ -32,9 +33,13 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.transform.stream.StreamSource;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.StringJoiner;
 import java.util.zip.GZIPInputStream;
 
 /**
@@ -44,6 +49,58 @@ import java.util.zip.GZIPInputStream;
  *
  */
 public class XmlCteUtil {
+
+    private static final String STATUS_SERVICO = "TConsStatServ";
+    private static final String CTE = "TCTe";
+    private static final String CTE_ENV = "br.com.swconsultoria.cte.schema_300.enviCTe.TCTe";
+    private static final String CTE_PROC = "br.com.swconsultoria.cte.schema_300.procCTe.TCTe";
+    private static final String ENVIO_CTE = "TEnviCTe";
+    private static final String ENVIO_CTE_OS = "TCTeOS";
+    private static final String CONSULTA_RECIBO = "TConsReciCTe";
+    private static final String INUTILIZACAO = "TInutCTe";
+    private static final String CONSULTA_PROTOCOLO = "TConsSitCTe";
+    private static final String DISTRIBUICAO_DFE = "DistDFeInt";
+    private static final String EVENTO = "TEvento";
+
+    private static final String MODAL_RODOVIARIO = "Rodo";
+    private static final String MODAL_RODOVIARIO_V3 = "br.com.swconsultoria.cte.schema_300.cteModalRodoviario.Rodo";
+
+    private static final String PROT_CTE = "TProtCTe";
+    private static final String PROT_CTEOS = "TProtCTeOS";
+    private static final String PROT_CTE_CONSULTA_RECIBO = "br.com.swconsultoria.cte.schema_300.retConsReciCTe.TProtCTe";
+    private static final String PROT_CTE_PROC = "br.com.swconsultoria.cte.schema_300.procCTe.TProtCTe";
+    private static final String PROT_CTE_CONSULTA_SITUACAO = "br.com.swconsultoria.cte.schema_300.retConsSitCTe.TProtCTe";
+    private static final String PROT_CTEOS_PROC = "br.com.swconsultoria.cte.schema_300.retCTeOS.TProtCTeOS";
+
+    private static final String CANCELAR = "br.com.swconsultoria.cte.schema_300.evCancCTe.TEvento";
+    private static final String EPEC = "br.com.swconsultoria.cte.schema_300.evEPECCTe.TEvento";
+    private static final String MULTIMODAL = "br.com.swconsultoria.cte.schema_300.evRegMultimodal.TEvento";
+    private static final String CCE = "br.com.swconsultoria.cte.schema_300.evCCeCTe.TEvento";
+    private static final String PRESTDESACORDO = "br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TEvento";
+    private static final String GVT = "br.com.swconsultoria.cte.schema_300.evGTV.TEvento";
+
+    private static final String RET_EVENTO = "TRetEvento";
+    private static final String RET_INUTILIZACAO = "TRetInutCTe";
+    private static final String RET_CONSULTA = "TRetConsSitCTe";
+    private static final String RET_ENVICTE = "TRetEnviCTe";
+    private static final String RET_CONSULTA_RECIBO = "TRetConsReciCTe";
+    private static final String RET_CANCELAR = "br.com.swconsultoria.cte.schema_300.evCancCTe.TRetEvento";
+    private static final String RET_EPEC = "br.com.swconsultoria.cte.schema_300.evEPECCTe.TRetEvento";
+    private static final String RET_MULTIMODAL = "br.com.swconsultoria.cte.schema_300.evRegMultimodal.TRetEvento";
+    private static final String RET_CCE = "br.com.swconsultoria.cte.schema_300.evCCeCTe.TRetEvento";
+    private static final String RET_PRESTDESACORDO = "br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TRetEvento";
+    private static final String RET_GVT = "br.com.swconsultoria.cte.schema_300.evGTV.TRetEvento";
+
+    private static final String PROC_CANCELAR = "br.com.swconsultoria.cte.schema_300.evCancCTe.TProcEvento";
+    private static final String PROC_EPEC = "br.com.swconsultoria.cte.schema_300.evEPECCTe.TProcEvento";
+    private static final String PROC_MULTIMODAL = "br.com.swconsultoria.cte.schema_300.evRegMultimodal.TProcEvento";
+    private static final String PROC_CCE = "br.com.swconsultoria.cte.schema_300.evCCeCTe.TProcEvento";
+    private static final String PROC_PRESTDESACORDO = "br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TProcEvento";
+    private static final String PROC_GVT = "br.com.swconsultoria.cte.schema_300.evGTV.TProcEvento";
+    private static final String PROC_EVENTO = "TProcEvento";
+    private static final String PROC_CTE = "CteProc";
+    private static final String PROC_CTEOS = "CteOSProc";
+    private static final String PROC_INUTILIZAR = "TProcInutCTe";
 
     /**
      * Transforma o String do XML em Objeto
@@ -61,147 +118,142 @@ public class XmlCteUtil {
     }
 
     /**
-     * Le o Arquivo XML e retona String
-     *
-     * @return String
-     * @throws CteException
-     */
-    public static String leXml(String arquivo) throws CteException {
-
-        StringBuilder xml = new StringBuilder();
-        BufferedReader in;
-        try {
-            in = new BufferedReader(new InputStreamReader(new FileInputStream(arquivo), "UTF-8"));
-            String linha;
-
-            while ((linha = in.readLine()) != null) {
-                xml.append(linha);
-
-            }
-            in.close();
-        } catch (IOException e) {
-            throw new CteException("Ler Xml: " + e.getMessage());
-        }
-        return xml.toString();
-    }
-
-    /**
      * Transforma o Objeto em XML(String)
      *
      * @return String
      * @throws CteException
      */
-    public static <T> String objectCteToXml(Object obj) throws JAXBException, CteException {
+    public static <T> String objectToXml(Object obj) throws JAXBException, CteException {
 
         JAXBContext context;
         JAXBElement<?> element;
 
         switch (obj.getClass().getSimpleName()) {
 
-            case ConstantesCte.XML.STATUS_SERVICO:
+            case STATUS_SERVICO:
                 context = JAXBContext.newInstance(TConsStatServ.class);
                 element = new ObjectFactory()
                         .createConsStatServCte((TConsStatServ) obj);
                 break;
 
-            case ConstantesCte.XML.ENVIO_CTE:
+            case ENVIO_CTE:
                 context = JAXBContext.newInstance(TEnviCTe.class);
                 element = new br.com.swconsultoria.cte.schema_300.enviCTe.ObjectFactory()
                         .createEnviCTe((TEnviCTe) obj);
                 break;
 
-            case ConstantesCte.XML.ENVIO_CTE_OS:
+            case ENVIO_CTE_OS:
                 context = JAXBContext.newInstance(TCTeOS.class);
                 element = new br.com.swconsultoria.cte.schema_300.cteOS.ObjectFactory()
                         .createCTeOS((TCTeOS) obj);
                 break;
+            case CTE:
 
-            case ConstantesCte.XML.CONSULTA_RECIBO:
+                switch (obj.getClass().getName()) {
+
+                    case CTE_PROC:
+                        context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.procCTe.TCTe.class);
+                        element = XsdCteUtil.cte
+                                .createTCTe((br.com.swconsultoria.cte.schema_300.procCTe.TCTe) obj);
+                        break;
+
+                    case CTE_ENV:
+                        context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.enviCTe.TCTe.class);
+                        element = XsdCteUtil.cte
+                                .createTCTe((br.com.swconsultoria.cte.schema_300.enviCTe.TCTe) obj);
+                        break;
+                    default:
+                        throw new CteException("Objeto não mapeado no XmlCteUtil:" + obj.getClass().getName());
+                }
+
+                break;
+
+            case CONSULTA_RECIBO:
                 context = JAXBContext.newInstance(TConsReciCTe.class);
                 element = new br.com.swconsultoria.cte.schema_300.consReciCTe.ObjectFactory()
                         .createConsReciCTe((TConsReciCTe) obj);
                 break;
 
-            case ConstantesCte.XML.INUTILIZACAO:
+            case INUTILIZACAO:
                 context = JAXBContext.newInstance(TInutCTe.class);
                 element = new br.com.swconsultoria.cte.schema_300.inutCTe.ObjectFactory()
                         .createInutCTe((TInutCTe) obj);
                 break;
 
-            case ConstantesCte.XML.CONSULTA_PROTOCOLO:
+            case CONSULTA_PROTOCOLO:
                 context = JAXBContext.newInstance(TConsSitCTe.class);
                 element = new br.com.swconsultoria.cte.schema_300.consSitCTe.ObjectFactory()
                         .createConsSitCTe((TConsSitCTe) obj);
 
                 break;
 
-            case ConstantesCte.XML.DISTRIBUICAO_DFE:
+            case DISTRIBUICAO_DFE:
                 context = JAXBContext.newInstance(DistDFeInt.class);
                 element = new br.com.swconsultoria.cte.schema_300.distdfeint.ObjectFactory()
                         .createDistDFeInt((DistDFeInt) obj);
                 break;
 
-            case ConstantesCte.XML.RET_ENVICTE:
+            case RET_ENVICTE:
                 context = JAXBContext.newInstance(TRetEnviCTe.class);
                 element = new br.com.swconsultoria.cte.schema_300.retEnviCTe.ObjectFactory()
                         .createRetEnviCte((TRetEnviCTe) obj);
                 break;
 
-            case ConstantesCte.XML.RET_CONSULTA_RECIBO:
+            case RET_CONSULTA_RECIBO:
                 context = JAXBContext.newInstance(TRetConsReciCTe.class);
                 element = new br.com.swconsultoria.cte.schema_300.retConsReciCTe.ObjectFactory()
                         .createRetConsReciCTe((TRetConsReciCTe) obj);
                 break;
 
-            case ConstantesCte.XML.RET_INUTILIZACAO:
+            case RET_INUTILIZACAO:
                 context = JAXBContext.newInstance(TRetInutCTe.class);
-                element = XsdUtil.retInutilizacao.createTRetInutCTe((TRetInutCTe) obj);
+                element = XsdCteUtil.retInutilizacao.createTRetInutCTe((TRetInutCTe) obj);
                 break;
 
-            case ConstantesCte.XML.RET_CONSULTA:
+            case RET_CONSULTA:
                 context = JAXBContext.newInstance(TRetConsSitCTe.class);
                 element = new br.com.swconsultoria.cte.schema_300.retConsSitCTe.ObjectFactory()
                         .createRetConsSitCTe((TRetConsSitCTe) obj);
                 break;
 
-            case ConstantesCte.XML.PROC_EVENTO:
+            case PROC_EVENTO:
 
                 switch (obj.getClass().getName()) {
 
-                    case ConstantesCte.XML.PROC_CANCELAR:
+                    case PROC_CANCELAR:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.evCancCTe.TProcEvento.class);
-                        element = new br.com.swconsultoria.cte.schema_300.evCancCTe.ObjectFactory()
+                        element = XsdCteUtil.procEvento
                                 .createTProcEvento((br.com.swconsultoria.cte.schema_300.evCancCTe.TProcEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.PROC_EPEC:
+                    case PROC_EPEC:
                         context = JAXBContext.newInstance(TProcEvento.class);
-                        element = new br.com.swconsultoria.cte.schema_300.evEPECCTe.ObjectFactory()
+                        element = XsdCteUtil.procEvento
                                 .createTProcEvento((TProcEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.PROC_MULTIMODAL:
+                    case PROC_MULTIMODAL:
                         context = JAXBContext.newInstance(TProcEvento.class);
-                        element = new br.com.swconsultoria.cte.schema_300.evRegMultimodal.ObjectFactory()
+                        element = XsdCteUtil.procEvento
                                 .createTProcEvento((br.com.swconsultoria.cte.schema_300.evRegMultimodal.TProcEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.PROC_CCE:
+                    case PROC_CCE:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.evCCeCTe.TProcEvento.class);
-                        element = new br.com.swconsultoria.cte.schema_300.evCCeCTe.ObjectFactory()
+                        element = XsdCteUtil.procEvento
                                 .createTProcEvento((br.com.swconsultoria.cte.schema_300.evCCeCTe.TProcEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.PROC_PRESTDESACORDO:
+                    case PROC_PRESTDESACORDO:
                         context = JAXBContext
                                 .newInstance(br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TProcEvento.class);
-                        element = new br.com.swconsultoria.cte.schema_300.evPrestDesacordo.ObjectFactory()
+                        element = XsdCteUtil.procEvento
                                 .createTProcEvento((br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TProcEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.PROC_GVT:
+                    case PROC_GVT:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.evGTV.TProcEvento.class);
-                        element = new br.com.swconsultoria.cte.schema_300.evGTV.ObjectFactory()
+                        element = XsdCteUtil.procEvento
                                 .createTProcEvento((br.com.swconsultoria.cte.schema_300.evGTV.TProcEvento) obj);
                         break;
 
@@ -211,55 +263,61 @@ public class XmlCteUtil {
 
                 break;
 
-            case ConstantesCte.XML.PROC_CTE:
+            case PROC_CTE:
                 context = JAXBContext.newInstance(CteProc.class);
-                element = new br.com.swconsultoria.cte.schema_300.enviCTe.ObjectFactory()
+                element = XsdCteUtil.cteProc
                         .createCteProc((CteProc) obj);
                 break;
 
-            case ConstantesCte.XML.PROC_CTEOS:
+            case PROC_INUTILIZAR:
+                context = JAXBContext.newInstance(TProcInutCTe.class);
+                element = XsdCteUtil.procInut
+                        .createProcInut((TProcInutCTe) obj);
+                break;
+
+            case PROC_CTEOS:
                 context = JAXBContext.newInstance(CteOSProc.class);
-                element = new br.com.swconsultoria.cte.schema_300.procCTeOS.ObjectFactory()
+                element = XsdCteUtil.cteOSProc
                         .createCteOSProc((CteOSProc) obj);
                 break;
 
-            case ConstantesCte.XML.EVENTO:
+            case EVENTO:
 
                 switch (obj.getClass().getName()) {
 
-                    case ConstantesCte.XML.CANCELAR:
+                    case CANCELAR:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.evCancCTe.TEvento.class);
-                        element = new br.com.swconsultoria.cte.schema_300.evCancCTe.ObjectFactory()
+                        element = XsdCteUtil.evento
                                 .createTEvento((br.com.swconsultoria.cte.schema_300.evCancCTe.TEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.EPEC:
+                    case EPEC:
                         context = JAXBContext.newInstance(TEvento.class);
-                        element = new br.com.swconsultoria.cte.schema_300.evEPECCTe.ObjectFactory()
+                        element = XsdCteUtil.evento
                                 .createTEvento((TEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.MULTIMODAL:
+                    case MULTIMODAL:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.evRegMultimodal.TEvento.class);
-                        element = new br.com.swconsultoria.cte.schema_300.evRegMultimodal.ObjectFactory()
+                        element = XsdCteUtil.evento
                                 .createTEvento((br.com.swconsultoria.cte.schema_300.evRegMultimodal.TEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.CCE:
+                    case CCE:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.evCCeCTe.TEvento.class);
-                        element = new br.com.swconsultoria.cte.schema_300.evCCeCTe.ObjectFactory()
+                        element = XsdCteUtil.evento
                                 .createTEvento((br.com.swconsultoria.cte.schema_300.evCCeCTe.TEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.PRESTDESACORDO:
+                    case PRESTDESACORDO:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TEvento.class);
-                        element = new br.com.swconsultoria.cte.schema_300.evPrestDesacordo.ObjectFactory()
+                        element = XsdCteUtil.evento
                                 .createTEvento((br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.GVT:
+                    case GVT:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.evGTV.TEvento.class);
-                        element = new br.com.swconsultoria.cte.schema_300.evGTV.ObjectFactory()
+                        element = XsdCteUtil.evento
                                 .createTEvento((br.com.swconsultoria.cte.schema_300.evGTV.TEvento) obj);
                         break;
 
@@ -269,38 +327,38 @@ public class XmlCteUtil {
 
                 break;
 
-            case ConstantesCte.XML.RET_EVENTO:
+            case RET_EVENTO:
 
                 switch (obj.getClass().getName()) {
 
-                    case ConstantesCte.XML.RET_CANCELAR:
+                    case RET_CANCELAR:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.evCancCTe.TRetEvento.class);
-                        element = XsdUtil.retEvento.createTRetEvent((br.com.swconsultoria.cte.schema_300.evCancCTe.TRetEvento) obj);
+                        element = XsdCteUtil.retEvento.createTRetEvent((br.com.swconsultoria.cte.schema_300.evCancCTe.TRetEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.RET_EPEC:
+                    case RET_EPEC:
                         context = JAXBContext.newInstance(TRetEvento.class);
-                        element = XsdUtil.retEvento.createTRetEvent((TRetEvento) obj);
+                        element = XsdCteUtil.retEvento.createTRetEvent((TRetEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.RET_MULTIMODAL:
+                    case RET_MULTIMODAL:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.evRegMultimodal.TRetEvento.class);
-                        element = XsdUtil.retEvento.createTRetEvent((br.com.swconsultoria.cte.schema_300.evRegMultimodal.TRetEvento) obj);
+                        element = XsdCteUtil.retEvento.createTRetEvent((br.com.swconsultoria.cte.schema_300.evRegMultimodal.TRetEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.RET_CCE:
+                    case RET_CCE:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.evCCeCTe.TRetEvento.class);
-                        element = XsdUtil.retEvento.createTRetEvent((br.com.swconsultoria.cte.schema_300.evCCeCTe.TRetEvento) obj);
+                        element = XsdCteUtil.retEvento.createTRetEvent((br.com.swconsultoria.cte.schema_300.evCCeCTe.TRetEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.RET_PRESTDESACORDO:
+                    case RET_PRESTDESACORDO:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TRetEvento.class);
-                        element = XsdUtil.retEvento.createTRetEvent((br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TRetEvento) obj);
+                        element = XsdCteUtil.retEvento.createTRetEvent((br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TRetEvento) obj);
                         break;
 
-                    case ConstantesCte.XML.RET_GVT:
+                    case RET_GVT:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.evGTV.TRetEvento.class);
-                        element = XsdUtil.retEvento.createTRetEvent((br.com.swconsultoria.cte.schema_300.evGTV.TRetEvento) obj);
+                        element = XsdCteUtil.retEvento.createTRetEvent((br.com.swconsultoria.cte.schema_300.evGTV.TRetEvento) obj);
                         break;
 
                     default:
@@ -309,20 +367,20 @@ public class XmlCteUtil {
 
                 break;
 
-            case ConstantesCte.XML.PROT_CTE:
+            case PROT_CTE:
 
                 switch (obj.getClass().getName()) {
 
-                    case ConstantesCte.XML.PROT_CTE_CONSULTA_RECIBO:
+                    case PROT_CTE_CONSULTA_RECIBO:
                         context = JAXBContext.newInstance(TProtCTe.class);
-                        element = new br.com.swconsultoria.cte.schema_300.retConsReciCTe.ObjectFactory()
-                                .createTProcCTe((TProtCTe) obj);
+                        element = XsdCteUtil.protCTe
+                                .createProtCte((TProtCTe) obj);
                         break;
 
-                    case ConstantesCte.XML.PROT_CTE_PROC:
+                    case PROT_CTE_PROC:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.procCTe.TProtCTe.class);
-                        element = new br.com.swconsultoria.cte.schema_300.procCTe.ObjectFactory()
-                                .createTProcCTe((br.com.swconsultoria.cte.schema_300.procCTe.TProtCTe) obj);
+                        element = XsdCteUtil.protCTe
+                                .createProtCte((br.com.swconsultoria.cte.schema_300.procCTe.TProtCTe) obj);
                         break;
 
                     default:
@@ -331,14 +389,14 @@ public class XmlCteUtil {
 
                 break;
 
-            case ConstantesCte.XML.PROT_CTEOS:
+            case PROT_CTEOS:
 
                 switch (obj.getClass().getName()) {
 
-                    case ConstantesCte.XML.PROT_CTEOS_PROC:
+                    case PROT_CTEOS_PROC:
                         context = JAXBContext.newInstance(TProtCTeOS.class);
-                        element = new br.com.swconsultoria.cte.schema_300.retEnviCTe.ObjectFactory()
-                                .createTProcCTeOS((TProtCTeOS) obj);
+                        element = XsdCteUtil.protCTe
+                                .createProtCte((TProtCTeOS) obj);
                         break;
 
                     default:
@@ -347,13 +405,13 @@ public class XmlCteUtil {
 
                 break;
 
-            case ConstantesCte.XML.MODAL_RODOVIARIO:
+            case MODAL_RODOVIARIO:
 
                 switch (obj.getClass().getName()) {
 
-                    case ConstantesCte.XML.MODAL_RODOVIARIO:
+                    case MODAL_RODOVIARIO:
                         context = JAXBContext.newInstance(Rodo.class);
-                        element = new br.com.swconsultoria.cte.schema_300.cteModalRodoviario.ObjectFactory()
+                        element = XsdCteUtil.rodo
                                 .createRodo((Rodo) obj);
                         break;
 
@@ -401,11 +459,11 @@ public class XmlCteUtil {
 
         CteProc cteProc = new CteProc();
         cteProc.setVersao("3.00");
-        cteProc.setCTe(enviCte.getCTe().get(0));
+        cteProc.setCTe(xmlToObject(objectToXml(enviCte.getCTe().get(0)), br.com.swconsultoria.cte.schema_300.procCTe.TCTe.class));
         cteProc.setProtCTe(
-                xmlToObject(objectCteToXml(retorno), br.com.swconsultoria.cte.schema_300.enviCTe.TProtCTe.class));
+                xmlToObject(objectToXml(retorno), br.com.swconsultoria.cte.schema_300.procCTe.TProtCTe.class));
 
-        return XmlCteUtil.objectCteToXml(cteProc);
+        return XmlCteUtil.objectToXml(cteProc);
     }
 
     public static String criaCteOSProc(TCTeOS enviCte, Object retorno)
@@ -413,11 +471,30 @@ public class XmlCteUtil {
 
         CteOSProc cteProc = new CteOSProc();
         cteProc.setVersao("3.00");
-        cteProc.setCTeOS( xmlToObject(objectCteToXml(enviCte), br.com.swconsultoria.cte.schema_300.procCTeOS.TCTeOS.class));
+        cteProc.setCTeOS(xmlToObject(objectToXml(enviCte), br.com.swconsultoria.cte.schema_300.procCTeOS.TCTeOS.class));
         cteProc.setProtCTe(
-                xmlToObject(objectCteToXml(retorno), br.com.swconsultoria.cte.schema_300.procCTeOS.TProtCTeOS.class));
+                xmlToObject(objectToXml(retorno), br.com.swconsultoria.cte.schema_300.procCTeOS.TProtCTeOS.class));
 
-        return XmlCteUtil.objectCteToXml(cteProc);
+        return XmlCteUtil.objectToXml(cteProc);
+    }
+
+    /**
+     * Le o Arquivo XML e retona String
+     *
+     * @return String
+     * @throws NfeException
+     */
+    public static String leXml(String arquivo) throws IOException {
+
+        ObjetoCTeUtil.verifica(arquivo).orElseThrow(() -> new IllegalArgumentException("Arquivo xml não pode ser nulo/vazio."));
+        if (!Files.exists(Paths.get(arquivo))) {
+            throw new FileNotFoundException("Arquivo " + arquivo + " não encontrado.");
+        }
+        List<String> list = Files.readAllLines(Paths.get(arquivo));
+        StringJoiner joiner = new StringJoiner("\n");
+        list.forEach(joiner::add);
+
+        return joiner.toString();
     }
 
     private static String replacesCte(String xml) {
@@ -433,33 +510,22 @@ public class XmlCteUtil {
         return xml;
     }
 
-    public static String dataCte(LocalDateTime data) throws CteException {
-        XMLGregorianCalendar xmlCalendar;
-        try {
-            GregorianCalendar calendar = GregorianCalendar.from(data.atZone(ZoneId.of("Brazil/East")));
-
-            xmlCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar);
-            xmlCalendar.setMillisecond(DatatypeConstants.FIELD_UNDEFINED);
-
-        } catch (DatatypeConfigurationException e) {
-            throw new CteException(e.getMessage());
-        }
-
-        return (xmlCalendar.toString());
+    public static String dataCte(LocalDateTime dataASerFormatada) {
+        return dataCte(dataASerFormatada, ZoneId.systemDefault());
     }
 
-    public static int modulo11(String chave) {
-        int total = 0;
-        int peso = 2;
+    public static String dataCte(LocalDateTime dataASerFormatada, ZoneId zoneId) {
+        try {
+            GregorianCalendar calendar = GregorianCalendar.from(dataASerFormatada.atZone(ObjetoCTeUtil.verifica(zoneId).orElse(ZoneId.of("Brazil/East"))));
 
-        for (int i = 0; i < chave.length(); i++) {
-            total += (chave.charAt((chave.length() - 1) - i) - '0') * peso;
-            peso++;
-            if (peso == 10)
-                peso = 2;
+            XMLGregorianCalendar xmlCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(calendar);
+            xmlCalendar.setMillisecond(DatatypeConstants.FIELD_UNDEFINED);
+            return xmlCalendar.toString();
+
+        } catch (DatatypeConfigurationException e) {
+            LoggerUtil.log(XmlCteUtil.class, e.getMessage());
         }
-        int resto = total % 11;
-        return (resto == 0 || resto == 1) ? 0 : (11 - resto);
+        return null;
     }
 
 }

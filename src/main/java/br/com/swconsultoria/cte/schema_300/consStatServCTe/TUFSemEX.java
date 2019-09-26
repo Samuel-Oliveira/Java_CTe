@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Classe Java de TUF_sem_EX.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * <p>
  * <pre>
@@ -44,8 +44,9 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/restriction>
  * &lt;/simpleType>
  * </pre>
+ * 
  */
-@XmlType(name = "TUF_sem_EX")
+@XmlType(name = "TUF_sem_EX", namespace = "http://www.portalfiscal.inf.br/cte")
 @XmlEnum
 public enum TUFSemEX {
 
@@ -77,12 +78,12 @@ public enum TUFSemEX {
     SP,
     TO;
 
-    public static TUFSemEX fromValue(String v) {
-        return valueOf(v);
-    }
-
     public String value() {
         return name();
+    }
+
+    public static TUFSemEX fromValue(String v) {
+        return valueOf(v);
     }
 
 }

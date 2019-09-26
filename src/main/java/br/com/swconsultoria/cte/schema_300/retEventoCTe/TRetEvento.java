@@ -1,18 +1,30 @@
+//
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
+// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
+// Gerado em: 2019.09.22 às 07:58:03 PM BRT 
+//
+
 
 package br.com.swconsultoria.cte.schema_300.retEventoCTe;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
  * Tipo retorno do Evento
- *
+ * 
  * <p>Classe Java de TRetEvento complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
  * &lt;complexType name="TRetEvento">
  *   &lt;complexContent>
@@ -79,16 +91,18 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TRetEvento", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
-        "infEvento",
-        "signature"
+    "infEvento",
+    "signature"
 })
 public class TRetEvento {
 
-    @XmlElement(required = true)
-    protected InfEvento infEvento;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+    protected TRetEvento.InfEvento infEvento;
     @XmlElement(name = "Signature", namespace = "http://www.w3.org/2000/09/xmldsig#")
     protected SignatureType signature;
     @XmlAttribute(name = "versao", required = true)
@@ -96,29 +110,35 @@ public class TRetEvento {
 
     /**
      * Obtém o valor da propriedade infEvento.
-     *
-     * @return possible object is
-     * {@link InfEvento }
+     * 
+     * @return
+     *     possible object is
+     *     {@link TRetEvento.InfEvento }
+     *     
      */
-    public InfEvento getInfEvento() {
+    public TRetEvento.InfEvento getInfEvento() {
         return infEvento;
     }
 
     /**
      * Define o valor da propriedade infEvento.
-     *
-     * @param value allowed object is
-     *              {@link InfEvento }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TRetEvento.InfEvento }
+     *     
      */
-    public void setInfEvento(InfEvento value) {
+    public void setInfEvento(TRetEvento.InfEvento value) {
         this.infEvento = value;
     }
 
     /**
      * Obtém o valor da propriedade signature.
-     *
-     * @return possible object is
-     * {@link SignatureType }
+     * 
+     * @return
+     *     possible object is
+     *     {@link SignatureType }
+     *     
      */
     public SignatureType getSignature() {
         return signature;
@@ -126,9 +146,11 @@ public class TRetEvento {
 
     /**
      * Define o valor da propriedade signature.
-     *
-     * @param value allowed object is
-     *              {@link SignatureType }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link SignatureType }
+     *     
      */
     public void setSignature(SignatureType value) {
         this.signature = value;
@@ -136,9 +158,11 @@ public class TRetEvento {
 
     /**
      * Obtém o valor da propriedade versao.
-     *
-     * @return possible object is
-     * {@link String }
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
     public String getVersao() {
         return versao;
@@ -146,9 +170,11 @@ public class TRetEvento {
 
     /**
      * Define o valor da propriedade versao.
-     *
-     * @param value allowed object is
-     *              {@link String }
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
     public void setVersao(String value) {
         this.versao = value;
@@ -157,9 +183,9 @@ public class TRetEvento {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
      * &lt;complexType>
      *   &lt;complexContent>
@@ -209,20 +235,22 @@ public class TRetEvento {
      *   &lt;/complexContent>
      * &lt;/complexType>
      * </pre>
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "tpAmb",
-            "verAplic",
-            "cOrgao",
-            "cStat",
-            "xMotivo",
-            "chCTe",
-            "tpEvento",
-            "xEvento",
-            "nSeqEvento",
-            "dhRegEvento",
-            "nProt"
+        "tpAmb",
+        "verAplic",
+        "cOrgao",
+        "cStat",
+        "xMotivo",
+        "chCTe",
+        "tpEvento",
+        "xEvento",
+        "nSeqEvento",
+        "dhRegEvento",
+        "nProt"
     })
     public static class InfEvento {
 
@@ -255,9 +283,11 @@ public class TRetEvento {
 
         /**
          * Obtém o valor da propriedade tpAmb.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getTpAmb() {
             return tpAmb;
@@ -265,9 +295,11 @@ public class TRetEvento {
 
         /**
          * Define o valor da propriedade tpAmb.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setTpAmb(String value) {
             this.tpAmb = value;
@@ -275,9 +307,11 @@ public class TRetEvento {
 
         /**
          * Obtém o valor da propriedade verAplic.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getVerAplic() {
             return verAplic;
@@ -285,9 +319,11 @@ public class TRetEvento {
 
         /**
          * Define o valor da propriedade verAplic.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setVerAplic(String value) {
             this.verAplic = value;
@@ -295,9 +331,11 @@ public class TRetEvento {
 
         /**
          * Obtém o valor da propriedade cOrgao.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCOrgao() {
             return cOrgao;
@@ -305,9 +343,11 @@ public class TRetEvento {
 
         /**
          * Define o valor da propriedade cOrgao.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCOrgao(String value) {
             this.cOrgao = value;
@@ -315,9 +355,11 @@ public class TRetEvento {
 
         /**
          * Obtém o valor da propriedade cStat.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getCStat() {
             return cStat;
@@ -325,9 +367,11 @@ public class TRetEvento {
 
         /**
          * Define o valor da propriedade cStat.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setCStat(String value) {
             this.cStat = value;
@@ -335,9 +379,11 @@ public class TRetEvento {
 
         /**
          * Obtém o valor da propriedade xMotivo.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getXMotivo() {
             return xMotivo;
@@ -345,9 +391,11 @@ public class TRetEvento {
 
         /**
          * Define o valor da propriedade xMotivo.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setXMotivo(String value) {
             this.xMotivo = value;
@@ -355,9 +403,11 @@ public class TRetEvento {
 
         /**
          * Obtém o valor da propriedade chCTe.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getChCTe() {
             return chCTe;
@@ -365,9 +415,11 @@ public class TRetEvento {
 
         /**
          * Define o valor da propriedade chCTe.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setChCTe(String value) {
             this.chCTe = value;
@@ -375,9 +427,11 @@ public class TRetEvento {
 
         /**
          * Obtém o valor da propriedade tpEvento.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getTpEvento() {
             return tpEvento;
@@ -385,9 +439,11 @@ public class TRetEvento {
 
         /**
          * Define o valor da propriedade tpEvento.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setTpEvento(String value) {
             this.tpEvento = value;
@@ -395,9 +451,11 @@ public class TRetEvento {
 
         /**
          * Obtém o valor da propriedade xEvento.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getXEvento() {
             return xEvento;
@@ -405,9 +463,11 @@ public class TRetEvento {
 
         /**
          * Define o valor da propriedade xEvento.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setXEvento(String value) {
             this.xEvento = value;
@@ -415,9 +475,11 @@ public class TRetEvento {
 
         /**
          * Obtém o valor da propriedade nSeqEvento.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getNSeqEvento() {
             return nSeqEvento;
@@ -425,9 +487,11 @@ public class TRetEvento {
 
         /**
          * Define o valor da propriedade nSeqEvento.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setNSeqEvento(String value) {
             this.nSeqEvento = value;
@@ -435,9 +499,11 @@ public class TRetEvento {
 
         /**
          * Obtém o valor da propriedade dhRegEvento.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getDhRegEvento() {
             return dhRegEvento;
@@ -445,9 +511,11 @@ public class TRetEvento {
 
         /**
          * Define o valor da propriedade dhRegEvento.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setDhRegEvento(String value) {
             this.dhRegEvento = value;
@@ -455,9 +523,11 @@ public class TRetEvento {
 
         /**
          * Obtém o valor da propriedade nProt.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getNProt() {
             return nProt;
@@ -465,9 +535,11 @@ public class TRetEvento {
 
         /**
          * Define o valor da propriedade nProt.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setNProt(String value) {
             this.nProt = value;
@@ -475,9 +547,11 @@ public class TRetEvento {
 
         /**
          * Obtém o valor da propriedade id.
-         *
-         * @return possible object is
-         * {@link String }
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
          */
         public String getId() {
             return id;
@@ -485,9 +559,11 @@ public class TRetEvento {
 
         /**
          * Define o valor da propriedade id.
-         *
-         * @param value allowed object is
-         *              {@link String }
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
          */
         public void setId(String value) {
             this.id = value;
