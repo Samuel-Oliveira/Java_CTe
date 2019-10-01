@@ -23,7 +23,7 @@ public class ConfiguracoesUtil {
      * </p>
      *
      * @param configuracoesCte
-     * @return ConfiguracoesWebCte
+     * @return ConfiguracoesCte
      * @throws CteException
      * @see CertificadoException
      */
@@ -44,10 +44,10 @@ public class ConfiguracoesUtil {
      *
      * @param configuracoesCte
      * @param cpfCnpj
-     * @return ConfiguracoesWebCte
+     * @return ConfiguracoesCte
      * @throws CteException
      * @see CertificadoException
-     * @see ConfiguracoesWebCte
+     * @see ConfiguracoesCte
      */
     public static ConfiguracoesCte iniciaConfiguracoes(ConfiguracoesCte configuracoesCte, String cpfCnpj) throws CteException {
 

@@ -24,7 +24,7 @@ import java.util.logging.Logger;
  * }
  *
  * @see ConfiguracoesCte
- * @see ConfiguracoesWebCte
+ * @see ConfiguracoesCte
  */
 public class ConfiguracoesCte {
 
