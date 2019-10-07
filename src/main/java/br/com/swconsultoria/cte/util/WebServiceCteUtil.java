@@ -41,8 +41,8 @@ public class WebServiceCteUtil {
             is.close();
             String url = ini.get(secao, "usar");
 
-            if (!config.getEstado().equals(EstadosEnum.MG) || !config.getEstado().equals(EstadosEnum.MS)
-                    || !config.getEstado().equals(EstadosEnum.MT) || !config.getEstado().equals(EstadosEnum.SP) || !config.getEstado().equals(EstadosEnum.PR)) {
+            if (!config.getEstado().equals(EstadosEnum.MG) && !config.getEstado().equals(EstadosEnum.MS)
+                    && !config.getEstado().equals(EstadosEnum.MT) && !config.getEstado().equals(EstadosEnum.SP) && !config.getEstado().equals(EstadosEnum.PR)) {
                 secao = url;
             }
 
