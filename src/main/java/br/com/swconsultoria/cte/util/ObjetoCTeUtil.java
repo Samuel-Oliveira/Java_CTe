@@ -60,7 +60,7 @@ public final class ObjetoCTeUtil {
         qrCode.append(chave);
         qrCode.append("&tpAmb=");
         qrCode.append(configuracoesCTe.getAmbiente().getCodigo());
-        if(chave.substring(32,33).equals("2")){
+        if(chave.substring(34,35).equals("2")){
             qrCode.append("&sign=");
             try {
                 qrCode.append(assinaSign(chave, configuracoesCTe.getCertificado()));
