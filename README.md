@@ -36,6 +36,7 @@ ________________________________________________________________________________
 - Refatoração de Classes
 - Adicionado QRCode
 - Atualizado para versão 3.00a
+- Correção de Inutilização
 
 ## v3.00.5 - 17-07-2019
 - Removido Endereços versão 2.00

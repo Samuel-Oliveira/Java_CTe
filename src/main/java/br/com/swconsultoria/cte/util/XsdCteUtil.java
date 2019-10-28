@@ -9,7 +9,7 @@ import br.com.swconsultoria.cte.schema_300.procCTe.CteProc;
 import br.com.swconsultoria.cte.schema_300.procCTe.TCTe;
 import br.com.swconsultoria.cte.schema_300.procCTe.TProtCTe;
 import br.com.swconsultoria.cte.schema_300.procCTeOS.CteOSProc;
-import br.com.swconsultoria.cte.schema_300.retInutCTe.TRetInutCTe;
+import br.com.swconsultoria.cte.schema_300.inutCTe.TRetInutCTe;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

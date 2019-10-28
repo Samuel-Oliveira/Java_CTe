@@ -24,7 +24,7 @@ import br.com.swconsultoria.cte.schema_300.retConsReciCTe.TProtCTe;
 import br.com.swconsultoria.cte.schema_300.retConsReciCTe.TRetConsReciCTe;
 import br.com.swconsultoria.cte.schema_300.retConsSitCTe.TRetConsSitCTe;
 import br.com.swconsultoria.cte.schema_300.retEnviCTe.TRetEnviCTe;
-import br.com.swconsultoria.cte.schema_300.retInutCTe.TRetInutCTe;
+import br.com.swconsultoria.cte.schema_300.inutCTe.TRetInutCTe;
 
 import javax.xml.bind.*;
 import javax.xml.datatype.DatatypeConfigurationException;
