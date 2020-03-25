@@ -30,7 +30,7 @@ public class CancelamentoUtil {
      * @throws CteException
      */
     public static TEvento montaCancelamento(Evento cancela, ConfiguracoesCte configuracao) throws CteException {
-        return montaCancelamento(cancela, configuracao);
+        return montaCancelamento(cancela, configuracao,ZoneId.systemDefault());
     }
 
     /**
@@ -57,7 +57,7 @@ public class CancelamentoUtil {
         infoEvento.setTpAmb(config.getAmbiente().getCodigo());
         infoEvento.setCNPJ(evento.getCnpj());
         infoEvento.setChCTe(evento.getChave());
-        infoEvento.setDhEvento(XmlCteUtil.dataCte(LocalDateTime.now()));
+        infoEvento.setDhEvento(XmlCteUtil.dataCte(LocalDateTime.now(zoneId)));
         infoEvento.setTpEvento(EventosEnum.CANCELAMENTO.getCodigo());
         infoEvento.setNSeqEvento("1");
 

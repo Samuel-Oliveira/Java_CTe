@@ -45,7 +45,6 @@ public class Assinar {
 
     private static PrivateKey privateKey;
     private static KeyInfo keyInfo;
-    Assinar assinarXMLsCertfificadoA1;
 
     /**
      * @param stringXml
@@ -56,7 +55,7 @@ public class Assinar {
      */
     public static String assinaCte(ConfiguracoesCte config, String stringXml, AssinaturaEnum tipoAssinatura) throws CteException {
 
-        stringXml = stringXml.replaceAll("\r\n", "").replaceAll("\n", "").replaceAll(System.lineSeparator(), ""); // Erro quando tem salto de linha.
+        stringXml = stringXml.replaceAll(System.lineSeparator(), ""); // Erro quando tem salto de linha.
         stringXml = stringXml.replaceAll("\\s+<", "<"); // Erro Espaço antes do final da Tag.
         stringXml = assinaDocCTe(config, stringXml, tipoAssinatura);
         stringXml = stringXml.replaceAll("&#13;", ""); // Java 11
@@ -167,7 +166,7 @@ public class Assinar {
             Transformer trans = tf.newTransformer();
             trans.transform(new DOMSource(doc), new StreamResult(os));
             String xml = os.toString();
-            xml = xml.replaceAll("\\r\\n", "");
+            xml = xml.replaceAll(System.lineSeparator(), "");
             xml = xml.replaceAll(" standalone=\"no\"", "");
             return xml;
         } catch (TransformerException e) {
