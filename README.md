@@ -1,4 +1,4 @@
-# Java-CTe [![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe) [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/3.00.6-SNAPSHOT/jar)
+# Java-CTe [![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe) [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/3.00.6/jar)
 API Java para consumo do WebService de CTe
 
 ## Dúvidas, Sugestões ou Consultoria
@@ -7,22 +7,16 @@ Entre no Discord do Projeto: https://discord.gg/ZXpqnaV
 ## Gostou do Projeto? Dê sua colaboração: [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TX9K693QQYA6W)
 
 Para Iniciar : 
-- Caso use Libs baixe o java-cte-3.00.6-SNAPSHOT.jar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-3.00.6-SNAPSHOT.jar) e o adicione às bibliotecas de Seu Projeto.
+- Caso use Libs baixe o java-cte-3.00.6jar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-3.00.6.jar) e o adicione às bibliotecas de Seu Projeto.
 
 - Baixe o Schemas.rar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas.rar) e extraia na sua Máquina.
 
 - Caso use Maven :
 ```
-<repositories>
-    <repository>
-        <id>sonatype-nexus-snapshots</id>
-        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </repository>
-</repositories>
 <dependency>
     <groupId>br.com.swconsultoria</groupId>
     <artifactId>java-cte</artifactId>
-    <version>3.00.6-SNAPSHOT</version>
+    <version>3.00.6</version>
 </dependency>
 ```
 
@@ -32,11 +26,12 @@ ________________________________________________________________________________
 
 # Historico de Versões
 
-## v3.00.6 (SNAPSHOT)- 07-10-2019
+## v3.00.6 - 27-04-2020
 - Refatoração de Classes
 - Adicionado QRCode
 - Atualizado para versão 3.00a
 - Correção de Inutilização
+- Corrigido Erros WSDL MS
 
 ## v3.00.5 - 17-07-2019
 - Removido Endereços versão 2.00
