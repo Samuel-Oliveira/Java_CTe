@@ -25,6 +25,24 @@ Veja a Wiki https://github.com/Samuel-Oliveira/Java_CTe/wiki, para ter um Tutori
 ________________________________________________________________________________________________
 
 # Historico de Versões
+## v3.00.7 - SNAPSHOT
+- Atualizado Cacert
+
+Snapshot é a versão que se encontra em teste, só use em caso de extrema necessidade.
+Para usar, adicione o repositorio de Snapshot ao Maven:
+```
+<repositories>
+    <repository>
+        <id>sonatype-nexus-snapshots</id>
+        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+</repositories>
+<dependency>
+    <groupId>br.com.swconsultoria</groupId>
+    <artifactId>java-cte</artifactId>
+    <version>3.00.7-SNAPSHOT</version>
+</dependency>
+```
 
 ## v3.00.6 - 27-04-2020
 - Refatoração de Classes
