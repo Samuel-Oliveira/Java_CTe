@@ -27,6 +27,7 @@ ________________________________________________________________________________
 # Historico de Versões
 ## v3.00.7 - SNAPSHOT
 - Atualizado Cacert
+- Adicionado Retorno de Cte OS
 
 Snapshot é a versão que se encontra em teste, só use em caso de extrema necessidade.
 Para usar, adicione o repositorio de Snapshot ao Maven:

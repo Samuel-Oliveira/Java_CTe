@@ -20,6 +20,7 @@ import br.com.swconsultoria.cte.schema_300.inutCTe.TProcInutCTe;
 import br.com.swconsultoria.cte.schema_300.procCTe.CteProc;
 import br.com.swconsultoria.cte.schema_300.procCTeOS.CteOSProc;
 import br.com.swconsultoria.cte.schema_300.retCTeOS.TProtCTeOS;
+import br.com.swconsultoria.cte.schema_300.retCTeOS.TRetCTeOS;
 import br.com.swconsultoria.cte.schema_300.retConsReciCTe.TProtCTe;
 import br.com.swconsultoria.cte.schema_300.retConsReciCTe.TRetConsReciCTe;
 import br.com.swconsultoria.cte.schema_300.retConsSitCTe.TRetConsSitCTe;
@@ -83,6 +84,7 @@ public class XmlCteUtil {
     private static final String RET_INUTILIZACAO = "TRetInutCTe";
     private static final String RET_CONSULTA = "TRetConsSitCTe";
     private static final String RET_ENVICTE = "TRetEnviCTe";
+    private static final String RET_CTE_OS = "TRetCTeOS";
     private static final String RET_CONSULTA_RECIBO = "TRetConsReciCTe";
     private static final String RET_CANCELAR = "br.com.swconsultoria.cte.schema_300.evCancCTe.TRetEvento";
     private static final String RET_EPEC = "br.com.swconsultoria.cte.schema_300.evEPECCTe.TRetEvento";
@@ -197,6 +199,12 @@ public class XmlCteUtil {
                 context = JAXBContext.newInstance(TRetEnviCTe.class);
                 element = new br.com.swconsultoria.cte.schema_300.retEnviCTe.ObjectFactory()
                         .createRetEnviCte((TRetEnviCTe) obj);
+                break;
+
+            case RET_CTE_OS:
+                context = JAXBContext.newInstance(TRetCTeOS.class);
+                element = new br.com.swconsultoria.cte.schema_300.retCTeOS.ObjectFactory()
+                        .createRetCTeOS((TRetCTeOS) obj);
                 break;
 
             case RET_CONSULTA_RECIBO:
