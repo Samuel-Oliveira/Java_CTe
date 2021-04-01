@@ -7,7 +7,9 @@ import br.com.swconsultoria.certificado.Certificado;
 import br.com.swconsultoria.certificado.exception.CertificadoException;
 import br.com.swconsultoria.cte.dom.enuns.AmbienteEnum;
 import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
+import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
 
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.nio.charset.Charset;
 import java.util.logging.Level;
@@ -32,11 +34,10 @@ public class ConfiguracoesCte {
     private AmbienteEnum ambiente;
     private Certificado certificado;
     private String pastaSchemas;
-    private Proxy proxy;
     private Integer timeout;
-    private boolean contigenciaSCAN;
     private boolean validacaoDocumento = true;
     private String arquivoWebService;
+    private InputStream cacert;
 
     /**
      * Este método recebe como parâmetro os dados necessários para iniciar a 
@@ -52,6 +53,10 @@ public class ConfiguracoesCte {
      */
     public static ConfiguracoesCte criarConfiguracoes(EstadosEnum estado, AmbienteEnum ambiente, Certificado certificado,
                                                       String pastaSchemas) throws CertificadoException {
+
+        ObjetoCTeUtil.verifica(estado).orElseThrow( () -> new IllegalArgumentException("Estado não pode ser Nulo."));
+        ObjetoCTeUtil.verifica(ambiente).orElseThrow( () -> new IllegalArgumentException("Ambiente não pode ser Nulo."));
+        ObjetoCTeUtil.verifica(certificado).orElseThrow( () -> new IllegalArgumentException("Certificado não pode ser Nulo."));
 
         ConfiguracoesCte configuracoesCte = new ConfiguracoesCte();
         configuracoesCte.setEstado(estado);
@@ -70,23 +75,18 @@ public class ConfiguracoesCte {
         }
 
         if (Logger.getLogger("").isLoggable(Level.SEVERE)) {
-            System.err.println();
-            System.err.println("#########################################################");
-            System.err.println("         Api Java Cte - Versão 3.00.7-SNAPSHOT (F)       ");
+            System.err.println("####################################################################");
+            System.err.println("              Api Java Cte - Versão 3.00.7 - 01/04/2021             ");
             if (Logger.getLogger("").isLoggable(Level.WARNING)) {
                 System.err.println(" Samuel Olivera - samuel@swconsultoria.com.br ");
             }
-            System.err.println("            Tipo Certificado: " + certificado.getTipoCertificado().toString());
-            System.err.println(" Alias Certificado: " + certificado.getNome().toUpperCase());
-            System.err.println(" Vencimento Certificado: " + certificado.getVencimento());
-            System.err.println(" Cnpj/Cpf Certificado: " + certificado.getCnpjCpf());
+            System.err.println(" Pasta Schemas: " + pastaSchemas);
             System.err.println(" Ambiente: " + (ambiente.equals(AmbienteEnum.PRODUCAO) ? "Produção" : "Homologação") + " - Estado: "
                     + estado.getNome());
-            System.err.println("#########################################################");
-            System.err.println();
+            System.err.println("####################################################################");
         }
         if (!certificado.isValido()) {
-            throw new CertificadoException("Certificado Vencido!");
+            throw new CertificadoException("Certificado Vencido/Inválido");
         }
         return configuracoesCte;
     }
@@ -150,27 +150,6 @@ public class ConfiguracoesCte {
     }
 
     /**
-     * Retorna um valor booleano que representa se as operações de CT-e estão,
-     * ou, não operando no modo de Contingência.
-     * @return contigenciaSCAN
-     */
-    public boolean isContigenciaSCAN() {
-        return contigenciaSCAN;
-    }
-
-    /**
-     * Atribui um valor para contigenciaSCAN. Caso True, as 
-     * operações da CT-e funcionarão no modo de Contingência.
-     * <br>
-     * Usar para situações em que não for possível estabelecer conexão com o 
-     * WebService SEFAZ Origem.
-     * @param contigenciaSCAN
-     */
-    public void setContigenciaSCAN(boolean contigenciaSCAN) {
-        this.contigenciaSCAN = contigenciaSCAN;
-    }
-
-    /**
      * Retorna um objeto Estado que representa o UF do emissor da CT-e.
      * @return estado
      * @see EstadosEnum
@@ -186,23 +165,6 @@ public class ConfiguracoesCte {
      */
     public void setEstado(EstadosEnum estado) {
         this.estado = estado;
-    }
-
-    /**
-     * Retorna o valor do atributo proxyUtil.
-     * @return proxyUtil
-     * @see Proxy
-     */
-    public Proxy getProxy() {
-        return proxy;
-    }
-
-    /**
-     * Atribui um valor para o proxuUtil.
-     * @param proxy
-     */
-    public void setProxy(Proxy proxy) {
-        this.proxy = proxy;
     }
 
     /**
@@ -247,5 +209,13 @@ public class ConfiguracoesCte {
 
     public void setArquivoWebService(String arquivoWebService) {
         this.arquivoWebService = arquivoWebService;
+    }
+
+    public InputStream getCacert() {
+        return cacert;
+    }
+
+    public void setCacert(InputStream cacert) {
+        this.cacert = cacert;
     }
 }
