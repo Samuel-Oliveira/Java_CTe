@@ -61,7 +61,13 @@ public class ConfiguracoesUtil {
             if (configuracoesCte.isValidacaoDocumento() && cpfCnpj != null && !configuracoesCte.getCertificado().getCnpjCpf().substring(0, 8).equals(cpfCnpj.substring(0, 8))) {
                 throw new CertificadoException("Documento do Certificado(" + configuracoesCte.getCertificado().getCnpjCpf() + ") não equivale ao Documento do Emissor(" + cpfCnpj + ")");
             }
-            CertificadoService.inicializaCertificado(configuracoesCte.getCertificado(), ConfiguracoesUtil.class.getResourceAsStream("/Cacert"));
+
+            if(ObjetoCTeUtil.verifica(configuracoesCte.getCacert()).isPresent()){
+                CertificadoService.inicializaCertificado(configuracoesCte.getCertificado(), configuracoesCte.getCacert());
+            }else{
+                CertificadoService.inicializaCertificado(configuracoesCte.getCertificado());
+            }
+
         } catch (CertificadoException e) {
             throw new CteException(e.getMessage());
         }
