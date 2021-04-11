@@ -32,6 +32,7 @@ public class Cte {
     /**
      * Metodo Responsavel Consultar o Status de Serviço do Servidor de Cte da Sefaz
      *
+     * @param configuracoesCte
      * @return
      * @throws CteException
      */
@@ -44,6 +45,7 @@ public class Cte {
     /**
      * Classe Reponsavel Por Consultar o status da CTE na SEFAZ
      *
+     * @param configuracoesCte
      * @param chave
      * @return
      * @throws CteException
@@ -59,6 +61,7 @@ public class Cte {
      * Classe Reponsavel Por Inutilizar a CTE na SEFAZ No tipo Informar
      * * ConstantesUtil.CTE ou ConstantesUtil.NFCE
      *
+     * @param configuracoesCte
      * @param inutCTe
      * @param valida
      * @return
@@ -74,8 +77,10 @@ public class Cte {
     /**
      * Classe Reponsavel Por Consultar a Distribuiçao da CTE na SEFAZ
      *
-     * @param tipoCliente
+     * @param configuracoesCte
+     * @param tipoPessoa
      * @param cpfCnpj
+     * @param tipoConsulta
      * @param nsu
      * @return
      * @throws CteException
@@ -90,6 +95,7 @@ public class Cte {
     /**
      * Metodo para Montar a CTE.
      *
+     * @param configuracoesCte
      * @param enviCTe
      * @param valida
      * @return
@@ -104,7 +110,8 @@ public class Cte {
     /**
      * Metodo para Montar a CTE OS.
      *
-     * @param TCTeOS
+     * @param configuracoesCte
+     * @param enviCTe
      * @param valida
      * @return
      * @throws CteException
@@ -119,6 +126,7 @@ public class Cte {
     /**
      * Metodo para Enviar a CTE.
      *
+     * @param configuracoesCte
      * @param enviCTe
      * @return
      * @throws CteException
@@ -133,6 +141,7 @@ public class Cte {
     /**
      * Metodo para Enviar a CTEOS.
      *
+     * @param configuracoesCte
      * @param enviCTe
      * @return
      * @throws CteException
@@ -146,6 +155,7 @@ public class Cte {
     /**
      * Metodo para Cancelar a CTE 3.00
      *
+     * @param configuracoesCte
      * @param evento
      * @param valida
      * @return
@@ -161,6 +171,7 @@ public class Cte {
     /**
      * Metodo para Evento EPEC da CTE.
      *
+     * @param configuracoesCte
      * @param evento
      * @param valida
      * @return
@@ -176,6 +187,7 @@ public class Cte {
     /**
      * Metodo para Evento MULTIMODAL da CTE.
      *
+     * @param configuracoesCte
      * @param evento
      * @param valida
      * @return
@@ -191,6 +203,7 @@ public class Cte {
     /**
      * Metodo para Evento CCE da CTE 3.00.
      *
+     * @param configuracoesCte
      * @param evento
      * @param valida
      * @return
@@ -206,6 +219,7 @@ public class Cte {
     /**
      * Metodo para Evento PrestacaoDesacordo da CTE.
      *
+     * @param configuracoesCte
      * @param evento
      * @param valida
      * @return
@@ -218,9 +232,10 @@ public class Cte {
 
     }
 
-    /**123
+    /**
      * Metodo para Evento GVT da CTE.
      *
+     * @param configuracoesCte
      * @param evento
      * @param valida
      * @return
@@ -236,6 +251,7 @@ public class Cte {
     /**
      * Metodo para Consulta Recibo CTE.
      *
+     * @param configuracoesCte
      * @param recibo
      * @return
      * @throws CteException

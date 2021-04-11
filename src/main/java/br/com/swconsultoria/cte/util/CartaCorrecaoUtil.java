@@ -35,8 +35,9 @@ public class CartaCorrecaoUtil {
     /**
      * MOnta o Evento de CCe em Lote
      *
-     * @param listaCCe
+     * @param cce
      * @param configuracao
+     * @param zoneId
      * @return
      * @throws CteException
      */

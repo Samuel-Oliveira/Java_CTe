@@ -30,7 +30,9 @@ class EnvioCteOS {
     /**
      * Metodo para Montar a CTE
      *
-     * @param TEnviCTe
+     * @param config
+     * @param enviCTe
+     * @param valida
      * @return TEnviCTe
      * @throws CteException
      */
@@ -69,7 +71,8 @@ class EnvioCteOS {
     /**
      * Metodo para Enviar a CTE
      *
-     * @param TEnviCTe
+     * @param config
+     * @param enviCTe
      * @return TRetEnviCTe
      * @throws CteException
      */

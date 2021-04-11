@@ -21,12 +21,12 @@ public class InutilizacaoUtil {
     /**
      * Monta o Evento de Inutilização
      *
-     * @param tipoDocumento
      * @param cnpj
      * @param serie
      * @param numeroInicial
      * @param numeroFinal
      * @param justificativa
+     * @param dataInutilizacao
      * @param configuracao
      * @return
      * @throws CteException
@@ -69,9 +69,9 @@ public class InutilizacaoUtil {
     /**
      * Cria o ProcEvento da Inutilização
      *
+     * @param configuracoesCte
      * @param inutCTe
      * @param retorno
-     * @param configuracoesCte
      * @return
      * @throws JAXBException
      * @throws CteException

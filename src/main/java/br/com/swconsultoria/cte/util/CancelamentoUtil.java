@@ -36,8 +36,9 @@ public class CancelamentoUtil {
     /**
      * MOnta o Evento de cancelamento Lote
      *
-     * @param listaCancela
-     * @param configuracao
+     * @param evento
+     * @param config
+     * @param zoneId
      * @return
      * @throws CteException
      */

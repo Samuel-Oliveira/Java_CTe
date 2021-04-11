@@ -26,8 +26,8 @@ class ConsultaXml {
     /**
      * Classe Reponsavel Por Consultar o status da CTE na SEFAZ
      *
+     * @param config
      * @param chave
-     * @param tipoDocumento
      * @return
      * @throws CteException
      */
