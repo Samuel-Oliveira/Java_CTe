@@ -1,4 +1,4 @@
-# Java-CTe [![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe) [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/3.00.7/jar)
+# Java-CTe [![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe) [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/3.00.7/jar) [![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/Samuel-Oliveira/Java_CTe.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Samuel-Oliveira/Java_CTe/context:java) [![Total alerts](https://img.shields.io/lgtm/alerts/g/Samuel-Oliveira/Java_CTe.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Samuel-Oliveira/Java_CTe/alerts/)
 API Java para consumo do WebService de CTe
 
 ## Dúvidas, Sugestões ou Consultoria
@@ -11,7 +11,7 @@ Para Iniciar :
 
 - Baixe o Schemas.rar (https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas.rar) e extraia na sua Máquina.
 
-- Caso use Maven :
+- Maven :
 ```
 <dependency>
     <groupId>br.com.swconsultoria</groupId>
@@ -20,47 +20,46 @@ Para Iniciar :
 </dependency>
 ```
 
+- Gradle :
+```groovy
+repositories {
+    maven { 
+        url = "https://oss.sonatype.org/content/repositories/snapshots" 
+    }
+}
+dependencies {
+    implementation "br.com.swconsultoria:java-cte:3.00.7"
+}
+```
+
 Veja a Wiki https://github.com/Samuel-Oliveira/Java_CTe/wiki, para ter um Tutorial Completo.
 
 ________________________________________________________________________________________________
 
 # Historico de Versões
 
-[comment]: <> (## v3.00.8 - SNAPSHOT)
+## v3.00.8 - SNAPSHOT - 11/04/2021
+- Atualizado Dependencia Java-Certificado
+- Corrigido erro NS1 para MT
+- Corrigido erro de assinatura para Certificados com Repositorio
 
-[comment]: <> (- Atualizado Cacert &#40;01/04/2021&#41; Erro MG)
+Snapshot é a versão que se encontra em teste, só use em caso de extrema necessidade.
+Para usar, adicione o repositorio de Snapshot ao Maven:
+```
+<repositories>
+    <repository>
+        <id>sonatype-nexus-snapshots</id>
+        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </repository>
+</repositories>
+<dependency>
+    <groupId>br.com.swconsultoria</groupId>
+    <artifactId>java-cte</artifactId>
+    <version>3.00.8-SNAPSHOT</version>
+</dependency>
+```
+Ou baixe o Jar aqui: https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-3.00.8-SNAPSHOT.jar
 
-[comment]: <> (- Adicionado Retorno de Cte OS)
-
-[comment]: <> (Snapshot é a versão que se encontra em teste, só use em caso de extrema necessidade.)
-
-[comment]: <> (Para usar, adicione o repositorio de Snapshot ao Maven:)
-
-[comment]: <> (```)
-
-[comment]: <> (<repositories>)
-
-[comment]: <> (    <repository>)
-
-[comment]: <> (        <id>sonatype-nexus-snapshots</id>)
-
-[comment]: <> (        <url>https://oss.sonatype.org/content/repositories/snapshots</url>)
-
-[comment]: <> (    </repository>)
-
-[comment]: <> (</repositories>)
-
-[comment]: <> (<dependency>)
-
-[comment]: <> (    <groupId>br.com.swconsultoria</groupId>)
-
-[comment]: <> (    <artifactId>java-cte</artifactId>)
-
-[comment]: <> (    <version>3.00.7-SNAPSHOT</version>)
-
-[comment]: <> (</dependency>)
-
-[comment]: <> (```)
 ## v3.00.7 - 01-04-2021
 - Removido Cacert do Projeto, agora o projeto Java Certificados irá gerenciar os Cacerts.
 - Adicionado Retorno de Cte OS
