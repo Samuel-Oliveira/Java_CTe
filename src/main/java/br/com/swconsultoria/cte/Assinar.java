@@ -6,6 +6,7 @@ import br.com.swconsultoria.certificado.exception.CertificadoException;
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.AssinaturaEnum;
 import br.com.swconsultoria.cte.exception.CteException;
+import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
@@ -147,7 +148,7 @@ public class Assinar {
         KeyStore keyStore = CertificadoService.getKeyStore(certificado);
 
         KeyStore.PrivateKeyEntry pkEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(certificado.getNome(),
-                new KeyStore.PasswordProtection(certificado.getSenha().toCharArray()));
+                new KeyStore.PasswordProtection(ObjetoCTeUtil.verifica(certificado.getSenha()).orElse("").toCharArray()));
         privateKey = pkEntry.getPrivateKey();
 
         KeyInfoFactory keyInfoFactory = signatureFactory.getKeyInfoFactory();

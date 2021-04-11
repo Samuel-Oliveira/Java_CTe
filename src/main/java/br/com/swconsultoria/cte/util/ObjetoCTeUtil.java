@@ -18,6 +18,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.dom.DOMResult;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.Collection;
 import java.util.Optional;
@@ -77,8 +78,9 @@ public final class ObjetoCTeUtil {
             UnrecoverableEntryException, KeyStoreException, InvalidKeyException, SignatureException {
 
         KeyStore keyStore = CertificadoService.getKeyStore(certificado);
-        KeyStore.PrivateKeyEntry pkEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(certificado.getNome(), new KeyStore.PasswordProtection(certificado.getSenha().toCharArray()));
-        byte[] data = id.getBytes("UTF8");
+        KeyStore.PrivateKeyEntry pkEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry(certificado.getNome(),
+                new KeyStore.PasswordProtection(ObjetoCTeUtil.verifica(certificado.getSenha()).orElse("").toCharArray()));
+        byte[] data = id.getBytes(StandardCharsets.UTF_8);
 
         Signature sig = Signature.getInstance("SHA1WithRSA");
         sig.initSign(pkEntry.getPrivateKey());
