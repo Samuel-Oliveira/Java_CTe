@@ -41,6 +41,7 @@ ________________________________________________________________________________
 ## v3.00.8 - SNAPSHOT - 11/04/2021
 - Atualizado Dependencia Java-Certificado
 - Corrigido erro NS1 para MT
+- Corrigido erro NS1 para MS
 - Corrigido erro de assinatura para Certificados com Repositorio
 
 Snapshot é a versão que se encontra em teste, só use em caso de extrema necessidade.

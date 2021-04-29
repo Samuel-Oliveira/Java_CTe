@@ -85,7 +85,9 @@ class EnvioCte {
 
             OMElement ome = AXIOMUtil.stringToOM(xml);
 
-            if (config.getEstado().equals(EstadosEnum.PR) || config.getEstado().equals(EstadosEnum.MT)) {
+            if (config.getEstado().equals(EstadosEnum.PR) ||
+                    config.getEstado().equals(EstadosEnum.MT)  ||
+                    config.getEstado().equals(EstadosEnum.MS)) {
                 Iterator<?> children = ome.getChildrenWithLocalName("CTe");
                 while (children.hasNext()) {
                     OMElement omElement = (OMElement) children.next();
