@@ -34,7 +34,7 @@ class Eventos {
 
             OMElement ome = AXIOMUtil.stringToOM(xml);
 
-            if (config.getEstado().equals(EstadosEnum.MS)) {
+            if (config.getEstado().equals(EstadosEnum.MS) || config.getEstado().equals(EstadosEnum.MT)) {
                 return envioMS(config, tipoEvento, ome);
             } else {
                 return envio(config, tipoEvento, ome);
