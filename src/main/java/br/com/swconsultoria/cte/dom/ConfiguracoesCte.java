@@ -38,6 +38,7 @@ public class ConfiguracoesCte {
     private boolean validacaoDocumento = true;
     private String arquivoWebService;
     private InputStream cacert;
+    private boolean contigenciaSVC;
 
     /**
      * Este método recebe como parâmetro os dados necessários para iniciar a 
@@ -156,6 +157,28 @@ public class ConfiguracoesCte {
      */
     private void setCertificado(Certificado certificado) {
         this.certificado = certificado;
+    }
+
+    /**
+     * Retorna um valor booleano que representa se as operações de CT-e estão,
+     * ou, não operando no modo de Contingência.
+     *
+     * @return contigenciaSVC
+     */
+    public boolean isContigenciaSVC() {
+        return contigenciaSVC;
+    }
+
+    /**
+     * Atribui um valor para contigenciaSVC. Caso True, as operações da CT-e
+     * funcionarão no modo de Contingência. <br>
+     * Usar para situações em que não for possível estabelecer conexão com o
+     * WebService SEFAZ Origem.
+     *
+     * @param contigenciaSVC
+     */
+    public void setContigenciaSVC(boolean contigenciaSVC) {
+        this.contigenciaSVC = contigenciaSVC;
     }
 
     /**

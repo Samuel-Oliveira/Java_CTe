@@ -22,8 +22,8 @@ public class WebServiceCteUtil {
 
         try {
 
-            String secao = "CTe_" + config.getEstado() + "_"
-                    + (config.getAmbiente().equals(AmbienteEnum.HOMOLOGACAO) ? "H" : "P");
+            String sufixoAmbiente = (config.getAmbiente().equals(AmbienteEnum.HOMOLOGACAO) ? "H" : "P");
+            String secao = "CTe_" + config.getEstado() + "_" + sufixoAmbiente;
 
             InputStream is;
             if (ObjetoCTeUtil.verifica(config.getArquivoWebService()).isPresent()) {
@@ -47,7 +47,21 @@ public class WebServiceCteUtil {
             }
 
             if (servico.equals(ServicosEnum.DISTRIBUICAO_DFE)) {
-                secao = "CTe_AN_" + (config.getAmbiente().equals(AmbienteEnum.HOMOLOGACAO) ? "H" : "P");
+                secao = "CTe_AN_" + sufixoAmbiente;
+            }
+
+            if (config.isContigenciaSVC()) {
+                //Estados x SVC conforme NT2012.003
+                // inverte quem usa SVRS no normal vira SVSP no SVC e vice versa + alguns estados.
+                if (EstadosEnum.AP.equals(config.getEstado()) || EstadosEnum.PE.equals(config.getEstado())
+                        || EstadosEnum.RR.equals(config.getEstado()) || EstadosEnum.SP.equals(config.getEstado())
+                        || EstadosEnum.MT.equals(config.getEstado()) || EstadosEnum.MS.equals(config.getEstado()) ) {
+                    //SVC SP
+                    secao = "CTe_SVRS_" + sufixoAmbiente;
+                } else {
+                    //SVC RS
+                    secao = "CTe_SVSP_" + sufixoAmbiente;
+                }
             }
 
             url = ini.get(secao, servico.getServico().toLowerCase());
