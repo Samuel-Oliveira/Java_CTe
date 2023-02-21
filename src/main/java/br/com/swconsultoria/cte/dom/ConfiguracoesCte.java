@@ -38,6 +38,7 @@ public class ConfiguracoesCte {
     private boolean validacaoDocumento = true;
     private String arquivoWebService;
     private InputStream cacert;
+    private boolean contigenciaSVC;
 
     /**
      * Este método recebe como parâmetro os dados necessários para iniciar a 
@@ -63,15 +64,24 @@ public class ConfiguracoesCte {
         configuracoesCte.setAmbiente(ambiente);
         configuracoesCte.setCertificado(certificado);
         configuracoesCte.setPastaSchemas(pastaSchemas);
-
-        try {
-            //Setando Encoding.
-            System.setProperty("file.encoding", "UTF-8");
-            Field charset = Charset.class.getDeclaredField("defaultCharset");
-            charset.setAccessible(true);
-            charset.set(null, null);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            throw new CertificadoException("Erro ao setar Encoding.");
+        
+        /**
+         * Para as versões Java até 11, Eu ainda seto o Encoding por que é permitido.
+         * Para quem trabalha com Java 12+, Aconselhasse setar o Encoding :
+         * -Dfile.encoding="UTF-8"
+         * -Dsun.jnu.encoding="UTF-8"
+         *
+         */
+        if(Integer.parseInt(System.getProperty("java.class.version").substring(0,2)) < 56){
+            try {
+                //Setando Encoding.
+                System.setProperty("file.encoding", "UTF-8");
+                Field charset = Charset.class.getDeclaredField("defaultCharset");
+                charset.setAccessible(true);
+                charset.set(null, null);
+            } catch (NoSuchFieldException | IllegalAccessException e) {
+                throw new CertificadoException("Erro ao setar Encoding.");
+            }
         }
 
         if (Logger.getLogger("").isLoggable(Level.SEVERE)) {
@@ -147,6 +157,28 @@ public class ConfiguracoesCte {
      */
     private void setCertificado(Certificado certificado) {
         this.certificado = certificado;
+    }
+
+    /**
+     * Retorna um valor booleano que representa se as operações de CT-e estão,
+     * ou, não operando no modo de Contingência.
+     *
+     * @return contigenciaSVC
+     */
+    public boolean isContigenciaSVC() {
+        return contigenciaSVC;
+    }
+
+    /**
+     * Atribui um valor para contigenciaSVC. Caso True, as operações da CT-e
+     * funcionarão no modo de Contingência. <br>
+     * Usar para situações em que não for possível estabelecer conexão com o
+     * WebService SEFAZ Origem.
+     *
+     * @param contigenciaSVC
+     */
+    public void setContigenciaSVC(boolean contigenciaSVC) {
+        this.contigenciaSVC = contigenciaSVC;
     }
 
     /**

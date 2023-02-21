@@ -125,6 +125,13 @@
             <version>1.2.20</version>
         </dependency>
 
+        <!-- Tests -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.4.0</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -189,15 +196,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.2</version>
-                <configuration>
-                    <argLine>
-                        -javaagent:src/test/resources/agent.jar
-                    </argLine>
-                </configuration>
             </plugin>
         </plugins>
     </build>

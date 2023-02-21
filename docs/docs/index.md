@@ -1,19 +1,23 @@
-# Java-CTe [![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe) [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/3.00.8/jar) [![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/Samuel-Oliveira/Java_CTe.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Samuel-Oliveira/Java_CTe/context:java) [![Total alerts](https://img.shields.io/lgtm/alerts/g/Samuel-Oliveira/Java_CTe.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Samuel-Oliveira/Java_CTe/alerts/)
-API Java para consumo do WebService de CTe
+[![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe) [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/3.00.8/jar) [![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/Samuel-Oliveira/Java_CTe.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Samuel-Oliveira/Java_CTe/context:java) [![Total alerts](https://img.shields.io/lgtm/alerts/g/Samuel-Oliveira/Java_CTe.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Samuel-Oliveira/Java_CTe/alerts/)
 
-## Dúvidas, Sugestões ou Consultoria
-[![Java Brasil](https://discordapp.com/api/guilds/519583346066587676/widget.png?style=banner2)](https://discord.gg/ZXpqnaV)
+***API Java para consumo do WebService de CTe***
 
-## Gostou do Projeto? Dê sua colaboração pelo Pix: 01713390108
-<img src="https://swconsultoria.com.br/pix.png" width="200">
+## Dúvidas, Sugestões ou Consultoria 
+#### Entre no Discord do Projeto: [https://discord.gg/ZXpqnaV](https://discord.gg/ZXpqnaV)
+
+## Gostou do Projeto? Dê sua colaboração pelo Pix: 01713390108 
+<p align="center">
+<img src="https://swconsultoria.com.br/pix.png" width="220">
+</p>
+
 
 Para Iniciar : 
-- Caso use Libs baixe o [java-cte-3.00.8.jar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-3.00.8.jar) e o adicione às bibliotecas de Seu Projeto.
+- Caso use Libs baixe o [java-cte-3.00.8.jar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-3.00.7.jar) e o adicione às bibliotecas de Seu Projeto.
 
 - Baixe o [Schemas.rar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas.rar) e extraia na sua Máquina.
 
 - Maven :
-```
+```xml
 <dependency>
     <groupId>br.com.swconsultoria</groupId>
     <artifactId>java-cte</artifactId>
@@ -33,7 +37,7 @@ dependencies {
 }
 ```
 
-Veja a [Wiki](https://Samuel-Oliveira.github.io/Java_CTe/), para ter um Tutorial Completo.
+Veja a Wiki https://github.com/Samuel-Oliveira/Java_CTe/wiki, para ter um Tutorial Completo.
 
 ________________________________________________________________________________________________
 
@@ -56,29 +60,17 @@ ________________________________________________________________________________
 [//]: # (Para usar, adicione o repositorio de Snapshot ao Maven:)
 
 [//]: # (```)
-
 [//]: # (<repositories>)
-
 [//]: # (    <repository>)
-
 [//]: # (        <id>sonatype-nexus-snapshots</id>)
-
 [//]: # (        <url>https://oss.sonatype.org/content/repositories/snapshots</url>)
-
 [//]: # (    </repository>)
-
 [//]: # (</repositories>)
-
 [//]: # (<dependency>)
-
 [//]: # (    <groupId>br.com.swconsultoria</groupId>)
-
 [//]: # (    <artifactId>java-cte</artifactId>)
-
 [//]: # (    <version>3.00.8-SNAPSHOT</version>)
-
 [//]: # (</dependency>)
-
 [//]: # (```)
 
 [//]: # (Ou baixe o Jar aqui: https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-3.00.8-SNAPSHOT.jar)
