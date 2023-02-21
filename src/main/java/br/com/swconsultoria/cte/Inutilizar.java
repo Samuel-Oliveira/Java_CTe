@@ -7,8 +7,12 @@ import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_300.inutCTe.TInutCTe;
 import br.com.swconsultoria.cte.schema_300.inutCTe.TRetInutCTe;
-import br.com.swconsultoria.cte.util.*;
+import br.com.swconsultoria.cte.util.ConstantesCte;
+import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
+import br.com.swconsultoria.cte.util.WebServiceCteUtil;
+import br.com.swconsultoria.cte.util.XmlCteUtil;
 import br.com.swconsultoria.cte.wsdl.cteinutilizacaoMS.CteInutilizacaoStub;
+import lombok.extern.java.Log;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.axis2.transport.http.HTTPConstants;
@@ -22,6 +26,7 @@ import java.rmi.RemoteException;
  *
  * @author Samuel Oliveira - samuel@swconsultoria.com.br - www.swconsultoria.com.br
  */
+@Log
 class Inutilizar {
 
     static TRetInutCTe inutiliza(ConfiguracoesCte config, TInutCTe inutCTe, boolean validar)
@@ -33,7 +38,7 @@ class Inutilizar {
             xml = xml.replaceAll(" xmlns:ns2=\"http://www.w3.org/2000/09/xmldsig#\"", "");
             xml = Assinar.assinaCte(config, xml, AssinaturaEnum.INUTILIZACAO);
 
-            LoggerUtil.log(Inutilizar.class, "[XML-ENVIO]: " + xml);
+            log.info("[XML-ENVIO]: " + xml);
 
             if (validar) {
                 new Validar().validaXml(config, xml, ServicosEnum.INUTILIZACAO);
@@ -74,7 +79,7 @@ class Inutilizar {
         }
         CteInutilizacaoStub.CteInutilizacaoCTResult result = stub.cteInutilizacaoCT(dadosMsg, cteCabecMsgE);
 
-        LoggerUtil.log(Inutilizar.class, "[XML-RETORNO]: " + result.getExtraElement().toString());
+        log.info("[XML-RETORNO]: " + result.getExtraElement().toString());
         return XmlCteUtil.xmlToObject(result.getExtraElement().toString(), TRetInutCTe.class);
     }
 
@@ -101,7 +106,7 @@ class Inutilizar {
         }
         br.com.swconsultoria.cte.wsdl.cteinutilizacao.CteInutilizacaoStub.CteInutilizacaoCTResult result = stub.cteInutilizacaoCT(dadosMsg, cteCabecMsgE);
 
-        LoggerUtil.log(Inutilizar.class, "[XML-RETORNO]: " + result.getExtraElement().toString());
+        log.info("[XML-RETORNO]: " + result.getExtraElement().toString());
         return XmlCteUtil.xmlToObject(result.getExtraElement().toString(), TRetInutCTe.class);
     }
 

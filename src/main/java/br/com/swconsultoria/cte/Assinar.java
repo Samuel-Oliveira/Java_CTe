@@ -44,6 +44,8 @@ import java.util.List;
  */
 public class Assinar {
 
+    private Assinar(){}
+
     private static PrivateKey privateKey;
     private static KeyInfo keyInfo;
 
@@ -59,7 +61,7 @@ public class Assinar {
         stringXml = stringXml.replaceAll(System.lineSeparator(), ""); // Erro quando tem salto de linha.
         stringXml = stringXml.replaceAll("\\s+<", "<"); // Erro Espaço antes do final da Tag.
         stringXml = assinaDocCTe(config, stringXml, tipoAssinatura);
-        stringXml = stringXml.replaceAll("&#13;", ""); // Java 11
+        stringXml = stringXml.replace("&#13;", ""); // Java 11
 
         return stringXml;
     }
@@ -124,7 +126,7 @@ public class Assinar {
     private static ArrayList<Transform> signatureFactory(XMLSignatureFactory signatureFactory)
             throws NoSuchAlgorithmException, InvalidAlgorithmParameterException {
 
-        ArrayList<Transform> transformList = new ArrayList<Transform>();
+        ArrayList<Transform> transformList = new ArrayList<>();
         Transform envelopedTransform = signatureFactory.newTransform(Transform.ENVELOPED, (TransformParameterSpec) null);
         Transform c14NTransform = signatureFactory.newTransform("http://www.w3.org/TR/2001/REC-xml-c14n-20010315", (TransformParameterSpec) null);
 
@@ -152,7 +154,7 @@ public class Assinar {
         privateKey = pkEntry.getPrivateKey();
 
         KeyInfoFactory keyInfoFactory = signatureFactory.getKeyInfoFactory();
-        List<X509Certificate> x509Content = new ArrayList<X509Certificate>();
+        List<X509Certificate> x509Content = new ArrayList<>();
 
         x509Content.add(CertificadoService.getCertificate(certificado, keyStore));
         X509Data x509Data = keyInfoFactory.newX509Data(x509Content);
@@ -161,8 +163,7 @@ public class Assinar {
 
     private static String outputXML(Document doc) throws CteException {
 
-        try {
-            ByteArrayOutputStream os = new ByteArrayOutputStream();
+        try (ByteArrayOutputStream os = new ByteArrayOutputStream()){
             TransformerFactory tf = TransformerFactory.newInstance();
             Transformer trans = tf.newTransformer();
             trans.transform(new DOMSource(doc), new StreamResult(os));
@@ -170,7 +171,7 @@ public class Assinar {
             xml = xml.replaceAll(System.lineSeparator(), "");
             xml = xml.replaceAll(" standalone=\"no\"", "");
             return xml;
-        } catch (TransformerException e) {
+        } catch (TransformerException | IOException e) {
             throw new CteException("Erro ao Transformar Documento:" + e.getMessage());
         }
 

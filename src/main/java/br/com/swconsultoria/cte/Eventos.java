@@ -6,10 +6,10 @@ import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
 import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.util.ConstantesCte;
-import br.com.swconsultoria.cte.util.LoggerUtil;
 import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
 import br.com.swconsultoria.cte.util.WebServiceCteUtil;
 import br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CteRecepcaoEventoStub;
+import lombok.extern.java.Log;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.axis2.transport.http.HTTPConstants;
@@ -17,6 +17,7 @@ import org.apache.axis2.transport.http.HTTPConstants;
 import javax.xml.stream.XMLStreamException;
 import java.rmi.RemoteException;
 
+@Log
 class Eventos {
 
     static String enviarEvento(ConfiguracoesCte config, String xml, ServicosEnum tipoEvento, boolean valida)
@@ -26,7 +27,7 @@ class Eventos {
 
             xml = Assinar.assinaCte(config, xml, AssinaturaEnum.EVENTO);
 
-            LoggerUtil.log(Eventos.class, "[XML-ENVIO-" + tipoEvento + "]: " + xml);
+            log.info("[XML-ENVIO-" + tipoEvento + "]: " + xml);
 
             if (valida) {
                 new Validar().validaXml(config, xml, ServicosEnum.EVENTO);
@@ -66,7 +67,7 @@ class Eventos {
         }
         CteRecepcaoEventoStub.CteRecepcaoEventoResult result = stub.cteRecepcaoEvento(dadosMsg, cteCabecMsgE);
 
-        LoggerUtil.log(Eventos.class, "[XML-RETORNO-" + tipoEvento + "]: " + result.getExtraElement().toString());
+        log.info("[XML-RETORNO-" + tipoEvento + "]: " + result.getExtraElement().toString());
         return result.getExtraElement().toString();
     }
 
@@ -92,7 +93,7 @@ class Eventos {
         }
         br.com.swconsultoria.cte.wsdl.cterecepcaoeventoMS.CteRecepcaoEventoStub.CteRecepcaoEventoResult result = stub.cteRecepcaoEvento(dadosMsg, cteCabecMsgE);
 
-        LoggerUtil.log(Eventos.class, "[XML-RETORNO-" + tipoEvento + "]: " + result.getExtraElement().toString());
+        log.info("[XML-RETORNO-" + tipoEvento + "]: " + result.getExtraElement().toString());
         return result.getExtraElement().toString();
     }
 }

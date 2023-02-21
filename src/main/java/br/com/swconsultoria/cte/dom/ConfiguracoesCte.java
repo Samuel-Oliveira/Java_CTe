@@ -64,7 +64,7 @@ public class ConfiguracoesCte {
         configuracoesCte.setAmbiente(ambiente);
         configuracoesCte.setCertificado(certificado);
         configuracoesCte.setPastaSchemas(pastaSchemas);
-        
+
         /**
          * Para as versões Java até 11, Eu ainda seto o Encoding por que é permitido.
          * Para quem trabalha com Java 12+, Aconselhasse setar o Encoding :
@@ -86,7 +86,7 @@ public class ConfiguracoesCte {
 
         if (Logger.getLogger("").isLoggable(Level.SEVERE)) {
             System.err.println("####################################################################");
-            System.err.println("              Api Java Cte - Versão 3.00.8 - 15/01/2022         ");
+            System.err.println("              Api Java Cte - Versão 3.00.9 - 21/02/2023         ");
             if (Logger.getLogger("").isLoggable(Level.WARNING)) {
                 System.err.println(" Samuel Olivera - samuel@swconsultoria.com.br ");
             }

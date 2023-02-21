@@ -8,15 +8,19 @@ import br.com.swconsultoria.cte.dom.enuns.AmbienteEnum;
 import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
 import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
+import lombok.extern.java.Log;
 import org.ini4j.Wini;
 
 import java.io.*;
+import java.nio.file.Files;
 
 /**
  * @author Samuel Oliveira
- *
  */
+@Log
 public class WebServiceCteUtil {
+
+    private WebServiceCteUtil() {}
 
     public static String getUrl(ConfiguracoesCte config, ServicosEnum servico) throws CteException {
 
@@ -30,7 +34,7 @@ public class WebServiceCteUtil {
                 File arquivo = new File(config.getArquivoWebService());
                 if (!arquivo.exists())
                     throw new FileNotFoundException("Arquivo WebService" + config.getArquivoWebService() + " não encontrado");
-                is = new FileInputStream(arquivo);
+                is = Files.newInputStream(arquivo.toPath());
             } else {
                 is = WebServiceCteUtil.class.getResourceAsStream("/WebServicesCte.ini");
             }
@@ -69,7 +73,7 @@ public class WebServiceCteUtil {
             ObjetoCTeUtil.verifica(url).orElseThrow(() -> new CteException(
                     "WebService de " + servico + " não encontrado para " + config.getEstado().getNome()));
 
-            LoggerUtil.log(WebServiceCteUtil.class, "[URL]: " + servico + ": " + url);
+            log.info("[URL]: " + servico + ": " + url);
 
             return url;
 

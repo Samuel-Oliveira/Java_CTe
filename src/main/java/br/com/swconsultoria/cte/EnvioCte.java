@@ -8,10 +8,10 @@ import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_300.enviCTe.TEnviCTe;
 import br.com.swconsultoria.cte.schema_300.retEnviCTe.TRetEnviCTe;
 import br.com.swconsultoria.cte.util.ConstantesCte;
-import br.com.swconsultoria.cte.util.LoggerUtil;
 import br.com.swconsultoria.cte.util.WebServiceCteUtil;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
 import br.com.swconsultoria.cte.wsdl.CteRecepcao.CteRecepcaoStub;
+import lombok.extern.java.Log;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 
@@ -25,6 +25,7 @@ import java.util.Iterator;
  *
  * @author Samuel Oliveira - samuel@swconsultoria.com.br - www.swconsultoria.com.br
  */
+@Log
 class EnvioCte {
 
     /**
@@ -52,7 +53,7 @@ class EnvioCte {
             //Retira Quebra de Linha
             xml = xml.replaceAll(System.lineSeparator(), "");
 
-            LoggerUtil.log(EnvioCte.class, "[XML-ASSINADO]: " + xml);
+            log.info("[XML-ASSINADO]: " + xml);
 
             /**
              * Valida o Xml caso sejá selecionado True
@@ -97,7 +98,7 @@ class EnvioCte {
                 }
             }
 
-            LoggerUtil.log(EnvioCte.class, "[XML-ENVIO]: " + xml);
+            log.info("[XML-ENVIO]: " + xml);
 
             CteRecepcaoStub.CteDadosMsg dadosMsg = new CteRecepcaoStub.CteDadosMsg();
             dadosMsg.setExtraElement(ome);

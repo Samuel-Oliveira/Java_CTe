@@ -7,8 +7,12 @@ import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_300.distdfeint.DistDFeInt;
 import br.com.swconsultoria.cte.schema_300.retdistdfeint.RetDistDFeInt;
-import br.com.swconsultoria.cte.util.*;
+import br.com.swconsultoria.cte.util.ConstantesCte;
+import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
+import br.com.swconsultoria.cte.util.WebServiceCteUtil;
+import br.com.swconsultoria.cte.util.XmlCteUtil;
 import br.com.swconsultoria.cte.wsdl.CTeDistribuicaoDFe.CTeDistribuicaoDFeStub;
+import lombok.extern.java.Log;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.axis2.transport.http.HTTPConstants;
@@ -20,6 +24,7 @@ import java.rmi.RemoteException;
 /**
  * @author Samuel Oliveira - samuel@swconsultoria.com.br - www.swconsultoria.com.br
  */
+@Log
 class DistribuicaoDFe {
 
     /**
@@ -64,7 +69,7 @@ class DistribuicaoDFe {
 
             String xml = XmlCteUtil.objectToXml(distDFeInt);
 
-            LoggerUtil.log(DistribuicaoDFe.class, "[XML-ENVIO]: " + xml);
+            log.info("[XML-ENVIO]: " + xml);
 
             OMElement ome = AXIOMUtil.stringToOM(xml);
 
@@ -85,7 +90,7 @@ class DistribuicaoDFe {
             }
             CTeDistribuicaoDFeStub.CteDistDFeInteresseResponse result = stub.cteDistDFeInteresse(distDFeInteresse);
 
-            LoggerUtil.log(DistribuicaoDFe.class, "[XML-RETORNO]: " + result.getCteDistDFeInteresseResult().getExtraElement().toString());
+            log.info("[XML-RETORNO]: " + result.getCteDistDFeInteresseResult().getExtraElement().toString());
             return XmlCteUtil.xmlToObject(result.getCteDistDFeInteresseResult().getExtraElement().toString(),
                     RetDistDFeInt.class);
 

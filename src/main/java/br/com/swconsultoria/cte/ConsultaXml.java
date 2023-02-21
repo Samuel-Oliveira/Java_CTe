@@ -5,8 +5,12 @@ import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_300.consSitCTe.TConsSitCTe;
 import br.com.swconsultoria.cte.schema_300.retConsSitCTe.TRetConsSitCTe;
-import br.com.swconsultoria.cte.util.*;
+import br.com.swconsultoria.cte.util.ConstantesCte;
+import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
+import br.com.swconsultoria.cte.util.WebServiceCteUtil;
+import br.com.swconsultoria.cte.util.XmlCteUtil;
 import br.com.swconsultoria.cte.wsdl.CteConsulta.CteConsultaStub;
+import lombok.extern.java.Log;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.axis2.transport.http.HTTPConstants;
@@ -20,8 +24,10 @@ import java.rmi.RemoteException;
  *
  * @author Samuel Oliveira - samuel@swconsultoria.com.br - www.swconsultoria.com.br
  */
-
+@Log
 class ConsultaXml {
+
+    private ConsultaXml() {}
 
     /**
      * Classe Reponsavel Por Consultar o status da CTE na SEFAZ
@@ -43,7 +49,7 @@ class ConsultaXml {
 
             String xml = XmlCteUtil.objectToXml(consSitCTe);
 
-            LoggerUtil.log(ConsultaXml.class, "[XML-ENVIO]: " + xml);
+            log.info("[XML-ENVIO]: " + xml);
 
             OMElement ome = AXIOMUtil.stringToOM(xml);
 
@@ -68,7 +74,7 @@ class ConsultaXml {
             }
             CteConsultaStub.CteConsultaCTResult result = stub.cteConsultaCT(dadosMsg, cteCabecMsgE);
 
-            LoggerUtil.log(ConsultaXml.class, "[XML-RETORNO]: " + result.getExtraElement().toString());
+            log.info("[XML-RETORNO]: " + result.getExtraElement().toString());
             return XmlCteUtil.xmlToObject(result.getExtraElement().toString(), TRetConsSitCTe.class);
 
         } catch (RemoteException | XMLStreamException | JAXBException e) {

@@ -6,8 +6,12 @@ import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_300.consReciCTe.TConsReciCTe;
 import br.com.swconsultoria.cte.schema_300.retConsReciCTe.TRetConsReciCTe;
-import br.com.swconsultoria.cte.util.*;
+import br.com.swconsultoria.cte.util.ConstantesCte;
+import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
+import br.com.swconsultoria.cte.util.WebServiceCteUtil;
+import br.com.swconsultoria.cte.util.XmlCteUtil;
 import br.com.swconsultoria.cte.wsdl.cteRetRecepcaoMS.CteRetRecepcaoStub;
+import lombok.extern.java.Log;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 import org.apache.axis2.transport.http.HTTPConstants;
@@ -21,6 +25,7 @@ import java.rmi.RemoteException;
  *
  * @author Samuel Oliveira
  */
+@Log
 class ConsultaRecibo {
 
     /**
@@ -46,7 +51,7 @@ class ConsultaRecibo {
 
             String xml = XmlCteUtil.objectToXml(consReciCTe);
 
-            LoggerUtil.log(ConsultaRecibo.class, "[XML-ENVIO]: " + xml);
+            log.info("[XML-ENVIO]: " + xml);
 
             OMElement ome = AXIOMUtil.stringToOM(xml);
 
@@ -84,7 +89,7 @@ class ConsultaRecibo {
         }
         CteRetRecepcaoStub.CteRetRecepcaoResult result = stub.cteRetRecepcao(dadosMsg, cteCabecMsgE);
 
-        LoggerUtil.log(ConsultaRecibo.class, "[XML-RETORNO]: " + result.getExtraElement().toString());
+        log.info("[XML-RETORNO]: " + result.getExtraElement().toString());
         return XmlCteUtil.xmlToObject(result.getExtraElement().toString(), TRetConsReciCTe.class);
     }
 
@@ -111,7 +116,7 @@ class ConsultaRecibo {
         }
         br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CteRetRecepcaoStub.CteRetRecepcaoResult result = stub.cteRetRecepcao(dadosMsg, cteCabecMsgE);
 
-        LoggerUtil.log(ConsultaRecibo.class, "[XML-RETORNO]: " + result.getExtraElement().toString());
+        log.info("[XML-RETORNO]: " + result.getExtraElement().toString());
         return XmlCteUtil.xmlToObject(result.getExtraElement().toString(), TRetConsReciCTe.class);
     }
 }

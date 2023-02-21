@@ -17,6 +17,7 @@ import br.com.swconsultoria.cte.schema_300.evEPECCTe.TProcEvento;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TRetEvento;
 import br.com.swconsultoria.cte.schema_300.inutCTe.TInutCTe;
 import br.com.swconsultoria.cte.schema_300.inutCTe.TProcInutCTe;
+import br.com.swconsultoria.cte.schema_300.inutCTe.TRetInutCTe;
 import br.com.swconsultoria.cte.schema_300.procCTe.CteProc;
 import br.com.swconsultoria.cte.schema_300.procCTeOS.CteOSProc;
 import br.com.swconsultoria.cte.schema_300.retCTeOS.TProtCTeOS;
@@ -25,7 +26,7 @@ import br.com.swconsultoria.cte.schema_300.retConsReciCTe.TProtCTe;
 import br.com.swconsultoria.cte.schema_300.retConsReciCTe.TRetConsReciCTe;
 import br.com.swconsultoria.cte.schema_300.retConsSitCTe.TRetConsSitCTe;
 import br.com.swconsultoria.cte.schema_300.retEnviCTe.TRetEnviCTe;
-import br.com.swconsultoria.cte.schema_300.inutCTe.TRetInutCTe;
+import lombok.extern.java.Log;
 
 import javax.xml.bind.*;
 import javax.xml.datatype.DatatypeConfigurationException;
@@ -47,8 +48,8 @@ import java.util.zip.GZIPInputStream;
  * Classe Responsavel por Metodos referentes ao XML
  *
  * @author Samuel Oliveira
- *
  */
+@Log
 public class XmlCteUtil {
 
     private static final String STATUS_SERVICO = "TConsStatServ";
@@ -111,12 +112,8 @@ public class XmlCteUtil {
      * @param classe
      * @return <T> T
      */
-    public static <T> T xmlToObject(String xml, Class<T> classe) throws JAXBException {
-
-        JAXBContext context = JAXBContext.newInstance(classe);
-        Unmarshaller unmarshaller = context.createUnmarshaller();
-
-        return unmarshaller.unmarshal(new StreamSource(new StringReader(xml)), classe).getValue();
+    public static <T> T xmlToObject(String xml, Class<T> classe) {
+        return JAXB.unmarshal(new StreamSource(new StringReader(xml)), classe);
     }
 
     /**
@@ -531,7 +528,7 @@ public class XmlCteUtil {
             return xmlCalendar.toString();
 
         } catch (DatatypeConfigurationException e) {
-            LoggerUtil.log(XmlCteUtil.class, e.getMessage());
+            log.info(e.getMessage());
         }
         return null;
     }

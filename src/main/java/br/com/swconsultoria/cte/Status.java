@@ -6,10 +6,10 @@ import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_300.consStatServCTe.TConsStatServ;
 import br.com.swconsultoria.cte.schema_300.retConsStatServCTe.TRetConsStatServ;
 import br.com.swconsultoria.cte.util.ConstantesCte;
-import br.com.swconsultoria.cte.util.LoggerUtil;
 import br.com.swconsultoria.cte.util.WebServiceCteUtil;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
 import br.com.swconsultoria.cte.wsdl.CteStatusServico.CteStatusServicoStub;
+import lombok.extern.java.Log;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;
 
@@ -22,6 +22,7 @@ import java.rmi.RemoteException;
  *
  * @author Samuel Oliveira
  */
+@Log
 class Status {
 
     /**
@@ -64,7 +65,7 @@ class Status {
             consStatServ.setXServ("STATUS");
             String xml = XmlCteUtil.objectToXml(consStatServ);
 
-            LoggerUtil.log(Status.class, "[XML-ENVIO]: " + xml);
+            log.info("[XML-ENVIO]: " + xml);
 
             OMElement ome = AXIOMUtil.stringToOM(xml);
 
@@ -83,7 +84,7 @@ class Status {
 
             CteStatusServicoStub.CteStatusServicoCTResult result = stub.cteStatusServicoCT(dadosMsg, cteCabecMsgE);
 
-            LoggerUtil.log(Status.class, "[XML-RETORNO]: " + result.getExtraElement().toString());
+            log.info("[XML-RETORNO]: " + result.getExtraElement().toString());
             return XmlCteUtil.xmlToObject(result.getExtraElement().toString(), TRetConsStatServ.class);
 
         } catch (RemoteException | XMLStreamException | JAXBException e) {
