@@ -1,4 +1,4 @@
-# Java-CTe [![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe) [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/3.00.9/jar)
+# Java-CTe [![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe) [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/3.00.10/jar)
 API Java para consumo do WebService de CTe
 
 ## Dúvidas, Sugestões ou Consultoria
@@ -8,7 +8,7 @@ API Java para consumo do WebService de CTe
 <img src="https://swconsultoria.com.br/pix.png" width="200">
 
 Para Iniciar : 
-- Caso use Libs baixe o [java-cte-3.00.9.jar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-3.00.9.jar) e o adicione às bibliotecas de Seu Projeto.
+- Caso use Libs baixe o [java-cte-3.00.10.jar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-3.00.10.jar) e o adicione às bibliotecas de Seu Projeto.
 
 - Baixe o [Schemas.rar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas.rar) e extraia na sua Máquina.
 
@@ -17,7 +17,7 @@ Para Iniciar :
 <dependency>
     <groupId>br.com.swconsultoria</groupId>
     <artifactId>java-cte</artifactId>
-    <version>3.00.9</version>
+    <version>3.00.10</version>
 </dependency>
 ```
 
@@ -29,7 +29,7 @@ repositories {
     }
 }
 dependencies {
-    implementation "br.com.swconsultoria:java-cte:3.00.9"
+    implementation "br.com.swconsultoria:java-cte:3.00.10"
 }
 ```
 
@@ -39,49 +39,9 @@ ________________________________________________________________________________
 
 # Historico de Versões
 
-[//]: # ()
-[//]: # (## v3.00.8 - SNAPSHOT - 11/04/2021)
-
-[//]: # (- Atualizado Dependencia Java-Certificado)
-
-[//]: # (- Corrigido erro NS1 para MT )
-
-[//]: # (- Corrigido erro NS1 para MS)
-
-[//]: # (- Corrigido erro de assinatura para Certificados com Repositorio)
-
-[//]: # ()
-[//]: # (Snapshot é a versão que se encontra em teste, só use em caso de extrema necessidade.)
-
-[//]: # (Para usar, adicione o repositorio de Snapshot ao Maven:)
-
-[//]: # (```)
-
-[//]: # (<repositories>)
-
-[//]: # (    <repository>)
-
-[//]: # (        <id>sonatype-nexus-snapshots</id>)
-
-[//]: # (        <url>https://oss.sonatype.org/content/repositories/snapshots</url>)
-
-[//]: # (    </repository>)
-
-[//]: # (</repositories>)
-
-[//]: # (<dependency>)
-
-[//]: # (    <groupId>br.com.swconsultoria</groupId>)
-
-[//]: # (    <artifactId>java-cte</artifactId>)
-
-[//]: # (    <version>3.00.8-SNAPSHOT</version>)
-
-[//]: # (</dependency>)
-
-[//]: # (```)
-
-[//]: # (Ou baixe o Jar aqui: https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-3.00.8-SNAPSHOT.jar)
+## v3.00.10 - 09/05/2023
+- Atualizado Java Certificado (Ver https://github.com/Samuel-Oliveira/Java_Certificado)
+- Atualizado Cacert (Sefaz Minas)
 
 ## v3.00.9 - 21/02/2023
 - Atualizado Dependencia Java-Certificado

@@ -86,7 +86,7 @@ public class ConfiguracoesCte {
 
         if (Logger.getLogger("").isLoggable(Level.SEVERE)) {
             System.err.println("####################################################################");
-            System.err.println("              Api Java Cte - Versão 3.00.9 - 21/02/2023         ");
+            System.err.println("              Api Java Cte - Versão 3.00.10 - 09/05/2023         ");
             if (Logger.getLogger("").isLoggable(Level.WARNING)) {
                 System.err.println(" Samuel Olivera - samuel@swconsultoria.com.br ");
             }
