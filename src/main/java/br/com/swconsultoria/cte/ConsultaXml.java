@@ -9,6 +9,7 @@ import br.com.swconsultoria.cte.util.ConstantesCte;
 import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
 import br.com.swconsultoria.cte.util.WebServiceCteUtil;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
+import br.com.swconsultoria.cte.wsdl.CteConsulta.CTeConsultaV4Stub;
 import br.com.swconsultoria.cte.wsdl.CteConsulta.CteConsultaStub;
 import lombok.extern.java.Log;
 import org.apache.axiom.om.OMElement;
@@ -53,29 +54,22 @@ class ConsultaXml {
 
             OMElement ome = AXIOMUtil.stringToOM(xml);
 
-            CteConsultaStub.CteDadosMsg dadosMsg = new CteConsultaStub.CteDadosMsg();
-            dadosMsg.setExtraElement(ome);
+            CTeConsultaV4Stub.CteDadosMsg dadosMsg = new CTeConsultaV4Stub.CteDadosMsg();            
+            dadosMsg.addExtraElement(ome);
 
-            CteConsultaStub stub = new CteConsultaStub(
+            CTeConsultaV4Stub stub = new CTeConsultaV4Stub(
                     WebServiceCteUtil.getUrl(config, ServicosEnum.CONSULTA_XML));
-
-            CteConsultaStub.CteCabecMsg cteCabecMsg = new CteConsultaStub.CteCabecMsg();
-            cteCabecMsg.setCUF(String.valueOf(config.getEstado().getCodigoUF()));
-            cteCabecMsg.setVersaoDados(ConstantesCte.VERSAO.CTE);
-
-            CteConsultaStub.CteCabecMsgE cteCabecMsgE = new CteConsultaStub.CteCabecMsgE();
-            cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
-
+            
             // Timeout
             if (ObjetoCTeUtil.verifica(config.getTimeout()).isPresent()) {
                 stub._getServiceClient().getOptions().setProperty(HTTPConstants.SO_TIMEOUT, config.getTimeout());
                 stub._getServiceClient().getOptions().setProperty(HTTPConstants.CONNECTION_TIMEOUT,
                         config.getTimeout());
             }
-            CteConsultaStub.CteConsultaCTResult result = stub.cteConsultaCT(dadosMsg, cteCabecMsgE);
+            CTeConsultaV4Stub.CteConsultaCTResult result = stub.cteConsultaCT(dadosMsg);
 
-            log.info("[XML-RETORNO]: " + result.getExtraElement().toString());
-            return XmlCteUtil.xmlToObject(result.getExtraElement().toString(), TRetConsSitCTe.class);
+            log.info("[XML-RETORNO]: " + result.getExtraElement()[0].toString());
+            return XmlCteUtil.xmlToObject(result.getExtraElement()[0].toString(), TRetConsSitCTe.class);
 
         } catch (RemoteException | XMLStreamException | JAXBException e) {
             throw new CteException(e.getMessage());

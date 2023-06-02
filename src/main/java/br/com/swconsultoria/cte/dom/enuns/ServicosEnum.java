@@ -20,7 +20,7 @@ public enum ServicosEnum {
     PRESTACAO_DESACORDO("recepcaoevento_3.00", "evPrestDesacordo_v3.00.xsd"),
     GVT("recepcaoevento_3.00", "evGTV_v3.00.xsd"),
     QRCODE("QR_Code",""),
-    EVENTO("","eventoCTe_v3.00.xsd");
+    EVENTO("","eventoCTe_v4.00.xsd");
 
     //    URL_QRCODE("url-qrcode",null),
 //    URL_CONSULTANFCE("url-consultanfce", null);

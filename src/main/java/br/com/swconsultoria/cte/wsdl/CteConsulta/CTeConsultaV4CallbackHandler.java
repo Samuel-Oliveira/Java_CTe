@@ -1,18 +1,18 @@
 
 /**
- * CTeRecepcaoEventoV4CallbackHandler.java
+ * CTeConsultaV4CallbackHandler.java
  *
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.7.5  Built on : May 06, 2017 (03:45:26 BST)
  */
 
-    package br.com.swconsultoria.cte.wsdl.cteRetRecepcao;
+    package br.com.swconsultoria.cte.wsdl.CteConsulta;
 
     /**
-     *  CTeRecepcaoEventoV4CallbackHandler Callback class, Users can extend this class and implement
+     *  CTeConsultaV4CallbackHandler Callback class, Users can extend this class and implement
      *  their own receiveResult and receiveError methods.
      */
-    public abstract class CTeRecepcaoEventoV4CallbackHandler{
+    public abstract class CTeConsultaV4CallbackHandler{
 
 
 
@@ -24,14 +24,14 @@
     * @param clientData Object mechanism by which the user can pass in user data
     * that will be avilable at the time this callback is called.
     */
-    public CTeRecepcaoEventoV4CallbackHandler(Object clientData){
+    public CTeConsultaV4CallbackHandler(Object clientData){
         this.clientData = clientData;
     }
 
     /**
     * Please use this constructor if you don't want to set any clientData
     */
-    public CTeRecepcaoEventoV4CallbackHandler(){
+    public CTeConsultaV4CallbackHandler(){
         this.clientData = null;
     }
 
@@ -45,19 +45,19 @@
 
         
            /**
-            * auto generated Axis2 call back method for cteRecepcaoEvento method
-            * override this method for handling normal response from cteRecepcaoEvento operation
+            * auto generated Axis2 call back method for cteConsultaCT method
+            * override this method for handling normal response from cteConsultaCT operation
             */
-           public void receiveResultcteRecepcaoEvento(
-        		   br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult result
+           public void receiveResultcteConsultaCT(
+                    br.com.swconsultoria.cte.wsdl.CteConsulta.CTeConsultaV4Stub.CteConsultaCTResult result
                         ) {
            }
 
           /**
            * auto generated Axis2 Error handler
-           * override this method for handling error response from cteRecepcaoEvento operation
+           * override this method for handling error response from cteConsultaCT operation
            */
-            public void receiveErrorcteRecepcaoEvento(java.lang.Exception e) {
+            public void receiveErrorcteConsultaCT(java.lang.Exception e) {
             }
                 
 

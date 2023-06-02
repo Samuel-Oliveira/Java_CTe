@@ -8,7 +8,7 @@ import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.util.ConstantesCte;
 import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
 import br.com.swconsultoria.cte.util.WebServiceCteUtil;
-import br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub;
+import br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4Stub;
 import br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CteRecepcaoEventoStub;
 import lombok.extern.java.Log;
 import org.apache.axiom.om.OMElement;

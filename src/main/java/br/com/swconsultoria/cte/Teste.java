@@ -6,11 +6,13 @@ import br.com.swconsultoria.cte.dom.enuns.AmbienteEnum;
 import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
 import br.com.swconsultoria.cte.dom.enuns.StatusCteEnum;
 import br.com.swconsultoria.cte.exception.CteException;
+import br.com.swconsultoria.cte.schema_300.consSitCTe.TRetConsSitCTe;
 import br.com.swconsultoria.cte.schema_300.cte.TProtCTe;
 import br.com.swconsultoria.cte.schema_300.cte.TRetCTe;
 import br.com.swconsultoria.cte.schema_300.cteModalRodoviario.Rodo;
 import br.com.swconsultoria.cte.schema_300.enviCTe.TCTe;
 import br.com.swconsultoria.cte.schema_300.enviCTe.TEnviCTe;
+import br.com.swconsultoria.cte.schema_300.evCCeCTe.EvCCeCTe;
 import br.com.swconsultoria.cte.schema_300.evCancCTe.EvCancCTe;
 import br.com.swconsultoria.cte.schema_300.evCancCTe.TEvento;
 import br.com.swconsultoria.cte.schema_300.evCancCTe.TProcEvento;
@@ -39,14 +41,107 @@ import javax.xml.bind.JAXBException;
  */
 public class Teste {
 
-    public static void main(String[] args) {
-    	
-    	//autorizar();
-    	cancelar();
-    	
+    public static void main(String[] args) throws FileNotFoundException, CertificadoException {
+    	Certificado certificado =      CertificadoService.certificadoPfx("D:\\simetris\\emissao\\lazarin.pfx",  "");
+      	ConfiguracoesCte config =  ConfiguracoesCte.criarConfiguracoes(EstadosEnum.SC, AmbienteEnum.HOMOLOGACAO, certificado, "C:\\Users\\progr\\Downloads\\PL_CTe_400");
+         
+    	//autorizar(config);
+    	//cancelar();
+    	//cartaCorrecao(config);
+    	consultar(config);
        
 
     }
+    
+    public static void consultar(ConfiguracoesCte config) {
+    	try {
+    		//Veja https://github.com/Samuel-Oliveira/Java_CTe/wiki/Configura%C3%A7%C3%B5es-CTe
+            
+
+            String chave = "42230679945705000131570010000147491442496045"; // TODO Preencha A Chave
+
+            br.com.swconsultoria.cte.schema_300.retConsSitCTe.TRetConsSitCTe retorno = Cte.consultaXml(config,chave);
+
+    		System.out.println("Status:" + retorno.getCStat());
+    		System.out.println("Motivo:" + retorno.getXMotivo());
+
+    		// Transforma O ProtCte do Retorno em XML
+    		String infProt = ObjetoCTeUtil.elementToString(retorno.getProtCTe().getAny());
+    		TProtCTe tProtCTe = new TProtCTe();
+    		tProtCTe.setVersao(retorno.getProtCTe().getVersao());
+    		tProtCTe.setInfProt( XmlCteUtil.xmlToObject(infProt, TProtCTe.InfProt.class));
+
+    		
+
+    	} catch (CteException  e) {
+    		System.out.println("Erro:" + e.getMessage());
+    	}
+
+    }
+    
+    public static void cartaCorrecao(ConfiguracoesCte config) {
+    	 try {
+    		 
+    	        String chave = "42230679945705000131570010000147491442496045"; // TODO Preencha a Chave
+    	        String numeroSeqEvento = "002"; // TODO Preencha o NUmero Sequencial com 2 Digitos e Zero a esquerda
+    	        String id = "ID" + "110110" + chave + numeroSeqEvento;
+    	        String cnpj = "79945705000131"; // TODO Preencha o Cnpj
+
+    	        br.com.swconsultoria.cte.schema_300.evCCeCTe.TEvento enviEvento = new br.com.swconsultoria.cte.schema_300.evCCeCTe.TEvento();
+    	        enviEvento.setVersao(ConstantesCte.VERSAO.CTE);
+
+    	        br.com.swconsultoria.cte.schema_300.evCCeCTe.TEvento.InfEvento infoEvento = new br.com.swconsultoria.cte.schema_300.evCCeCTe.TEvento.InfEvento();
+    	        infoEvento.setId(id);
+    	        infoEvento.setCOrgao(config.getEstado().getCodigoUF());
+    	        infoEvento.setTpAmb(config.getAmbiente().getCodigo());
+    	        infoEvento.setCNPJ(cnpj);
+    	        infoEvento.setChCTe(chave);
+    	        infoEvento.setDhEvento(XmlCteUtil.dataCte(LocalDateTime.now()));
+    	        infoEvento.setTpEvento("110110");
+    	        infoEvento.setNSeqEvento(Integer.valueOf(numeroSeqEvento).toString());
+
+    	        br.com.swconsultoria.cte.schema_300.evCCeCTe.EvCCeCTe eventoCCe = new br.com.swconsultoria.cte.schema_300.evCCeCTe.EvCCeCTe();
+    	        eventoCCe.setDescEvento("Carta de Correcao");
+    	        eventoCCe.setXCondUso("A Carta de Correcao e disciplinada pelo Art. 58-B do CONVENIO/SINIEF 06/89: Fica permitida a utilizacao de carta de correcao, para regularizacao de erro ocorrido na emissao de documentos fiscais relativos a prestacao de servico de transporte, desde que o erro nao esteja relacionado com: I - as variaveis que determinam o valor do imposto tais como: base de calculo, aliquota, diferenca de preco, quantidade, valor da prestacao;II - a correcao de dados cadastrais que implique mudanca do emitente, tomador, remetente ou do destinatario;III - a data de emissao ou de saida.");
+
+    	        br.com.swconsultoria.cte.schema_300.evCCeCTe.EvCCeCTe.InfCorrecao infCorrecao = new EvCCeCTe.InfCorrecao();
+    	        infCorrecao.setGrupoAlterado("enderReme"); // TODO Preencha
+    	        infCorrecao.setCampoAlterado("nro"); // TODO Preencha
+    	        infCorrecao.setValorAlterado("1234"); // TODO Preencha
+    	        eventoCCe.getInfCorrecao().add(infCorrecao);
+
+    	        br.com.swconsultoria.cte.schema_300.evCCeCTe.TEvento.InfEvento.DetEvento detEvento = new br.com.swconsultoria.cte.schema_300.evCCeCTe.TEvento.InfEvento.DetEvento();
+    	        detEvento.setVersaoEvento(ConstantesCte.VERSAO.CTE);
+    	        detEvento.setAny(ObjetoCTeUtil.objectToElement(eventoCCe, EvCCeCTe.class, "evCCeCTe"));
+
+    	        infoEvento.setDetEvento(detEvento);
+    	        enviEvento.setInfEvento(infoEvento);
+
+    	        br.com.swconsultoria.cte.schema_300.evCCeCTe.TRetEvento retorno = Cte.cceCte(config,enviEvento, true);
+
+    	        if (!retorno.getInfEvento().getCStat().equals(StatusCteEnum.EVENTO_VINCULADO.getCodigo())) {
+    	            System.out.println("Erro Status:" + retorno.getInfEvento().getCStat());
+    	            System.out.println("Erro Motivo:" + retorno.getInfEvento().getXMotivo());
+    	        } else {
+
+    	            System.out.println("Status:" + retorno.getInfEvento().getCStat());
+    	            System.out.println("Motivo:" + retorno.getInfEvento().getXMotivo());
+    	            System.out.println("Data:" + retorno.getInfEvento().getDhRegEvento());
+
+    	            // Cria TProcEventoCTe
+    	            br.com.swconsultoria.cte.schema_300.evCCeCTe.TProcEvento procEvento = new br.com.swconsultoria.cte.schema_300.evCCeCTe.TProcEvento();
+    	            procEvento.setVersao(ConstantesCte.VERSAO.CTE);
+    	            procEvento.setEventoCTe(enviEvento);
+    	            procEvento.setRetEventoCTe(retorno);
+
+    	            System.out.println("Xml Final Carta de Correção Proc: " + XmlCteUtil.objectToXml(procEvento));
+    	        }
+
+    	    } catch (CteException | JAXBException e) {
+    	        System.out.println("Erro:" + e.getMessage());
+    	    }
+    }
+    
     
     public static void cancelar() {    
     	try {
@@ -115,17 +210,13 @@ public class Teste {
     	
     }
     
-    public static void autorizar() {
+    public static void autorizar(ConfiguracoesCte config) {
     	 try {
-             //Veja https://github.com/Samuel-Oliveira/Java_CTe/wiki/Configura%C3%A7%C3%B5es-CTe
-         	Certificado certificado =      CertificadoService.certificadoPfx("D:\\simetris\\emissao\\lazarin.pfx", "34422105");
-         	ConfiguracoesCte config =  ConfiguracoesCte.criarConfiguracoes(EstadosEnum.SC, AmbienteEnum.HOMOLOGACAO, certificado, "C:\\Users\\progr\\Downloads\\PL_CTe_400");
              
-
              String cnpj = "79945705000131"; //TODO Preencha o Cnpj
              String modelo = "57";
              int serie = 1;
-             int numero = 14748;
+             int numero = 14750;
              String tipoEmissao = "1";
              String cct = String.format("%08d", new Random().nextInt(99999999));
 
@@ -304,7 +395,7 @@ public class Teste {
              enviCTe.getCTe().add(cte);
              	enviCTe.setIdLote("1");
              // MOnta e Assina o XML
-             cte = Cte.montaCte(config, cte, false);
+             cte = Cte.montaCte(config, cte, true);
 
              //Adiciona QRCode
              TCTe.InfCTeSupl infCTeSupl = new TCTe.InfCTeSupl();

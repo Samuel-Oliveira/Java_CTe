@@ -8,3 +8,5 @@
 .settings/org.eclipse.wst.common.component
 *.xml
 /.idea/
+
+.metadata

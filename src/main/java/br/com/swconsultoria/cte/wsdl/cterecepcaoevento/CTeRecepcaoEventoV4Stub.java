@@ -5,7 +5,7 @@
  * This file was auto-generated from WSDL
  * by the Apache Axis2 version: 1.7.5  Built on : May 06, 2017 (03:45:26 BST)
  */
-        package br.com.swconsultoria.cte.wsdl.cteRetRecepcao;
+        package br.com.swconsultoria.cte.wsdl.cterecepcaoevento;
 
         
 
@@ -139,9 +139,9 @@
 
                     
 
-                            public  br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult cteRecepcaoEvento(
+                            public  br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult cteRecepcaoEvento(
 
-                            		br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub.CteDadosMsg cteDadosMsg0)
+                            		br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4Stub.CteDadosMsg cteDadosMsg0)
                         
 
                     throws java.rmi.RemoteException
@@ -191,10 +191,10 @@
                 
                                 java.lang.Object object = fromOM(
                                              _returnEnv.getBody().getFirstElement() ,
-                                             br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult.class);
+                                             br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult.class);
 
                                
-                                        return (br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult)object;
+                                        return (br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult)object;
                                    
          }catch(org.apache.axis2.AxisFault f){
 
@@ -258,9 +258,9 @@
                 */
                 public  void startcteRecepcaoEvento(
 
-                		br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub.CteDadosMsg cteDadosMsg0,
+                		br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4Stub.CteDadosMsg cteDadosMsg0,
 
-                  final br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4CallbackHandler callback)
+                  final br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4CallbackHandler callback)
 
                 throws java.rmi.RemoteException{
 
@@ -303,9 +303,9 @@
                                 org.apache.axiom.soap.SOAPEnvelope resultEnv = resultContext.getEnvelope();
                                 
                                         java.lang.Object object = fromOM(resultEnv.getBody().getFirstElement(),
-                                        		br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult.class);
+                                        		br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult.class);
                                         callback.receiveResultcteRecepcaoEvento(
-                                        (br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult)object);
+                                        (br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult)object);
                                         
                             } catch (org.apache.axis2.AxisFault e) {
                                 callback.receiveErrorcteRecepcaoEvento(e);
@@ -1225,7 +1225,7 @@
 
             
                         try{
-                             return param.getOMElement(br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub.CteDadosMsg.MY_QNAME,
+                             return param.getOMElement(br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4Stub.CteDadosMsg.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -1239,7 +1239,7 @@
 
             
                         try{
-                             return param.getOMElement(br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult.MY_QNAME,
+                             return param.getOMElement(br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult.MY_QNAME,
                                           org.apache.axiom.om.OMAbstractFactory.getOMFactory());
                         } catch(org.apache.axis2.databinding.ADBException e){
                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -1256,7 +1256,7 @@
                                                     try{
 
                                                             org.apache.axiom.soap.SOAPEnvelope emptyEnvelope = factory.getDefaultEnvelope();
-                                                            emptyEnvelope.getBody().addChild(param.getOMElement(br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub.CteDadosMsg.MY_QNAME,factory));
+                                                            emptyEnvelope.getBody().addChild(param.getOMElement(br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4Stub.CteDadosMsg.MY_QNAME,factory));
                                                             return emptyEnvelope;
                                                         } catch(org.apache.axis2.databinding.ADBException e){
                                                             throw org.apache.axis2.AxisFault.makeFault(e);
@@ -1287,14 +1287,14 @@
         
                 if (CteDadosMsg.class.equals(type)){
                 
-                        return br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub.CteDadosMsg.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                        return br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4Stub.CteDadosMsg.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
             
-                if (br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult.class.equals(type)){
+                if (br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult.class.equals(type)){
                 
-                        return br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult.Factory.parse(param.getXMLStreamReaderWithoutCaching());
+                        return br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult.Factory.parse(param.getXMLStreamReaderWithoutCaching());
                     
 
                 }
