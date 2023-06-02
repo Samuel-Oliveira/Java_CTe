@@ -8,6 +8,7 @@ import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.util.ConstantesCte;
 import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
 import br.com.swconsultoria.cte.util.WebServiceCteUtil;
+import br.com.swconsultoria.cte.wsdl.cteRetRecepcao.CTeRecepcaoEventoV4Stub;
 import br.com.swconsultoria.cte.wsdl.cterecepcaoevento.CteRecepcaoEventoStub;
 import lombok.extern.java.Log;
 import org.apache.axiom.om.OMElement;
@@ -47,25 +48,20 @@ class Eventos {
     }
 
     private static String envio(ConfiguracoesCte config, ServicosEnum tipoEvento, OMElement ome) throws CteException, RemoteException {
-        CteRecepcaoEventoStub.CteDadosMsg dadosMsg = new CteRecepcaoEventoStub.CteDadosMsg();
+    	CTeRecepcaoEventoV4Stub.CteDadosMsg dadosMsg = new CTeRecepcaoEventoV4Stub.CteDadosMsg();
         dadosMsg.setExtraElement(ome);
 
-        CteRecepcaoEventoStub.CteCabecMsg cteCabecMsg = new CteRecepcaoEventoStub.CteCabecMsg();
-        cteCabecMsg.setCUF(String.valueOf(config.getEstado().getCodigoUF()));
-        cteCabecMsg.setVersaoDados(ConstantesCte.VERSAO.CTE);
 
-        CteRecepcaoEventoStub.CteCabecMsgE cteCabecMsgE = new CteRecepcaoEventoStub.CteCabecMsgE();
-        cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
 
         String url = WebServiceCteUtil.getUrl(config, tipoEvento);
 
-        CteRecepcaoEventoStub stub = new CteRecepcaoEventoStub(url);
+        CTeRecepcaoEventoV4Stub stub = new CTeRecepcaoEventoV4Stub(url);
         // Timeout
         if (ObjetoCTeUtil.verifica(config.getTimeout()).isPresent()) {
             stub._getServiceClient().getOptions().setProperty(HTTPConstants.SO_TIMEOUT, config.getTimeout());
             stub._getServiceClient().getOptions().setProperty(HTTPConstants.CONNECTION_TIMEOUT, config.getTimeout());
         }
-        CteRecepcaoEventoStub.CteRecepcaoEventoResult result = stub.cteRecepcaoEvento(dadosMsg, cteCabecMsgE);
+        CTeRecepcaoEventoV4Stub.CteRecepcaoEventoResult result = stub.cteRecepcaoEvento(dadosMsg);
 
         log.info("[XML-RETORNO-" + tipoEvento + "]: " + result.getExtraElement().toString());
         return result.getExtraElement().toString();

@@ -16,6 +16,7 @@ import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
@@ -1466,11 +1467,12 @@ import org.w3c.dom.Element;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TCTe", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
+@XmlType(name = "CTe", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
     "infCte",
     "infCTeSupl",
     "signature"
 })
+
 public class TCTe {
 
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
@@ -5764,7 +5766,8 @@ public class TCTe {
             "iest",
             "xNome",
             "xFant",
-            "enderEmit"
+            "enderEmit",
+            "CRT"
         })
         public static class Emit {
 
@@ -5778,6 +5781,8 @@ public class TCTe {
             protected String xNome;
             @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String xFant;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected String CRT;
             @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected TEndeEmi enderEmit;
 
@@ -5924,6 +5929,30 @@ public class TCTe {
             public void setEnderEmit(TEndeEmi value) {
                 this.enderEmit = value;
             }
+            /**
+             * Obtém o valor da propriedade crt.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+			public String getCRT() {
+				return CRT;
+			}
+
+			/**
+             * Define o valor da propriedade CRT.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+			public void setCRT(String cRT) {
+				CRT = cRT;
+			}
+            
 
         }
 

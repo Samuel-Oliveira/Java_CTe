@@ -74,7 +74,7 @@ public class Assinar {
             ArrayList<Transform> transformList = signatureFactory(signatureFactory);
             loadCertificates(config, signatureFactory);
 
-            if (tipoAssinatura.equals(AssinaturaEnum.EVENTO) || tipoAssinatura.equals(AssinaturaEnum.CTE_OS)) {
+            if (tipoAssinatura.equals(AssinaturaEnum.EVENTO) || tipoAssinatura.equals(AssinaturaEnum.CTE_OS) || tipoAssinatura.equals(AssinaturaEnum.CTE)) {
                 assinarCTe(tipoAssinatura, signatureFactory, transformList, privateKey, keyInfo, document, 0);
             } else {
                 for (int i = 0; i < document.getDocumentElement().getElementsByTagName(tipoAssinatura.getTipo()).getLength(); i++) {
@@ -111,7 +111,7 @@ public class Assinar {
 
         DOMSignContext dsc;
 
-        if (tipoAssinatura.equals(AssinaturaEnum.INUTILIZACAO) || tipoAssinatura.equals(AssinaturaEnum.EVENTO) || tipoAssinatura.equals(AssinaturaEnum.CTE_OS)) {
+        if (tipoAssinatura.equals(AssinaturaEnum.INUTILIZACAO) || tipoAssinatura.equals(AssinaturaEnum.EVENTO) || tipoAssinatura.equals(AssinaturaEnum.CTE_OS) || tipoAssinatura.equals(AssinaturaEnum.CTE)) {
             dsc = new DOMSignContext(privateKey, document.getFirstChild());
         } else {
             dsc = new DOMSignContext(privateKey,

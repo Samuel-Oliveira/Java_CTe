@@ -4,7 +4,9 @@ import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.ConsultaDFeEnum;
 import br.com.swconsultoria.cte.dom.enuns.PessoaEnum;
 import br.com.swconsultoria.cte.exception.CteException;
+import br.com.swconsultoria.cte.schema_300.cte.TRetCTe;
 import br.com.swconsultoria.cte.schema_300.cteOS.TCTeOS;
+import br.com.swconsultoria.cte.schema_300.enviCTe.TCTe;
 import br.com.swconsultoria.cte.schema_300.enviCTe.TEnviCTe;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TEvento;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TRetEvento;
@@ -101,7 +103,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static TEnviCTe montaCte(ConfiguracoesCte configuracoesCte, TEnviCTe enviCTe, boolean valida) throws CteException {
+    public static TCTe montaCte(ConfiguracoesCte configuracoesCte, TCTe enviCTe, boolean valida) throws CteException {
 
         return EnvioCte.montaCte(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe, valida);
 
@@ -131,8 +133,8 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static TRetEnviCTe enviarCte(ConfiguracoesCte configuracoesCte,
-                                        TEnviCTe enviCTe) throws CteException {
+    public static br.com.swconsultoria.cte.schema_300.procCTe.TRetCTe enviarCte(ConfiguracoesCte configuracoesCte,
+    		TCTe  enviCTe) throws CteException {
 
         return EnvioCte.enviaCte(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe);
 

@@ -10,7 +10,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSSerializer;
-import sun.misc.BASE64Encoder;
+
 
 import javax.xml.bind.*;
 import javax.xml.namespace.QName;
@@ -20,6 +20,7 @@ import javax.xml.transform.dom.DOMResult;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
+import java.util.Base64;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -86,7 +87,8 @@ public final class ObjetoCTeUtil {
         sig.initSign(pkEntry.getPrivateKey());
         sig.update(data);
         byte[] signatureBytes = sig.sign();
-        return (new BASE64Encoder().encode(signatureBytes))
+        
+        return String.valueOf(Base64.getEncoder().encode(signatureBytes))
                 .replaceAll("&#13;", "")
                 .replaceAll("\r\n", "")
                 .replaceAll("\n", "")

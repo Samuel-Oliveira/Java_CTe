@@ -32,7 +32,7 @@ class XsdCteUtil {
     private final static QName _procInut_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "procInutCTe");
     private final static QName _RetInutilizacao_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "retInutCTe");
     private final static QName _TProtCTe_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "protCTe");
-    private final static QName _CTe_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "TCTe");
+    private final static QName _CTe_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "CTe");
 
     public interface retEvento {
         @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "TRetEvento", scope = br.com.swconsultoria.cte.schema_300.evCancCTe.TRetEvento.class)

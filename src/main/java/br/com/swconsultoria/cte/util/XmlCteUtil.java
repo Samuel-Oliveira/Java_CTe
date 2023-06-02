@@ -8,6 +8,7 @@ import br.com.swconsultoria.cte.schema_300.consReciCTe.TConsReciCTe;
 import br.com.swconsultoria.cte.schema_300.consSitCTe.TConsSitCTe;
 import br.com.swconsultoria.cte.schema_300.consStatServCTe.ObjectFactory;
 import br.com.swconsultoria.cte.schema_300.consStatServCTe.TConsStatServ;
+import br.com.swconsultoria.cte.schema_300.cte.TCTe;
 import br.com.swconsultoria.cte.schema_300.cteModalRodoviario.Rodo;
 import br.com.swconsultoria.cte.schema_300.cteOS.TCTeOS;
 import br.com.swconsultoria.cte.schema_300.distdfeint.DistDFeInt;
@@ -86,6 +87,7 @@ public class XmlCteUtil {
     private static final String RET_CONSULTA = "TRetConsSitCTe";
     private static final String RET_ENVICTE = "TRetEnviCTe";
     private static final String RET_CTE_OS = "TRetCTeOS";
+    private static final String RET_CTE = "TRetCTe";
     private static final String RET_CONSULTA_RECIBO = "TRetConsReciCTe";
     private static final String RET_CANCELAR = "br.com.swconsultoria.cte.schema_300.evCancCTe.TRetEvento";
     private static final String RET_EPEC = "br.com.swconsultoria.cte.schema_300.evEPECCTe.TRetEvento";
@@ -136,9 +138,9 @@ public class XmlCteUtil {
                 break;
 
             case ENVIO_CTE:
-                context = JAXBContext.newInstance(TEnviCTe.class);
-                element = new br.com.swconsultoria.cte.schema_300.enviCTe.ObjectFactory()
-                        .createEnviCTe((TEnviCTe) obj);
+                context = JAXBContext.newInstance(TCTe.class);
+                element = new br.com.swconsultoria.cte.schema_300.cte.ObjectFactory()
+                        .createCTe((TCTe) obj);
                 break;
 
             case ENVIO_CTE_OS:
@@ -157,6 +159,11 @@ public class XmlCteUtil {
                         break;
 
                     case CTE_ENV:
+                        context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.enviCTe.TCTe.class);
+                        element = XsdCteUtil.cte
+                                .createTCTe((br.com.swconsultoria.cte.schema_300.enviCTe.TCTe) obj);
+                        break;
+                    case CTE:
                         context = JAXBContext.newInstance(br.com.swconsultoria.cte.schema_300.enviCTe.TCTe.class);
                         element = XsdCteUtil.cte
                                 .createTCTe((br.com.swconsultoria.cte.schema_300.enviCTe.TCTe) obj);
@@ -197,7 +204,7 @@ public class XmlCteUtil {
                 element = new br.com.swconsultoria.cte.schema_300.retEnviCTe.ObjectFactory()
                         .createRetEnviCte((TRetEnviCTe) obj);
                 break;
-
+         
             case RET_CTE_OS:
                 context = JAXBContext.newInstance(TRetCTeOS.class);
                 element = new br.com.swconsultoria.cte.schema_300.retCTeOS.ObjectFactory()
@@ -459,12 +466,12 @@ public class XmlCteUtil {
         return outStr.toString();
     }
 
-    public static String criaCteProc(TEnviCTe enviCte, Object retorno)
+    public static String criaCteProc(br.com.swconsultoria.cte.schema_300.enviCTe.TCTe enviCte, Object retorno)
             throws JAXBException, CteException {
 
         CteProc cteProc = new CteProc();
-        cteProc.setVersao("3.00");
-        cteProc.setCTe(xmlToObject(objectToXml(enviCte.getCTe().get(0)), br.com.swconsultoria.cte.schema_300.procCTe.TCTe.class));
+        cteProc.setVersao("4.00");
+        cteProc.setCTe(xmlToObject(objectToXml(enviCte), br.com.swconsultoria.cte.schema_300.procCTe.TCTe.class));
         cteProc.setProtCTe(
                 xmlToObject(objectToXml(retorno), br.com.swconsultoria.cte.schema_300.procCTe.TProtCTe.class));
 
