@@ -9,4 +9,5 @@
 *.xml
 /.idea/
 
-.metadata/*
+.metadata/* 
+.factorypath
