@@ -126,7 +126,7 @@ class EnvioCte {
 			dados.setCteDadosMsg(Base64.getEncoder().encodeToString(compressedData));
 
 			
-			
+			 String d = WebServiceCteUtil.getUrl(config, ServicosEnum.ENVIO_CTE);
 			CTeRecepcaoSincV4Stub stub = new CTeRecepcaoSincV4Stub( WebServiceCteUtil.getUrl(config, ServicosEnum.ENVIO_CTE));
 
 			CTeRecepcaoSincV4Stub.CteRecepcaoResult result = stub.cteRecepcao(dados);

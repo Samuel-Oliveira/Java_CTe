@@ -2706,7 +2706,8 @@ public class TCTeOS {
             "iest",
             "xNome",
             "xFant",
-            "enderEmit"
+            "enderEmit",
+            "CRT"
         })
         public static class Emit {
 
@@ -2722,6 +2723,8 @@ public class TCTeOS {
             protected String xFant;
             @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected TEndeEmi enderEmit;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected String CRT;
 
             /**
              * Obtém o valor da propriedade cnpj.
@@ -2866,6 +2869,39 @@ public class TCTeOS {
             public void setEnderEmit(TEndeEmi value) {
                 this.enderEmit = value;
             }
+
+            /**
+             * Obtém o valor da propriedade CRT.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getCRT() {
+                return CRT;
+            }
+
+            /**
+             * Define o valor da propriedade CRT.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setCRT(String value) {
+                this.CRT = value;
+            }
+
+            /**
+             * Obtém o valor da propriedade enderEmit.
+             * 
+             * @return
+             *     possible object is
+             *     {@link TEndeEmi }
+             *     
+             */
 
         }
 

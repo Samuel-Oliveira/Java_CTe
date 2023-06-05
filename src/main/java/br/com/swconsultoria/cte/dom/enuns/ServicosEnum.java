@@ -7,8 +7,8 @@ package br.com.swconsultoria.cte.dom.enuns;
 public enum ServicosEnum {
 
     STATUS_SERVICO("ctestatusservico_3.00", "consStatServCTe_v3.00.xsd"),
-    ENVIO_CTE("CTeRecepcao_3.00", "cte_v4.00.xsd"),
-    ENVIO_CTE_OS("CTeRecepcaoOS_3.00", "CTeOS_v3.00.xsd"),
+    ENVIO_CTE("CTeRecepcao_4.00", "cte_v4.00.xsd"),
+    ENVIO_CTE_OS("CTeRecepcaoOS_4.00", "CTeOS_v4.00.xsd"),
     CONSULTA_RECIBO("CTeRetRecepcao_3.00", "consReciCTe_v3.00.xsd"),
     INUTILIZACAO("CTeInutilizacao_3.00", "inutCTe_v3.00.xsd"),
     CONSULTA_XML("CTeConsultaProtocolo_3.00", "consSitCTe_v3.00.xsd"),

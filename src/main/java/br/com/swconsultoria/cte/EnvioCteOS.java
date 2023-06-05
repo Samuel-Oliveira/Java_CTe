@@ -10,6 +10,7 @@ import br.com.swconsultoria.cte.schema_300.retCTeOS.TRetCTeOS;
 import br.com.swconsultoria.cte.util.ConstantesCte;
 import br.com.swconsultoria.cte.util.WebServiceCteUtil;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
+import br.com.swconsultoria.cte.wsdl.CteRecepcaoOS.CTeRecepcaoOSV4Stub;
 import br.com.swconsultoria.cte.wsdl.CteRecepcaoOS.CteRecepcaoOSStub;
 import lombok.extern.java.Log;
 import org.apache.axiom.om.OMElement;
@@ -17,8 +18,13 @@ import org.apache.axiom.om.util.AXIOMUtil;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.rmi.RemoteException;
+import java.util.Base64;
 import java.util.Iterator;
+import java.util.zip.GZIPOutputStream;
 
 /**
  * Classe Responsavel por Enviar o Cte.
@@ -99,30 +105,26 @@ class EnvioCteOS {
 
             log.info("[XML-ENVIO]: " + ome);
 
-            CteRecepcaoOSStub.CteDadosMsg dadosMsg = new CteRecepcaoOSStub.CteDadosMsg();
-            dadosMsg.setExtraElement(ome);
-            CteRecepcaoOSStub.CteCabecMsg cteCabecMsg = new CteRecepcaoOSStub.CteCabecMsg();
+        	//compactar com Gzip
+			ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+			GZIPOutputStream gzipOutputStream = new GZIPOutputStream(outputStream);
+			gzipOutputStream.write(ome.toString().getBytes());
+			gzipOutputStream.close();
+			byte[] compressedData = outputStream.toByteArray();
 
-            /**
-             * Codigo do Estado.
-             */
-            cteCabecMsg.setCUF(String.valueOf(config.getEstado().getCodigoUF()));
+            
+            CTeRecepcaoOSV4Stub.CteDadosMsg dadosMsg = new CTeRecepcaoOSV4Stub.CteDadosMsg();            
+            dadosMsg.setString(Base64.getEncoder().encodeToString(compressedData));
+           
+           
 
-            /**
-             * Versao do XML
-             */
-            cteCabecMsg.setVersaoDados(ConstantesCte.VERSAO.CTE);
-
-            CteRecepcaoOSStub.CteCabecMsgE cteCabecMsgE = new CteRecepcaoOSStub.CteCabecMsgE();
-            cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
-
-            CteRecepcaoOSStub stub = new CteRecepcaoOSStub(
+            CTeRecepcaoOSV4Stub stub = new CTeRecepcaoOSV4Stub(
                     WebServiceCteUtil.getUrl(config, ServicosEnum.ENVIO_CTE_OS));
-            CteRecepcaoOSStub.CteRecepcaoOSResult result = stub.cteRecepcaoOS(dadosMsg, cteCabecMsgE);
+            CTeRecepcaoOSV4Stub.CteRecepcaoOSResult result = stub.cteRecepcaoOS( dadosMsg);
 
             return XmlCteUtil.xmlToObject(result.getExtraElement().toString(), TRetCTeOS.class);
 
-        } catch (RemoteException | XMLStreamException | JAXBException e) {
+        } catch (IOException | XMLStreamException | JAXBException e) {
             throw new CteException(e.getMessage());
         }
 
