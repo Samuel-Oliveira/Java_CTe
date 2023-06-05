@@ -1,5 +1,14 @@
 package br.com.swconsultoria.cte;
 
+import java.rmi.RemoteException;
+
+import javax.xml.bind.JAXBException;
+import javax.xml.stream.XMLStreamException;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.util.AXIOMUtil;
+import org.apache.axis2.transport.http.HTTPConstants;
+
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
@@ -10,15 +19,7 @@ import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
 import br.com.swconsultoria.cte.util.WebServiceCteUtil;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
 import br.com.swconsultoria.cte.wsdl.CteConsulta.CTeConsultaV4Stub;
-import br.com.swconsultoria.cte.wsdl.CteConsulta.CteConsultaStub;
 import lombok.extern.java.Log;
-import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.util.AXIOMUtil;
-import org.apache.axis2.transport.http.HTTPConstants;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.stream.XMLStreamException;
-import java.rmi.RemoteException;
 
 /**
  * Classe responsavel por Consultar a Situaçao do XML na SEFAZ.

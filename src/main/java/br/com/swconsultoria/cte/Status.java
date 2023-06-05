@@ -1,5 +1,13 @@
 package br.com.swconsultoria.cte;
 
+import java.rmi.RemoteException;
+
+import javax.xml.bind.JAXBException;
+import javax.xml.stream.XMLStreamException;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.util.AXIOMUtil;
+
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
@@ -9,14 +17,7 @@ import br.com.swconsultoria.cte.util.ConstantesCte;
 import br.com.swconsultoria.cte.util.WebServiceCteUtil;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
 import br.com.swconsultoria.cte.wsdl.CteStatusServico.CTeStatusServicoV4Stub;
-import br.com.swconsultoria.cte.wsdl.CteStatusServico.CteStatusServicoStub;
 import lombok.extern.java.Log;
-import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.util.AXIOMUtil;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.stream.XMLStreamException;
-import java.rmi.RemoteException;
 
 /**
  * Classe responsável por fazer a Verificação do Status Do Webservice

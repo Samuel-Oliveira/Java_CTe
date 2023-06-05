@@ -1,5 +1,17 @@
 package br.com.swconsultoria.cte;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.Base64;
+import java.util.Iterator;
+import java.util.zip.GZIPOutputStream;
+
+import javax.xml.bind.JAXBException;
+import javax.xml.stream.XMLStreamException;
+
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.util.AXIOMUtil;
+
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.AssinaturaEnum;
 import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
@@ -7,24 +19,10 @@ import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_300.cteOS.TCTeOS;
 import br.com.swconsultoria.cte.schema_300.retCTeOS.TRetCTeOS;
-import br.com.swconsultoria.cte.util.ConstantesCte;
 import br.com.swconsultoria.cte.util.WebServiceCteUtil;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
 import br.com.swconsultoria.cte.wsdl.CteRecepcaoOS.CTeRecepcaoOSV4Stub;
-import br.com.swconsultoria.cte.wsdl.CteRecepcaoOS.CteRecepcaoOSStub;
 import lombok.extern.java.Log;
-import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.util.AXIOMUtil;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.stream.XMLStreamException;
-
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.rmi.RemoteException;
-import java.util.Base64;
-import java.util.Iterator;
-import java.util.zip.GZIPOutputStream;
 
 /**
  * Classe Responsavel por Enviar o Cte.
