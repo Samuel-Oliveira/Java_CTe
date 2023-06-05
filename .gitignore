@@ -9,4 +9,4 @@
 *.xml
 /.idea/
 
-.metadata
+.metadata/*
