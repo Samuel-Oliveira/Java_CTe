@@ -39,7 +39,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TConsStatServ", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
     "tpAmb",
+    "cUF",
     "xServ"
+    
 })
 public class TConsStatServ {
 
@@ -47,6 +49,9 @@ public class TConsStatServ {
     protected String tpAmb;
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String xServ;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+    protected String cUF;   
+    
     @XmlAttribute(name = "versao", required = true)
     protected String versao;
 
@@ -74,6 +79,30 @@ public class TConsStatServ {
         this.tpAmb = value;
     }
 
+    /**
+     * Obtém o valor da propriedade xServ.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCUf() {
+        return cUF;
+    }
+
+    /**
+     * Define o valor da propriedade xServ.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCUf(String cUf) {
+        this.cUF = cUf;
+    }
+    
     /**
      * Obtém o valor da propriedade xServ.
      * 

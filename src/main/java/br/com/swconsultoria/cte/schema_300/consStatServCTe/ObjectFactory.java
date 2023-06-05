@@ -24,7 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _ConsStatServCte_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "consStatServCte");
+    private final static QName _ConsStatServCte_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "consStatServCTe");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.com.swconsultoria.cte.schema_300.consStatServCTe

@@ -8,6 +8,7 @@ import br.com.swconsultoria.cte.schema_300.retConsStatServCTe.TRetConsStatServ;
 import br.com.swconsultoria.cte.util.ConstantesCte;
 import br.com.swconsultoria.cte.util.WebServiceCteUtil;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
+import br.com.swconsultoria.cte.wsdl.CteStatusServico.CTeStatusServicoV4Stub;
 import br.com.swconsultoria.cte.wsdl.CteStatusServico.CteStatusServicoStub;
 import lombok.extern.java.Log;
 import org.apache.axiom.om.OMElement;
@@ -63,26 +64,22 @@ class Status {
             consStatServ.setTpAmb(config.getAmbiente().getCodigo());
             consStatServ.setVersao(ConstantesCte.VERSAO.CTE);
             consStatServ.setXServ("STATUS");
+            consStatServ.setCUf(config.getEstado().getCodigoUF());
             String xml = XmlCteUtil.objectToXml(consStatServ);
 
             log.info("[XML-ENVIO]: " + xml);
 
             OMElement ome = AXIOMUtil.stringToOM(xml);
 
-            CteStatusServicoStub.CteDadosMsg dadosMsg = new CteStatusServicoStub.CteDadosMsg();
+            CTeStatusServicoV4Stub.CteDadosMsg dadosMsg = new CTeStatusServicoV4Stub.CteDadosMsg();         
+            
             dadosMsg.setExtraElement(ome);
+            
 
-            CteStatusServicoStub stub = new CteStatusServicoStub(
+            CTeStatusServicoV4Stub stub = new CTeStatusServicoV4Stub(
                     WebServiceCteUtil.getUrl(config, ServicosEnum.STATUS_SERVICO));
-
-            CteStatusServicoStub.CteCabecMsg cteCabecMsg = new CteStatusServicoStub.CteCabecMsg();
-            cteCabecMsg.setCUF(String.valueOf(config.getEstado().getCodigoUF()));
-            cteCabecMsg.setVersaoDados(ConstantesCte.VERSAO.CTE);
-
-            CteStatusServicoStub.CteCabecMsgE cteCabecMsgE = new CteStatusServicoStub.CteCabecMsgE();
-            cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
-
-            CteStatusServicoStub.CteStatusServicoCTResult result = stub.cteStatusServicoCT(dadosMsg, cteCabecMsgE);
+            
+            CTeStatusServicoV4Stub.CteStatusServicoCTResult result = stub.cteStatusServicoCT(dadosMsg);
 
             log.info("[XML-RETORNO]: " + result.getExtraElement().toString());
             return XmlCteUtil.xmlToObject(result.getExtraElement().toString(), TRetConsStatServ.class);

@@ -18,6 +18,7 @@ import br.com.swconsultoria.cte.schema_300.evCancCTe.TEvento;
 import br.com.swconsultoria.cte.schema_300.evCancCTe.TProcEvento;
 import br.com.swconsultoria.cte.schema_300.evCancCTe.TRetEvento;
 import br.com.swconsultoria.cte.schema_300.procCTe.TRetConsReciCTe;
+import br.com.swconsultoria.cte.schema_300.retConsStatServCTe.TRetConsStatServ;
 import br.com.swconsultoria.cte.schema_300.retEnviCTe.TRetEnviCTe;
 import br.com.swconsultoria.cte.util.ChaveUtil;
 import br.com.swconsultoria.cte.util.ConstantesCte;
@@ -48,9 +49,28 @@ public class Teste {
     	//autorizar(config);
     	//cancelar();
     	//cartaCorrecao(config);
-    	consultar(config);
-       
+  //consultar(config);
+      status(config);
 
+    }
+
+    public static void status(ConfiguracoesCte config)  {
+    	  
+    	try {
+          TRetConsStatServ retorno;
+		
+			retorno = Cte.statusServico(config);
+		
+          System.out.println("Status:" + retorno.getCStat());
+          System.out.println("Motivo:" + retorno.getXMotivo());
+          System.out.println("Data:" + retorno.getDhRecbto());
+
+    	} catch (CteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+          
     }
     
     public static void consultar(ConfiguracoesCte config) {
