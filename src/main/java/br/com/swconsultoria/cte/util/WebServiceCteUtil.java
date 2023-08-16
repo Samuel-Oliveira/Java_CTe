@@ -54,7 +54,7 @@ public class WebServiceCteUtil {
                 secao = "CTe_AN_" + sufixoAmbiente;
             }
 
-            if (config.isContigenciaSVC()) {
+            if (!servico.equals(ServicosEnum.QRCODE) && config.isContigenciaSVC()) {
                 //Estados x SVC conforme NT2012.003
                 // inverte quem usa SVRS no normal vira SVSP no SVC e vice versa + alguns estados.
                 if (EstadosEnum.AP.equals(config.getEstado()) || EstadosEnum.PE.equals(config.getEstado())
