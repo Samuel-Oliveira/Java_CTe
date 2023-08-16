@@ -19,7 +19,7 @@
         <url>https://github.com/Samuel-Oliveira/Java_CTe.git</url>
         <connection>scm:git:git@github.com:Samuel-Oliveira/Java_CTe.git</connection>
         <developerConnection>scm:git:git@github.com:Samuel-Oliveira/Java_CTe.git</developerConnection>
-        <tag>java-cte-3.00.7</tag>
+        <tag>java-cte-3.00.11</tag>
     </scm>
 
     <properties>

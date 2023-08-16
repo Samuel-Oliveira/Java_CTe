@@ -20,6 +20,7 @@ import javax.xml.transform.dom.DOMResult;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
+import java.util.Base64;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -86,7 +87,7 @@ public final class ObjetoCTeUtil {
         sig.initSign(pkEntry.getPrivateKey());
         sig.update(data);
         byte[] signatureBytes = sig.sign();
-        return (new BASE64Encoder().encode(signatureBytes))
+        return (Base64.getEncoder().encodeToString(signatureBytes))
                 .replaceAll("&#13;", "")
                 .replaceAll("\r\n", "")
                 .replaceAll("\n", "")
