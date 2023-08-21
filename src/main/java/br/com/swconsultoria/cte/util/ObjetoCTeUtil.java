@@ -10,7 +10,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSSerializer;
-import sun.misc.BASE64Encoder;
 
 import javax.xml.bind.*;
 import javax.xml.namespace.QName;

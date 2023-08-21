@@ -41,6 +41,7 @@ ________________________________________________________________________________
 
 ## v3.00.11 - 16/08/2023
 - Correcao de Uso de ContingenciaSVC
+- Atualizado Cacert (Sefaz Minas)
  
 ## v3.00.10 - 09/05/2023
 - Atualizado Java Certificado (Ver https://github.com/Samuel-Oliveira/Java_Certificado)
