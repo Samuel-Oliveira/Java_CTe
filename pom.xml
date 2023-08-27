@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>br.com.swconsultoria</groupId>
     <artifactId>java-cte</artifactId>
-    <version>3.00.12-SNAPSHOT</version>
+    <version>4.00.1-SNAPSHOT</version>
     <name>Java_CTe</name>
     <description>API Java para consumo do WebService de CTe</description>
     <url>https://github.com/Samuel-Oliveira/Java_CTe</url>
@@ -19,7 +19,7 @@
         <url>https://github.com/Samuel-Oliveira/Java_CTe.git</url>
         <connection>scm:git:git@github.com:Samuel-Oliveira/Java_CTe.git</connection>
         <developerConnection>scm:git:git@github.com:Samuel-Oliveira/Java_CTe.git</developerConnection>
-        <tag>java-cte-3.00.11</tag>
+        <tag>java-cte</tag>
     </scm>
 
     <properties>
