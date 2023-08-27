@@ -9,7 +9,7 @@ import br.com.swconsultoria.cte.util.ConstantesCte;
 import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
 import br.com.swconsultoria.cte.util.WebServiceCteUtil;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
-import br.com.swconsultoria.cte.wsdl.CteConsulta.CteConsultaStub;
+import br.com.swconsultoria.cte.wsdl.cte_consulta.CteConsultaStub;
 import lombok.extern.java.Log;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.util.AXIOMUtil;

@@ -10,7 +10,7 @@ import br.com.swconsultoria.cte.schema_300.consStatServCTe.ObjectFactory;
 import br.com.swconsultoria.cte.schema_300.consStatServCTe.TConsStatServ;
 import br.com.swconsultoria.cte.schema_300.cteModalRodoviario.Rodo;
 import br.com.swconsultoria.cte.schema_300.cteOS.TCTeOS;
-import br.com.swconsultoria.cte.schema_300.distdfeint.DistDFeInt;
+import br.com.swconsultoria.cte.schema_100.distdfeint.DistDFeInt;
 import br.com.swconsultoria.cte.schema_300.enviCTe.TEnviCTe;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TEvento;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TProcEvento;
@@ -188,7 +188,7 @@ public class XmlCteUtil {
 
             case DISTRIBUICAO_DFE:
                 context = JAXBContext.newInstance(DistDFeInt.class);
-                element = new br.com.swconsultoria.cte.schema_300.distdfeint.ObjectFactory()
+                element = new br.com.swconsultoria.cte.schema_100.distdfeint.ObjectFactory()
                         .createDistDFeInt((DistDFeInt) obj);
                 break;
 

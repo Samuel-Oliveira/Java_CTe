@@ -15,7 +15,7 @@ import br.com.swconsultoria.cte.schema_300.retConsReciCTe.TRetConsReciCTe;
 import br.com.swconsultoria.cte.schema_300.retConsSitCTe.TRetConsSitCTe;
 import br.com.swconsultoria.cte.schema_300.retConsStatServCTe.TRetConsStatServ;
 import br.com.swconsultoria.cte.schema_300.retEnviCTe.TRetEnviCTe;
-import br.com.swconsultoria.cte.schema_300.retdistdfeint.RetDistDFeInt;
+import br.com.swconsultoria.cte.schema_100.retdistdfeint.RetDistDFeInt;
 import br.com.swconsultoria.cte.util.ConfiguracoesUtil;
 
 /**
