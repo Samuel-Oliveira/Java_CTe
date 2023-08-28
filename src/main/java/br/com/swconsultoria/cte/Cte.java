@@ -9,8 +9,7 @@ import br.com.swconsultoria.cte.schema_300.cteOS.TCTeOS;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TEvento;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TRetEvento;
 import br.com.swconsultoria.cte.schema_300.retCTeOS.TRetCTeOS;
-import br.com.swconsultoria.cte.schema_300.retConsReciCTe.TRetConsReciCTe;
-import br.com.swconsultoria.cte.schema_300.retConsSitCTe.TRetConsSitCTe;
+import br.com.swconsultoria.cte.schema_400.retConsSitCTe.TRetConsSitCTe;
 import br.com.swconsultoria.cte.schema_400.cte.TCTe;
 import br.com.swconsultoria.cte.schema_400.cte.TRetCTe;
 import br.com.swconsultoria.cte.schema_400.retConsStatServCTe.TRetConsStatServ;
@@ -229,18 +228,4 @@ public class Cte {
 
     }
 
-    /**
-     * Metodo para Consulta Recibo CTE.
-     *
-     * @param configuracoesCte
-     * @param recibo
-     * @return
-     * @throws CteException
-     */
-    public static TRetConsReciCTe consultaRecibo(ConfiguracoesCte configuracoesCte, String recibo)
-            throws CteException {
-
-        return ConsultaRecibo.reciboCte(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), recibo);
-
-    }
 }

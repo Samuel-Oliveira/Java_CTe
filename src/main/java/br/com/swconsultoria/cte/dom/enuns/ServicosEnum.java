@@ -11,14 +11,13 @@ public enum ServicosEnum {
 
     STATUS_SERVICO("CTeStatusServico_4.00", "consStatServCTe_v4.00.xsd"),
     ENVIO_CTE("CTeRecepcaoSinc_4.00", "cte_v4.00.xsd"),
+    CONSULTA_XML("CTeConsultaProtocolo_4.00", "consSitCTe_v4.00.xsd"),
     QRCODE("URL-QRCode",""),
 
 
 
     ENVIO_CTE_OS("CTeRecepcaoOS_3.00", "CTeOS_v3.00.xsd"),
-    CONSULTA_RECIBO("CTeRetRecepcao_3.00", "consReciCTe_v3.00.xsd"),
     INUTILIZACAO("CTeInutilizacao_3.00", "inutCTe_v3.00.xsd"),
-    CONSULTA_XML("CTeConsultaProtocolo_3.00", "consSitCTe_v3.00.xsd"),
     DISTRIBUICAO_DFE("CTeDistribuicaoDFe_1.00", "distDFeInt_v1.00.xsd"),
     CANCELAMENTO("recepcaoevento_3.00", "evCancCTe_v3.00.xsd"),
     EPEC("recepcaoevento_3.00", "evEPECCTe_v3.00.xsd"),
