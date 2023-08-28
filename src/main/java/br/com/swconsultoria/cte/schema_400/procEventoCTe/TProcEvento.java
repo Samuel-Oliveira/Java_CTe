@@ -1,13 +1,7 @@
 
 package br.com.swconsultoria.cte.schema_400.procEventoCTe;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
-import javax.xml.bind.annotation.XmlType;
-
+import javax.xml.bind.annotation.*;
 
 /**
  * Tipo procEvento
@@ -49,6 +43,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlSeeAlso({
     ProcEventoCTe.class
 })
+@XmlRootElement(name = "procEventoCTe", namespace = "http://www.portalfiscal.inf.br/cte")
 public class TProcEvento {
 
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)

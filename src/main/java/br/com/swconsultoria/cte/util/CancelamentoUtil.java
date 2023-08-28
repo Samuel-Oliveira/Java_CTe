@@ -6,10 +6,10 @@ import br.com.swconsultoria.cte.dom.Evento;
 import br.com.swconsultoria.cte.dom.enuns.AssinaturaEnum;
 import br.com.swconsultoria.cte.dom.enuns.EventosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
-import br.com.swconsultoria.cte.schema_300.evCancCTe.EvCancCTe;
-import br.com.swconsultoria.cte.schema_300.evCancCTe.TEvento;
-import br.com.swconsultoria.cte.schema_300.evCancCTe.TProcEvento;
-import br.com.swconsultoria.cte.schema_300.evCancCTe.TRetEvento;
+import br.com.swconsultoria.cte.schema_400.evCancCTe.EvCancCTe;
+import br.com.swconsultoria.cte.schema_400.evCancCTe.TEvento;
+import br.com.swconsultoria.cte.schema_400.evCancCTe.TProcEvento;
+import br.com.swconsultoria.cte.schema_400.evCancCTe.TRetEvento;
 
 import javax.xml.bind.JAXBException;
 import java.time.LocalDateTime;
@@ -21,6 +21,8 @@ import java.time.ZoneId;
  */
 public class CancelamentoUtil {
 
+    private CancelamentoUtil(){}
+
     /**
      * MOnta o Evento de cancelamento unico
      *
@@ -30,7 +32,7 @@ public class CancelamentoUtil {
      * @throws CteException
      */
     public static TEvento montaCancelamento(Evento cancela, ConfiguracoesCte configuracao) throws CteException {
-        return montaCancelamento(cancela, configuracao,ZoneId.systemDefault());
+        return montaCancelamento(cancela, configuracao, ZoneId.systemDefault());
     }
 
     /**
@@ -47,10 +49,7 @@ public class CancelamentoUtil {
         TEvento enviEvento = new TEvento();
         enviEvento.setVersao(ConstantesCte.VERSAO.CTE);
 
-        String id = "ID" + EventosEnum.CANCELAMENTO.getCodigo() + evento.getChave() + "01";
-
-        TEvento eventoCancela = new TEvento();
-        eventoCancela.setVersao(ConstantesCte.VERSAO.CTE);
+        String id = "ID" + EventosEnum.CANCELAMENTO.getCodigo() + evento.getChave() + "001";
 
         TEvento.InfEvento infoEvento = new TEvento.InfEvento();
         infoEvento.setId(id);
@@ -89,9 +88,9 @@ public class CancelamentoUtil {
      */
     public static String criaProcEventoCancelamento(ConfiguracoesCte config, TEvento enviEvento, TRetEvento retorno) throws JAXBException, CteException {
 
-        String xml = XmlCteUtil.objectToXml(enviEvento);
-        xml = xml.replaceAll(" xmlns:ns2=\"http://www.w3.org/2000/09/xmldsig#\"", "");
-        xml = xml.replaceAll("<evento v", "<evento xmlns=\"http://www.portalfiscal.inf.br/cte\" v");
+        String xml = XmlCteUtil.objectToXml(enviEvento)
+                .replace(" xmlns:ns2=\"http://www.w3.org/2000/09/xmldsig#\"", "")
+                .replace("<evento v", "<evento xmlns=\"http://www.portalfiscal.inf.br/cte\" v");
 
         String assinado = Assinar.assinaCte(ConfiguracoesUtil.iniciaConfiguracoes(config), xml, AssinaturaEnum.EVENTO);
 

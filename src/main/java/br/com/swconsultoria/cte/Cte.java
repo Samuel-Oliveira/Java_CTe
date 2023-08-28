@@ -133,7 +133,7 @@ public class Cte {
     }
 
     /**
-     * Metodo para Cancelar a CTE 3.00
+     * Metodo para Cancelar a CTE 4.00
      *
      * @param configuracoesCte
      * @param evento
@@ -141,8 +141,9 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_300.evCancCTe.TRetEvento cancelarCte(ConfiguracoesCte configuracoesCte,
-                                                                                       br.com.swconsultoria.cte.schema_300.evCancCTe.TEvento evento, boolean valida) throws CteException {
+    public static br.com.swconsultoria.cte.schema_400.evCancCTe.TRetEvento cancelarCte(ConfiguracoesCte configuracoesCte,
+                                                                                       br.com.swconsultoria.cte.schema_400.evCancCTe.TEvento evento,
+                                                                                       boolean valida) throws CteException {
 
         return Cancelar.eventoCancelamento(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
@@ -181,7 +182,7 @@ public class Cte {
     }
 
     /**
-     * Metodo para Evento CCE da CTE 3.00.
+     * Metodo para Evento CCE da CTE 4.00.
      *
      * @param configuracoesCte
      * @param evento

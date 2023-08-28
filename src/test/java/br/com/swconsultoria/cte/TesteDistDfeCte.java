@@ -22,8 +22,8 @@ public class TesteDistDfeCte {
             //Veja https://github.com/Samuel-Oliveira/Java_CTe/wiki/Configura%C3%A7%C3%B5es-CTe
             ConfiguracoesCte config = TesteConfig.iniciaConfiguracoes(EstadosEnum.GO, AmbienteEnum.HOMOLOGACAO);
 
-            String cnpj = "18521886000184"; // TODO Preencher Cnpj
-            String nsu = "000000000000000";// TODO Preencher Nsu
+            String cnpj = "10732644000128"; // TODO Preencher Cnpj
+            String nsu = "000000000000050";// TODO Preencher Nsu
 
             RetDistDFeInt retorno = Cte.distribuicaoDfe(config, PessoaEnum.JURIDICA, cnpj, ConsultaDFeEnum.NSU, nsu);
             System.out.println("Status:" + retorno.getCStat());

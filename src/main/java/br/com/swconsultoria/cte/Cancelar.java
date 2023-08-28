@@ -3,8 +3,8 @@ package br.com.swconsultoria.cte;
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
-import br.com.swconsultoria.cte.schema_300.evCancCTe.TEvento;
-import br.com.swconsultoria.cte.schema_300.evCancCTe.TRetEvento;
+import br.com.swconsultoria.cte.schema_400.evCancCTe.TEvento;
+import br.com.swconsultoria.cte.schema_400.evCancCTe.TRetEvento;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
 
 import javax.xml.bind.JAXBException;
@@ -14,20 +14,22 @@ import javax.xml.bind.JAXBException;
  */
 class Cancelar {
 
+    private Cancelar(){}
+
     static TRetEvento eventoCancelamento(ConfiguracoesCte config, TEvento enviEvento, boolean valida)
             throws CteException {
 
         try {
 
-            String xml = XmlCteUtil.objectToXml(enviEvento);
-            xml = xml.replaceAll(" xmlns:ns2=\"http://www.w3.org/2000/09/xmldsig#\"", "");
+            String xml = XmlCteUtil.objectToXml(enviEvento)
+                    .replace(" xmlns:ns2=\"http://www.w3.org/2000/09/xmldsig#\"", "");
 
             xml = Eventos.enviarEvento(config, xml, ServicosEnum.CANCELAMENTO, valida);
 
             return XmlCteUtil.xmlToObject(xml, TRetEvento.class);
 
         } catch (JAXBException e) {
-            throw new CteException(e);
+            throw new CteException("Erro ao cancelar CTe", e);
         }
 
     }
