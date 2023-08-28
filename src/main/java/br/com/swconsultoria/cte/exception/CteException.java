@@ -7,27 +7,15 @@ package br.com.swconsultoria.cte.exception;
  */
 public class CteException extends Exception {
 
-	private static final long serialVersionUID = -5054900660251852366L;
-	
-	String message;
-	
-	public CteException(Throwable e) {
-		super(e);
-	}
-
-	
 	public CteException(String message) {
-		this((Throwable) null);
-		this.message = message;
+		super(message);
 	}
 
-	public String getMessage() {
-		return message;
+	public CteException(String message, Throwable cause) {
+		super(message, cause);
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public CteException(Throwable cause) {
+		super(cause);
 	}
-
-	
 }

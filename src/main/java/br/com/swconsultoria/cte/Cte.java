@@ -4,16 +4,16 @@ import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.ConsultaDFeEnum;
 import br.com.swconsultoria.cte.dom.enuns.PessoaEnum;
 import br.com.swconsultoria.cte.exception.CteException;
+import br.com.swconsultoria.cte.schema_100.retdistdfeint.RetDistDFeInt;
 import br.com.swconsultoria.cte.schema_300.cteOS.TCTeOS;
-import br.com.swconsultoria.cte.schema_300.enviCTe.TEnviCTe;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TEvento;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TRetEvento;
 import br.com.swconsultoria.cte.schema_300.retCTeOS.TRetCTeOS;
 import br.com.swconsultoria.cte.schema_300.retConsReciCTe.TRetConsReciCTe;
 import br.com.swconsultoria.cte.schema_300.retConsSitCTe.TRetConsSitCTe;
+import br.com.swconsultoria.cte.schema_400.cte.TCTe;
+import br.com.swconsultoria.cte.schema_400.cte.TRetCTe;
 import br.com.swconsultoria.cte.schema_400.retConsStatServCTe.TRetConsStatServ;
-import br.com.swconsultoria.cte.schema_300.retEnviCTe.TRetEnviCTe;
-import br.com.swconsultoria.cte.schema_100.retdistdfeint.RetDistDFeInt;
 import br.com.swconsultoria.cte.util.ConfiguracoesUtil;
 
 /**
@@ -82,7 +82,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static TEnviCTe montaCte(ConfiguracoesCte configuracoesCte, TEnviCTe enviCTe, boolean valida) throws CteException {
+    public static TCTe montaCte(ConfiguracoesCte configuracoesCte, TCTe enviCTe, boolean valida) throws CteException {
 
         return EnvioCte.montaCte(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe, valida);
 
@@ -108,14 +108,14 @@ public class Cte {
      * Metodo para Enviar a CTE.
      *
      * @param configuracoesCte
-     * @param enviCTe
+     * @param cte
      * @return
      * @throws CteException
      */
-    public static TRetEnviCTe enviarCte(ConfiguracoesCte configuracoesCte,
-                                        TEnviCTe enviCTe) throws CteException {
+    public static TRetCTe enviarCte(ConfiguracoesCte configuracoesCte,
+                                    TCTe cte) throws CteException {
 
-        return EnvioCte.enviaCte(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe);
+        return EnvioCte.enviaCte(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), cte);
 
     }
 

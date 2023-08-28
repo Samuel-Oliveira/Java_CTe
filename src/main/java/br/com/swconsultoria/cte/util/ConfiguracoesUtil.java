@@ -69,7 +69,7 @@ public class ConfiguracoesUtil {
             }
 
         } catch (CertificadoException e) {
-            throw new CteException(e.getMessage());
+            throw new CteException(e);
         }
 
         return configuracoesCte;

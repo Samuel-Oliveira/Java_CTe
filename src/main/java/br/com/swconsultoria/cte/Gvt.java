@@ -28,7 +28,7 @@ class Gvt {
             return XmlCteUtil.xmlToObject(xml, TRetEvento.class);
 
         } catch (JAXBException e) {
-            throw new CteException(e.getMessage());
+            throw new CteException(e);
         }
 
     }

@@ -1,16 +1,20 @@
 package br.com.swconsultoria.cte.dom.enuns;
 
+import lombok.Getter;
+
 /**
  * @author Samuel Oliveira - samuk.exe@hotmail.com
  * Data: 02/03/2019 - 20:03
  */
+@Getter
 public enum ServicosEnum {
 
     STATUS_SERVICO("CTeStatusServico_4.00", "consStatServCTe_v4.00.xsd"),
+    ENVIO_CTE("CTeRecepcaoSinc_4.00", "cte_v4.00.xsd"),
+    QRCODE("URL-QRCode",""),
 
 
 
-    ENVIO_CTE("CTeRecepcao_3.00", "enviCTe_v3.00.xsd"),
     ENVIO_CTE_OS("CTeRecepcaoOS_3.00", "CTeOS_v3.00.xsd"),
     CONSULTA_RECIBO("CTeRetRecepcao_3.00", "consReciCTe_v3.00.xsd"),
     INUTILIZACAO("CTeInutilizacao_3.00", "inutCTe_v3.00.xsd"),
@@ -22,7 +26,6 @@ public enum ServicosEnum {
     CCE("recepcaoevento_3.00", "evCCeCTe_v3.00.xsd"),
     PRESTACAO_DESACORDO("recepcaoevento_3.00", "evPrestDesacordo_v3.00.xsd"),
     GVT("recepcaoevento_3.00", "evGTV_v3.00.xsd"),
-    QRCODE("QR_Code",""),
     EVENTO("","eventoCTe_v3.00.xsd");
 
     private final String servico;
@@ -33,11 +36,4 @@ public enum ServicosEnum {
         this.xsd = xsd;
     }
 
-    public String getServico() {
-        return servico;
-    }
-
-    public String getXsd() {
-        return xsd;
-    }
-    }
+}

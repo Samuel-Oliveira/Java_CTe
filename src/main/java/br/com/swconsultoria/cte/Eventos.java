@@ -31,7 +31,7 @@ class Eventos {
 
             return envio(config, tipoEvento, ome);
         } catch (RemoteException | XMLStreamException e) {
-            throw new CteException(e.getMessage());
+            throw new CteException(e);
         }
 
     }

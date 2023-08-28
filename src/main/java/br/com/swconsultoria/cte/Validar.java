@@ -47,13 +47,13 @@ class Validar implements ErrorHandler {
             builder = docBuilderFactory.newDocumentBuilder();
             builder.setErrorHandler(this);
         } catch (ParserConfigurationException ex) {
-            throw new CteException(ex.getMessage());
+            throw new CteException(ex);
         }
 
         try {
             builder.parse(new InputSource(new StringReader(xml)));
         } catch (Exception ex) {
-            throw new CteException(ex.toString());
+            throw new CteException(ex);
         }
 
         return this.getListaComErrosDeValidacao();

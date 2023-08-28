@@ -25,7 +25,7 @@ import java.rmi.RemoteException;
 @Log
 class Status {
 
-    private Status(){}
+    private Status() {}
 
     /**
      * Metodo para Consulta de Status de Serviço
@@ -84,7 +84,7 @@ class Status {
             return XmlCteUtil.xmlToObject(result.getExtraElement().toString(), TRetConsStatServ.class);
 
         } catch (RemoteException | XMLStreamException | JAXBException e) {
-            throw new CteException(e.getMessage());
+            throw new CteException("Erro ao Consultar Status Servico", e);
         }
     }
 

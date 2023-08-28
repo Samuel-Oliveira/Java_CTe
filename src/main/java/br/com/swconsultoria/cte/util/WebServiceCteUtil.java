@@ -11,7 +11,10 @@ import br.com.swconsultoria.cte.exception.CteException;
 import lombok.extern.java.Log;
 import org.ini4j.Wini;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 
 /**
@@ -59,7 +62,7 @@ public class WebServiceCteUtil {
                 // inverte quem usa SVRS no normal vira SVSP no SVC e vice versa + alguns estados.
                 if (EstadosEnum.AP.equals(config.getEstado()) || EstadosEnum.PE.equals(config.getEstado())
                         || EstadosEnum.RR.equals(config.getEstado()) || EstadosEnum.SP.equals(config.getEstado())
-                        || EstadosEnum.MT.equals(config.getEstado()) || EstadosEnum.MS.equals(config.getEstado()) ) {
+                        || EstadosEnum.MT.equals(config.getEstado()) || EstadosEnum.MS.equals(config.getEstado())) {
                     //SVC SP
                     secao = "CTe_SVRS_" + sufixoAmbiente;
                 } else {
@@ -70,15 +73,14 @@ public class WebServiceCteUtil {
 
             url = ini.get(secao, servico.getServico().toLowerCase());
 
-            ObjetoCTeUtil.verifica(url).orElseThrow(() -> new CteException(
-                    "WebService de " + servico + " não encontrado para " + config.getEstado().getNome()));
-
-            log.info("[URL]: " + servico + ": " + url);
+            log.info("[URL]: " + servico + ": " + ObjetoCTeUtil.verifica(url)
+                    .orElseThrow(() -> new CteException(
+                            "WebService de " + servico + " não encontrado para " + config.getEstado().getNome())));
 
             return url;
 
         } catch (IOException e) {
-            throw new CteException(e.getMessage());
+            throw new CteException(e);
         }
     }
 }

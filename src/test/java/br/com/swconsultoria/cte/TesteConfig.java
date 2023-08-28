@@ -15,7 +15,7 @@ import java.io.FileNotFoundException;
 /**
  * @author Samuel Oliveira
  */
-public class ConfigTeste {
+public class TesteConfig {
 
     public static ConfiguracoesCte iniciaConfiguracoes(EstadosEnum estado, AmbienteEnum ambiente) throws CertificadoException, FileNotFoundException {
 

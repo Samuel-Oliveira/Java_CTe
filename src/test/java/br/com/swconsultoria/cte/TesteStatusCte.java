@@ -7,20 +7,23 @@ import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.AmbienteEnum;
 import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
 import br.com.swconsultoria.cte.schema_400.retConsStatServCTe.TRetConsStatServ;
+import lombok.extern.java.Log;
+
+import java.util.logging.Level;
 
 /**
  * @author Samuel Oliveira
  */
-class StatusCte {
+@Log
+class TesteStatusCte {
 
     public static void main(String[] args) {
         try {
-            ConfiguracoesCte configuracoesCte = ConfigTeste.iniciaConfiguracoes(EstadosEnum.GO, AmbienteEnum.HOMOLOGACAO);
+            ConfiguracoesCte configuracoesCte = TesteConfig.iniciaConfiguracoes(EstadosEnum.GO, AmbienteEnum.HOMOLOGACAO);
             TRetConsStatServ retorno = Cte.statusServico(configuracoesCte);
-            System.out.println();
-            System.out.println("# Status: " + retorno.getCStat() + " - " + retorno.getXMotivo());
+            log.info("# Status: " + retorno.getCStat() + " - " + retorno.getXMotivo());
         } catch (Exception e) {
-            System.err.println("# Erro: " + e.getMessage());
+            log.log(Level.SEVERE, "Erro ao consultar Status", e);
         }
     }
 }

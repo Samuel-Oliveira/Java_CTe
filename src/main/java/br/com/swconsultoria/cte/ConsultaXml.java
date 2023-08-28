@@ -64,7 +64,7 @@ class ConsultaXml {
 //            return XmlCteUtil.xmlToObject(result.getExtraElement().toString(), TRetConsSitCTe.class);
 //
 //        } catch (RemoteException | XMLStreamException | JAXBException e) {
-//            throw new CteException(e.getMessage());
+//            throw new CteException(e);
 //        }
         return null;
     }

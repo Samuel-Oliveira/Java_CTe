@@ -55,7 +55,7 @@ class EnvioCteOS {
 
             return XmlCteUtil.xmlToObject(xml, TCTeOS.class);
         } catch (JAXBException e) {
-            throw new CteException(e.getMessage());
+            throw new CteException(e);
         }
 
     }
@@ -114,7 +114,7 @@ class EnvioCteOS {
 //            return XmlCteUtil.xmlToObject(result.getExtraElement().toString(), TRetCTeOS.class);
 //
 //        } catch (RemoteException | XMLStreamException | JAXBException e) {
-//            throw new CteException(e.getMessage());
+//            throw new CteException(e);
 //        }
         return null;
 

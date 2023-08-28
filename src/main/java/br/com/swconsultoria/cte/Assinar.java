@@ -44,10 +44,10 @@ import java.util.List;
  */
 public class Assinar {
 
-    private Assinar(){}
-
     private static PrivateKey privateKey;
     private static KeyInfo keyInfo;
+
+    private Assinar() {}
 
     /**
      * @param stringXml
@@ -74,30 +74,24 @@ public class Assinar {
             ArrayList<Transform> transformList = signatureFactory(signatureFactory);
             loadCertificates(config, signatureFactory);
 
-            if (tipoAssinatura.equals(AssinaturaEnum.EVENTO) || tipoAssinatura.equals(AssinaturaEnum.CTE_OS)) {
-                assinarCTe(tipoAssinatura, signatureFactory, transformList, privateKey, keyInfo, document, 0);
-            } else {
-                for (int i = 0; i < document.getDocumentElement().getElementsByTagName(tipoAssinatura.getTipo()).getLength(); i++) {
-                    assinarCTe(tipoAssinatura, signatureFactory, transformList, privateKey, keyInfo, document, i);
-                }
-            }
+            assinarCTe(tipoAssinatura, signatureFactory, transformList, privateKey, keyInfo, document);
 
             return outputXML(document);
         } catch (SAXException | IOException | ParserConfigurationException | NoSuchAlgorithmException
-                | InvalidAlgorithmParameterException | KeyStoreException | UnrecoverableEntryException
-                | CertificadoException | MarshalException
-                | XMLSignatureException e) {
-            throw new CteException("Erro ao Assinar Cte" + e.getMessage());
+                 | InvalidAlgorithmParameterException | KeyStoreException | UnrecoverableEntryException
+                 | CertificadoException | MarshalException
+                 | XMLSignatureException e) {
+            throw new CteException("Erro ao Assinar Cte", e);
         }
     }
 
     private static void assinarCTe(AssinaturaEnum tipoAssinatura, XMLSignatureFactory fac, ArrayList<Transform> transformList,
-                                   PrivateKey privateKey, KeyInfo ki, Document document, int indexCTe) throws NoSuchAlgorithmException,
+                                   PrivateKey privateKey, KeyInfo ki, Document document) throws NoSuchAlgorithmException,
             InvalidAlgorithmParameterException, MarshalException, XMLSignatureException {
 
         NodeList elements = document.getElementsByTagName(tipoAssinatura.getTag());
 
-        org.w3c.dom.Element el = (org.w3c.dom.Element) elements.item(indexCTe);
+        org.w3c.dom.Element el = (org.w3c.dom.Element) elements.item(0);
         String id = el.getAttribute("Id");
         el.setIdAttribute("Id", true);
         Reference ref = fac.newReference("#" + id, fac.newDigestMethod(DigestMethod.SHA1, null), transformList, null,
@@ -109,14 +103,7 @@ public class Assinar {
 
         XMLSignature signature = fac.newXMLSignature(si, ki);
 
-        DOMSignContext dsc;
-
-        if (tipoAssinatura.equals(AssinaturaEnum.INUTILIZACAO) || tipoAssinatura.equals(AssinaturaEnum.EVENTO) || tipoAssinatura.equals(AssinaturaEnum.CTE_OS)) {
-            dsc = new DOMSignContext(privateKey, document.getFirstChild());
-        } else {
-            dsc = new DOMSignContext(privateKey,
-                    document.getDocumentElement().getElementsByTagName(tipoAssinatura.getTipo()).item(indexCTe));
-        }
+        DOMSignContext dsc = new DOMSignContext(privateKey, document.getFirstChild());
 
         dsc.setBaseURI("ok");
 
@@ -163,16 +150,15 @@ public class Assinar {
 
     private static String outputXML(Document doc) throws CteException {
 
-        try (ByteArrayOutputStream os = new ByteArrayOutputStream()){
+        try (ByteArrayOutputStream os = new ByteArrayOutputStream()) {
             TransformerFactory tf = TransformerFactory.newInstance();
             Transformer trans = tf.newTransformer();
             trans.transform(new DOMSource(doc), new StreamResult(os));
-            String xml = os.toString();
-            xml = xml.replaceAll(System.lineSeparator(), "");
-            xml = xml.replaceAll(" standalone=\"no\"", "");
-            return xml;
+            return os.toString()
+                    .replace(System.lineSeparator(), "")
+                    .replace(" standalone=\"no\"", "");
         } catch (TransformerException | IOException e) {
-            throw new CteException("Erro ao Transformar Documento:" + e.getMessage());
+            throw new CteException("Erro ao Transformar Documento:", e);
         }
 
     }
