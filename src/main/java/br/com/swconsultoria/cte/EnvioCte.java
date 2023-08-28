@@ -2,23 +2,12 @@ package br.com.swconsultoria.cte;
 
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.AssinaturaEnum;
-import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
 import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_300.enviCTe.TEnviCTe;
 import br.com.swconsultoria.cte.schema_300.retEnviCTe.TRetEnviCTe;
-import br.com.swconsultoria.cte.util.ConstantesCte;
-import br.com.swconsultoria.cte.util.WebServiceCteUtil;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
-import br.com.swconsultoria.cte.wsdl.CteRecepcao.CteRecepcaoStub;
 import lombok.extern.java.Log;
-import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.util.AXIOMUtil;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.stream.XMLStreamException;
-import java.rmi.RemoteException;
-import java.util.Iterator;
 
 /**
  * Classe Responsavel por Enviar o Cte.
@@ -80,54 +69,54 @@ class EnvioCte {
      */
     static TRetEnviCTe enviaCte(ConfiguracoesCte config, TEnviCTe enviCTe) throws CteException {
 
-        try {
-
-            String xml = XmlCteUtil.objectToXml(enviCTe);
-
-            OMElement ome = AXIOMUtil.stringToOM(xml);
-
-            if (config.getEstado().equals(EstadosEnum.PR) ||
-                    config.getEstado().equals(EstadosEnum.MT)  ||
-                    config.getEstado().equals(EstadosEnum.MS)) {
-                Iterator<?> children = ome.getChildrenWithLocalName("CTe");
-                while (children.hasNext()) {
-                    OMElement omElement = (OMElement) children.next();
-                    if (omElement != null && "CTe".equals(omElement.getLocalName())) {
-                        omElement.addAttribute("xmlns", "http://www.portalfiscal.inf.br/cte", null);
-                    }
-                }
-            }
-
-            log.info("[XML-ENVIO]: " + xml);
-
-            CteRecepcaoStub.CteDadosMsg dadosMsg = new CteRecepcaoStub.CteDadosMsg();
-            dadosMsg.setExtraElement(ome);
-            CteRecepcaoStub.CteCabecMsg cteCabecMsg = new CteRecepcaoStub.CteCabecMsg();
-
-            /**
-             * Codigo do Estado.
-             */
-            cteCabecMsg.setCUF(String.valueOf(config.getEstado().getCodigoUF()));
-
-            /**
-             * Versao do XML
-             */
-            cteCabecMsg.setVersaoDados(ConstantesCte.VERSAO.CTE);
-
-            CteRecepcaoStub.CteCabecMsgE cteCabecMsgE = new CteRecepcaoStub.CteCabecMsgE();
-            cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
-
-            CteRecepcaoStub stub = new CteRecepcaoStub(
-                    WebServiceCteUtil.getUrl(config, ServicosEnum.ENVIO_CTE));
-            CteRecepcaoStub.CteRecepcaoLoteResult result = stub.cteRecepcaoLote(dadosMsg, cteCabecMsgE);
-
-            return XmlCteUtil.xmlToObject(result.getExtraElement().toString(),
-                    TRetEnviCTe.class);
-
-        } catch (RemoteException | XMLStreamException | JAXBException e) {
-            throw new CteException(e.getMessage());
-        }
-
+//        try {
+//
+//            String xml = XmlCteUtil.objectToXml(enviCTe);
+//
+//            OMElement ome = AXIOMUtil.stringToOM(xml);
+//
+//            if (config.getEstado().equals(EstadosEnum.PR) ||
+//                    config.getEstado().equals(EstadosEnum.MT)  ||
+//                    config.getEstado().equals(EstadosEnum.MS)) {
+//                Iterator<?> children = ome.getChildrenWithLocalName("CTe");
+//                while (children.hasNext()) {
+//                    OMElement omElement = (OMElement) children.next();
+//                    if (omElement != null && "CTe".equals(omElement.getLocalName())) {
+//                        omElement.addAttribute("xmlns", "http://www.portalfiscal.inf.br/cte", null);
+//                    }
+//                }
+//            }
+//
+//            log.info("[XML-ENVIO]: " + xml);
+//
+//            CteRecepcaoStub.CteDadosMsg dadosMsg = new CteRecepcaoStub.CteDadosMsg();
+//            dadosMsg.setExtraElement(ome);
+//            CteRecepcaoStub.CteCabecMsg cteCabecMsg = new CteRecepcaoStub.CteCabecMsg();
+//
+//            /**
+//             * Codigo do Estado.
+//             */
+//            cteCabecMsg.setCUF(String.valueOf(config.getEstado().getCodigoUF()));
+//
+//            /**
+//             * Versao do XML
+//             */
+//            cteCabecMsg.setVersaoDados(ConstantesCte.VERSAO.CTE);
+//
+//            CteRecepcaoStub.CteCabecMsgE cteCabecMsgE = new CteRecepcaoStub.CteCabecMsgE();
+//            cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
+//
+//            CteRecepcaoStub stub = new CteRecepcaoStub(
+//                    WebServiceCteUtil.getUrl(config, ServicosEnum.ENVIO_CTE));
+//            CteRecepcaoStub.CteRecepcaoLoteResult result = stub.cteRecepcaoLote(dadosMsg, cteCabecMsgE);
+//
+//            return XmlCteUtil.xmlToObject(result.getExtraElement().toString(),
+//                    TRetEnviCTe.class);
+//
+//        } catch (RemoteException | XMLStreamException | JAXBException e) {
+//            throw new CteException(e.getMessage());
+//        }
+        return null;
     }
 
 }

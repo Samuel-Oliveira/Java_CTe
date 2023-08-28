@@ -6,8 +6,8 @@ package br.com.swconsultoria.cte.util;
 import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_300.consReciCTe.TConsReciCTe;
 import br.com.swconsultoria.cte.schema_300.consSitCTe.TConsSitCTe;
-import br.com.swconsultoria.cte.schema_300.consStatServCTe.ObjectFactory;
-import br.com.swconsultoria.cte.schema_300.consStatServCTe.TConsStatServ;
+import br.com.swconsultoria.cte.schema_400.consStatServCTe.ObjectFactory;
+import br.com.swconsultoria.cte.schema_400.consStatServCTe.TConsStatServ;
 import br.com.swconsultoria.cte.schema_300.cteModalRodoviario.Rodo;
 import br.com.swconsultoria.cte.schema_300.cteOS.TCTeOS;
 import br.com.swconsultoria.cte.schema_100.distdfeint.DistDFeInt;
@@ -132,7 +132,7 @@ public class XmlCteUtil {
             case STATUS_SERVICO:
                 context = JAXBContext.newInstance(TConsStatServ.class);
                 element = new ObjectFactory()
-                        .createConsStatServCte((TConsStatServ) obj);
+                        .createConsStatServCTe((TConsStatServ) obj);
                 break;
 
             case ENVIO_CTE:

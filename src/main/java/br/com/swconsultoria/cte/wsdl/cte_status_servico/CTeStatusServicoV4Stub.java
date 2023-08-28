@@ -130,7 +130,7 @@ public class CTeStatusServicoV4Stub extends org.apache.axis2.client.Stub {
         try {
             org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
             _operationClient.getOptions()
-                            .setAction("http://www.portalfiscal.inf.br/cte/wsdl/CTeStatusServicoV4/cteStatusServicoCT");
+                            .setAction("http://www.portalfiscal.inf.br/cte/wsdl/CTeStatusServicoV4/cteStatusServicoCTe");
             _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
             addPropertyToOperationClient(_operationClient,
@@ -244,7 +244,7 @@ public class CTeStatusServicoV4Stub extends org.apache.axis2.client.Stub {
         throws java.rmi.RemoteException {
         org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
         _operationClient.getOptions()
-                        .setAction("http://www.portalfiscal.inf.br/cte/wsdl/CTeStatusServicoV4/cteStatusServicoCT");
+                        .setAction("http://www.portalfiscal.inf.br/cte/wsdl/CTeStatusServicoV4/cteStatusServicoCTe");
         _operationClient.getOptions().setExceptionToBeThrownOnSOAPFault(true);
 
         addPropertyToOperationClient(_operationClient,

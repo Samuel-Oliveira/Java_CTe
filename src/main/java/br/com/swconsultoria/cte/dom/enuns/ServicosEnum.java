@@ -6,7 +6,10 @@ package br.com.swconsultoria.cte.dom.enuns;
  */
 public enum ServicosEnum {
 
-    STATUS_SERVICO("ctestatusservico_3.00", "consStatServCTe_v3.00.xsd"),
+    STATUS_SERVICO("CTeStatusServico_4.00", "consStatServCTe_v4.00.xsd"),
+
+
+
     ENVIO_CTE("CTeRecepcao_3.00", "enviCTe_v3.00.xsd"),
     ENVIO_CTE_OS("CTeRecepcaoOS_3.00", "CTeOS_v3.00.xsd"),
     CONSULTA_RECIBO("CTeRetRecepcao_3.00", "consReciCTe_v3.00.xsd"),
@@ -21,9 +24,6 @@ public enum ServicosEnum {
     GVT("recepcaoevento_3.00", "evGTV_v3.00.xsd"),
     QRCODE("QR_Code",""),
     EVENTO("","eventoCTe_v3.00.xsd");
-
-    //    URL_QRCODE("url-qrcode",null),
-//    URL_CONSULTANFCE("url-consultanfce", null);
 
     private final String servico;
     private final String xsd;

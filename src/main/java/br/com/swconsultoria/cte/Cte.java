@@ -8,12 +8,10 @@ import br.com.swconsultoria.cte.schema_300.cteOS.TCTeOS;
 import br.com.swconsultoria.cte.schema_300.enviCTe.TEnviCTe;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TEvento;
 import br.com.swconsultoria.cte.schema_300.evEPECCTe.TRetEvento;
-import br.com.swconsultoria.cte.schema_300.inutCTe.TInutCTe;
-import br.com.swconsultoria.cte.schema_300.inutCTe.TRetInutCTe;
 import br.com.swconsultoria.cte.schema_300.retCTeOS.TRetCTeOS;
 import br.com.swconsultoria.cte.schema_300.retConsReciCTe.TRetConsReciCTe;
 import br.com.swconsultoria.cte.schema_300.retConsSitCTe.TRetConsSitCTe;
-import br.com.swconsultoria.cte.schema_300.retConsStatServCTe.TRetConsStatServ;
+import br.com.swconsultoria.cte.schema_400.retConsStatServCTe.TRetConsStatServ;
 import br.com.swconsultoria.cte.schema_300.retEnviCTe.TRetEnviCTe;
 import br.com.swconsultoria.cte.schema_100.retdistdfeint.RetDistDFeInt;
 import br.com.swconsultoria.cte.util.ConfiguracoesUtil;
@@ -54,23 +52,6 @@ public class Cte {
             throws CteException {
 
         return ConsultaXml.consultaXml(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), chave);
-
-    }
-
-    /**
-     * Classe Reponsavel Por Inutilizar a CTE na SEFAZ No tipo Informar
-     * * ConstantesUtil.CTE ou ConstantesUtil.NFCE
-     *
-     * @param configuracoesCte
-     * @param inutCTe
-     * @param valida
-     * @return
-     * @throws CteException
-     */
-    public static TRetInutCTe inutilizacao(ConfiguracoesCte configuracoesCte,
-                                           TInutCTe inutCTe, boolean valida) throws CteException {
-
-        return Inutilizar.inutiliza(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), inutCTe, valida);
 
     }
 
