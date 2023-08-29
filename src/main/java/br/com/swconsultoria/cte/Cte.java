@@ -99,7 +99,8 @@ public class Cte {
     public static TCTeOS montaCteOS(ConfiguracoesCte configuracoesCte,
                                     TCTeOS enviCTe, boolean valida) throws CteException {
 
-        return EnvioCteOS.montaCteOS(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe, valida);
+        throw new CteException("Ainda nao implementado. Verifique a versao utilizada");
+//        return EnvioCteOS.montaCteOS(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe, valida);
 
     }
 
@@ -128,7 +129,8 @@ public class Cte {
      */
     public static TRetCTeOS enviarCteOS(ConfiguracoesCte configuracoesCte, TCTeOS enviCTe) throws CteException {
 
-        return EnvioCteOS.enviaCteOS(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe);
+        throw new CteException("Ainda nao implementado. Verifique a versao utilizada");
+//        return EnvioCteOS.enviaCteOS(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe);
 
     }
 
@@ -161,7 +163,8 @@ public class Cte {
     public static TRetEvento epecCte(ConfiguracoesCte configuracoesCte,
                                      TEvento evento, boolean valida) throws CteException {
 
-        return Epec.eventoEpec(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+        throw new CteException("Ainda nao implementado. Verifique a versao utilizada");
+//        return Epec.eventoEpec(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
     }
 
@@ -177,7 +180,8 @@ public class Cte {
     public static br.com.swconsultoria.cte.schema_300.evRegMultimodal.TRetEvento multimodalCte(ConfiguracoesCte configuracoesCte,
                                                                                                br.com.swconsultoria.cte.schema_300.evRegMultimodal.TEvento evento, boolean valida) throws CteException {
 
-        return Multimodal.eventoMulti(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+        throw new CteException("Ainda nao implementado. Verifique a versao utilizada");
+//        return Multimodal.eventoMulti(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
     }
 
@@ -193,7 +197,8 @@ public class Cte {
     public static br.com.swconsultoria.cte.schema_300.evCCeCTe.TRetEvento cceCte(ConfiguracoesCte configuracoesCte,
                                                                                  br.com.swconsultoria.cte.schema_300.evCCeCTe.TEvento evento, boolean valida) throws CteException {
 
-        return CartaCorrecao.eventoCCe(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+        throw new CteException("Ainda nao implementado. Verifique a versao utilizada");
+//        return CartaCorrecao.eventoCCe(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
     }
 
@@ -209,7 +214,8 @@ public class Cte {
     public static br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TRetEvento prestacaoDesacordoCte(ConfiguracoesCte configuracoesCte,
                                                                                                         br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TEvento evento, boolean valida) throws CteException {
 
-        return PrestacaoDesacordo.eventoPrestacaoDesacordo(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+        throw new CteException("Ainda nao implementado. Verifique a versao utilizada");
+//        return PrestacaoDesacordo.eventoPrestacaoDesacordo(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
     }
 
@@ -225,7 +231,8 @@ public class Cte {
     public static br.com.swconsultoria.cte.schema_300.evGTV.TRetEvento gvtCte(ConfiguracoesCte configuracoesCte,
                                                                               br.com.swconsultoria.cte.schema_300.evGTV.TEvento evento, boolean valida) throws CteException {
 
-        return Gvt.eventoGvt(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+        throw new CteException("Ainda nao implementado. Verifique a versao utilizada");
+//        return Gvt.eventoGvt(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
     }
 
