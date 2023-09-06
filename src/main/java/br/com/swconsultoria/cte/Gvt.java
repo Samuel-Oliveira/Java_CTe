@@ -3,8 +3,8 @@ package br.com.swconsultoria.cte;
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
-import br.com.swconsultoria.cte.schema_300.evGTV.TEvento;
-import br.com.swconsultoria.cte.schema_300.evGTV.TRetEvento;
+import br.com.swconsultoria.cte.schema_400.evGTV.TEvento;
+import br.com.swconsultoria.cte.schema_400.evGTV.TRetEvento;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
 
 import javax.xml.bind.JAXBException;
@@ -15,13 +15,15 @@ import javax.xml.bind.JAXBException;
  */
 class Gvt {
 
+    private Gvt() {}
+
     static TRetEvento eventoGvt(ConfiguracoesCte config, TEvento enviEvento, boolean valida) throws CteException {
 
         try {
 
-            String xml = XmlCteUtil.objectToXml(enviEvento);
-            xml = xml.replaceAll(" xmlns:ns2=\"http://www.w3.org/2000/09/xmldsig#\"", "");
-            xml = xml.replaceAll("<evento v", "<evento xmlns=\"http://www.portalfiscal.inf.br/cte\" v");
+            String xml = XmlCteUtil.objectToXml(enviEvento)
+                    .replace(" xmlns:ns2=\"http://www.w3.org/2000/09/xmldsig#\"", "")
+                    .replace("<evento v", "<evento xmlns=\"http://www.portalfiscal.inf.br/cte\" v");
 
             xml = Eventos.enviarEvento(config, xml, ServicosEnum.GVT, valida);
 

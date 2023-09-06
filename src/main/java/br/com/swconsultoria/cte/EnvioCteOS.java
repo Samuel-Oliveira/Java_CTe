@@ -4,12 +4,15 @@ import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.AssinaturaEnum;
 import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
-import br.com.swconsultoria.cte.schema_300.cteOS.TCTeOS;
-import br.com.swconsultoria.cte.schema_300.retCTeOS.TRetCTeOS;
+import br.com.swconsultoria.cte.schema_400.cteOS.TCTeOS;
+import br.com.swconsultoria.cte.schema_400.retCTeOS.TRetCTeOS;
+import br.com.swconsultoria.cte.util.WebServiceCteUtil;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
+import br.com.swconsultoria.cte.wsdl.cte_recepcao_os.CTeRecepcaoOSV4Stub;
 import lombok.extern.java.Log;
 
 import javax.xml.bind.JAXBException;
+import java.rmi.RemoteException;
 
 /**
  * Classe Responsavel por Enviar o Cte.
@@ -18,6 +21,8 @@ import javax.xml.bind.JAXBException;
  */
 @Log
 class EnvioCteOS {
+
+    private EnvioCteOS() {}
 
     /**
      * Metodo para Montar a CTE
@@ -71,52 +76,23 @@ class EnvioCteOS {
     static TRetCTeOS enviaCteOS(ConfiguracoesCte config, TCTeOS enviCTe)
             throws CteException {
 
-//        try {
-//
-//            String xml = XmlCteUtil.objectToXml(enviCTe);
-//            OMElement ome = AXIOMUtil.stringToOM(xml);
-//
-//            if (config.getEstado().equals(EstadosEnum.PR)
-//                    || config.getEstado().equals(EstadosEnum.MT)
-//                    || config.getEstado().equals(EstadosEnum.MS)) {
-//                Iterator<?> children = ome.getChildrenWithLocalName("CTe");
-//                while (children.hasNext()) {
-//                    OMElement omElement = (OMElement) children.next();
-//                    if (omElement != null && "CTe".equals(omElement.getLocalName())) {
-//                        omElement.addAttribute("xmlns", "http://www.portalfiscal.inf.br/cte", null);
-//                    }
-//                }
-//            }
-//
-//            log.info("[XML-ENVIO]: " + ome);
-//
-//            CteRecepcaoOSStub.CteDadosMsg dadosMsg = new CteRecepcaoOSStub.CteDadosMsg();
-//            dadosMsg.setExtraElement(ome);
-//            CteRecepcaoOSStub.CteCabecMsg cteCabecMsg = new CteRecepcaoOSStub.CteCabecMsg();
-//
-//            /**
-//             * Codigo do Estado.
-//             */
-//            cteCabecMsg.setCUF(String.valueOf(config.getEstado().getCodigoUF()));
-//
-//            /**
-//             * Versao do XML
-//             */
-//            cteCabecMsg.setVersaoDados(ConstantesCte.VERSAO.CTE);
-//
-//            CteRecepcaoOSStub.CteCabecMsgE cteCabecMsgE = new CteRecepcaoOSStub.CteCabecMsgE();
-//            cteCabecMsgE.setCteCabecMsg(cteCabecMsg);
-//
-//            CteRecepcaoOSStub stub = new CteRecepcaoOSStub(
-//                    WebServiceCteUtil.getUrl(config, ServicosEnum.ENVIO_CTE_OS));
-//            CteRecepcaoOSStub.CteRecepcaoOSResult result = stub.cteRecepcaoOS(dadosMsg, cteCabecMsgE);
-//
-//            return XmlCteUtil.xmlToObject(result.getExtraElement().toString(), TRetCTeOS.class);
-//
-//        } catch (RemoteException | XMLStreamException | JAXBException e) {
-//            throw new CteException(e);
-//        }
-        return null;
+        try {
+
+            String xml = XmlCteUtil.objectToXml(enviCTe);
+            log.info("[XML-ENVIO]: " + xml);
+
+            CTeRecepcaoOSV4Stub.CteDadosMsg dadosMsg = new CTeRecepcaoOSV4Stub.CteDadosMsg();
+            dadosMsg.setCteDadosMsg(XmlCteUtil.xmlToGZip(xml));
+
+            CTeRecepcaoOSV4Stub stub = new CTeRecepcaoOSV4Stub(
+                    WebServiceCteUtil.getUrl(config, ServicosEnum.ENVIO_CTE_OS));
+            CTeRecepcaoOSV4Stub.CteRecepcaoOSResult result = stub.cteRecepcaoOS(dadosMsg);
+
+            return XmlCteUtil.xmlToObject(result.getExtraElement().toString(), TRetCTeOS.class);
+
+        } catch (RemoteException | JAXBException e) {
+            throw new CteException(e);
+        }
 
     }
 

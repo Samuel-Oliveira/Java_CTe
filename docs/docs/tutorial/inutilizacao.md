@@ -8,8 +8,8 @@ import br.com.samuelweb.cte.Cte;
 import br.com.samuelweb.cte.dom.ConfiguracoesIniciais;
 import br.com.samuelweb.cte.exception.CteException;
 import br.com.samuelweb.cte.util.ConstantesCte;
-import br.inf.portalfiscal.cte.schema_300.inutCTe.TInutCTe;
-import br.inf.portalfiscal.cte.schema_300.retInutCTe.TRetInutCTe;
+import br.inf.portalfiscal.cte.schema_400.inutCTe.TInutCTe;
+import br.inf.portalfiscal.cte.schema_400.retInutCTe.TRetInutCTe;
 
 /**
  * @author Samuel Oliveira
@@ -51,7 +51,7 @@ public class InutilizarCte {
             inutCTe.setInfInut(infInut);
 
             TRetInutCTe retorno = Cte.inutilizacao(inutCTe,true);
-            br.inf.portalfiscal.cte.schema_300.retInutCTe.TRetInutCTe.InfInut infRetorno = retorno.getInfInut();
+            br.inf.portalfiscal.cte.schema_400.retInutCTe.TRetInutCTe.InfInut infRetorno = retorno.getInfInut();
 
             System.out.println("Status:" + infRetorno.getCStat());
             System.out.println("Motivo:" + infRetorno.getXMotivo());

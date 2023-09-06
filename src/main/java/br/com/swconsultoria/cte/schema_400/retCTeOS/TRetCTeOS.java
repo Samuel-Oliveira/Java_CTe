@@ -1,12 +1,7 @@
 
 package br.com.swconsultoria.cte.schema_400.retCTeOS;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
-
+import javax.xml.bind.annotation.*;
 
 /**
  * Tipo Retorno do Pedido de Autorização de CT-e OS (Modelo 67)
@@ -44,6 +39,7 @@ import javax.xml.bind.annotation.XmlType;
     "xMotivo",
     "protCTe"
 })
+@XmlRootElement(name = "retCTeOS", namespace = "http://www.portalfiscal.inf.br/cte")
 public class TRetCTeOS {
 
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)

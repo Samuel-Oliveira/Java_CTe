@@ -5,13 +5,13 @@ import br.com.swconsultoria.cte.dom.enuns.ConsultaDFeEnum;
 import br.com.swconsultoria.cte.dom.enuns.PessoaEnum;
 import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_100.retdistdfeint.RetDistDFeInt;
-import br.com.swconsultoria.cte.schema_300.cteOS.TCTeOS;
-import br.com.swconsultoria.cte.schema_300.evEPECCTe.TEvento;
-import br.com.swconsultoria.cte.schema_300.evEPECCTe.TRetEvento;
-import br.com.swconsultoria.cte.schema_300.retCTeOS.TRetCTeOS;
-import br.com.swconsultoria.cte.schema_400.retConsSitCTe.TRetConsSitCTe;
 import br.com.swconsultoria.cte.schema_400.cte.TCTe;
 import br.com.swconsultoria.cte.schema_400.cte.TRetCTe;
+import br.com.swconsultoria.cte.schema_400.cteOS.TCTeOS;
+import br.com.swconsultoria.cte.schema_400.evEPECCTe.TEvento;
+import br.com.swconsultoria.cte.schema_400.evEPECCTe.TRetEvento;
+import br.com.swconsultoria.cte.schema_400.retCTeOS.TRetCTeOS;
+import br.com.swconsultoria.cte.schema_400.retConsSitCTe.TRetConsSitCTe;
 import br.com.swconsultoria.cte.schema_400.retConsStatServCTe.TRetConsStatServ;
 import br.com.swconsultoria.cte.util.ConfiguracoesUtil;
 
@@ -98,9 +98,7 @@ public class Cte {
      */
     public static TCTeOS montaCteOS(ConfiguracoesCte configuracoesCte,
                                     TCTeOS enviCTe, boolean valida) throws CteException {
-
-        throw new CteException("Ainda nao implementado. Verifique a versao utilizada");
-//        return EnvioCteOS.montaCteOS(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe, valida);
+        return EnvioCteOS.montaCteOS(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe, valida);
 
     }
 
@@ -128,10 +126,7 @@ public class Cte {
      * @throws CteException
      */
     public static TRetCTeOS enviarCteOS(ConfiguracoesCte configuracoesCte, TCTeOS enviCTe) throws CteException {
-
-        throw new CteException("Ainda nao implementado. Verifique a versao utilizada");
-//        return EnvioCteOS.enviaCteOS(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe);
-
+        return EnvioCteOS.enviaCteOS(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe);
     }
 
     /**
@@ -163,8 +158,7 @@ public class Cte {
     public static TRetEvento epecCte(ConfiguracoesCte configuracoesCte,
                                      TEvento evento, boolean valida) throws CteException {
 
-        throw new CteException("Ainda nao implementado. Verifique a versao utilizada");
-//        return Epec.eventoEpec(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+        return Epec.eventoEpec(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
     }
 
@@ -177,11 +171,10 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_300.evRegMultimodal.TRetEvento multimodalCte(ConfiguracoesCte configuracoesCte,
-                                                                                               br.com.swconsultoria.cte.schema_300.evRegMultimodal.TEvento evento, boolean valida) throws CteException {
+    public static br.com.swconsultoria.cte.schema_400.evRegMultimodal.TRetEvento multimodalCte(ConfiguracoesCte configuracoesCte,
+                                                                                               br.com.swconsultoria.cte.schema_400.evRegMultimodal.TEvento evento, boolean valida) throws CteException {
 
-        throw new CteException("Ainda nao implementado. Verifique a versao utilizada");
-//        return Multimodal.eventoMulti(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+        return Multimodal.eventoMulti(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
     }
 
@@ -194,11 +187,10 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_300.evCCeCTe.TRetEvento cceCte(ConfiguracoesCte configuracoesCte,
-                                                                                 br.com.swconsultoria.cte.schema_300.evCCeCTe.TEvento evento, boolean valida) throws CteException {
+    public static br.com.swconsultoria.cte.schema_400.evCCeCTe.TRetEvento cceCte(ConfiguracoesCte configuracoesCte,
+                                                                                 br.com.swconsultoria.cte.schema_400.evCCeCTe.TEvento evento, boolean valida) throws CteException {
 
-        throw new CteException("Ainda nao implementado. Verifique a versao utilizada");
-//        return CartaCorrecao.eventoCCe(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+        return CartaCorrecao.eventoCCe(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
     }
 
@@ -211,11 +203,26 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TRetEvento prestacaoDesacordoCte(ConfiguracoesCte configuracoesCte,
-                                                                                                        br.com.swconsultoria.cte.schema_300.evPrestDesacordo.TEvento evento, boolean valida) throws CteException {
+    public static br.com.swconsultoria.cte.schema_400.evPrestDesacordo.TRetEvento prestacaoDesacordoCte(ConfiguracoesCte configuracoesCte,
+                                                                                                        br.com.swconsultoria.cte.schema_400.evPrestDesacordo.TEvento evento, boolean valida) throws CteException {
 
-        throw new CteException("Ainda nao implementado. Verifique a versao utilizada");
-//        return PrestacaoDesacordo.eventoPrestacaoDesacordo(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+        return PrestacaoDesacordo.eventoPrestacaoDesacordo(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+
+    }
+
+    /**
+     * Metodo para Evento Cancelamento PrestacaoDesacordo da CTE.
+     *
+     * @param configuracoesCte
+     * @param evento
+     * @param valida
+     * @return
+     * @throws CteException
+     */
+    public static br.com.swconsultoria.cte.schema_400.evCancPrestDesacordo.TRetEvento cancelamentoPrestacaoDesacordoCte(ConfiguracoesCte configuracoesCte,
+                                                                                                        br.com.swconsultoria.cte.schema_400.evCancPrestDesacordo.TEvento evento, boolean valida) throws CteException {
+
+        return CancelamentoPrestacaoDesacordo.eventoCancPrestacaoDesacordo(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
     }
 
@@ -228,11 +235,42 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_300.evGTV.TRetEvento gvtCte(ConfiguracoesCte configuracoesCte,
-                                                                              br.com.swconsultoria.cte.schema_300.evGTV.TEvento evento, boolean valida) throws CteException {
+    public static br.com.swconsultoria.cte.schema_400.evGTV.TRetEvento gvtCte(ConfiguracoesCte configuracoesCte,
+                                                                              br.com.swconsultoria.cte.schema_400.evGTV.TEvento evento, boolean valida) throws CteException {
 
-        throw new CteException("Ainda nao implementado. Verifique a versao utilizada");
-//        return Gvt.eventoGvt(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+        return Gvt.eventoGvt(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+
+    }
+
+    /**
+     * Metodo para Evento Comprovante Entrega.
+     *
+     * @param configuracoesCte
+     * @param evento
+     * @param valida
+     * @return
+     * @throws CteException
+     */
+    public static br.com.swconsultoria.cte.schema_400.evCECTe.TRetEvento gvtCte(ConfiguracoesCte configuracoesCte,
+                                                                              br.com.swconsultoria.cte.schema_400.evCECTe.TEvento evento, boolean valida) throws CteException {
+
+        return ComprovanteEntrega.eventoComprovanteEntrega(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+
+    }
+
+    /**
+     * Metodo para Evento Cancela Comprovante Entrega.
+     *
+     * @param configuracoesCte
+     * @param evento
+     * @param valida
+     * @return
+     * @throws CteException
+     */
+    public static br.com.swconsultoria.cte.schema_400.evCancCECTe.TRetEvento gvtCte(ConfiguracoesCte configuracoesCte,
+                                                                              br.com.swconsultoria.cte.schema_400.evCancCECTe.TEvento evento, boolean valida) throws CteException {
+
+        return CancelamentoComprovanteEntrega.eventoCancComprovanteEntrega(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
     }
 

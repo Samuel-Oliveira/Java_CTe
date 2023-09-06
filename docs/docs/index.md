@@ -1,49 +1,65 @@
-[![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe) [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/3.00.10/jar) [![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/Samuel-Oliveira/Java_CTe.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Samuel-Oliveira/Java_CTe/context:java) [![Total alerts](https://img.shields.io/lgtm/alerts/g/Samuel-Oliveira/Java_CTe.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Samuel-Oliveira/Java_CTe/alerts/)
+# Java-CTe [![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe) [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.2/jar)
+API Java para consumo do WebService de CTe
 
-***API Java para consumo do WebService de CTe***
+## Dúvidas, Sugestões ou Consultoria
+[![Java Brasil](https://discordapp.com/api/guilds/519583346066587676/widget.png?style=banner2)](https://discord.gg/ZXpqnaV)
 
-## Dúvidas, Sugestões ou Consultoria 
-#### Entre no Discord do Projeto: [https://discord.gg/ZXpqnaV](https://discord.gg/ZXpqnaV)
+## Gostou do Projeto? Dê sua colaboração pelo Pix: 01713390108
+<img src="https://swconsultoria.com.br/pix.png" width="200">
 
-## Gostou do Projeto? Dê sua colaboração pelo Pix: 01713390108 
-<p align="center">
-<img src="https://swconsultoria.com.br/pix.png" width="220">
-</p>
-
-
-Para Iniciar : 
-- Caso use Libs baixe o [java-cte-3.00.10.jar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-3.00.7.jar) e o adicione às bibliotecas de Seu Projeto.
+Para Iniciar :
+- Caso use Libs baixe o [java-cte-4.00.2.jar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-4.00.2.jar) e o adicione às bibliotecas de Seu Projeto.
 
 - Baixe o [Schemas.rar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas.rar) e extraia na sua Máquina.
 
 - Maven :
-```xml
+```
 <dependency>
     <groupId>br.com.swconsultoria</groupId>
     <artifactId>java-cte</artifactId>
-    <version>3.00.10</version>
+    <version>4.00.2</version>
 </dependency>
 ```
 
 - Gradle :
 ```groovy
-repositories {
-    maven { 
-        url = "https://oss.sonatype.org/content/repositories/snapshots" 
-    }
-}
 dependencies {
-    implementation "br.com.swconsultoria:java-cte:3.00.10"
+    implementation "br.com.swconsultoria:java-cte:4.00.2"
 }
 ```
 
-Veja a Wiki https://github.com/Samuel-Oliveira/Java_CTe/wiki, para ter um Tutorial Completo.
+Veja a [Wiki](https://Samuel-Oliveira.github.io/Java_CTe/), para ter um Tutorial Completo.
 
 ________________________________________________________________________________________________
 
 # Historico de Versões
 
-## v3.00.8 - SNAPSHOT - 15/01/2022
+## v4.00.2 - 05/09/2023
+- Adicionado todos os Eventos
+
+## v4.00.1 - 29/08/2023
+- Atualizado Layout para versao 4.00
+    - Envio CTe
+    - Cancelamento Cte
+    - Consulta Cte
+    - Distribuicao CTe
+    - Status Servico
+
+## v3.00.11 - 16/08/2023
+- Correcao de Uso de ContingenciaSVC
+- Atualizado Cacert (Sefaz Minas)
+
+## v3.00.10 - 09/05/2023
+- Atualizado Java Certificado (Ver https://github.com/Samuel-Oliveira/Java_Certificado)
+- Atualizado Cacert (Sefaz Minas)
+
+## v3.00.9 - 21/02/2023
+- Atualizado Dependencia Java-Certificado
+- Melhorias JAxB
+- Adicionado compatibilidade Java 14+
+- Modificado Logs
+
+## v3.00.8 - 15/01/2022
 - Atualizado Dependencia Java-Certificado
 - Corrigido erro NS1 para MT
 - Corrigido erro NS1 para MS
@@ -106,7 +122,7 @@ ________________________________________________________________________________
 - 'CteException' para 'EmissorException'
 - 'VersaoCte' para 'Versao'
 - 'ObjectToXml' para 'ObjectCteToXml'
-- **Atenção: Alterado o caminho do Objeto Certificado, refaça os Imports.** 
+- **Atenção: Alterado o caminho do Objeto Certificado, refaça os Imports.**
 
 ## v2.00.0 - 17-02-2017
 - Versão Inicial Do Sistema

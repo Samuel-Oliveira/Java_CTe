@@ -6,10 +6,10 @@ import br.com.swconsultoria.cte.dom.Evento;
 import br.com.swconsultoria.cte.dom.enuns.AssinaturaEnum;
 import br.com.swconsultoria.cte.dom.enuns.EventosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
-import br.com.swconsultoria.cte.schema_300.evCCeCTe.EvCCeCTe;
-import br.com.swconsultoria.cte.schema_300.evCCeCTe.TEvento;
-import br.com.swconsultoria.cte.schema_300.evCCeCTe.TProcEvento;
-import br.com.swconsultoria.cte.schema_300.evCCeCTe.TRetEvento;
+import br.com.swconsultoria.cte.schema_400.evCCeCTe.EvCCeCTe;
+import br.com.swconsultoria.cte.schema_400.evCCeCTe.TEvento;
+import br.com.swconsultoria.cte.schema_400.evCCeCTe.TProcEvento;
+import br.com.swconsultoria.cte.schema_400.evCCeCTe.TRetEvento;
 
 import javax.xml.bind.JAXBException;
 import java.time.ZoneId;

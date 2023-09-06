@@ -1,6 +1,6 @@
 package br.com.swconsultoria.cte.dom;
 
-import br.com.swconsultoria.cte.schema_300.evCCeCTe.EvCCeCTe;
+import br.com.swconsultoria.cte.schema_400.evCCeCTe.EvCCeCTe;
 
 import java.time.LocalDateTime;
 import java.util.List;

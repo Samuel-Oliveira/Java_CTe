@@ -11,10 +11,10 @@ import br.com.samuelweb.cte.exception.CteException;
 import br.com.samuelweb.cte.util.ConstantesCte;
 import br.com.samuelweb.cte.util.ObjetoUtil;
 import br.com.samuelweb.cte.util.XmlUtil;
-import br.inf.portalfiscal.cte.schema_300.evCCeCTe.EvCCeCTe;
-import br.inf.portalfiscal.cte.schema_300.evCCeCTe.TEvento;
-import br.inf.portalfiscal.cte.schema_300.evCCeCTe.TProcEvento;
-import br.inf.portalfiscal.cte.schema_300.evCCeCTe.TRetEvento;
+import br.inf.portalfiscal.cte.schema_400.evCCeCTe.EvCCeCTe;
+import br.inf.portalfiscal.cte.schema_400.evCCeCTe.TEvento;
+import br.inf.portalfiscal.cte.schema_400.evCCeCTe.TProcEvento;
+import br.inf.portalfiscal.cte.schema_400.evCCeCTe.TRetEvento;
 import javax.xml.bind.JAXBException;
 import java.time.LocalDateTime;
 

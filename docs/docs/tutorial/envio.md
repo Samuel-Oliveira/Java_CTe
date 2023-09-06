@@ -11,10 +11,10 @@ import br.com.swconsultoria.cte.dom.enuns.AmbienteEnum;
 import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
 import br.com.swconsultoria.cte.dom.enuns.StatusCteEnum;
 import br.com.swconsultoria.cte.exception.CteException;
-import br.com.swconsultoria.cte.schema_300.cteModalRodoviario.Rodo;
-import br.com.swconsultoria.cte.schema_300.enviCTe.TCTe;
-import br.com.swconsultoria.cte.schema_300.enviCTe.TEnviCTe;
-import br.com.swconsultoria.cte.schema_300.retEnviCTe.TRetEnviCTe;
+import br.com.swconsultoria.cte.schema_400.cteModalRodoviario.Rodo;
+import br.com.swconsultoria.cte.schema_400.enviCTe.TCTe;
+import br.com.swconsultoria.cte.schema_400.enviCTe.TEnviCTe;
+import br.com.swconsultoria.cte.schema_400.retEnviCTe.TRetEnviCTe;
 import br.com.swconsultoria.cte.util.ChaveUtil;
 import br.com.swconsultoria.cte.util.ConstantesCte;
 import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
@@ -74,15 +74,15 @@ public class EnvioCte {
             ide.setVerProc("1.0");
             ide.setCMunEnv("5219753");
             ide.setXMunEnv("Anapolis");
-            ide.setUFEnv(br.com.swconsultoria.cte.schema_300.enviCTe.TUf.valueOf("GO"));
+            ide.setUFEnv(br.com.swconsultoria.cte.schema_400.enviCTe.TUf.valueOf("GO"));
             ide.setModal("01");
             ide.setTpServ("0");
             ide.setCMunIni("5219753");
             ide.setXMunIni("Anapolis");
-            ide.setUFIni(br.com.swconsultoria.cte.schema_300.enviCTe.TUf.valueOf("GO"));
+            ide.setUFIni(br.com.swconsultoria.cte.schema_400.enviCTe.TUf.valueOf("GO"));
             ide.setCMunFim("5219753");
             ide.setXMunFim("Anapolis");
-            ide.setUFFim(br.com.swconsultoria.cte.schema_300.enviCTe.TUf.valueOf("GO"));
+            ide.setUFFim(br.com.swconsultoria.cte.schema_400.enviCTe.TUf.valueOf("GO"));
             ide.setRetira("1");
             ide.setIndIEToma("1");
 
@@ -101,14 +101,14 @@ public class EnvioCte {
             emit.setXNome("TRC TRANSPORTES LTDA");
             emit.setXFant("TRC TRANSPORTES LTDA");
 
-            br.com.swconsultoria.cte.schema_300.enviCTe.TEndeEmi enderEmit = new br.com.swconsultoria.cte.schema_300.enviCTe.TEndeEmi();
+            br.com.swconsultoria.cte.schema_400.enviCTe.TEndeEmi enderEmit = new br.com.swconsultoria.cte.schema_400.enviCTe.TEndeEmi();
             enderEmit.setXLgr("AV SANTO ANTONIO & CIA");
             enderEmit.setNro("0");
             enderEmit.setXCpl("QD 17 LT 01-02-03");
             enderEmit.setXBairro("PQ STO ANTONIO");
             enderEmit.setCMun("5219753");
             enderEmit.setXMun("SANTO ANTONIO DO DESCOBERTO");
-            enderEmit.setUF(br.com.swconsultoria.cte.schema_300.enviCTe.TUFSemEX.valueOf("GO"));
+            enderEmit.setUF(br.com.swconsultoria.cte.schema_400.enviCTe.TUFSemEX.valueOf("GO"));
             enderEmit.setCEP("72900000");
             enderEmit.setFone("6233215175");
 
@@ -121,13 +121,13 @@ public class EnvioCte {
             rem.setXNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL");
             rem.setEmail("samuel@autocomsistemas.com.br");
 
-            br.com.swconsultoria.cte.schema_300.enviCTe.TEndereco enderRem = new br.com.swconsultoria.cte.schema_300.enviCTe.TEndereco();
+            br.com.swconsultoria.cte.schema_400.enviCTe.TEndereco enderRem = new br.com.swconsultoria.cte.schema_400.enviCTe.TEndereco();
             enderRem.setXLgr("Rua: Teste");
             enderRem.setNro("0");
             enderRem.setXBairro("TESTE");
             enderRem.setCMun("5219753");
             enderRem.setXMun("SANTO ANTONIO DO DESCOBERTO");
-            enderRem.setUF(br.com.swconsultoria.cte.schema_300.enviCTe.TUf.GO);
+            enderRem.setUF(br.com.swconsultoria.cte.schema_400.enviCTe.TUf.GO);
             enderRem.setCEP("75120683");
             enderRem.setCPais("1058");
             enderRem.setXPais("Brasil");
@@ -140,13 +140,13 @@ public class EnvioCte {
             dest.setXNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL");
             dest.setEmail("samuel@autocomsistemas.com.br");
 
-            br.com.swconsultoria.cte.schema_300.enviCTe.TEndereco enderDest = new br.com.swconsultoria.cte.schema_300.enviCTe.TEndereco();
+            br.com.swconsultoria.cte.schema_400.enviCTe.TEndereco enderDest = new br.com.swconsultoria.cte.schema_400.enviCTe.TEndereco();
             enderDest.setXLgr("Rua: Teste");
             enderDest.setNro("0");
             enderDest.setXBairro("TESTE");
             enderDest.setCMun("5219753");
             enderDest.setXMun("SANTO ANTONIO DO DESCOBERTO");
-            enderDest.setUF(br.com.swconsultoria.cte.schema_300.enviCTe.TUf.GO);
+            enderDest.setUF(br.com.swconsultoria.cte.schema_400.enviCTe.TUf.GO);
             enderDest.setCEP("75120683");
             enderDest.setCPais("1058");
             enderDest.setXPais("Brasil");
@@ -165,9 +165,9 @@ public class EnvioCte {
 
             TCTe.InfCte.Imp imp = new TCTe.InfCte.Imp();
 
-            br.com.swconsultoria.cte.schema_300.enviCTe.TImp icms = new br.com.swconsultoria.cte.schema_300.enviCTe.TImp();
+            br.com.swconsultoria.cte.schema_400.enviCTe.TImp icms = new br.com.swconsultoria.cte.schema_400.enviCTe.TImp();
 
-            br.com.swconsultoria.cte.schema_300.enviCTe.TImp.ICMS45 icms45 = new br.com.swconsultoria.cte.schema_300.enviCTe.TImp.ICMS45();
+            br.com.swconsultoria.cte.schema_400.enviCTe.TImp.ICMS45 icms45 = new br.com.swconsultoria.cte.schema_400.enviCTe.TImp.ICMS45();
             icms45.setCST("40");
             icms.setICMS45(icms45);
 
@@ -233,7 +233,7 @@ public class EnvioCte {
 
             String recibo = retorno.getInfRec().getNRec();
 
-            br.com.swconsultoria.cte.schema_300.retConsReciCTe.TRetConsReciCTe retornoCte;
+            br.com.swconsultoria.cte.schema_400.retConsReciCTe.TRetConsReciCTe retornoCte;
             while (true) {
                 retornoCte = Cte.consultaRecibo(config, recibo);
                 if (retornoCte.getCStat().equals("105")) {

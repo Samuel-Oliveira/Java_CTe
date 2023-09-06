@@ -10,7 +10,7 @@ import br.com.samuelweb.cte.dom.StatusEnum;
 import br.com.samuelweb.cte.exception.CteException;
 import br.com.samuelweb.cte.util.ConstantesCte;
 import br.com.samuelweb.cte.util.XmlUtil;
-import br.inf.portalfiscal.cte.schema_300.retdistdfeint.RetDistDFeInt;
+import br.inf.portalfiscal.cte.schema_400.retdistdfeint.RetDistDFeInt;
 import java.io.IOException;
 import java.util.List;
 

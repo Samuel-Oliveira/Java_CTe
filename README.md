@@ -1,4 +1,4 @@
-# Java-CTe [![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe) [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.1/jar)
+# Java-CTe [![Build Status](https://travis-ci.org/Samuel-Oliveira/Java_CTe.svg?branch=master)](https://travis-ci.org/Samuel-Oliveira/Java_CTe) [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.2/jar)
 API Java para consumo do WebService de CTe
 
 ## Dúvidas, Sugestões ou Consultoria
@@ -8,7 +8,7 @@ API Java para consumo do WebService de CTe
 <img src="https://swconsultoria.com.br/pix.png" width="200">
 
 Para Iniciar : 
-- Caso use Libs baixe o [java-cte-4.00.1.jar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-4.00.1.jar) e o adicione às bibliotecas de Seu Projeto.
+- Caso use Libs baixe o [java-cte-4.00.2.jar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-4.00.2.jar) e o adicione às bibliotecas de Seu Projeto.
 
 - Baixe o [Schemas.rar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas.rar) e extraia na sua Máquina.
 
@@ -17,14 +17,14 @@ Para Iniciar :
 <dependency>
     <groupId>br.com.swconsultoria</groupId>
     <artifactId>java-cte</artifactId>
-    <version>4.00.1</version>
+    <version>4.00.2</version>
 </dependency>
 ```
 
 - Gradle :
 ```groovy
 dependencies {
-    implementation "br.com.swconsultoria:java-cte:4.00.1"
+    implementation "br.com.swconsultoria:java-cte:4.00.2"
 }
 ```
 
@@ -33,6 +33,9 @@ Veja a [Wiki](https://Samuel-Oliveira.github.io/Java_CTe/), para ter um Tutorial
 ________________________________________________________________________________________________
 
 # Historico de Versões
+
+## v4.00.2 - 05/09/2023
+- Adicionado todos os Eventos
 
 ## v4.00.1 - 29/08/2023
 - Atualizado Layout para versao 4.00

@@ -9,7 +9,7 @@ import br.com.samuelweb.certificado.exception.CertificadoException;
 import br.com.samuelweb.cte.Cte;
 import br.com.samuelweb.cte.dom.ConfiguracoesIniciais;
 import br.com.samuelweb.cte.exception.CteException;
-import br.inf.portalfiscal.cte.schema_300.retConsStatServCTe.TRetConsStatServ;
+import br.inf.portalfiscal.cte.schema_400.retConsStatServCTe.TRetConsStatServ;
 
 /**
  * @author Samuel Oliveira
