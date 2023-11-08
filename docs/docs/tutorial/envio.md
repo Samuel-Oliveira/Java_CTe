@@ -7,14 +7,13 @@ package cte;
 
 import br.com.swconsultoria.cte.Cte;
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
-import br.com.swconsultoria.cte.dom.enuns.AmbienteEnum;
-import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
 import br.com.swconsultoria.cte.dom.enuns.StatusCteEnum;
 import br.com.swconsultoria.cte.exception.CteException;
+import br.com.swconsultoria.cte.schema_400.cte.TRetCTe;
+import br.com.swconsultoria.cte.schema_400.cte.TUFSemEX;
+import br.com.swconsultoria.cte.schema_400.cte.TUf;
 import br.com.swconsultoria.cte.schema_400.cteModalRodoviario.Rodo;
-import br.com.swconsultoria.cte.schema_400.enviCTe.TCTe;
-import br.com.swconsultoria.cte.schema_400.enviCTe.TEnviCTe;
-import br.com.swconsultoria.cte.schema_400.retEnviCTe.TRetEnviCTe;
+import br.com.swconsultoria.cte.schema_400.cte.TCTe;
 import br.com.swconsultoria.cte.util.ChaveUtil;
 import br.com.swconsultoria.cte.util.ConstantesCte;
 import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
@@ -32,7 +31,7 @@ public class EnvioCte {
 
         try {
             //Veja https://github.com/Samuel-Oliveira/Java_CTe/wiki/Configura%C3%A7%C3%B5es-CTe
-            ConfiguracoesCte config = ConfigTeste.iniciaConfiguracoes(EstadosEnum.GO, AmbienteEnum.HOMOLOGACAO);
+            ConfiguracoesCte config = ConfigTeste.iniciaConfiguracoes();
 
             String cnpj = "10732644000128"; //TODO Preencha o Cnpj
             String modelo = "57";
@@ -74,15 +73,15 @@ public class EnvioCte {
             ide.setVerProc("1.0");
             ide.setCMunEnv("5219753");
             ide.setXMunEnv("Anapolis");
-            ide.setUFEnv(br.com.swconsultoria.cte.schema_400.enviCTe.TUf.valueOf("GO"));
+            ide.setUFEnv(TUf.valueOf("GO"));
             ide.setModal("01");
             ide.setTpServ("0");
             ide.setCMunIni("5219753");
             ide.setXMunIni("Anapolis");
-            ide.setUFIni(br.com.swconsultoria.cte.schema_400.enviCTe.TUf.valueOf("GO"));
+            ide.setUFIni(TUf.valueOf("GO"));
             ide.setCMunFim("5219753");
             ide.setXMunFim("Anapolis");
-            ide.setUFFim(br.com.swconsultoria.cte.schema_400.enviCTe.TUf.valueOf("GO"));
+            ide.setUFFim(TUf.valueOf("GO"));
             ide.setRetira("1");
             ide.setIndIEToma("1");
 
@@ -100,15 +99,16 @@ public class EnvioCte {
             emit.setIE("104519304");
             emit.setXNome("TRC TRANSPORTES LTDA");
             emit.setXFant("TRC TRANSPORTES LTDA");
+            emit.setCRT("1");
 
-            br.com.swconsultoria.cte.schema_400.enviCTe.TEndeEmi enderEmit = new br.com.swconsultoria.cte.schema_400.enviCTe.TEndeEmi();
+            br.com.swconsultoria.cte.schema_400.cte.TEndeEmi enderEmit = new br.com.swconsultoria.cte.schema_400.cte.TEndeEmi();
             enderEmit.setXLgr("AV SANTO ANTONIO & CIA");
             enderEmit.setNro("0");
             enderEmit.setXCpl("QD 17 LT 01-02-03");
             enderEmit.setXBairro("PQ STO ANTONIO");
             enderEmit.setCMun("5219753");
             enderEmit.setXMun("SANTO ANTONIO DO DESCOBERTO");
-            enderEmit.setUF(br.com.swconsultoria.cte.schema_400.enviCTe.TUFSemEX.valueOf("GO"));
+            enderEmit.setUF(TUFSemEX.valueOf("GO"));
             enderEmit.setCEP("72900000");
             enderEmit.setFone("6233215175");
 
@@ -121,13 +121,13 @@ public class EnvioCte {
             rem.setXNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL");
             rem.setEmail("samuel@autocomsistemas.com.br");
 
-            br.com.swconsultoria.cte.schema_400.enviCTe.TEndereco enderRem = new br.com.swconsultoria.cte.schema_400.enviCTe.TEndereco();
+            br.com.swconsultoria.cte.schema_400.cte.TEndereco enderRem = new br.com.swconsultoria.cte.schema_400.cte.TEndereco();
             enderRem.setXLgr("Rua: Teste");
             enderRem.setNro("0");
             enderRem.setXBairro("TESTE");
             enderRem.setCMun("5219753");
             enderRem.setXMun("SANTO ANTONIO DO DESCOBERTO");
-            enderRem.setUF(br.com.swconsultoria.cte.schema_400.enviCTe.TUf.GO);
+            enderRem.setUF(TUf.GO);
             enderRem.setCEP("75120683");
             enderRem.setCPais("1058");
             enderRem.setXPais("Brasil");
@@ -140,13 +140,13 @@ public class EnvioCte {
             dest.setXNome("CT-E EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL");
             dest.setEmail("samuel@autocomsistemas.com.br");
 
-            br.com.swconsultoria.cte.schema_400.enviCTe.TEndereco enderDest = new br.com.swconsultoria.cte.schema_400.enviCTe.TEndereco();
+            br.com.swconsultoria.cte.schema_400.cte.TEndereco enderDest = new br.com.swconsultoria.cte.schema_400.cte.TEndereco();
             enderDest.setXLgr("Rua: Teste");
             enderDest.setNro("0");
             enderDest.setXBairro("TESTE");
             enderDest.setCMun("5219753");
             enderDest.setXMun("SANTO ANTONIO DO DESCOBERTO");
-            enderDest.setUF(br.com.swconsultoria.cte.schema_400.enviCTe.TUf.GO);
+            enderDest.setUF(TUf.GO);
             enderDest.setCEP("75120683");
             enderDest.setCPais("1058");
             enderDest.setXPais("Brasil");
@@ -165,9 +165,9 @@ public class EnvioCte {
 
             TCTe.InfCte.Imp imp = new TCTe.InfCte.Imp();
 
-            br.com.swconsultoria.cte.schema_400.enviCTe.TImp icms = new br.com.swconsultoria.cte.schema_400.enviCTe.TImp();
+            br.com.swconsultoria.cte.schema_400.cte.TImp icms = new br.com.swconsultoria.cte.schema_400.cte.TImp();
 
-            br.com.swconsultoria.cte.schema_400.enviCTe.TImp.ICMS45 icms45 = new br.com.swconsultoria.cte.schema_400.enviCTe.TImp.ICMS45();
+            br.com.swconsultoria.cte.schema_400.cte.TImp.ICMS45 icms45 = new br.com.swconsultoria.cte.schema_400.cte.TImp.ICMS45();
             icms45.setCST("40");
             icms.setICMS45(icms45);
 
@@ -205,17 +205,9 @@ public class EnvioCte {
             infCTeNorm.setInfModal(infModal);
 
             infCTe.setInfCTeNorm(infCTeNorm);
-
-            // Monta EnviCte
-            TEnviCTe enviCTe = new TEnviCTe();
-            enviCTe.setVersao(ConstantesCte.VERSAO.CTE);
-            enviCTe.setIdLote("1");
-
             cte.setInfCte(infCTe);
-            enviCTe.getCTe().add(cte);
-
             // MOnta e Assina o XML
-            enviCTe = Cte.montaCte(config, enviCTe, true);
+            TCTe enviCTe = Cte.montaCte(config, cte, true);
 
             //Adiciona QRCode
             TCTe.InfCTeSupl infCTeSupl = new TCTe.InfCTeSupl();
@@ -223,42 +215,26 @@ public class EnvioCte {
                     cte.getInfCte().getId().substring(3),
                     config));
 
-            enviCTe.getCTe().get(0).setInfCTeSupl(infCTeSupl);
+            enviCTe.setInfCTeSupl(infCTeSupl);
 
             // Envia a Cte para a Sefaz
-            TRetEnviCTe retorno = Cte.enviarCte(config, enviCTe);
-            if (!retorno.getCStat().equals(StatusCteEnum.LOTE_RECEBIDO.getCodigo())) {
+            TRetCTe retorno = Cte.enviarCte(config, enviCTe);
+            if (!retorno.getCStat().equals(StatusCteEnum.AUTORIZADO.getCodigo())) {
                 throw new CteException("Status:" + retorno.getCStat() + " - Motivo:" + retorno.getXMotivo());
             }
 
-            String recibo = retorno.getInfRec().getNRec();
+            System.out.println("Status: " + retorno.getProtCTe().getInfProt().getCStat() + " - " + retorno.getProtCTe().getInfProt().getXMotivo());
+            System.out.println("Data: " + retorno.getProtCTe().getInfProt().getDhRecbto());
 
-            br.com.swconsultoria.cte.schema_400.retConsReciCTe.TRetConsReciCTe retornoCte;
-            while (true) {
-                retornoCte = Cte.consultaRecibo(config, recibo);
-                if (retornoCte.getCStat().equals("105")) {
-                    System.out.println("Lote Em Processamento, vai tentar novamente apos 2 Segundo.");
-                    Thread.sleep(2000);
-                } else {
-                    break;
-                }
-            }
 
-            if (!retornoCte.getCStat().equals(StatusCteEnum.LOTE_PROCESSADO.getCodigo())) {
-                throw new CteException("Status:" + retornoCte.getCStat() + " - " + retornoCte.getXMotivo());
-            }
+            System.out.println("Protocolo: " + retorno.getProtCTe().getInfProt().getNProt());
+            System.out.println("XML Final: " + XmlCteUtil.criaCteProc(enviCTe, retorno.getProtCTe()));
 
-            System.out.println("Status: " + retornoCte.getProtCTe().get(0).getInfProt().getCStat() + " - " + retornoCte.getProtCTe().get(0).getInfProt().getXMotivo());
-            System.out.println("Data: " + retornoCte.getProtCTe().get(0).getInfProt().getDhRecbto());
-
-            if (retornoCte.getProtCTe().get(0).getInfProt().getCStat().equals(StatusCteEnum.AUTORIZADO.getCodigo())) {
-                System.out.println("Protocolo: " + retornoCte.getProtCTe().get(0).getInfProt().getNProt());
-                System.out.println("XML Final: " + XmlCteUtil.criaCteProc(enviCTe, retornoCte.getProtCTe().get(0)));
-            }
 
         } catch (Exception e) {
             System.out.println("Erro:" + e.getMessage());
         }
+
 
     }
 
