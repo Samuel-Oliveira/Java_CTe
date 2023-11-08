@@ -6,18 +6,17 @@ import br.com.swconsultoria.certificado.exception.CertificadoException;
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
+import java.util.Base64;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.ls.DOMImplementationLS;
 import org.w3c.dom.ls.LSSerializer;
-import sun.misc.BASE64Encoder;
 
 import javax.xml.bind.*;
 import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.dom.DOMResult;
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.Collection;
@@ -74,7 +73,7 @@ public final class ObjetoCTeUtil {
 
     }
 
-    private static String assinaSign(String id, Certificado certificado) throws UnsupportedEncodingException, NoSuchAlgorithmException, CertificadoException,
+    private static String assinaSign(String id, Certificado certificado) throws NoSuchAlgorithmException, CertificadoException,
             UnrecoverableEntryException, KeyStoreException, InvalidKeyException, SignatureException {
 
         KeyStore keyStore = CertificadoService.getKeyStore(certificado);
@@ -86,11 +85,9 @@ public final class ObjetoCTeUtil {
         sig.initSign(pkEntry.getPrivateKey());
         sig.update(data);
         byte[] signatureBytes = sig.sign();
-        return (new BASE64Encoder().encode(signatureBytes))
-                .replaceAll("&#13;", "")
-                .replaceAll("\r\n", "")
-                .replaceAll("\n", "")
-                .replaceAll(System.lineSeparator(), "");
+        String regexPattern = "[\r\n" + System.lineSeparator() + "]+";
+
+        return Base64.getEncoder().encodeToString(signatureBytes).replaceAll(regexPattern, "");
     }
 
     /**
