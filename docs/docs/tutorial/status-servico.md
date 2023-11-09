@@ -25,7 +25,7 @@ public class StatusCte {
             System.out.println("Motivo:" + retorno.getXMotivo());
             System.out.println("Data:" + retorno.getDhRecbto());
 
-        } catch (CteException  e) {
+        } catch (CteException e) {
             System.out.println("Erro:" + e.getMessage());
         }
     }

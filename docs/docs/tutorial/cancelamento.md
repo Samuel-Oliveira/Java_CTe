@@ -24,19 +24,19 @@ import java.time.LocalDateTime;
  */
 public class CancelarCte {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
         try {
 
             //Veja https://github.com/Samuel-Oliveira/Java_CTe/wiki/Configura%C3%A7%C3%B5es-CTe
-            ConfiguracoesCte config =  ConfigTeste.iniciaConfiguracoes();
+            ConfiguracoesCte config = ConfigTeste.iniciaConfiguracoes();
 
             String chave = ""; // TODO Preencha a Chave
             String protocolo = ""; // TODO Preencha o Protocolo
             String cnpj = ""; // TODO Preencha o Cnpj
             String numeroSeqCancelamento = "001"; // TODO Preencha
             String eventoCancelamento = "110111";
-            String id = "ID"+ eventoCancelamento + chave + numeroSeqCancelamento;
+            String id = "ID" + eventoCancelamento + chave + numeroSeqCancelamento;
             String justificativa = "Teste de Cancelmento"; // TODO Preencha
 
             TEvento enviEvento = new TEvento();
@@ -66,12 +66,12 @@ public class CancelarCte {
 
             TRetEvento retorno = Cte.cancelarCte(config, enviEvento, true);
 
-            if(!retorno.getInfEvento().getCStat().equals(StatusCteEnum.EVENTO_VINCULADO.getCodigo())){
+            if (!retorno.getInfEvento().getCStat().equals(StatusCteEnum.EVENTO_VINCULADO.getCodigo())) {
 
                 System.out.println("Erro Status:" + retorno.getInfEvento().getCStat());
                 System.out.println("Erro Motivo:" + retorno.getInfEvento().getXMotivo());
 
-            } else{
+            } else {
 
                 System.out.println("Status:" + retorno.getInfEvento().getCStat());
                 System.out.println("Motivo:" + retorno.getInfEvento().getXMotivo());
@@ -83,12 +83,12 @@ public class CancelarCte {
                 procEvento.setEventoCTe(enviEvento);
                 procEvento.setRetEventoCTe(retorno);
 
-                System.out.println("Xml Final Cancelamento Proc: "+ XmlCteUtil.objectToXml(procEvento));
+                System.out.println("Xml Final Cancelamento Proc: " + XmlCteUtil.objectToXml(procEvento));
             }
 
-        } catch (CteException | JAXBException  e) {
+        } catch (CteException | JAXBException e) {
             System.out.println("Erro:" + e.getMessage());
         }
-	}
+    }
 }
 ```

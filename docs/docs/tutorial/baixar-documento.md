@@ -26,7 +26,7 @@ public class DistDfeCte {
             String cnpj = "12345678901234"; // TODO Preencher Cnpj
             String nsu = "000000000000000"; // TODO Preencher Nsu
 
-            RetDistDFeInt retorno = Cte.distribuicaoDfe(config, PessoaEnum.JURIDICA, cnpj,ConsultaDFeEnum.NSU, nsu);
+            RetDistDFeInt retorno = Cte.distribuicaoDfe(config, PessoaEnum.JURIDICA, cnpj, ConsultaDFeEnum.NSU, nsu);
             System.out.println("Status:" + retorno.getCStat());
             System.out.println("Motivo:" + retorno.getXMotivo());
             System.out.println("Max NSU:" + retorno.getMaxNSU());

@@ -10,6 +10,7 @@ import br.com.swconsultoria.cte.dom.enuns.StatusCteEnum;
 import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_100.retdistdfeint.RetDistDFeInt;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class DistDfeCte {
             String cnpj = ""; // TODO Preencher Cnpj
             String nsu = "000000000000000"; // TODO Preencher Nsu
 
-            RetDistDFeInt retorno = Cte.distribuicaoDfe(config, br.com.swconsultoria.cte.dom.enuns.PessoaEnum.JURIDICA, cnpj,ConsultaDFeEnum.NSU, nsu);
+            RetDistDFeInt retorno = Cte.distribuicaoDfe(config, br.com.swconsultoria.cte.dom.enuns.PessoaEnum.JURIDICA, cnpj, ConsultaDFeEnum.NSU, nsu);
             System.out.println("Status:" + retorno.getCStat());
             System.out.println("Motivo:" + retorno.getXMotivo());
             System.out.println("Max NSU:" + retorno.getMaxNSU());
@@ -45,7 +46,7 @@ public class DistDfeCte {
                 }
             }
 
-        } catch (CteException |  IOException e) {
+        } catch (CteException | IOException e) {
             System.out.println("Erro:" + e.getMessage());
         }
 

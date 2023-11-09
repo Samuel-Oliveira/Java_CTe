@@ -23,7 +23,7 @@ import java.time.LocalDateTime;
  */
 public class CCeCte {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
         try {
             //Veja https://github.com/Samuel-Oliveira/Java_CTe/wiki/Configura%C3%A7%C3%B5es-CTe
@@ -88,6 +88,6 @@ public class CCeCte {
         } catch (JAXBException | CteException e) {
             System.out.println("Erro:" + e.getMessage());
         }
-	}
+    }
 }
 ```
