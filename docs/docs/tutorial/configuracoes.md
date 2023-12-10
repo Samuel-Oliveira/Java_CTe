@@ -5,11 +5,10 @@ Para executar qualquer função CTe, deve-se inicializar as Configuração.
 #### Certificado Digital
 
 ```java title="StatusCte.java"
-import br.com.samuelweb.certificado.exception.CertificadoException;
-import br.com.samuelweb.cte.Cte;
-import br.com.samuelweb.cte.dom.ConfiguracoesIniciais;
-import br.com.samuelweb.cte.exception.CteException;
-import br.inf.portalfiscal.cte.schema_400.retConsStatServCTe.TRetConsStatServ;
+import br.com.swconsultoria.cte.Cte;
+import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
+import br.com.swconsultoria.cte.exception.CteException;
+import br.com.swconsultoria.cte.schema_400.retConsStatServCTe.TRetConsStatServ;
 
 /**
  * @author Samuel Oliveira
@@ -20,9 +19,9 @@ public class StatusCte {
         try {
 
             //Veja https://github.com/Samuel-Oliveira/Java_CTe/wiki/Configura%C3%A7%C3%B5es-CTe
-            ConfiguracoesIniciais config = ConfigTeste.iniciaConfiguracoes();
+            ConfiguracoesCte config = ConfigTeste.iniciaConfiguracoes();
 
-            TRetConsStatServ retorno = Cte.statusServico();
+            TRetConsStatServ retorno = Cte.statusServico(config);
 
             System.out.println("Status:" + retorno.getCStat());
             System.out.println("Motivo:" + retorno.getXMotivo());
