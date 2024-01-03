@@ -43,7 +43,7 @@ public class CartaCorrecaoUtil {
      */
     public static TEvento montaCCe(Evento cce, ConfiguracoesCte configuracao, ZoneId zoneId) throws CteException {
 
-        String id = "ID" + EventosEnum.CCE.getCodigo() + cce.getChave() + ChaveUtil.completarComZerosAEsquerda(String.valueOf(cce.getSequencia()), 2);
+        String id = "ID" + EventosEnum.CCE.getCodigo() + cce.getChave() + ChaveUtil.completarComZerosAEsquerda(String.valueOf(cce.getSequencia()), 3);
         TEvento evento = new TEvento();
         evento.setVersao(ConstantesCte.VERSAO.CTE);
 
