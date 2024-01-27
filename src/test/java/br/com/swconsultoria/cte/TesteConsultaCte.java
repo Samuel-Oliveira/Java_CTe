@@ -9,6 +9,7 @@ import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
 import br.com.swconsultoria.cte.schema_400.cte.TProtCTe;
 import br.com.swconsultoria.cte.schema_400.retConsSitCTe.TRetConsSitCTe;
 import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
+import br.com.swconsultoria.cte.util.XmlCteUtil;
 import lombok.extern.java.Log;
 
 import java.util.logging.Level;
@@ -28,6 +29,8 @@ public class TesteConsultaCte {
             String chave = "52230810732644000128570030000000031008968575";
 
             TRetConsSitCTe retorno = Cte.consultaXml(configuracoesCte, chave);
+
+            System.out.println("# XML: "+ XmlCteUtil.objectToXml(retorno));
 
             //Resultado
             log.info("# Status: " + retorno.getCStat() + " - " + retorno.getXMotivo());

@@ -3,12 +3,8 @@ package br.com.swconsultoria.cte.schema_400.retConsSitCTe;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.*;
+
 import org.w3c.dom.Element;
 
 
@@ -84,7 +80,7 @@ import org.w3c.dom.Element;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TRetConsSitCTe", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
+@XmlType(name = "", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
     "tpAmb",
     "verAplic",
     "cStat",
@@ -93,6 +89,7 @@ import org.w3c.dom.Element;
     "protCTe",
     "procEventoCTe"
 })
+@XmlRootElement(name = "TRetConsSitCTe")
 public class TRetConsSitCTe {
 
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
