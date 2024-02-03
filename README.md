@@ -10,7 +10,7 @@ API Java para consumo do WebService de CTe
 Para Iniciar : 
 - Caso use Libs baixe o [java-cte-4.00.5.jar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-4.00.5.jar) e o adicione às bibliotecas de Seu Projeto.
 
-- Baixe o [Schemas.rar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas.rar) e extraia na sua Máquina.
+- Baixe o [Schemas.zip](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas.zip) e extraia na sua Máquina.
 
 - Maven :
 ```
