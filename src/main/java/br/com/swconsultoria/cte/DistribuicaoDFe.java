@@ -20,12 +20,15 @@ import org.apache.axis2.transport.http.HTTPConstants;
 import javax.xml.bind.JAXBException;
 import javax.xml.stream.XMLStreamException;
 import java.rmi.RemoteException;
+import java.util.Objects;
 
 /**
  * @author Samuel Oliveira - samuel@swconsultoria.com.br - www.swconsultoria.com.br
  */
 @Log
 class DistribuicaoDFe {
+
+    private DistribuicaoDFe() {}
 
     /**
      * Classe Reponsavel Por Consultar as CTE na SEFAZ
@@ -54,17 +57,14 @@ class DistribuicaoDFe {
                 distDFeInt.setCPF(cpfCnpj);
             }
 
-            switch (tipoConsulta) {
-                case NSU:
-                    DistDFeInt.DistNSU distNSU = new DistDFeInt.DistNSU();
-                    distNSU.setUltNSU(nsuChave);
-                    distDFeInt.setDistNSU(distNSU);
-                    break;
-                case NSU_UNICO:
-                    DistDFeInt.ConsNSU consNSU = new DistDFeInt.ConsNSU();
-                    consNSU.setNSU(nsuChave);
-                    distDFeInt.setConsNSU(consNSU);
-                    break;
+            if (Objects.requireNonNull(tipoConsulta) == ConsultaDFeEnum.NSU) {
+                DistDFeInt.DistNSU distNSU = new DistDFeInt.DistNSU();
+                distNSU.setUltNSU(nsuChave);
+                distDFeInt.setDistNSU(distNSU);
+            } else if (tipoConsulta == ConsultaDFeEnum.NSU_UNICO) {
+                DistDFeInt.ConsNSU consNSU = new DistDFeInt.ConsNSU();
+                consNSU.setNSU(nsuChave);
+                distDFeInt.setConsNSU(consNSU);
             }
 
             String xml = XmlCteUtil.objectToXml(distDFeInt);

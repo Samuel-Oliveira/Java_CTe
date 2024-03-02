@@ -33,7 +33,7 @@ class TesteEnvioCte {
 
             String cnpj = "10732644000128";
             int serie = 3;
-            int numero = 3;
+            int numero = 4;
 
             TCTe cte = preencheObjetoCte(config, cnpj, serie, numero);
 

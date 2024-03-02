@@ -12,6 +12,8 @@ import br.com.swconsultoria.cte.exception.CteException;
  */
 public class ConfiguracoesUtil {
 
+    private ConfiguracoesUtil() {}
+
     /**
      * Recebe como parâmetro um objeto ConfiguracoesCte e Inicializa as COnfigurações e retorna um objeto
      * ConfiguracoesCte.
@@ -51,10 +53,10 @@ public class ConfiguracoesUtil {
      */
     public static ConfiguracoesCte iniciaConfiguracoes(ConfiguracoesCte configuracoesCte, String cpfCnpj) throws CteException {
 
-        ObjetoCTeUtil.verifica(configuracoesCte).orElseThrow(() -> new CteException("Configurações não foram criadas"));
-
         try {
-            if (!configuracoesCte.getCertificado().isValido()) {
+            if (!ObjetoCTeUtil.verifica(configuracoesCte)
+                    .orElseThrow(() -> new CteException("Configurações não foram criadas"))
+                    .getCertificado().isValido()) {
                 throw new CertificadoException("Certificado vencido ou inválido.");
             }
 
@@ -62,9 +64,9 @@ public class ConfiguracoesUtil {
                 throw new CertificadoException("Documento do Certificado(" + configuracoesCte.getCertificado().getCnpjCpf() + ") não equivale ao Documento do Emissor(" + cpfCnpj + ")");
             }
 
-            if(ObjetoCTeUtil.verifica(configuracoesCte.getCacert()).isPresent()){
+            if (ObjetoCTeUtil.verifica(configuracoesCte.getCacert()).isPresent()) {
                 CertificadoService.inicializaCertificado(configuracoesCte.getCertificado(), configuracoesCte.getCacert());
-            }else{
+            } else {
                 CertificadoService.inicializaCertificado(configuracoesCte.getCertificado());
             }
 

@@ -3,6 +3,7 @@ package br.com.swconsultoria.cte;
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.ConsultaDFeEnum;
 import br.com.swconsultoria.cte.dom.enuns.PessoaEnum;
+import br.com.swconsultoria.cte.eventos.*;
 import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_100.retdistdfeint.RetDistDFeInt;
 import br.com.swconsultoria.cte.schema_400.cte.TCTe;
@@ -220,7 +221,7 @@ public class Cte {
      * @throws CteException
      */
     public static br.com.swconsultoria.cte.schema_400.evCancPrestDesacordo.TRetEvento cancelamentoPrestacaoDesacordoCte(ConfiguracoesCte configuracoesCte,
-                                                                                                        br.com.swconsultoria.cte.schema_400.evCancPrestDesacordo.TEvento evento, boolean valida) throws CteException {
+                                                                                                                        br.com.swconsultoria.cte.schema_400.evCancPrestDesacordo.TEvento evento, boolean valida) throws CteException {
 
         return CancelamentoPrestacaoDesacordo.eventoCancPrestacaoDesacordo(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
@@ -251,8 +252,8 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_400.evCECTe.TRetEvento gvtCte(ConfiguracoesCte configuracoesCte,
-                                                                              br.com.swconsultoria.cte.schema_400.evCECTe.TEvento evento, boolean valida) throws CteException {
+    public static br.com.swconsultoria.cte.schema_400.evCECTe.TRetEvento comprovanteEntrega(ConfiguracoesCte configuracoesCte,
+                                                                                            br.com.swconsultoria.cte.schema_400.evCECTe.TEvento evento, boolean valida) throws CteException {
 
         return ComprovanteEntrega.eventoComprovanteEntrega(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
@@ -267,10 +268,42 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_400.evCancCECTe.TRetEvento gvtCte(ConfiguracoesCte configuracoesCte,
-                                                                              br.com.swconsultoria.cte.schema_400.evCancCECTe.TEvento evento, boolean valida) throws CteException {
+    public static br.com.swconsultoria.cte.schema_400.evCancCECTe.TRetEvento cancComprovanteEntrega(ConfiguracoesCte configuracoesCte,
+                                                                                                    br.com.swconsultoria.cte.schema_400.evCancCECTe.TEvento evento, boolean valida) throws CteException {
 
         return CancelamentoComprovanteEntrega.eventoCancComprovanteEntrega(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+
+    }
+
+    /**
+     * Metodo para Evento Insucesso Entrega.
+     *
+     * @param configuracoesCte
+     * @param evento
+     * @param valida
+     * @return
+     * @throws CteException
+     */
+    public static br.com.swconsultoria.cte.schema_400.evIECTe.TRetEvento insucessoEntrega(ConfiguracoesCte configuracoesCte,
+                                                                                          br.com.swconsultoria.cte.schema_400.evIECTe.TEvento evento, boolean valida) throws CteException {
+
+        return InsucessoEntrega.eventoInsucessoEntrega(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
+
+    }
+
+    /**
+     * Metodo para Evento Cancela Insucesso Entrega.
+     *
+     * @param configuracoesCte
+     * @param evento
+     * @param valida
+     * @return
+     * @throws CteException
+     */
+    public static br.com.swconsultoria.cte.schema_400.evCancIECTe.TRetEvento cancelaInsucessoEntrega(ConfiguracoesCte configuracoesCte,
+                                                                                                     br.com.swconsultoria.cte.schema_400.evCancIECTe.TEvento evento, boolean valida) throws CteException {
+
+        return CancelamentoInsucessoEntrega.eventoCancelamentoInsucessoEntrega(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
     }
 

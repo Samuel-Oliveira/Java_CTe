@@ -20,6 +20,8 @@ import java.time.ZoneId;
  */
 public class CartaCorrecaoUtil {
 
+    private CartaCorrecaoUtil() {}
+
     /**
      * MOnta o Evento de CCe unico
      *
@@ -88,10 +90,12 @@ public class CartaCorrecaoUtil {
     public static String criaProcEventoCCe(ConfiguracoesCte configuracoesCte, TEvento enviEvento, TRetEvento retorno) throws JAXBException, CteException {
 
         String xml = XmlCteUtil.objectToXml(enviEvento);
-        xml = xml.replaceAll(" xmlns:ns2=\"http://www.w3.org/2000/09/xmldsig#\"", "");
-        xml = xml.replaceAll("<evento v", "<evento xmlns=\"http://www.portalfiscal.inf.br/cte\" v");
+        xml = xml.replace(" xmlns:ns2=\"http://www.w3.org/2000/09/xmldsig#\"", "")
+                .replace("<evento v", "<evento xmlns=\"http://www.portalfiscal.inf.br/cte\" v");
 
-        String assinado = Assinar.assinaCte(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), xml, AssinaturaEnum.EVENTO);
+        enviEvento = XmlCteUtil.xmlToObject(
+                Assinar.assinaCte(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), xml, AssinaturaEnum.EVENTO),
+                TEvento.class);
 
         TProcEvento procEvento = new TProcEvento();
         procEvento.setEventoCTe(enviEvento);

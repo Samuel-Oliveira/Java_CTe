@@ -1,4 +1,4 @@
-# Java-CTe [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.5/jar)
+# Java-CTe [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.6/jar)
 API Java para consumo do WebService de CTe
 
 ## Dúvidas, Sugestões ou Consultoria
@@ -8,7 +8,7 @@ API Java para consumo do WebService de CTe
 <img src="https://swconsultoria.com.br/pix.png" width="200">
 
 Para Iniciar : 
-- Caso use Libs baixe o [java-cte-4.00.5.jar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-4.00.5.jar) e o adicione às bibliotecas de Seu Projeto.
+- Caso use Libs baixe o [java-cte-4.00.6.jar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-4.00.6.jar) e o adicione às bibliotecas de Seu Projeto.
 
 - Baixe o [Schemas.zip](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas.zip) e extraia na sua Máquina.
 
@@ -17,14 +17,14 @@ Para Iniciar :
 <dependency>
     <groupId>br.com.swconsultoria</groupId>
     <artifactId>java-cte</artifactId>
-    <version>4.00.5</version>
+    <version>4.00.6</version>
 </dependency>
 ```
 
 - Gradle :
 ```groovy
 dependencies {
-    implementation "br.com.swconsultoria:java-cte:4.00.5"
+    implementation "br.com.swconsultoria:java-cte:4.00.6"
 }
 ```
 
@@ -33,6 +33,11 @@ Veja a [Wiki](https://Samuel-Oliveira.github.io/Java_CTe/), para ter um Tutorial
 ________________________________________________________________________________________________
 
 # Historico de Versões
+
+## v4.00.6 - 01/03/2024
+- Adicionado Evento Insucesso Entrega
+- Adicionado Evento Cancelamento Insucesso Entrega
+- Atualizado nova versao Java Certificado
 
 ## v4.00.5 - 29/01/2024
 - Corrigido Conversao TProtCTeOS

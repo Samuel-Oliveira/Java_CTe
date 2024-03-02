@@ -15,11 +15,11 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.StringReader;
 
-class Validar implements ErrorHandler {
+public class Validar implements ErrorHandler {
 
     private String listaComErrosDeValidacao = "";
 
-    void validaXml(ConfiguracoesCte config, String xml, ServicosEnum servico) throws CteException {
+    public void validaXml(ConfiguracoesCte config, String xml, ServicosEnum servico) throws CteException {
 
         System.setProperty("jdk.xml.maxOccurLimit", "99999");
         String errosValidacao;
@@ -78,33 +78,33 @@ class Validar implements ErrorHandler {
 
     private String tratamentoRetorno(String message) {
 
-        message = message.replaceAll("cvc-type.3.1.3:", "-");
-        message = message.replaceAll("cvc-attribute.3:", "-");
-        message = message.replaceAll("cvc-complex-type.2.4.a:", "-");
-        message = message.replaceAll("cvc-complex-type.2.4.b:", "-");
-        message = message.replaceAll("cvc-complex-type.2.4.c:", "-");
-        message = message.replaceAll("cvc-complex-type.2.4.d:", "-");
-        message = message.replaceAll("cvc-complex-type.4:", "-");
-        message = message.replaceAll("cvc-minLength-valid:", "-");
-        message = message.replaceAll("The value", "O valor");
-        message = message.replaceAll("Value", "Valor");
-        message = message.replaceAll("with length", "com tamanho");
-        message = message.replaceAll("is not facet-valid with respect to minLength", "não equivale ao tamanho mínimo");
-        message = message.replaceAll("for type", "para o tipo");
-        message = message.replaceAll("The content", "O conteúdo");
-        message = message.replaceAll("of element", "do campo");
-        message = message.replaceAll("is not complete", "não está completo");
-        message = message.replaceAll("is not valid", "não é válido");
-        message = message.replaceAll("Attribute", "Campo");
-        message = message.replaceAll("must appear on element", "precisa estar em");
-        message = message.replaceAll("Invalid content was found starting with element", "Conteúdo inválido encontrado iniciando com o campo");
-        message = message.replaceAll("One of", "Um dos Campos");
-        message = message.replaceAll("is expected", "é esperado");
-        message = message.replaceAll("\\{", "");
-        message = message.replaceAll("\\}", "");
-        message = message.replaceAll("\"", "");
-        message = message.replaceAll("http://www.portalfiscal.inf.br/cte:", "");
-        return System.getProperty("line.separator") + message.trim();
+        message = message.replace("cvc-type.3.1.3:", "-")
+        .replace("cvc-attribute.3:", "-")
+        .replace("cvc-complex-type.2.4.a:", "-")
+        .replace("cvc-complex-type.2.4.b:", "-")
+        .replace("cvc-complex-type.2.4.c:", "-")
+        .replace("cvc-complex-type.2.4.d:", "-")
+        .replace("cvc-complex-type.4:", "-")
+        .replace("cvc-minLength-valid:", "-")
+        .replace("The value", "O valor")
+        .replace("Value", "Valor")
+        .replace("with length", "com tamanho")
+        .replace("is not facet-valid with respect to minLength", "não equivale ao tamanho mínimo")
+        .replace("for type", "para o tipo")
+        .replace("The content", "O conteúdo")
+        .replace("of element", "do campo")
+        .replace("is not complete", "não está completo")
+        .replace("is not valid", "não é válido")
+        .replace("Attribute", "Campo")
+        .replace("must appear on element", "precisa estar em")
+        .replace("Invalid content was found starting with element", "Conteúdo inválido encontrado iniciando com o campo")
+        .replace("One of", "Um dos Campos")
+        .replace("is expected", "é esperado")
+        .replace("\\{", "")
+        .replace("\\}", "")
+        .replace("\"", "")
+        .replace("http://www.portalfiscal.inf.br/cte:", "");
+        return System.lineSeparator() + message.trim();
     }
 
     private String getListaComErrosDeValidacao() {
