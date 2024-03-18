@@ -67,7 +67,7 @@ public class WebServiceCteUtil {
                     secao = "CTe_SVRS_" + sufixoAmbiente;
                 } else {
                     //SVC RS
-                    secao = "CTe_SVSP_" + sufixoAmbiente;
+                    secao = "CTe_SVC-SP_" + sufixoAmbiente;
                 }
             }
 
