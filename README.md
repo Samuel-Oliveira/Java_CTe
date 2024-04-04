@@ -1,4 +1,4 @@
-# Java-CTe [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.6/jar)
+# Java-CTe [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.7/jar)
 API Java para consumo do WebService de CTe
 
 ## Dúvidas, Sugestões ou Consultoria
@@ -8,23 +8,24 @@ API Java para consumo do WebService de CTe
 <img src="https://swconsultoria.com.br/pix.png" width="200">
 
 Para Iniciar : 
-- Caso use Libs baixe o [java-cte-4.00.6.jar](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/java-cte-4.00.6.jar) e o adicione às bibliotecas de Seu Projeto.
+- External Jar: Baixe e adicione às bibliotecas de seu Projeto.
+  - https://github.com/Samuel-Oliveira/Java_CTe/releases
 
-- Baixe o [Schemas.zip](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/Schemas.zip) e extraia na sua Máquina.
+- Baixe o [Schemas.zip](https://github.com/Samuel-Oliveira/Java_CTe/raw/master/schemas.zip) e extraia na sua Máquina.
 
 - Maven :
 ```
 <dependency>
     <groupId>br.com.swconsultoria</groupId>
     <artifactId>java-cte</artifactId>
-    <version>4.00.6</version>
+    <version>4.00.7</version>
 </dependency>
 ```
 
 - Gradle :
 ```groovy
 dependencies {
-    implementation "br.com.swconsultoria:java-cte:4.00.6"
+    implementation "br.com.swconsultoria:java-cte:4.00.7"
 }
 ```
 
@@ -33,6 +34,10 @@ Veja a [Wiki](https://Samuel-Oliveira.github.io/Java_CTe/), para ter um Tutorial
 ________________________________________________________________________________________________
 
 # Historico de Versões
+
+## v4.00.7 - 04/04/2024
+- Correcao Eventos MS - Uso de prefixo de namespace nao permitido - status 404
+- Atualizado nova versao Java Certificado
 
 ## v4.00.6 - 01/03/2024
 - Adicionado Evento Insucesso Entrega
