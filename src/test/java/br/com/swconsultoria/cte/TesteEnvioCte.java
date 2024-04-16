@@ -195,6 +195,8 @@ class TesteEnvioCte {
 
         TImp.ICMS45 icms45 = new TImp.ICMS45();
         icms45.setCST("40");
+        icms45.setCBenef("SC850001");
+        icms45.setVICMSDeson("0");
         icms.setICMS45(icms45);
 
         imp.setICMS(icms);
