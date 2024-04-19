@@ -1,4 +1,4 @@
-# Java-CTe [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.7/jar)
+# Java-CTe [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.8/jar)
 API Java para consumo do WebService de CTe
 
 ## Dúvidas, Sugestões ou Consultoria
@@ -18,14 +18,14 @@ Para Iniciar :
 <dependency>
     <groupId>br.com.swconsultoria</groupId>
     <artifactId>java-cte</artifactId>
-    <version>4.00.7</version>
+    <version>4.00.8</version>
 </dependency>
 ```
 
 - Gradle :
 ```groovy
 dependencies {
-    implementation "br.com.swconsultoria:java-cte:4.00.7"
+    implementation "br.com.swconsultoria:java-cte:4.00.8"
 }
 ```
 
@@ -34,6 +34,9 @@ Veja a [Wiki](https://Samuel-Oliveira.github.io/Java_CTe/), para ter um Tutorial
 ________________________________________________________________________________________________
 
 # Historico de Versões
+
+## v4.00.8 - 19/04/2024
+- Atualizado nova versao Java Certificado
 
 ## v4.00.7 - 04/04/2024
 - Correcao Eventos MS - Uso de prefixo de namespace nao permitido - status 404
