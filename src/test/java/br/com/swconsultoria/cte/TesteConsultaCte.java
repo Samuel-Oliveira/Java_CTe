@@ -34,8 +34,10 @@ public class TesteConsultaCte {
 
             //Resultado
             log.info("# Status: " + retorno.getCStat() + " - " + retorno.getXMotivo());
-            TProtCTe.InfProt infProt = ObjetoCTeUtil.elementToObject(retorno.getProtCTe().getAny(),TProtCTe.InfProt.class);
-            log.info("# Protocolo: " +infProt.getNProt());
+            if(retorno.getProtCTe() != null){
+                TProtCTe.InfProt infProt = ObjetoCTeUtil.elementToObject(retorno.getProtCTe().getAny(),TProtCTe.InfProt.class);
+                log.info("# Protocolo: " +infProt.getNProt());
+            }
 
         } catch (Exception e) {
             log.log(Level.SEVERE, "Erro ao consultar XML", e);

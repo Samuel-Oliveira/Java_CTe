@@ -80,7 +80,7 @@ import org.w3c.dom.Element;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
+@XmlType(propOrder = {
     "tpAmb",
     "verAplic",
     "cStat",
@@ -89,7 +89,7 @@ import org.w3c.dom.Element;
     "protCTe",
     "procEventoCTe"
 })
-@XmlRootElement(name = "TRetConsSitCTe")
+@XmlRootElement(name = "retConsSitCTe", namespace = "http://www.portalfiscal.inf.br/cte")
 public class TRetConsSitCTe {
 
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
