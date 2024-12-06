@@ -9,6 +9,8 @@ import br.com.swconsultoria.cte.schema_100.retdistdfeint.RetDistDFeInt;
 import br.com.swconsultoria.cte.schema_400.cte.TCTe;
 import br.com.swconsultoria.cte.schema_400.cte.TRetCTe;
 import br.com.swconsultoria.cte.schema_400.cteOS.TCTeOS;
+import br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp;
+import br.com.swconsultoria.cte.schema_400.cteSimp.TRetCTeSimp;
 import br.com.swconsultoria.cte.schema_400.evEPECCTe.TEvento;
 import br.com.swconsultoria.cte.schema_400.evEPECCTe.TRetEvento;
 import br.com.swconsultoria.cte.schema_400.retCTeOS.TRetCTeOS;
@@ -104,6 +106,20 @@ public class Cte {
     }
 
     /**
+     * Metodo para Montar a CTE simplificado.
+     *
+     * @param configuracoesCte
+     * @param enviCTe
+     * @param valida
+     * @return
+     * @throws CteException
+     */
+    public static TCTeSimp montaCteSimp(ConfiguracoesCte configuracoesCte,
+                                                                                    TCTeSimp enviCTe, boolean valida) throws CteException {
+        return EnvioCteSimp.montaCteSimp(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe, valida);
+    }
+
+    /**
      * Metodo para Enviar a CTE.
      *
      * @param configuracoesCte
@@ -128,6 +144,18 @@ public class Cte {
      */
     public static TRetCTeOS enviarCteOS(ConfiguracoesCte configuracoesCte, TCTeOS enviCTe) throws CteException {
         return EnvioCteOS.enviaCteOS(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe);
+    }
+
+    /**
+     * Metodo para Enviar a CTE simplificado.
+     *
+     * @param configuracoesCte
+     * @param enviCTe
+     * @return
+     * @throws CteException
+     */
+    public static TRetCTeSimp enviarCteSimp(ConfiguracoesCte configuracoesCte, TCTeSimp enviCTe) throws CteException {
+        return EnvioCteSimp.enviaCteSimp(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe);
     }
 
     /**
