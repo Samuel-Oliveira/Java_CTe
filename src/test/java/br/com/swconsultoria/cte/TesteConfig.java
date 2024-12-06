@@ -23,7 +23,5 @@ public class TesteConfig {
 
         return ConfiguracoesCte.criarConfiguracoes(estado, ambiente,
                 certificado, "schemas");
-
     }
-
 }
