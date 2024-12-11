@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSimpV4" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="CTeRecepcaoSimpV4" targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSimpV4">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSimpV4" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSimpV4" version="1.0">
+            <xs:element name="cteDadosMsg" type="xs:string"/>
+            <xs:element name="cteRecepcaoSimpResult">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:any namespace="##other" processContents="skip"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="cteRecepcaoSimpResponse">
+        <wsdl:part element="tns:cteRecepcaoSimpResult" name="cteRecepcaoSimpResult">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="cteRecepcaoSimp">
+        <wsdl:part element="tns:cteDadosMsg" name="cteDadosMsg">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="CTeRecepcaoSimpV4Soap12">
+        <wsdl:operation name="cteRecepcaoSimp">
+            <wsdl:input message="tns:cteRecepcaoSimp" name="cteRecepcaoSimp">
+            </wsdl:input>
+            <wsdl:output message="tns:cteRecepcaoSimpResponse" name="cteRecepcaoSimpResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CTeRecepcaoSimpV4SoapBinding" type="tns:CTeRecepcaoSimpV4Soap12">
+        <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="cteRecepcaoSimp">
+            <soap12:operation soapAction="http://www.portalfiscal.inf.br/cte/wsdl/CTeRecepcaoSimpV4/cteRecepcaoSimp" style="document"/>
+            <wsdl:input name="cteRecepcaoSimp">
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="cteRecepcaoSimpResponse">
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CTeRecepcaoSimpV4">
+        <wsdl:port binding="tns:CTeRecepcaoSimpV4SoapBinding" name="CTeRecepcaoSimpV4Soap12">
+            <soap12:address location="http://cte.sefaz.mt.gov.br/cte-ws/services/CTeRecepcaoSimpV4"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

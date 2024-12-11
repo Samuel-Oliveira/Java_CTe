@@ -16,6 +16,7 @@ public enum ServicosEnum {
     CANCELAMENTO(Constants.RECEPCAO_EVENTO_4_00, "evCancCTe_v4.00.xsd"),
     EVENTO("", "eventoCTe_v4.00.xsd"),
     ENVIO_CTE_OS("CTeRecepcaoOS_4.00", "cteOS_v4.00.xsd"),
+    ENVIO_CTE_SIMP("CTeRecepcaoSimp_4.00", "cteSimp_v4.00.xsd"),
     EPEC(Constants.RECEPCAO_EVENTO_4_00, "evEPECCTe_v4.00.xsd"),
     MULTIMODAL(Constants.RECEPCAO_EVENTO_4_00, "evRegMultimodal_v4.00.xsd"),
     CCE(Constants.RECEPCAO_EVENTO_4_00, "evCCeCTe_v4.00.xsd"),
