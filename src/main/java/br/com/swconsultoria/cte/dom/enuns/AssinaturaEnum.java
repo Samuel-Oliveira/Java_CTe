@@ -11,6 +11,7 @@ public enum AssinaturaEnum {
 
     CTE("CTe","infCte"),
     CTE_OS ("CTeOS","infCte"),
+    CTE_SIMP("CTeSimp","infCte"),
     EVENTO("eventoCTe","infEvento");
 
     private final String tipo;

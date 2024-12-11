@@ -5,8 +5,10 @@ package br.com.swconsultoria.cte.util;
 
 import br.com.swconsultoria.cte.schema_400.cte.TCTe;
 import br.com.swconsultoria.cte.schema_400.cteOS.TCTeOS;
+import br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp;
 import br.com.swconsultoria.cte.schema_400.procCTe.CteProc;
 import br.com.swconsultoria.cte.schema_400.procCTeOS.CteOSProc;
+import br.com.swconsultoria.cte.schema_400.procCTeSimp.CteSimpProc;
 import lombok.extern.java.Log;
 
 import javax.xml.bind.*;
@@ -138,6 +140,17 @@ public class XmlCteUtil {
         return XmlCteUtil.objectToXml(cteProc);
     }
 
+    public static String criaCteSimpProc(TCTeSimp cte, Object retorno)
+            throws JAXBException {
+
+        CteSimpProc cteProc = new CteSimpProc();
+        cteProc.setVersao("4.00");
+        cteProc.setCTeSimp(xmlToObject(objectToXml(cte), br.com.swconsultoria.cte.schema_400.procCTeSimp.TCTeSimp.class));
+        cteProc.setProtCTe(
+                xmlToObject(objectToXml(retorno), br.com.swconsultoria.cte.schema_400.procCTeSimp.TProtCTe.class));
+
+        return XmlCteUtil.objectToXml(cteProc);
+    }
     /**
      * Le o Arquivo XML e retona String
      *
