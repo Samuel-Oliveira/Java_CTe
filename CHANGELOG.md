@@ -1,4 +1,4 @@
 # Notas de versão
 
-- Adicionado CTe Simplificado
+- Atualizado URL QRCode MG
 - Atualizado Cacert
