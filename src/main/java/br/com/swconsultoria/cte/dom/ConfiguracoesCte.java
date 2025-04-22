@@ -167,8 +167,8 @@ public class ConfiguracoesCte {
 
         log.info(String.format("JAVA-CTE | Samuel Oliveira | samuel@swconsultoria.com.br " +
                         "| VERSAO=%s | DATA_VERSAO=%s | PASTA_SCHEMAS=%s | AMBIENTE=%s | ESTADO=%s",
-                "4.00.10",
-                "11/12/2024",
+                "4.00.11",
+                "22/04/2025",
                 pastaSchemas,
                 ambiente,
                 estado.getNome().toUpperCase()));
