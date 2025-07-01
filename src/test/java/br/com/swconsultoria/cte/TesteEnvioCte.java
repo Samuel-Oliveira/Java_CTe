@@ -29,7 +29,7 @@ class TesteEnvioCte {
     public static void main(String[] args) {
 
         try {
-            ConfiguracoesCte config = TesteConfig.iniciaConfiguracoes(EstadosEnum.GO, AmbienteEnum.HOMOLOGACAO);
+            ConfiguracoesCte config = TesteConfig.iniciaConfiguracoes(EstadosEnum.PR, AmbienteEnum.HOMOLOGACAO);
 
             String cnpj = "10732644000128";
             int serie = 3;
