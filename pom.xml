@@ -3,7 +3,7 @@
 
     <groupId>br.com.swconsultoria</groupId>
     <artifactId>java-cte</artifactId>
-    <version>4.00.13-SNAPSHOT</version>
+    <version>4.00.12</version>
     <name>Java_CTe</name>
     <description>API Java para consumo do WebService de CTe</description>
     <url>https://github.com/Samuel-Oliveira/Java_CTe</url>
@@ -30,8 +30,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <java.version>1.8</java.version>
 
-        <!-- Versions -->
-        <java-certificado.version>3.11</java-certificado.version>
+        <!-- Versões -->
+        <java-certificado.version>3.12</java-certificado.version>
         <ini4j.version>0.5.4</ini4j.version>
         <httpcore.version>4.4.6</httpcore.version>
         <jaxb-impl.version>2.3.1</jaxb-impl.version>
@@ -39,27 +39,15 @@
         <jaxb-core.version>2.3.0.1</jaxb-core.version>
         <axis2.version>1.7.5</axis2.version>
         <axiom-api.version>1.2.20</axiom-api.version>
-        <lombok.version>1.18.22</lombok.version>
-        <junit-jupiter.version>5.4.0</junit-jupiter.version>
-        <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
-        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
-        <nexus-staging-maven-plugin.version>1.7.0</nexus-staging-maven-plugin.version>
-        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
-        <maven-release-plugin.version>3.1.1</maven-release-plugin.version>
-        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
-        <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
+        <junit-jupiter.version>5.13.3</junit-jupiter.version>
+        <lombok.version>1.18.38</lombok.version>
+        <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
+        <central-publishing-maven-plugin.version>0.8.0</central-publishing-maven-plugin.version>
+        <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
+        <maven-assembly-plugin.version>3.7.1</maven-assembly-plugin.version>
+        <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
+        <maven-javadoc-plugin.version>3.11.2</maven-javadoc-plugin.version>
     </properties>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>sonatype-nexus</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>sonatype-nexus</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>
-    </distributionManagement>
 
     <developers>
         <developer>
@@ -187,19 +175,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>${nexus-staging-maven-plugin.version}</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>sonatype-nexus</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -215,15 +192,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>${maven-release-plugin.version}</version>
-                <configuration>
-                    <pushChanges>false</pushChanges>
-                    <localCheckout>true</localCheckout>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -252,6 +220,16 @@
                 </executions>
                 <configuration>
                     <failOnError>false</failOnError>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>${central-publishing-maven-plugin.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>central</publishingServerId>
+                    <autoPublish>true</autoPublish>
                 </configuration>
             </plugin>
         </plugins>
