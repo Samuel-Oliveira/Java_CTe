@@ -20,7 +20,7 @@ public class TesteDistDfeCte {
 
         try {
             //Veja https://github.com/Samuel-Oliveira/Java_CTe/wiki/Configura%C3%A7%C3%B5es-CTe
-            ConfiguracoesCte config = TesteConfig.iniciaConfiguracoes(EstadosEnum.GO, AmbienteEnum.HOMOLOGACAO);
+            ConfiguracoesCte config = TesteConfig.iniciaConfiguracoes(EstadosEnum.GO, AmbienteEnum.PRODUCAO);
 
             String cnpj = "10732644000128"; // TODO Preencher Cnpj
             String nsu = "000000000000050";// TODO Preencher Nsu
