@@ -32,7 +32,6 @@
 
         <!-- Versões -->
         <java-certificado.version>3.12</java-certificado.version>
-        <ini4j.version>0.5.4</ini4j.version>
         <httpcore.version>4.4.6</httpcore.version>
         <jaxb-impl.version>2.3.1</jaxb-impl.version>
         <jaxb-xjc.version>2.3.1</jaxb-xjc.version>
@@ -92,11 +91,6 @@
             <groupId>br.com.swconsultoria</groupId>
             <artifactId>java_certificado</artifactId>
             <version>${java-certificado.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ini4j</groupId>
-            <artifactId>ini4j</artifactId>
-            <version>${ini4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
