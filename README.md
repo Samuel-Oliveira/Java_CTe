@@ -1,4 +1,4 @@
-# Java-CTe [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.12/jar)
+# Java-CTe [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.13/jar)
 API Java para consumo do WebService de CTe
 
 ## Dúvidas, Sugestões ou Consultoria
@@ -18,14 +18,14 @@ Para Iniciar :
 <dependency>
     <groupId>br.com.swconsultoria</groupId>
     <artifactId>java-cte</artifactId>
-    <version>4.00.12</version>
+    <version>4.00.13</version>
 </dependency>
 ```
 
 - Gradle :
 ```groovy
 dependencies {
-    implementation "br.com.swconsultoria:java-cte:4.00.12"
+    implementation "br.com.swconsultoria:java-cte:4.00.13"
 }
 ```
 
@@ -34,6 +34,11 @@ Veja a [Wiki](https://Samuel-Oliveira.github.io/Java_CTe/), para ter um Tutorial
 ________________________________________________________________________________________________
 
 # Historico de Versões
+
+## v4.00.13 - 13/09/2025 - Schemas PL. RTC 1.07
+- Atualizado Schema Reforma Tributaria
+- Remoçao de classes duplicadas
+- Reforacao JAXB
 
 ## v4.00.12 - 06/07/2025
 - Atualizado Cacert
