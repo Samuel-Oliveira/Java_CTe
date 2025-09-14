@@ -8,14 +8,14 @@ import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_100.retdistdfeint.RetDistDFeInt;
 import br.com.swconsultoria.cte.schema_400.cte.TCTe;
 import br.com.swconsultoria.cte.schema_400.cte.TRetCTe;
-import br.com.swconsultoria.cte.schema_400.cteOS.TCTeOS;
-import br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp;
-import br.com.swconsultoria.cte.schema_400.cteSimp.TRetCTeSimp;
+import br.com.swconsultoria.cte.schema_400.cte.TCTeOS;
+import br.com.swconsultoria.cte.schema_400.cte.TCTeSimp;
+import br.com.swconsultoria.cte.schema_400.cte.TRetCTeSimp;
 import br.com.swconsultoria.cte.schema_400.evEPECCTe.TEvento;
 import br.com.swconsultoria.cte.schema_400.evEPECCTe.TRetEvento;
-import br.com.swconsultoria.cte.schema_400.retCTeOS.TRetCTeOS;
-import br.com.swconsultoria.cte.schema_400.retConsSitCTe.TRetConsSitCTe;
-import br.com.swconsultoria.cte.schema_400.retConsStatServCTe.TRetConsStatServ;
+import br.com.swconsultoria.cte.schema_400.cte.TRetCTeOS;
+import br.com.swconsultoria.cte.schema_400.consSitCTe.TRetConsSitCTe;
+import br.com.swconsultoria.cte.schema_400.consStatServCTe.TRetConsStatServ;
 import br.com.swconsultoria.cte.util.ConfiguracoesUtil;
 
 /**

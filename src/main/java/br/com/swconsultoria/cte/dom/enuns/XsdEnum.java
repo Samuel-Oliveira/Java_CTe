@@ -47,7 +47,9 @@ public enum XsdEnum {
 
     // Prot
     PROT_CTE(br.com.swconsultoria.cte.schema_400.procCTe.TProtCTe.class, Constants.CONST_PROT_CTE),
+    PROT_CTE_2(br.com.swconsultoria.cte.schema_400.cte.TProtCTe.class, Constants.CONST_PROT_CTE),
     PROT_CTE_OS(br.com.swconsultoria.cte.schema_400.procCTeOS.TProtCTeOS.class, Constants.CONST_PROT_CTE),
+    PROT_CTE_OS_2(br.com.swconsultoria.cte.schema_400.cte.TProtCTeOS.class, Constants.CONST_PROT_CTE),
     PROT_CTE_SIMP(br.com.swconsultoria.cte.schema_400.procCTeSimp.TProtCTe.class, Constants.CONST_PROT_CTE),
 
     //Evento

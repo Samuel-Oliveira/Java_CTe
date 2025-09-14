@@ -29,11 +29,11 @@ class TesteEnvioCte {
     public static void main(String[] args) {
 
         try {
-            ConfiguracoesCte config = TesteConfig.iniciaConfiguracoes(EstadosEnum.PR, AmbienteEnum.HOMOLOGACAO);
+            ConfiguracoesCte config = TesteConfig.iniciaConfiguracoes(EstadosEnum.GO, AmbienteEnum.HOMOLOGACAO);
 
             String cnpj = "10732644000128";
             int serie = 3;
-            int numero = 4;
+            int numero = 6;
 
             TCTe cte = preencheObjetoCte(config, cnpj, serie, numero);
 
@@ -217,7 +217,7 @@ class TesteEnvioCte {
         TCTe.InfCte.InfCTeNorm.InfDoc infDoc = new TCTe.InfCte.InfCTeNorm.InfDoc();
 
         TCTe.InfCte.InfCTeNorm.InfDoc.InfNFe infNFe = new TCTe.InfCte.InfCTeNorm.InfDoc.InfNFe();
-        infNFe.setChave("52170101241994000605550030002868271002045403");
+        infNFe.setChave("52250910732644000128550010000927521413308064");
         infDoc.getInfNFe().add(infNFe);
 
         TCTe.InfCte.InfCTeNorm.InfModal infModal = new TCTe.InfCte.InfCTeNorm.InfModal();

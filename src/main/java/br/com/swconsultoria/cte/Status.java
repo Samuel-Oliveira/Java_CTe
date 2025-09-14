@@ -4,7 +4,7 @@ import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_400.consStatServCTe.TConsStatServ;
-import br.com.swconsultoria.cte.schema_400.retConsStatServCTe.TRetConsStatServ;
+import br.com.swconsultoria.cte.schema_400.consStatServCTe.TRetConsStatServ;
 import br.com.swconsultoria.cte.util.ConstantesCte;
 import br.com.swconsultoria.cte.util.WebServiceCteUtil;
 import br.com.swconsultoria.cte.util.XmlCteUtil;

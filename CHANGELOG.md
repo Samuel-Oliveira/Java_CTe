@@ -1,2 +1,4 @@
 # Notas de versão
-- Atualizado URL Consulta Cadastro MT
+- Atualizado Schema Reforma Tributaria
+- Remoçao de classes duplicadas
+- Reforacao JAXB

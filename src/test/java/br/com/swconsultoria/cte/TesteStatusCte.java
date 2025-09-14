@@ -6,7 +6,7 @@ package br.com.swconsultoria.cte;
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.AmbienteEnum;
 import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
-import br.com.swconsultoria.cte.schema_400.retConsStatServCTe.TRetConsStatServ;
+import br.com.swconsultoria.cte.schema_400.consStatServCTe.TRetConsStatServ;
 import lombok.extern.java.Log;
 
 import java.util.logging.Level;
