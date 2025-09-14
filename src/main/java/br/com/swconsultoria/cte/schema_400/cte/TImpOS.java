@@ -9,210 +9,210 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * Tipo Dados do Imposto para CT-e OS
- *
+ * 
  * <p>Classe Java de TImpOS complex type.
- *
+ * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
- *
+ * 
  * <pre>
- * &lt;complexType name="TImpOS"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;choice&gt;
- *         &lt;element name="ICMS00"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;element name="CST"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                         &lt;whiteSpace value="preserve"/&gt;
- *                         &lt;enumeration value="00"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                   &lt;element name="pICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
- *                   &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                 &lt;/sequence&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="ICMS20"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;element name="CST"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                         &lt;whiteSpace value="preserve"/&gt;
- *                         &lt;enumeration value="20"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="pRedBC" type="{http://www.portalfiscal.inf.br/cte}TDec_0302Opc"/&gt;
- *                   &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                   &lt;element name="pICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
- *                   &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                   &lt;sequence minOccurs="0"&gt;
- *                     &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                     &lt;element name="cBenef"&gt;
- *                       &lt;simpleType&gt;
- *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                           &lt;whiteSpace value="preserve"/&gt;
- *                           &lt;maxLength value="10"/&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/simpleType&gt;
- *                     &lt;/element&gt;
- *                   &lt;/sequence&gt;
- *                 &lt;/sequence&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="ICMS45"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;element name="CST"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                         &lt;whiteSpace value="preserve"/&gt;
- *                         &lt;enumeration value="40"/&gt;
- *                         &lt;enumeration value="41"/&gt;
- *                         &lt;enumeration value="51"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;sequence minOccurs="0"&gt;
- *                     &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                     &lt;element name="cBenef"&gt;
- *                       &lt;simpleType&gt;
- *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                           &lt;whiteSpace value="preserve"/&gt;
- *                           &lt;maxLength value="10"/&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/simpleType&gt;
- *                     &lt;/element&gt;
- *                   &lt;/sequence&gt;
- *                 &lt;/sequence&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="ICMS90"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;element name="CST"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                         &lt;whiteSpace value="preserve"/&gt;
- *                         &lt;enumeration value="90"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="pRedBC" type="{http://www.portalfiscal.inf.br/cte}TDec_0302Opc" minOccurs="0"/&gt;
- *                   &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                   &lt;element name="pICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
- *                   &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                   &lt;element name="vCred" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/&gt;
- *                   &lt;sequence minOccurs="0"&gt;
- *                     &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                     &lt;element name="cBenef"&gt;
- *                       &lt;simpleType&gt;
- *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                           &lt;whiteSpace value="preserve"/&gt;
- *                           &lt;maxLength value="10"/&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/simpleType&gt;
- *                     &lt;/element&gt;
- *                   &lt;/sequence&gt;
- *                 &lt;/sequence&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="ICMSOutraUF"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;element name="CST"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                         &lt;whiteSpace value="preserve"/&gt;
- *                         &lt;enumeration value="90"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="pRedBCOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_0302Opc" minOccurs="0"/&gt;
- *                   &lt;element name="vBCOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                   &lt;element name="pICMSOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
- *                   &lt;element name="vICMSOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                   &lt;sequence minOccurs="0"&gt;
- *                     &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                     &lt;element name="cBenef"&gt;
- *                       &lt;simpleType&gt;
- *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                           &lt;whiteSpace value="preserve"/&gt;
- *                           &lt;maxLength value="10"/&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/simpleType&gt;
- *                     &lt;/element&gt;
- *                   &lt;/sequence&gt;
- *                 &lt;/sequence&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="ICMSSN"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;element name="CST"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                         &lt;whiteSpace value="preserve"/&gt;
- *                         &lt;enumeration value="90"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="indSN"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                         &lt;whiteSpace value="preserve"/&gt;
- *                         &lt;enumeration value="1"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                 &lt;/sequence&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *       &lt;/choice&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="TImpOS">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;choice>
+ *         &lt;element name="ICMS00">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="CST">
+ *                     &lt;simpleType>
+ *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                         &lt;whiteSpace value="preserve"/>
+ *                         &lt;enumeration value="00"/>
+ *                       &lt;/restriction>
+ *                     &lt;/simpleType>
+ *                   &lt;/element>
+ *                   &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                   &lt;element name="pICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+ *                   &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                 &lt;/sequence>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="ICMS20">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="CST">
+ *                     &lt;simpleType>
+ *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                         &lt;whiteSpace value="preserve"/>
+ *                         &lt;enumeration value="20"/>
+ *                       &lt;/restriction>
+ *                     &lt;/simpleType>
+ *                   &lt;/element>
+ *                   &lt;element name="pRedBC" type="{http://www.portalfiscal.inf.br/cte}TDec_0302Opc"/>
+ *                   &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                   &lt;element name="pICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+ *                   &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                   &lt;sequence minOccurs="0">
+ *                     &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                     &lt;element name="cBenef">
+ *                       &lt;simpleType>
+ *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                           &lt;whiteSpace value="preserve"/>
+ *                           &lt;maxLength value="10"/>
+ *                         &lt;/restriction>
+ *                       &lt;/simpleType>
+ *                     &lt;/element>
+ *                   &lt;/sequence>
+ *                 &lt;/sequence>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="ICMS45">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="CST">
+ *                     &lt;simpleType>
+ *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                         &lt;whiteSpace value="preserve"/>
+ *                         &lt;enumeration value="40"/>
+ *                         &lt;enumeration value="41"/>
+ *                         &lt;enumeration value="51"/>
+ *                       &lt;/restriction>
+ *                     &lt;/simpleType>
+ *                   &lt;/element>
+ *                   &lt;sequence minOccurs="0">
+ *                     &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                     &lt;element name="cBenef">
+ *                       &lt;simpleType>
+ *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                           &lt;whiteSpace value="preserve"/>
+ *                           &lt;maxLength value="10"/>
+ *                         &lt;/restriction>
+ *                       &lt;/simpleType>
+ *                     &lt;/element>
+ *                   &lt;/sequence>
+ *                 &lt;/sequence>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="ICMS90">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="CST">
+ *                     &lt;simpleType>
+ *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                         &lt;whiteSpace value="preserve"/>
+ *                         &lt;enumeration value="90"/>
+ *                       &lt;/restriction>
+ *                     &lt;/simpleType>
+ *                   &lt;/element>
+ *                   &lt;element name="pRedBC" type="{http://www.portalfiscal.inf.br/cte}TDec_0302Opc" minOccurs="0"/>
+ *                   &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                   &lt;element name="pICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+ *                   &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                   &lt;element name="vCred" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
+ *                   &lt;sequence minOccurs="0">
+ *                     &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                     &lt;element name="cBenef">
+ *                       &lt;simpleType>
+ *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                           &lt;whiteSpace value="preserve"/>
+ *                           &lt;maxLength value="10"/>
+ *                         &lt;/restriction>
+ *                       &lt;/simpleType>
+ *                     &lt;/element>
+ *                   &lt;/sequence>
+ *                 &lt;/sequence>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="ICMSOutraUF">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="CST">
+ *                     &lt;simpleType>
+ *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                         &lt;whiteSpace value="preserve"/>
+ *                         &lt;enumeration value="90"/>
+ *                       &lt;/restriction>
+ *                     &lt;/simpleType>
+ *                   &lt;/element>
+ *                   &lt;element name="pRedBCOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_0302Opc" minOccurs="0"/>
+ *                   &lt;element name="vBCOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                   &lt;element name="pICMSOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+ *                   &lt;element name="vICMSOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                   &lt;sequence minOccurs="0">
+ *                     &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                     &lt;element name="cBenef">
+ *                       &lt;simpleType>
+ *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                           &lt;whiteSpace value="preserve"/>
+ *                           &lt;maxLength value="10"/>
+ *                         &lt;/restriction>
+ *                       &lt;/simpleType>
+ *                     &lt;/element>
+ *                   &lt;/sequence>
+ *                 &lt;/sequence>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="ICMSSN">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="CST">
+ *                     &lt;simpleType>
+ *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                         &lt;whiteSpace value="preserve"/>
+ *                         &lt;enumeration value="90"/>
+ *                       &lt;/restriction>
+ *                     &lt;/simpleType>
+ *                   &lt;/element>
+ *                   &lt;element name="indSN">
+ *                     &lt;simpleType>
+ *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                         &lt;whiteSpace value="preserve"/>
+ *                         &lt;enumeration value="1"/>
+ *                       &lt;/restriction>
+ *                     &lt;/simpleType>
+ *                   &lt;/element>
+ *                 &lt;/sequence>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *       &lt;/choice>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
- *
- *
+ * 
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TImpOS", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
-        "icms00",
-        "icms20",
-        "icms45",
-        "icms90",
-        "icmsOutraUF",
-        "icmssn"
+    "icms00",
+    "icms20",
+    "icms45",
+    "icms90",
+    "icmsOutraUF",
+    "icmssn"
 })
 public class TImpOS {
 
@@ -231,11 +231,11 @@ public class TImpOS {
 
     /**
      * Obtém o valor da propriedade icms00.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link TImpOS.ICMS00 }
-     *
+     *     
      */
     public TImpOS.ICMS00 getICMS00() {
         return icms00;
@@ -243,11 +243,11 @@ public class TImpOS {
 
     /**
      * Define o valor da propriedade icms00.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link TImpOS.ICMS00 }
-     *
+     *     
      */
     public void setICMS00(TImpOS.ICMS00 value) {
         this.icms00 = value;
@@ -255,11 +255,11 @@ public class TImpOS {
 
     /**
      * Obtém o valor da propriedade icms20.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link TImpOS.ICMS20 }
-     *
+     *     
      */
     public TImpOS.ICMS20 getICMS20() {
         return icms20;
@@ -267,11 +267,11 @@ public class TImpOS {
 
     /**
      * Define o valor da propriedade icms20.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link TImpOS.ICMS20 }
-     *
+     *     
      */
     public void setICMS20(TImpOS.ICMS20 value) {
         this.icms20 = value;
@@ -279,11 +279,11 @@ public class TImpOS {
 
     /**
      * Obtém o valor da propriedade icms45.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link TImpOS.ICMS45 }
-     *
+     *     
      */
     public TImpOS.ICMS45 getICMS45() {
         return icms45;
@@ -291,11 +291,11 @@ public class TImpOS {
 
     /**
      * Define o valor da propriedade icms45.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link TImpOS.ICMS45 }
-     *
+     *     
      */
     public void setICMS45(TImpOS.ICMS45 value) {
         this.icms45 = value;
@@ -303,11 +303,11 @@ public class TImpOS {
 
     /**
      * Obtém o valor da propriedade icms90.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link TImpOS.ICMS90 }
-     *
+     *     
      */
     public TImpOS.ICMS90 getICMS90() {
         return icms90;
@@ -315,11 +315,11 @@ public class TImpOS {
 
     /**
      * Define o valor da propriedade icms90.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link TImpOS.ICMS90 }
-     *
+     *     
      */
     public void setICMS90(TImpOS.ICMS90 value) {
         this.icms90 = value;
@@ -327,11 +327,11 @@ public class TImpOS {
 
     /**
      * Obtém o valor da propriedade icmsOutraUF.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link TImpOS.ICMSOutraUF }
-     *
+     *     
      */
     public TImpOS.ICMSOutraUF getICMSOutraUF() {
         return icmsOutraUF;
@@ -339,11 +339,11 @@ public class TImpOS {
 
     /**
      * Define o valor da propriedade icmsOutraUF.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link TImpOS.ICMSOutraUF }
-     *
+     *     
      */
     public void setICMSOutraUF(TImpOS.ICMSOutraUF value) {
         this.icmsOutraUF = value;
@@ -351,11 +351,11 @@ public class TImpOS {
 
     /**
      * Obtém o valor da propriedade icmssn.
-     *
+     * 
      * @return
      *     possible object is
      *     {@link TImpOS.ICMSSN }
-     *
+     *     
      */
     public TImpOS.ICMSSN getICMSSN() {
         return icmssn;
@@ -363,11 +363,11 @@ public class TImpOS {
 
     /**
      * Define o valor da propriedade icmssn.
-     *
+     * 
      * @param value
      *     allowed object is
      *     {@link TImpOS.ICMSSN }
-     *
+     *     
      */
     public void setICMSSN(TImpOS.ICMSSN value) {
         this.icmssn = value;
@@ -376,39 +376,39 @@ public class TImpOS {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;element name="CST"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *               &lt;whiteSpace value="preserve"/&gt;
-     *               &lt;enumeration value="00"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *         &lt;element name="pICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
-     *         &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *       &lt;/sequence&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="CST">
+     *           &lt;simpleType>
+     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *               &lt;whiteSpace value="preserve"/>
+     *               &lt;enumeration value="00"/>
+     *             &lt;/restriction>
+     *           &lt;/simpleType>
+     *         &lt;/element>
+     *         &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *         &lt;element name="pICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+     *         &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *       &lt;/sequence>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
      * </pre>
-     *
-     *
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "cst",
-            "vbc",
-            "picms",
-            "vicms"
+        "cst",
+        "vbc",
+        "picms",
+        "vicms"
     })
     public static class ICMS00 {
 
@@ -423,11 +423,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade cst.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getCST() {
             return cst;
@@ -435,11 +435,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade cst.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setCST(String value) {
             this.cst = value;
@@ -447,11 +447,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade vbc.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getVBC() {
             return vbc;
@@ -459,11 +459,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade vbc.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setVBC(String value) {
             this.vbc = value;
@@ -471,11 +471,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade picms.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getPICMS() {
             return picms;
@@ -483,11 +483,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade picms.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setPICMS(String value) {
             this.picms = value;
@@ -495,11 +495,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade vicms.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getVICMS() {
             return vicms;
@@ -507,11 +507,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade vicms.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setVICMS(String value) {
             this.vicms = value;
@@ -522,54 +522,54 @@ public class TImpOS {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;element name="CST"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *               &lt;whiteSpace value="preserve"/&gt;
-     *               &lt;enumeration value="20"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="pRedBC" type="{http://www.portalfiscal.inf.br/cte}TDec_0302Opc"/&gt;
-     *         &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *         &lt;element name="pICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
-     *         &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *         &lt;sequence minOccurs="0"&gt;
-     *           &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *           &lt;element name="cBenef"&gt;
-     *             &lt;simpleType&gt;
-     *               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                 &lt;whiteSpace value="preserve"/&gt;
-     *                 &lt;maxLength value="10"/&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/simpleType&gt;
-     *           &lt;/element&gt;
-     *         &lt;/sequence&gt;
-     *       &lt;/sequence&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="CST">
+     *           &lt;simpleType>
+     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *               &lt;whiteSpace value="preserve"/>
+     *               &lt;enumeration value="20"/>
+     *             &lt;/restriction>
+     *           &lt;/simpleType>
+     *         &lt;/element>
+     *         &lt;element name="pRedBC" type="{http://www.portalfiscal.inf.br/cte}TDec_0302Opc"/>
+     *         &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *         &lt;element name="pICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+     *         &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *         &lt;sequence minOccurs="0">
+     *           &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *           &lt;element name="cBenef">
+     *             &lt;simpleType>
+     *               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                 &lt;whiteSpace value="preserve"/>
+     *                 &lt;maxLength value="10"/>
+     *               &lt;/restriction>
+     *             &lt;/simpleType>
+     *           &lt;/element>
+     *         &lt;/sequence>
+     *       &lt;/sequence>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
      * </pre>
-     *
-     *
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "cst",
-            "pRedBC",
-            "vbc",
-            "picms",
-            "vicms",
-            "vicmsDeson",
-            "cBenef"
+        "cst",
+        "pRedBC",
+        "vbc",
+        "picms",
+        "vicms",
+        "vicmsDeson",
+        "cBenef"
     })
     public static class ICMS20 {
 
@@ -590,11 +590,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade cst.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getCST() {
             return cst;
@@ -602,11 +602,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade cst.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setCST(String value) {
             this.cst = value;
@@ -614,11 +614,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade pRedBC.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getPRedBC() {
             return pRedBC;
@@ -626,11 +626,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade pRedBC.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setPRedBC(String value) {
             this.pRedBC = value;
@@ -638,11 +638,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade vbc.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getVBC() {
             return vbc;
@@ -650,11 +650,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade vbc.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setVBC(String value) {
             this.vbc = value;
@@ -662,11 +662,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade picms.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getPICMS() {
             return picms;
@@ -674,11 +674,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade picms.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setPICMS(String value) {
             this.picms = value;
@@ -686,11 +686,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade vicms.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getVICMS() {
             return vicms;
@@ -698,11 +698,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade vicms.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setVICMS(String value) {
             this.vicms = value;
@@ -710,11 +710,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade vicmsDeson.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getVICMSDeson() {
             return vicmsDeson;
@@ -722,11 +722,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade vicmsDeson.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setVICMSDeson(String value) {
             this.vicmsDeson = value;
@@ -734,11 +734,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade cBenef.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getCBenef() {
             return cBenef;
@@ -746,11 +746,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade cBenef.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setCBenef(String value) {
             this.cBenef = value;
@@ -761,48 +761,48 @@ public class TImpOS {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;element name="CST"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *               &lt;whiteSpace value="preserve"/&gt;
-     *               &lt;enumeration value="40"/&gt;
-     *               &lt;enumeration value="41"/&gt;
-     *               &lt;enumeration value="51"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;sequence minOccurs="0"&gt;
-     *           &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *           &lt;element name="cBenef"&gt;
-     *             &lt;simpleType&gt;
-     *               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                 &lt;whiteSpace value="preserve"/&gt;
-     *                 &lt;maxLength value="10"/&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/simpleType&gt;
-     *           &lt;/element&gt;
-     *         &lt;/sequence&gt;
-     *       &lt;/sequence&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="CST">
+     *           &lt;simpleType>
+     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *               &lt;whiteSpace value="preserve"/>
+     *               &lt;enumeration value="40"/>
+     *               &lt;enumeration value="41"/>
+     *               &lt;enumeration value="51"/>
+     *             &lt;/restriction>
+     *           &lt;/simpleType>
+     *         &lt;/element>
+     *         &lt;sequence minOccurs="0">
+     *           &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *           &lt;element name="cBenef">
+     *             &lt;simpleType>
+     *               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                 &lt;whiteSpace value="preserve"/>
+     *                 &lt;maxLength value="10"/>
+     *               &lt;/restriction>
+     *             &lt;/simpleType>
+     *           &lt;/element>
+     *         &lt;/sequence>
+     *       &lt;/sequence>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
      * </pre>
-     *
-     *
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "cst",
-            "vicmsDeson",
-            "cBenef"
+        "cst",
+        "vicmsDeson",
+        "cBenef"
     })
     public static class ICMS45 {
 
@@ -815,11 +815,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade cst.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getCST() {
             return cst;
@@ -827,11 +827,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade cst.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setCST(String value) {
             this.cst = value;
@@ -839,11 +839,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade vicmsDeson.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getVICMSDeson() {
             return vicmsDeson;
@@ -851,11 +851,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade vicmsDeson.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setVICMSDeson(String value) {
             this.vicmsDeson = value;
@@ -863,11 +863,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade cBenef.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getCBenef() {
             return cBenef;
@@ -875,11 +875,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade cBenef.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setCBenef(String value) {
             this.cBenef = value;
@@ -890,56 +890,56 @@ public class TImpOS {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;element name="CST"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *               &lt;whiteSpace value="preserve"/&gt;
-     *               &lt;enumeration value="90"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="pRedBC" type="{http://www.portalfiscal.inf.br/cte}TDec_0302Opc" minOccurs="0"/&gt;
-     *         &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *         &lt;element name="pICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
-     *         &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *         &lt;element name="vCred" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/&gt;
-     *         &lt;sequence minOccurs="0"&gt;
-     *           &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *           &lt;element name="cBenef"&gt;
-     *             &lt;simpleType&gt;
-     *               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                 &lt;whiteSpace value="preserve"/&gt;
-     *                 &lt;maxLength value="10"/&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/simpleType&gt;
-     *           &lt;/element&gt;
-     *         &lt;/sequence&gt;
-     *       &lt;/sequence&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="CST">
+     *           &lt;simpleType>
+     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *               &lt;whiteSpace value="preserve"/>
+     *               &lt;enumeration value="90"/>
+     *             &lt;/restriction>
+     *           &lt;/simpleType>
+     *         &lt;/element>
+     *         &lt;element name="pRedBC" type="{http://www.portalfiscal.inf.br/cte}TDec_0302Opc" minOccurs="0"/>
+     *         &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *         &lt;element name="pICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+     *         &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *         &lt;element name="vCred" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
+     *         &lt;sequence minOccurs="0">
+     *           &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *           &lt;element name="cBenef">
+     *             &lt;simpleType>
+     *               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                 &lt;whiteSpace value="preserve"/>
+     *                 &lt;maxLength value="10"/>
+     *               &lt;/restriction>
+     *             &lt;/simpleType>
+     *           &lt;/element>
+     *         &lt;/sequence>
+     *       &lt;/sequence>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
      * </pre>
-     *
-     *
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "cst",
-            "pRedBC",
-            "vbc",
-            "picms",
-            "vicms",
-            "vCred",
-            "vicmsDeson",
-            "cBenef"
+        "cst",
+        "pRedBC",
+        "vbc",
+        "picms",
+        "vicms",
+        "vCred",
+        "vicmsDeson",
+        "cBenef"
     })
     public static class ICMS90 {
 
@@ -962,11 +962,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade cst.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getCST() {
             return cst;
@@ -974,11 +974,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade cst.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setCST(String value) {
             this.cst = value;
@@ -986,11 +986,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade pRedBC.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getPRedBC() {
             return pRedBC;
@@ -998,11 +998,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade pRedBC.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setPRedBC(String value) {
             this.pRedBC = value;
@@ -1010,11 +1010,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade vbc.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getVBC() {
             return vbc;
@@ -1022,11 +1022,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade vbc.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setVBC(String value) {
             this.vbc = value;
@@ -1034,11 +1034,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade picms.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getPICMS() {
             return picms;
@@ -1046,11 +1046,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade picms.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setPICMS(String value) {
             this.picms = value;
@@ -1058,11 +1058,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade vicms.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getVICMS() {
             return vicms;
@@ -1070,11 +1070,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade vicms.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setVICMS(String value) {
             this.vicms = value;
@@ -1082,11 +1082,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade vCred.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getVCred() {
             return vCred;
@@ -1094,11 +1094,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade vCred.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setVCred(String value) {
             this.vCred = value;
@@ -1106,11 +1106,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade vicmsDeson.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getVICMSDeson() {
             return vicmsDeson;
@@ -1118,11 +1118,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade vicmsDeson.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setVICMSDeson(String value) {
             this.vicmsDeson = value;
@@ -1130,11 +1130,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade cBenef.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getCBenef() {
             return cBenef;
@@ -1142,11 +1142,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade cBenef.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setCBenef(String value) {
             this.cBenef = value;
@@ -1157,54 +1157,54 @@ public class TImpOS {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;element name="CST"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *               &lt;whiteSpace value="preserve"/&gt;
-     *               &lt;enumeration value="90"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="pRedBCOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_0302Opc" minOccurs="0"/&gt;
-     *         &lt;element name="vBCOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *         &lt;element name="pICMSOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
-     *         &lt;element name="vICMSOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *         &lt;sequence minOccurs="0"&gt;
-     *           &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *           &lt;element name="cBenef"&gt;
-     *             &lt;simpleType&gt;
-     *               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                 &lt;whiteSpace value="preserve"/&gt;
-     *                 &lt;maxLength value="10"/&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/simpleType&gt;
-     *           &lt;/element&gt;
-     *         &lt;/sequence&gt;
-     *       &lt;/sequence&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="CST">
+     *           &lt;simpleType>
+     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *               &lt;whiteSpace value="preserve"/>
+     *               &lt;enumeration value="90"/>
+     *             &lt;/restriction>
+     *           &lt;/simpleType>
+     *         &lt;/element>
+     *         &lt;element name="pRedBCOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_0302Opc" minOccurs="0"/>
+     *         &lt;element name="vBCOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *         &lt;element name="pICMSOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+     *         &lt;element name="vICMSOutraUF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *         &lt;sequence minOccurs="0">
+     *           &lt;element name="vICMSDeson" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *           &lt;element name="cBenef">
+     *             &lt;simpleType>
+     *               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                 &lt;whiteSpace value="preserve"/>
+     *                 &lt;maxLength value="10"/>
+     *               &lt;/restriction>
+     *             &lt;/simpleType>
+     *           &lt;/element>
+     *         &lt;/sequence>
+     *       &lt;/sequence>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
      * </pre>
-     *
-     *
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "cst",
-            "pRedBCOutraUF",
-            "vbcOutraUF",
-            "picmsOutraUF",
-            "vicmsOutraUF",
-            "vicmsDeson",
-            "cBenef"
+        "cst",
+        "pRedBCOutraUF",
+        "vbcOutraUF",
+        "picmsOutraUF",
+        "vicmsOutraUF",
+        "vicmsDeson",
+        "cBenef"
     })
     public static class ICMSOutraUF {
 
@@ -1225,11 +1225,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade cst.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getCST() {
             return cst;
@@ -1237,11 +1237,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade cst.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setCST(String value) {
             this.cst = value;
@@ -1249,11 +1249,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade pRedBCOutraUF.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getPRedBCOutraUF() {
             return pRedBCOutraUF;
@@ -1261,11 +1261,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade pRedBCOutraUF.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setPRedBCOutraUF(String value) {
             this.pRedBCOutraUF = value;
@@ -1273,11 +1273,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade vbcOutraUF.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getVBCOutraUF() {
             return vbcOutraUF;
@@ -1285,11 +1285,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade vbcOutraUF.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setVBCOutraUF(String value) {
             this.vbcOutraUF = value;
@@ -1297,11 +1297,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade picmsOutraUF.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getPICMSOutraUF() {
             return picmsOutraUF;
@@ -1309,11 +1309,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade picmsOutraUF.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setPICMSOutraUF(String value) {
             this.picmsOutraUF = value;
@@ -1321,11 +1321,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade vicmsOutraUF.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getVICMSOutraUF() {
             return vicmsOutraUF;
@@ -1333,11 +1333,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade vicmsOutraUF.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setVICMSOutraUF(String value) {
             this.vicmsOutraUF = value;
@@ -1345,11 +1345,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade vicmsDeson.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getVICMSDeson() {
             return vicmsDeson;
@@ -1357,11 +1357,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade vicmsDeson.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setVICMSDeson(String value) {
             this.vicmsDeson = value;
@@ -1369,11 +1369,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade cBenef.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getCBenef() {
             return cBenef;
@@ -1381,11 +1381,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade cBenef.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setCBenef(String value) {
             this.cBenef = value;
@@ -1396,42 +1396,42 @@ public class TImpOS {
 
     /**
      * <p>Classe Java de anonymous complex type.
-     *
+     * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
-     *
+     * 
      * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;element name="CST"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *               &lt;whiteSpace value="preserve"/&gt;
-     *               &lt;enumeration value="90"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="indSN"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *               &lt;whiteSpace value="preserve"/&gt;
-     *               &lt;enumeration value="1"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *       &lt;/sequence&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="CST">
+     *           &lt;simpleType>
+     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *               &lt;whiteSpace value="preserve"/>
+     *               &lt;enumeration value="90"/>
+     *             &lt;/restriction>
+     *           &lt;/simpleType>
+     *         &lt;/element>
+     *         &lt;element name="indSN">
+     *           &lt;simpleType>
+     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *               &lt;whiteSpace value="preserve"/>
+     *               &lt;enumeration value="1"/>
+     *             &lt;/restriction>
+     *           &lt;/simpleType>
+     *         &lt;/element>
+     *       &lt;/sequence>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
      * </pre>
-     *
-     *
+     * 
+     * 
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-            "cst",
-            "indSN"
+        "cst",
+        "indSN"
     })
     public static class ICMSSN {
 
@@ -1442,11 +1442,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade cst.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getCST() {
             return cst;
@@ -1454,11 +1454,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade cst.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setCST(String value) {
             this.cst = value;
@@ -1466,11 +1466,11 @@ public class TImpOS {
 
         /**
          * Obtém o valor da propriedade indSN.
-         *
+         * 
          * @return
          *     possible object is
          *     {@link String }
-         *
+         *     
          */
         public String getIndSN() {
             return indSN;
@@ -1478,11 +1478,11 @@ public class TImpOS {
 
         /**
          * Define o valor da propriedade indSN.
-         *
+         * 
          * @param value
          *     allowed object is
          *     {@link String }
-         *
+         *     
          */
         public void setIndSN(String value) {
             this.indSN = value;

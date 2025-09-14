@@ -1,7 +1,12 @@
 
 package br.com.swconsultoria.cte.schema_400.consStatServCTe;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
 
 /**
  * Tipo Pedido de Consulta do Status do Serviço CTe
@@ -38,7 +43,6 @@ import javax.xml.bind.annotation.*;
     "cuf",
     "xServ"
 })
-@XmlRootElement(name = "consStatServCTe", namespace = "http://www.portalfiscal.inf.br/cte")
 public class TConsStatServ {
 
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)

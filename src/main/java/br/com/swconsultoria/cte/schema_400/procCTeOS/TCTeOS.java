@@ -182,6 +182,7 @@ import org.w3c.dom.Element;
  *                                 &lt;/simpleType>
  *                               &lt;/element>
  *                             &lt;/sequence>
+ *                             &lt;element name="gCompraGov" type="{http://www.portalfiscal.inf.br/cte}TCompraGovReduzido" minOccurs="0"/>
  *                           &lt;/sequence>
  *                         &lt;/restriction>
  *                       &lt;/complexContent>
@@ -444,6 +445,8 @@ import org.w3c.dom.Element;
  *                                 &lt;/complexContent>
  *                               &lt;/complexType>
  *                             &lt;/element>
+ *                             &lt;element name="IBSCBS" type="{http://www.portalfiscal.inf.br/cte}TTribCTe" minOccurs="0"/>
+ *                             &lt;element name="vTotDFe" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
  *                           &lt;/sequence>
  *                         &lt;/restriction>
  *                       &lt;/complexContent>
@@ -749,7 +752,7 @@ import org.w3c.dom.Element;
  *                 &lt;attribute name="Id" use="required">
  *                   &lt;simpleType>
  *                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}ID">
- *                       &lt;pattern value="CTe[0-9]{44}"/>
+ *                       &lt;pattern value="CTe[0-9]{6}[A-Z0-9]{12}[0-9]{26}"/>
  *                     &lt;/restriction>
  *                   &lt;/simpleType>
  *                 &lt;/attribute>
@@ -768,7 +771,7 @@ import org.w3c.dom.Element;
  *                         &lt;whiteSpace value="preserve"/>
  *                         &lt;minLength value="50"/>
  *                         &lt;maxLength value="1000"/>
- *                         &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{44}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/>
+ *                         &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{6}[A-Z0-9]{12}[0-9]{26}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/>
  *                       &lt;/restriction>
  *                     &lt;/simpleType>
  *                   &lt;/element>
@@ -922,7 +925,7 @@ public class TCTeOS {
      *               &lt;whiteSpace value="preserve"/>
      *               &lt;minLength value="50"/>
      *               &lt;maxLength value="1000"/>
-     *               &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{44}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/>
+     *               &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{6}[A-Z0-9]{12}[0-9]{26}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/>
      *             &lt;/restriction>
      *           &lt;/simpleType>
      *         &lt;/element>
@@ -1129,6 +1132,7 @@ public class TCTeOS {
      *                       &lt;/simpleType>
      *                     &lt;/element>
      *                   &lt;/sequence>
+     *                   &lt;element name="gCompraGov" type="{http://www.portalfiscal.inf.br/cte}TCompraGovReduzido" minOccurs="0"/>
      *                 &lt;/sequence>
      *               &lt;/restriction>
      *             &lt;/complexContent>
@@ -1391,6 +1395,8 @@ public class TCTeOS {
      *                       &lt;/complexContent>
      *                     &lt;/complexType>
      *                   &lt;/element>
+     *                   &lt;element name="IBSCBS" type="{http://www.portalfiscal.inf.br/cte}TTribCTe" minOccurs="0"/>
+     *                   &lt;element name="vTotDFe" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
      *                 &lt;/sequence>
      *               &lt;/restriction>
      *             &lt;/complexContent>
@@ -1696,7 +1702,7 @@ public class TCTeOS {
      *       &lt;attribute name="Id" use="required">
      *         &lt;simpleType>
      *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}ID">
-     *             &lt;pattern value="CTe[0-9]{44}"/>
+     *             &lt;pattern value="CTe[0-9]{6}[A-Z0-9]{12}[0-9]{26}"/>
      *           &lt;/restriction>
      *         &lt;/simpleType>
      *       &lt;/attribute>
@@ -3009,6 +3015,7 @@ public class TCTeOS {
          *             &lt;/simpleType>
          *           &lt;/element>
          *         &lt;/sequence>
+         *         &lt;element name="gCompraGov" type="{http://www.portalfiscal.inf.br/cte}TCompraGovReduzido" minOccurs="0"/>
          *       &lt;/sequence>
          *     &lt;/restriction>
          *   &lt;/complexContent>
@@ -3048,7 +3055,8 @@ public class TCTeOS {
             "ufFim",
             "infPercurso",
             "dhCont",
-            "xJust"
+            "xJust",
+            "gCompraGov"
         })
         public static class Ide {
 
@@ -3115,6 +3123,8 @@ public class TCTeOS {
             protected String dhCont;
             @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String xJust;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TCompraGovReduzido gCompraGov;
 
             /**
              * Obtém o valor da propriedade cuf.
@@ -3841,6 +3851,30 @@ public class TCTeOS {
                 this.xJust = value;
             }
 
+            /**
+             * Obtém o valor da propriedade gCompraGov.
+             * 
+             * @return
+             *     possible object is
+             *     {@link TCompraGovReduzido }
+             *     
+             */
+            public TCompraGovReduzido getGCompraGov() {
+                return gCompraGov;
+            }
+
+            /**
+             * Define o valor da propriedade gCompraGov.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link TCompraGovReduzido }
+             *     
+             */
+            public void setGCompraGov(TCompraGovReduzido value) {
+                this.gCompraGov = value;
+            }
+
 
             /**
              * <p>Classe Java de anonymous complex type.
@@ -3952,6 +3986,8 @@ public class TCTeOS {
          *             &lt;/complexContent>
          *           &lt;/complexType>
          *         &lt;/element>
+         *         &lt;element name="IBSCBS" type="{http://www.portalfiscal.inf.br/cte}TTribCTe" minOccurs="0"/>
+         *         &lt;element name="vTotDFe" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
          *       &lt;/sequence>
          *     &lt;/restriction>
          *   &lt;/complexContent>
@@ -3966,7 +4002,9 @@ public class TCTeOS {
             "vTotTrib",
             "infAdFisco",
             "icmsufFim",
-            "infTribFed"
+            "infTribFed",
+            "ibscbs",
+            "vTotDFe"
         })
         public static class Imp {
 
@@ -3980,6 +4018,10 @@ public class TCTeOS {
             protected TCTeOS.InfCte.Imp.ICMSUFFim icmsufFim;
             @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected TCTeOS.InfCte.Imp.InfTribFed infTribFed;
+            @XmlElement(name = "IBSCBS", namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TTribCTe ibscbs;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected String vTotDFe;
 
             /**
              * Obtém o valor da propriedade icms.
@@ -4099,6 +4141,54 @@ public class TCTeOS {
              */
             public void setInfTribFed(TCTeOS.InfCte.Imp.InfTribFed value) {
                 this.infTribFed = value;
+            }
+
+            /**
+             * Obtém o valor da propriedade ibscbs.
+             * 
+             * @return
+             *     possible object is
+             *     {@link TTribCTe }
+             *     
+             */
+            public TTribCTe getIBSCBS() {
+                return ibscbs;
+            }
+
+            /**
+             * Define o valor da propriedade ibscbs.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link TTribCTe }
+             *     
+             */
+            public void setIBSCBS(TTribCTe value) {
+                this.ibscbs = value;
+            }
+
+            /**
+             * Obtém o valor da propriedade vTotDFe.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getVTotDFe() {
+                return vTotDFe;
+            }
+
+            /**
+             * Define o valor da propriedade vTotDFe.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setVTotDFe(String value) {
+                this.vTotDFe = value;
             }
 
 

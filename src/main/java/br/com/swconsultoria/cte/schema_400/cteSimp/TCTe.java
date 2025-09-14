@@ -1,1505 +1,1523 @@
 
-
-
 package br.com.swconsultoria.cte.schema_400.cteSimp;
 
-import org.w3c.dom.Element;
-
-import javax.xml.bind.annotation.*;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAnyElement;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import org.w3c.dom.Element;
 
 
 /**
  * Tipo Conhecimento de Transporte Eletrônico (Modelo 57)
  * 
- * <p>Java class for TCTe complex type.
+ * <p>Classe Java de TCTe complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="TCTe"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="infCte"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;element name="ide"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/cte}TCodUfIBGE"/&gt;
- *                             &lt;element name="cCT"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                   &lt;whiteSpace value="preserve"/&gt;
- *                                   &lt;pattern value="[0-9]{8}"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="CFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/&gt;
- *                             &lt;element name="natOp"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;minLength value="1"/&gt;
- *                                   &lt;maxLength value="60"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModCT"/&gt;
- *                             &lt;element name="serie"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TSerie"&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="nCT" type="{http://www.portalfiscal.inf.br/cte}TNF"/&gt;
- *                             &lt;element name="dhEmi"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC"&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="tpImp"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                   &lt;whiteSpace value="preserve"/&gt;
- *                                   &lt;enumeration value="1"/&gt;
- *                                   &lt;enumeration value="2"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="tpEmis"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                   &lt;whiteSpace value="preserve"/&gt;
- *                                   &lt;enumeration value="1"/&gt;
- *                                   &lt;enumeration value="3"/&gt;
- *                                   &lt;enumeration value="4"/&gt;
- *                                   &lt;enumeration value="5"/&gt;
- *                                   &lt;enumeration value="7"/&gt;
- *                                   &lt;enumeration value="8"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="cDV"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                   &lt;whiteSpace value="preserve"/&gt;
- *                                   &lt;pattern value="[0-9]{1}"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/&gt;
- *                             &lt;element name="tpCTe" type="{http://www.portalfiscal.inf.br/cte}TFinCTe"/&gt;
- *                             &lt;element name="procEmi" type="{http://www.portalfiscal.inf.br/cte}TProcEmi"/&gt;
- *                             &lt;element name="verProc"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;minLength value="1"/&gt;
- *                                   &lt;maxLength value="20"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="indGlobalizado" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                   &lt;enumeration value="1"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="cMunEnv" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/&gt;
- *                             &lt;element name="xMunEnv"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;minLength value="2"/&gt;
- *                                   &lt;maxLength value="60"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="UFEnv" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
- *                             &lt;element name="modal" type="{http://www.portalfiscal.inf.br/cte}TModTransp"/&gt;
- *                             &lt;element name="tpServ"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                   &lt;whiteSpace value="preserve"/&gt;
- *                                   &lt;enumeration value="0"/&gt;
- *                                   &lt;enumeration value="1"/&gt;
- *                                   &lt;enumeration value="2"/&gt;
- *                                   &lt;enumeration value="3"/&gt;
- *                                   &lt;enumeration value="4"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="cMunIni" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/&gt;
- *                             &lt;element name="xMunIni"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;minLength value="2"/&gt;
- *                                   &lt;maxLength value="60"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="UFIni" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
- *                             &lt;element name="cMunFim" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/&gt;
- *                             &lt;element name="xMunFim"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;minLength value="2"/&gt;
- *                                   &lt;maxLength value="60"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="UFFim" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
- *                             &lt;element name="retira"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                   &lt;whiteSpace value="preserve"/&gt;
- *                                   &lt;enumeration value="0"/&gt;
- *                                   &lt;enumeration value="1"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="xDetRetira" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;minLength value="1"/&gt;
- *                                   &lt;maxLength value="160"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="indIEToma"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                   &lt;whiteSpace value="preserve"/&gt;
- *                                   &lt;enumeration value="1"/&gt;
- *                                   &lt;enumeration value="2"/&gt;
- *                                   &lt;enumeration value="9"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;choice&gt;
- *                               &lt;element name="toma3"&gt;
- *                                 &lt;complexType&gt;
- *                                   &lt;complexContent&gt;
- *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                       &lt;sequence&gt;
- *                                         &lt;element name="toma"&gt;
- *                                           &lt;simpleType&gt;
- *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                               &lt;whiteSpace value="preserve"/&gt;
- *                                               &lt;enumeration value="0"/&gt;
- *                                               &lt;enumeration value="1"/&gt;
- *                                               &lt;enumeration value="2"/&gt;
- *                                               &lt;enumeration value="3"/&gt;
- *                                             &lt;/restriction&gt;
- *                                           &lt;/simpleType&gt;
- *                                         &lt;/element&gt;
- *                                       &lt;/sequence&gt;
- *                                     &lt;/restriction&gt;
- *                                   &lt;/complexContent&gt;
- *                                 &lt;/complexType&gt;
- *                               &lt;/element&gt;
- *                               &lt;element name="toma4"&gt;
- *                                 &lt;complexType&gt;
- *                                   &lt;complexContent&gt;
- *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                       &lt;sequence&gt;
- *                                         &lt;element name="toma"&gt;
- *                                           &lt;simpleType&gt;
- *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                               &lt;whiteSpace value="preserve"/&gt;
- *                                               &lt;enumeration value="4"/&gt;
- *                                             &lt;/restriction&gt;
- *                                           &lt;/simpleType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;choice&gt;
- *                                           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
- *                                           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
- *                                         &lt;/choice&gt;
- *                                         &lt;element name="IE" minOccurs="0"&gt;
- *                                           &lt;simpleType&gt;
- *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
- *                                             &lt;/restriction&gt;
- *                                           &lt;/simpleType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;sequence&gt;
- *                                           &lt;element name="xNome"&gt;
- *                                             &lt;simpleType&gt;
- *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                 &lt;maxLength value="60"/&gt;
- *                                                 &lt;minLength value="2"/&gt;
- *                                               &lt;/restriction&gt;
- *                                             &lt;/simpleType&gt;
- *                                           &lt;/element&gt;
- *                                           &lt;element name="xFant" minOccurs="0"&gt;
- *                                             &lt;simpleType&gt;
- *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                 &lt;maxLength value="60"/&gt;
- *                                                 &lt;minLength value="2"/&gt;
- *                                               &lt;/restriction&gt;
- *                                             &lt;/simpleType&gt;
- *                                           &lt;/element&gt;
- *                                           &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
- *                                           &lt;element name="enderToma" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
- *                                           &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/&gt;
- *                                         &lt;/sequence&gt;
- *                                       &lt;/sequence&gt;
- *                                     &lt;/restriction&gt;
- *                                   &lt;/complexContent&gt;
- *                                 &lt;/complexType&gt;
- *                               &lt;/element&gt;
- *                             &lt;/choice&gt;
- *                             &lt;sequence minOccurs="0"&gt;
- *                               &lt;element name="dhCont" type="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC"/&gt;
- *                               &lt;element name="xJust"&gt;
- *                                 &lt;simpleType&gt;
- *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                     &lt;minLength value="15"/&gt;
- *                                     &lt;maxLength value="256"/&gt;
- *                                   &lt;/restriction&gt;
- *                                 &lt;/simpleType&gt;
- *                               &lt;/element&gt;
- *                             &lt;/sequence&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="compl" minOccurs="0"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;element name="xCaracAd" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;minLength value="1"/&gt;
- *                                   &lt;maxLength value="15"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="xCaracSer" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;minLength value="1"/&gt;
- *                                   &lt;maxLength value="30"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="xEmi" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;minLength value="1"/&gt;
- *                                   &lt;maxLength value="20"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="fluxo" minOccurs="0"&gt;
- *                               &lt;complexType&gt;
- *                                 &lt;complexContent&gt;
- *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                     &lt;sequence&gt;
- *                                       &lt;element name="xOrig" minOccurs="0"&gt;
- *                                         &lt;simpleType&gt;
- *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                             &lt;minLength value="1"/&gt;
- *                                             &lt;maxLength value="60"/&gt;
- *                                           &lt;/restriction&gt;
- *                                         &lt;/simpleType&gt;
- *                                       &lt;/element&gt;
- *                                       &lt;element name="pass" maxOccurs="unbounded" minOccurs="0"&gt;
- *                                         &lt;complexType&gt;
- *                                           &lt;complexContent&gt;
- *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                               &lt;sequence&gt;
- *                                                 &lt;element name="xPass" minOccurs="0"&gt;
- *                                                   &lt;simpleType&gt;
- *                                                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                       &lt;minLength value="1"/&gt;
- *                                                       &lt;maxLength value="15"/&gt;
- *                                                     &lt;/restriction&gt;
- *                                                   &lt;/simpleType&gt;
- *                                                 &lt;/element&gt;
- *                                               &lt;/sequence&gt;
- *                                             &lt;/restriction&gt;
- *                                           &lt;/complexContent&gt;
- *                                         &lt;/complexType&gt;
- *                                       &lt;/element&gt;
- *                                       &lt;element name="xDest" minOccurs="0"&gt;
- *                                         &lt;simpleType&gt;
- *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                             &lt;minLength value="1"/&gt;
- *                                             &lt;maxLength value="60"/&gt;
- *                                           &lt;/restriction&gt;
- *                                         &lt;/simpleType&gt;
- *                                       &lt;/element&gt;
- *                                       &lt;element name="xRota" minOccurs="0"&gt;
- *                                         &lt;simpleType&gt;
- *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                             &lt;minLength value="1"/&gt;
- *                                             &lt;maxLength value="10"/&gt;
- *                                           &lt;/restriction&gt;
- *                                         &lt;/simpleType&gt;
- *                                       &lt;/element&gt;
- *                                     &lt;/sequence&gt;
- *                                   &lt;/restriction&gt;
- *                                 &lt;/complexContent&gt;
- *                               &lt;/complexType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="Entrega" minOccurs="0"&gt;
- *                               &lt;complexType&gt;
- *                                 &lt;complexContent&gt;
- *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                     &lt;sequence&gt;
- *                                       &lt;choice&gt;
- *                                         &lt;element name="semData"&gt;
- *                                           &lt;complexType&gt;
- *                                             &lt;complexContent&gt;
- *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                 &lt;sequence&gt;
- *                                                   &lt;element name="tpPer"&gt;
- *                                                     &lt;simpleType&gt;
- *                                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                                         &lt;whiteSpace value="preserve"/&gt;
- *                                                         &lt;enumeration value="0"/&gt;
- *                                                       &lt;/restriction&gt;
- *                                                     &lt;/simpleType&gt;
- *                                                   &lt;/element&gt;
- *                                                 &lt;/sequence&gt;
- *                                               &lt;/restriction&gt;
- *                                             &lt;/complexContent&gt;
- *                                           &lt;/complexType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;element name="comData"&gt;
- *                                           &lt;complexType&gt;
- *                                             &lt;complexContent&gt;
- *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                 &lt;sequence&gt;
- *                                                   &lt;element name="tpPer"&gt;
- *                                                     &lt;simpleType&gt;
- *                                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                                         &lt;whiteSpace value="preserve"/&gt;
- *                                                         &lt;enumeration value="1"/&gt;
- *                                                         &lt;enumeration value="2"/&gt;
- *                                                         &lt;enumeration value="3"/&gt;
- *                                                       &lt;/restriction&gt;
- *                                                     &lt;/simpleType&gt;
- *                                                   &lt;/element&gt;
- *                                                   &lt;element name="dProg" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
- *                                                 &lt;/sequence&gt;
- *                                               &lt;/restriction&gt;
- *                                             &lt;/complexContent&gt;
- *                                           &lt;/complexType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;element name="noPeriodo"&gt;
- *                                           &lt;complexType&gt;
- *                                             &lt;complexContent&gt;
- *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                 &lt;sequence&gt;
- *                                                   &lt;element name="tpPer"&gt;
- *                                                     &lt;simpleType&gt;
- *                                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                                         &lt;whiteSpace value="preserve"/&gt;
- *                                                         &lt;enumeration value="4"/&gt;
- *                                                       &lt;/restriction&gt;
- *                                                     &lt;/simpleType&gt;
- *                                                   &lt;/element&gt;
- *                                                   &lt;element name="dIni" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
- *                                                   &lt;element name="dFim" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
- *                                                 &lt;/sequence&gt;
- *                                               &lt;/restriction&gt;
- *                                             &lt;/complexContent&gt;
- *                                           &lt;/complexType&gt;
- *                                         &lt;/element&gt;
- *                                       &lt;/choice&gt;
- *                                       &lt;choice&gt;
- *                                         &lt;element name="semHora"&gt;
- *                                           &lt;complexType&gt;
- *                                             &lt;complexContent&gt;
- *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                 &lt;sequence&gt;
- *                                                   &lt;element name="tpHor"&gt;
- *                                                     &lt;simpleType&gt;
- *                                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                                         &lt;whiteSpace value="preserve"/&gt;
- *                                                         &lt;enumeration value="0"/&gt;
- *                                                       &lt;/restriction&gt;
- *                                                     &lt;/simpleType&gt;
- *                                                   &lt;/element&gt;
- *                                                 &lt;/sequence&gt;
- *                                               &lt;/restriction&gt;
- *                                             &lt;/complexContent&gt;
- *                                           &lt;/complexType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;element name="comHora"&gt;
- *                                           &lt;complexType&gt;
- *                                             &lt;complexContent&gt;
- *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                 &lt;sequence&gt;
- *                                                   &lt;element name="tpHor"&gt;
- *                                                     &lt;simpleType&gt;
- *                                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                                         &lt;whiteSpace value="preserve"/&gt;
- *                                                         &lt;enumeration value="1"/&gt;
- *                                                         &lt;enumeration value="2"/&gt;
- *                                                         &lt;enumeration value="3"/&gt;
- *                                                       &lt;/restriction&gt;
- *                                                     &lt;/simpleType&gt;
- *                                                   &lt;/element&gt;
- *                                                   &lt;element name="hProg" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
- *                                                 &lt;/sequence&gt;
- *                                               &lt;/restriction&gt;
- *                                             &lt;/complexContent&gt;
- *                                           &lt;/complexType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;element name="noInter"&gt;
- *                                           &lt;complexType&gt;
- *                                             &lt;complexContent&gt;
- *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                 &lt;sequence&gt;
- *                                                   &lt;element name="tpHor"&gt;
- *                                                     &lt;simpleType&gt;
- *                                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                                         &lt;whiteSpace value="preserve"/&gt;
- *                                                         &lt;enumeration value="4"/&gt;
- *                                                       &lt;/restriction&gt;
- *                                                     &lt;/simpleType&gt;
- *                                                   &lt;/element&gt;
- *                                                   &lt;element name="hIni" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
- *                                                   &lt;element name="hFim" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
- *                                                 &lt;/sequence&gt;
- *                                               &lt;/restriction&gt;
- *                                             &lt;/complexContent&gt;
- *                                           &lt;/complexType&gt;
- *                                         &lt;/element&gt;
- *                                       &lt;/choice&gt;
- *                                     &lt;/sequence&gt;
- *                                   &lt;/restriction&gt;
- *                                 &lt;/complexContent&gt;
- *                               &lt;/complexType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="origCalc" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;minLength value="2"/&gt;
- *                                   &lt;maxLength value="40"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="destCalc" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;minLength value="2"/&gt;
- *                                   &lt;maxLength value="40"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="xObs" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;minLength value="1"/&gt;
- *                                   &lt;maxLength value="2000"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="ObsCont" maxOccurs="10" minOccurs="0"&gt;
- *                               &lt;complexType&gt;
- *                                 &lt;complexContent&gt;
- *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                     &lt;sequence&gt;
- *                                       &lt;element name="xTexto"&gt;
- *                                         &lt;simpleType&gt;
- *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                             &lt;minLength value="1"/&gt;
- *                                             &lt;maxLength value="160"/&gt;
- *                                           &lt;/restriction&gt;
- *                                         &lt;/simpleType&gt;
- *                                       &lt;/element&gt;
- *                                     &lt;/sequence&gt;
- *                                     &lt;attribute name="xCampo" use="required"&gt;
- *                                       &lt;simpleType&gt;
- *                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                           &lt;minLength value="1"/&gt;
- *                                           &lt;maxLength value="20"/&gt;
- *                                         &lt;/restriction&gt;
- *                                       &lt;/simpleType&gt;
- *                                     &lt;/attribute&gt;
- *                                   &lt;/restriction&gt;
- *                                 &lt;/complexContent&gt;
- *                               &lt;/complexType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="ObsFisco" maxOccurs="10" minOccurs="0"&gt;
- *                               &lt;complexType&gt;
- *                                 &lt;complexContent&gt;
- *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                     &lt;sequence&gt;
- *                                       &lt;element name="xTexto"&gt;
- *                                         &lt;simpleType&gt;
- *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                             &lt;minLength value="1"/&gt;
- *                                             &lt;maxLength value="60"/&gt;
- *                                           &lt;/restriction&gt;
- *                                         &lt;/simpleType&gt;
- *                                       &lt;/element&gt;
- *                                     &lt;/sequence&gt;
- *                                     &lt;attribute name="xCampo" use="required"&gt;
- *                                       &lt;simpleType&gt;
- *                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                           &lt;minLength value="1"/&gt;
- *                                           &lt;maxLength value="20"/&gt;
- *                                         &lt;/restriction&gt;
- *                                       &lt;/simpleType&gt;
- *                                     &lt;/attribute&gt;
- *                                   &lt;/restriction&gt;
- *                                 &lt;/complexContent&gt;
- *                               &lt;/complexType&gt;
- *                             &lt;/element&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="emit"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;choice&gt;
- *                               &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/&gt;
- *                               &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
- *                             &lt;/choice&gt;
- *                             &lt;element name="IE" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIe"&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="IEST" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIe"&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="xNome"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;maxLength value="60"/&gt;
- *                                   &lt;minLength value="2"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="xFant" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;maxLength value="60"/&gt;
- *                                   &lt;minLength value="2"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="enderEmit" type="{http://www.portalfiscal.inf.br/cte}TEndeEmi"/&gt;
- *                             &lt;element name="CRT" type="{http://www.portalfiscal.inf.br/cte}TCRT"/&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="rem" minOccurs="0"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;choice&gt;
- *                               &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
- *                               &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
- *                             &lt;/choice&gt;
- *                             &lt;element name="IE" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="xNome"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;maxLength value="60"/&gt;
- *                                   &lt;minLength value="2"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="xFant" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;maxLength value="60"/&gt;
- *                                   &lt;minLength value="2"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
- *                             &lt;element name="enderReme" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
- *                             &lt;element name="email" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TEmail"&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="exped" minOccurs="0"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;choice&gt;
- *                               &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
- *                               &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
- *                             &lt;/choice&gt;
- *                             &lt;element name="IE" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="xNome"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;maxLength value="60"/&gt;
- *                                   &lt;minLength value="2"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
- *                             &lt;element name="enderExped" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
- *                             &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="receb" minOccurs="0"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;choice&gt;
- *                               &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
- *                               &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
- *                             &lt;/choice&gt;
- *                             &lt;element name="IE" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="xNome"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;maxLength value="60"/&gt;
- *                                   &lt;minLength value="2"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
- *                             &lt;element name="enderReceb" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
- *                             &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="dest" minOccurs="0"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;choice&gt;
- *                               &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
- *                               &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
- *                             &lt;/choice&gt;
- *                             &lt;element name="IE" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="xNome"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;maxLength value="60"/&gt;
- *                                   &lt;minLength value="2"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
- *                             &lt;element name="ISUF" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                   &lt;whiteSpace value="preserve"/&gt;
- *                                   &lt;pattern value="[0-9]{8,9}"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="enderDest" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
- *                             &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="vPrest"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;element name="vTPrest" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                             &lt;element name="vRec" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                             &lt;element name="Comp" maxOccurs="unbounded" minOccurs="0"&gt;
- *                               &lt;complexType&gt;
- *                                 &lt;complexContent&gt;
- *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                     &lt;sequence&gt;
- *                                       &lt;element name="xNome"&gt;
- *                                         &lt;simpleType&gt;
- *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                             &lt;maxLength value="15"/&gt;
- *                                             &lt;minLength value="1"/&gt;
- *                                           &lt;/restriction&gt;
- *                                         &lt;/simpleType&gt;
- *                                       &lt;/element&gt;
- *                                       &lt;element name="vComp" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                                     &lt;/sequence&gt;
- *                                   &lt;/restriction&gt;
- *                                 &lt;/complexContent&gt;
- *                               &lt;/complexType&gt;
- *                             &lt;/element&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="imp"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;element name="ICMS" type="{http://www.portalfiscal.inf.br/cte}TImp"/&gt;
- *                             &lt;element name="vTotTrib" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/&gt;
- *                             &lt;element name="infAdFisco" minOccurs="0"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;maxLength value="2000"/&gt;
- *                                   &lt;minLength value="1"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                             &lt;element name="ICMSUFFim" minOccurs="0"&gt;
- *                               &lt;complexType&gt;
- *                                 &lt;complexContent&gt;
- *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                     &lt;sequence&gt;
- *                                       &lt;element name="vBCUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                                       &lt;element name="pFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
- *                                       &lt;element name="pICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
- *                                       &lt;element name="pICMSInter" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
- *                                       &lt;element name="vFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                                       &lt;element name="vICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                                       &lt;element name="vICMSUFIni" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                                     &lt;/sequence&gt;
- *                                   &lt;/restriction&gt;
- *                                 &lt;/complexContent&gt;
- *                               &lt;/complexType&gt;
- *                             &lt;/element&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                   &lt;choice&gt;
- *                     &lt;element name="infCTeNorm"&gt;
- *                       &lt;complexType&gt;
- *                         &lt;complexContent&gt;
- *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                             &lt;sequence&gt;
- *                               &lt;element name="infCarga"&gt;
- *                                 &lt;complexType&gt;
- *                                   &lt;complexContent&gt;
- *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                       &lt;sequence&gt;
- *                                         &lt;element name="vCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/&gt;
- *                                         &lt;element name="proPred"&gt;
- *                                           &lt;simpleType&gt;
- *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                               &lt;minLength value="1"/&gt;
- *                                               &lt;maxLength value="60"/&gt;
- *                                             &lt;/restriction&gt;
- *                                           &lt;/simpleType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;element name="xOutCat" minOccurs="0"&gt;
- *                                           &lt;simpleType&gt;
- *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                               &lt;minLength value="1"/&gt;
- *                                               &lt;maxLength value="30"/&gt;
- *                                             &lt;/restriction&gt;
- *                                           &lt;/simpleType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;element name="infQ" maxOccurs="unbounded"&gt;
- *                                           &lt;complexType&gt;
- *                                             &lt;complexContent&gt;
- *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                 &lt;sequence&gt;
- *                                                   &lt;element name="cUnid"&gt;
- *                                                     &lt;simpleType&gt;
- *                                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                                         &lt;whiteSpace value="preserve"/&gt;
- *                                                         &lt;enumeration value="00"/&gt;
- *                                                         &lt;enumeration value="01"/&gt;
- *                                                         &lt;enumeration value="02"/&gt;
- *                                                         &lt;enumeration value="03"/&gt;
- *                                                         &lt;enumeration value="04"/&gt;
- *                                                         &lt;enumeration value="05"/&gt;
- *                                                       &lt;/restriction&gt;
- *                                                     &lt;/simpleType&gt;
- *                                                   &lt;/element&gt;
- *                                                   &lt;element name="tpMed"&gt;
- *                                                     &lt;simpleType&gt;
- *                                                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                         &lt;minLength value="1"/&gt;
- *                                                         &lt;maxLength value="20"/&gt;
- *                                                       &lt;/restriction&gt;
- *                                                     &lt;/simpleType&gt;
- *                                                   &lt;/element&gt;
- *                                                   &lt;element name="qCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1104"/&gt;
- *                                                 &lt;/sequence&gt;
- *                                               &lt;/restriction&gt;
- *                                             &lt;/complexContent&gt;
- *                                           &lt;/complexType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;element name="vCargaAverb" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
- *                                       &lt;/sequence&gt;
- *                                     &lt;/restriction&gt;
- *                                   &lt;/complexContent&gt;
- *                                 &lt;/complexType&gt;
- *                               &lt;/element&gt;
- *                               &lt;element name="infDoc" minOccurs="0"&gt;
- *                                 &lt;complexType&gt;
- *                                   &lt;complexContent&gt;
- *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                       &lt;sequence&gt;
- *                                         &lt;choice&gt;
- *                                           &lt;element name="infNF" maxOccurs="unbounded"&gt;
- *                                             &lt;complexType&gt;
- *                                               &lt;complexContent&gt;
- *                                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                   &lt;sequence&gt;
- *                                                     &lt;element name="nRoma" minOccurs="0"&gt;
- *                                                       &lt;simpleType&gt;
- *                                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                           &lt;minLength value="1"/&gt;
- *                                                           &lt;maxLength value="20"/&gt;
- *                                                         &lt;/restriction&gt;
- *                                                       &lt;/simpleType&gt;
- *                                                     &lt;/element&gt;
- *                                                     &lt;element name="nPed" minOccurs="0"&gt;
- *                                                       &lt;simpleType&gt;
- *                                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                           &lt;minLength value="1"/&gt;
- *                                                           &lt;maxLength value="20"/&gt;
- *                                                         &lt;/restriction&gt;
- *                                                       &lt;/simpleType&gt;
- *                                                     &lt;/element&gt;
- *                                                     &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModNF"/&gt;
- *                                                     &lt;element name="serie"&gt;
- *                                                       &lt;simpleType&gt;
- *                                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                           &lt;minLength value="1"/&gt;
- *                                                           &lt;maxLength value="3"/&gt;
- *                                                         &lt;/restriction&gt;
- *                                                       &lt;/simpleType&gt;
- *                                                     &lt;/element&gt;
- *                                                     &lt;element name="nDoc"&gt;
- *                                                       &lt;simpleType&gt;
- *                                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                           &lt;minLength value="1"/&gt;
- *                                                           &lt;maxLength value="20"/&gt;
- *                                                         &lt;/restriction&gt;
- *                                                       &lt;/simpleType&gt;
- *                                                     &lt;/element&gt;
- *                                                     &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
- *                                                     &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                                                     &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                                                     &lt;element name="vBCST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                                                     &lt;element name="vST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                                                     &lt;element name="vProd" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                                                     &lt;element name="vNF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                                                     &lt;element name="nCFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/&gt;
- *                                                     &lt;element name="nPeso" type="{http://www.portalfiscal.inf.br/cte}TDec_1203Opc" minOccurs="0"/&gt;
- *                                                     &lt;element name="PIN" minOccurs="0"&gt;
- *                                                       &lt;simpleType&gt;
- *                                                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                                           &lt;whiteSpace value="preserve"/&gt;
- *                                                           &lt;minLength value="2"/&gt;
- *                                                           &lt;maxLength value="9"/&gt;
- *                                                           &lt;pattern value="[1-9]{1}[0-9]{1,8}"/&gt;
- *                                                         &lt;/restriction&gt;
- *                                                       &lt;/simpleType&gt;
- *                                                     &lt;/element&gt;
- *                                                     &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
- *                                                     &lt;choice&gt;
- *                                                       &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
- *                                                       &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
- *                                                     &lt;/choice&gt;
- *                                                   &lt;/sequence&gt;
- *                                                 &lt;/restriction&gt;
- *                                               &lt;/complexContent&gt;
- *                                             &lt;/complexType&gt;
- *                                           &lt;/element&gt;
- *                                           &lt;element name="infNFe" maxOccurs="unbounded"&gt;
- *                                             &lt;complexType&gt;
- *                                               &lt;complexContent&gt;
- *                                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                   &lt;sequence&gt;
- *                                                     &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
- *                                                     &lt;element name="PIN" minOccurs="0"&gt;
- *                                                       &lt;simpleType&gt;
- *                                                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                                           &lt;whiteSpace value="preserve"/&gt;
- *                                                           &lt;minLength value="2"/&gt;
- *                                                           &lt;maxLength value="9"/&gt;
- *                                                           &lt;pattern value="[1-9]{1}[0-9]{1,8}"/&gt;
- *                                                         &lt;/restriction&gt;
- *                                                       &lt;/simpleType&gt;
- *                                                     &lt;/element&gt;
- *                                                     &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
- *                                                     &lt;choice&gt;
- *                                                       &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
- *                                                       &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
- *                                                     &lt;/choice&gt;
- *                                                   &lt;/sequence&gt;
- *                                                 &lt;/restriction&gt;
- *                                               &lt;/complexContent&gt;
- *                                             &lt;/complexType&gt;
- *                                           &lt;/element&gt;
- *                                           &lt;element name="infOutros" maxOccurs="unbounded"&gt;
- *                                             &lt;complexType&gt;
- *                                               &lt;complexContent&gt;
- *                                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                   &lt;sequence&gt;
- *                                                     &lt;element name="tpDoc"&gt;
- *                                                       &lt;simpleType&gt;
- *                                                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                                           &lt;whiteSpace value="preserve"/&gt;
- *                                                           &lt;enumeration value="00"/&gt;
- *                                                           &lt;enumeration value="10"/&gt;
- *                                                           &lt;enumeration value="59"/&gt;
- *                                                           &lt;enumeration value="65"/&gt;
- *                                                           &lt;enumeration value="99"/&gt;
- *                                                         &lt;/restriction&gt;
- *                                                       &lt;/simpleType&gt;
- *                                                     &lt;/element&gt;
- *                                                     &lt;element name="descOutros" minOccurs="0"&gt;
- *                                                       &lt;simpleType&gt;
- *                                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                           &lt;minLength value="1"/&gt;
- *                                                           &lt;maxLength value="100"/&gt;
- *                                                         &lt;/restriction&gt;
- *                                                       &lt;/simpleType&gt;
- *                                                     &lt;/element&gt;
- *                                                     &lt;element name="nDoc" minOccurs="0"&gt;
- *                                                       &lt;simpleType&gt;
- *                                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                           &lt;minLength value="1"/&gt;
- *                                                           &lt;maxLength value="20"/&gt;
- *                                                         &lt;/restriction&gt;
- *                                                       &lt;/simpleType&gt;
- *                                                     &lt;/element&gt;
- *                                                     &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
- *                                                     &lt;element name="vDocFisc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
- *                                                     &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
- *                                                     &lt;choice&gt;
- *                                                       &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
- *                                                       &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
- *                                                     &lt;/choice&gt;
- *                                                   &lt;/sequence&gt;
- *                                                 &lt;/restriction&gt;
- *                                               &lt;/complexContent&gt;
- *                                             &lt;/complexType&gt;
- *                                           &lt;/element&gt;
- *                                         &lt;/choice&gt;
- *                                       &lt;/sequence&gt;
- *                                     &lt;/restriction&gt;
- *                                   &lt;/complexContent&gt;
- *                                 &lt;/complexType&gt;
- *                               &lt;/element&gt;
- *                               &lt;element name="docAnt" minOccurs="0"&gt;
- *                                 &lt;complexType&gt;
- *                                   &lt;complexContent&gt;
- *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                       &lt;sequence&gt;
- *                                         &lt;element name="emiDocAnt" maxOccurs="unbounded"&gt;
- *                                           &lt;complexType&gt;
- *                                             &lt;complexContent&gt;
- *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                 &lt;sequence&gt;
- *                                                   &lt;choice&gt;
- *                                                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
- *                                                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
- *                                                   &lt;/choice&gt;
- *                                                   &lt;sequence minOccurs="0"&gt;
- *                                                     &lt;element name="IE" type="{http://www.portalfiscal.inf.br/cte}TIe"/&gt;
- *                                                     &lt;element name="UF" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
- *                                                   &lt;/sequence&gt;
- *                                                   &lt;element name="xNome"&gt;
- *                                                     &lt;simpleType&gt;
- *                                                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                         &lt;maxLength value="60"/&gt;
- *                                                         &lt;minLength value="1"/&gt;
- *                                                       &lt;/restriction&gt;
- *                                                     &lt;/simpleType&gt;
- *                                                   &lt;/element&gt;
- *                                                   &lt;element name="idDocAnt" maxOccurs="2"&gt;
- *                                                     &lt;complexType&gt;
- *                                                       &lt;complexContent&gt;
- *                                                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                           &lt;choice&gt;
- *                                                             &lt;element name="idDocAntPap" maxOccurs="unbounded"&gt;
- *                                                               &lt;complexType&gt;
- *                                                                 &lt;complexContent&gt;
- *                                                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                                     &lt;sequence&gt;
- *                                                                       &lt;element name="tpDoc"&gt;
- *                                                                         &lt;simpleType&gt;
- *                                                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDocAssoc"&gt;
- *                                                                           &lt;/restriction&gt;
- *                                                                         &lt;/simpleType&gt;
- *                                                                       &lt;/element&gt;
- *                                                                       &lt;element name="serie"&gt;
- *                                                                         &lt;simpleType&gt;
- *                                                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                                             &lt;minLength value="1"/&gt;
- *                                                                             &lt;maxLength value="3"/&gt;
- *                                                                           &lt;/restriction&gt;
- *                                                                         &lt;/simpleType&gt;
- *                                                                       &lt;/element&gt;
- *                                                                       &lt;element name="subser" minOccurs="0"&gt;
- *                                                                         &lt;simpleType&gt;
- *                                                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                                             &lt;minLength value="1"/&gt;
- *                                                                             &lt;maxLength value="2"/&gt;
- *                                                                           &lt;/restriction&gt;
- *                                                                         &lt;/simpleType&gt;
- *                                                                       &lt;/element&gt;
- *                                                                       &lt;element name="nDoc"&gt;
- *                                                                         &lt;simpleType&gt;
- *                                                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                                             &lt;minLength value="1"/&gt;
- *                                                                             &lt;maxLength value="30"/&gt;
- *                                                                           &lt;/restriction&gt;
- *                                                                         &lt;/simpleType&gt;
- *                                                                       &lt;/element&gt;
- *                                                                       &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
- *                                                                     &lt;/sequence&gt;
- *                                                                   &lt;/restriction&gt;
- *                                                                 &lt;/complexContent&gt;
- *                                                               &lt;/complexType&gt;
- *                                                             &lt;/element&gt;
- *                                                             &lt;element name="idDocAntEle" maxOccurs="unbounded"&gt;
- *                                                               &lt;complexType&gt;
- *                                                                 &lt;complexContent&gt;
- *                                                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                                     &lt;sequence&gt;
- *                                                                       &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
- *                                                                     &lt;/sequence&gt;
- *                                                                   &lt;/restriction&gt;
- *                                                                 &lt;/complexContent&gt;
- *                                                               &lt;/complexType&gt;
- *                                                             &lt;/element&gt;
- *                                                           &lt;/choice&gt;
- *                                                         &lt;/restriction&gt;
- *                                                       &lt;/complexContent&gt;
- *                                                     &lt;/complexType&gt;
- *                                                   &lt;/element&gt;
- *                                                 &lt;/sequence&gt;
- *                                               &lt;/restriction&gt;
- *                                             &lt;/complexContent&gt;
- *                                           &lt;/complexType&gt;
- *                                         &lt;/element&gt;
- *                                       &lt;/sequence&gt;
- *                                     &lt;/restriction&gt;
- *                                   &lt;/complexContent&gt;
- *                                 &lt;/complexType&gt;
- *                               &lt;/element&gt;
- *                               &lt;element name="infModal"&gt;
- *                                 &lt;complexType&gt;
- *                                   &lt;complexContent&gt;
- *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                       &lt;sequence&gt;
- *                                         &lt;any processContents='skip'/&gt;
- *                                       &lt;/sequence&gt;
- *                                       &lt;attribute name="versaoModal" use="required"&gt;
- *                                         &lt;simpleType&gt;
- *                                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                             &lt;whiteSpace value="preserve"/&gt;
- *                                             &lt;pattern value="4\.(0[0-9]|[1-9][0-9])"/&gt;
- *                                           &lt;/restriction&gt;
- *                                         &lt;/simpleType&gt;
- *                                       &lt;/attribute&gt;
- *                                     &lt;/restriction&gt;
- *                                   &lt;/complexContent&gt;
- *                                 &lt;/complexType&gt;
- *                               &lt;/element&gt;
- *                               &lt;element name="veicNovos" maxOccurs="unbounded" minOccurs="0"&gt;
- *                                 &lt;complexType&gt;
- *                                   &lt;complexContent&gt;
- *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                       &lt;sequence&gt;
- *                                         &lt;element name="chassi"&gt;
- *                                           &lt;simpleType&gt;
- *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                               &lt;whiteSpace value="preserve"/&gt;
- *                                               &lt;length value="17"/&gt;
- *                                               &lt;pattern value="[A-Z0-9]+"/&gt;
- *                                             &lt;/restriction&gt;
- *                                           &lt;/simpleType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;element name="cCor"&gt;
- *                                           &lt;simpleType&gt;
- *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                               &lt;minLength value="1"/&gt;
- *                                               &lt;maxLength value="4"/&gt;
- *                                             &lt;/restriction&gt;
- *                                           &lt;/simpleType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;element name="xCor"&gt;
- *                                           &lt;simpleType&gt;
- *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                               &lt;minLength value="1"/&gt;
- *                                               &lt;maxLength value="40"/&gt;
- *                                             &lt;/restriction&gt;
- *                                           &lt;/simpleType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;element name="cMod"&gt;
- *                                           &lt;simpleType&gt;
- *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                               &lt;minLength value="1"/&gt;
- *                                               &lt;maxLength value="6"/&gt;
- *                                             &lt;/restriction&gt;
- *                                           &lt;/simpleType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;element name="vUnit" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                                         &lt;element name="vFrete" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
- *                                       &lt;/sequence&gt;
- *                                     &lt;/restriction&gt;
- *                                   &lt;/complexContent&gt;
- *                                 &lt;/complexType&gt;
- *                               &lt;/element&gt;
- *                               &lt;element name="cobr" minOccurs="0"&gt;
- *                                 &lt;complexType&gt;
- *                                   &lt;complexContent&gt;
- *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                       &lt;sequence&gt;
- *                                         &lt;element name="fat" minOccurs="0"&gt;
- *                                           &lt;complexType&gt;
- *                                             &lt;complexContent&gt;
- *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                 &lt;sequence&gt;
- *                                                   &lt;element name="nFat" minOccurs="0"&gt;
- *                                                     &lt;simpleType&gt;
- *                                                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                         &lt;minLength value="1"/&gt;
- *                                                         &lt;maxLength value="60"/&gt;
- *                                                       &lt;/restriction&gt;
- *                                                     &lt;/simpleType&gt;
- *                                                   &lt;/element&gt;
- *                                                   &lt;element name="vOrig" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
- *                                                   &lt;element name="vDesc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
- *                                                   &lt;element name="vLiq" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
- *                                                 &lt;/sequence&gt;
- *                                               &lt;/restriction&gt;
- *                                             &lt;/complexContent&gt;
- *                                           &lt;/complexType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;element name="dup" maxOccurs="unbounded" minOccurs="0"&gt;
- *                                           &lt;complexType&gt;
- *                                             &lt;complexContent&gt;
- *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                 &lt;sequence&gt;
- *                                                   &lt;element name="nDup" minOccurs="0"&gt;
- *                                                     &lt;simpleType&gt;
- *                                                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                                         &lt;maxLength value="60"/&gt;
- *                                                         &lt;minLength value="1"/&gt;
- *                                                       &lt;/restriction&gt;
- *                                                     &lt;/simpleType&gt;
- *                                                   &lt;/element&gt;
- *                                                   &lt;element name="dVenc" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
- *                                                   &lt;element name="vDup" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
- *                                                 &lt;/sequence&gt;
- *                                               &lt;/restriction&gt;
- *                                             &lt;/complexContent&gt;
- *                                           &lt;/complexType&gt;
- *                                         &lt;/element&gt;
- *                                       &lt;/sequence&gt;
- *                                     &lt;/restriction&gt;
- *                                   &lt;/complexContent&gt;
- *                                 &lt;/complexType&gt;
- *                               &lt;/element&gt;
- *                               &lt;element name="infCteSub" minOccurs="0"&gt;
- *                                 &lt;complexType&gt;
- *                                   &lt;complexContent&gt;
- *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                       &lt;sequence&gt;
- *                                         &lt;element name="chCte"&gt;
- *                                           &lt;simpleType&gt;
- *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                               &lt;pattern value="[0-9]{44}"/&gt;
- *                                             &lt;/restriction&gt;
- *                                           &lt;/simpleType&gt;
- *                                         &lt;/element&gt;
- *                                         &lt;element name="indAlteraToma" minOccurs="0"&gt;
- *                                           &lt;simpleType&gt;
- *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                                               &lt;enumeration value="1"/&gt;
- *                                             &lt;/restriction&gt;
- *                                           &lt;/simpleType&gt;
- *                                         &lt;/element&gt;
- *                                       &lt;/sequence&gt;
- *                                     &lt;/restriction&gt;
- *                                   &lt;/complexContent&gt;
- *                                 &lt;/complexType&gt;
- *                               &lt;/element&gt;
- *                               &lt;element name="infGlobalizado" minOccurs="0"&gt;
- *                                 &lt;complexType&gt;
- *                                   &lt;complexContent&gt;
- *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                       &lt;sequence&gt;
- *                                         &lt;element name="xObs"&gt;
- *                                           &lt;simpleType&gt;
- *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                               &lt;minLength value="15"/&gt;
- *                                               &lt;maxLength value="256"/&gt;
- *                                             &lt;/restriction&gt;
- *                                           &lt;/simpleType&gt;
- *                                         &lt;/element&gt;
- *                                       &lt;/sequence&gt;
- *                                     &lt;/restriction&gt;
- *                                   &lt;/complexContent&gt;
- *                                 &lt;/complexType&gt;
- *                               &lt;/element&gt;
- *                               &lt;element name="infServVinc" minOccurs="0"&gt;
- *                                 &lt;complexType&gt;
- *                                   &lt;complexContent&gt;
- *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                       &lt;sequence&gt;
- *                                         &lt;element name="infCTeMultimodal" maxOccurs="unbounded"&gt;
- *                                           &lt;complexType&gt;
- *                                             &lt;complexContent&gt;
- *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                                 &lt;sequence&gt;
- *                                                   &lt;element name="chCTeMultimodal" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
- *                                                 &lt;/sequence&gt;
- *                                               &lt;/restriction&gt;
- *                                             &lt;/complexContent&gt;
- *                                           &lt;/complexType&gt;
- *                                         &lt;/element&gt;
- *                                       &lt;/sequence&gt;
- *                                     &lt;/restriction&gt;
- *                                   &lt;/complexContent&gt;
- *                                 &lt;/complexType&gt;
- *                               &lt;/element&gt;
- *                             &lt;/sequence&gt;
- *                           &lt;/restriction&gt;
- *                         &lt;/complexContent&gt;
- *                       &lt;/complexType&gt;
- *                     &lt;/element&gt;
- *                     &lt;element name="infCteComp" maxOccurs="10"&gt;
- *                       &lt;complexType&gt;
- *                         &lt;complexContent&gt;
- *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                             &lt;sequence&gt;
- *                               &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
- *                             &lt;/sequence&gt;
- *                           &lt;/restriction&gt;
- *                         &lt;/complexContent&gt;
- *                       &lt;/complexType&gt;
- *                     &lt;/element&gt;
- *                   &lt;/choice&gt;
- *                   &lt;element name="autXML" maxOccurs="10" minOccurs="0"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;choice&gt;
- *                               &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/&gt;
- *                               &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
- *                             &lt;/choice&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="infRespTec" type="{http://www.portalfiscal.inf.br/cte}TRespTec" minOccurs="0"/&gt;
- *                   &lt;element name="infSolicNFF" minOccurs="0"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;element name="xSolic"&gt;
- *                               &lt;simpleType&gt;
- *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                                   &lt;minLength value="2"/&gt;
- *                                   &lt;maxLength value="8000"/&gt;
- *                                 &lt;/restriction&gt;
- *                               &lt;/simpleType&gt;
- *                             &lt;/element&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="infPAA" minOccurs="0"&gt;
- *                     &lt;complexType&gt;
- *                       &lt;complexContent&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                           &lt;sequence&gt;
- *                             &lt;element name="CNPJPAA" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/&gt;
- *                             &lt;element name="PAASignature"&gt;
- *                               &lt;complexType&gt;
- *                                 &lt;complexContent&gt;
- *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                                     &lt;sequence&gt;
- *                                       &lt;element name="SignatureValue" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/&gt;
- *                                       &lt;element name="RSAKeyValue" type="{http://www.portalfiscal.inf.br/cte}TRSAKeyValueType"/&gt;
- *                                     &lt;/sequence&gt;
- *                                   &lt;/restriction&gt;
- *                                 &lt;/complexContent&gt;
- *                               &lt;/complexType&gt;
- *                             &lt;/element&gt;
- *                           &lt;/sequence&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/complexContent&gt;
- *                     &lt;/complexType&gt;
- *                   &lt;/element&gt;
- *                 &lt;/sequence&gt;
- *                 &lt;attribute name="versao" use="required"&gt;
- *                   &lt;simpleType&gt;
- *                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TVerCTe"&gt;
- *                     &lt;/restriction&gt;
- *                   &lt;/simpleType&gt;
- *                 &lt;/attribute&gt;
- *                 &lt;attribute name="Id" use="required"&gt;
- *                   &lt;simpleType&gt;
- *                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}ID"&gt;
- *                       &lt;pattern value="CTe[0-9]{44}"/&gt;
- *                     &lt;/restriction&gt;
- *                   &lt;/simpleType&gt;
- *                 &lt;/attribute&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="infCTeSupl" minOccurs="0"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;element name="qrCodCTe"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                         &lt;whiteSpace value="preserve"/&gt;
- *                         &lt;minLength value="50"/&gt;
- *                         &lt;maxLength value="1000"/&gt;
- *                         &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{44}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                 &lt;/sequence&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element ref="{http://www.w3.org/2000/09/xmldsig#}Signature"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="TCTe">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="infCte">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="ide">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;sequence>
+ *                             &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/cte}TCodUfIBGE"/>
+ *                             &lt;element name="cCT">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                   &lt;whiteSpace value="preserve"/>
+ *                                   &lt;pattern value="[0-9]{8}"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="CFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/>
+ *                             &lt;element name="natOp">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;minLength value="1"/>
+ *                                   &lt;maxLength value="60"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModCT"/>
+ *                             &lt;element name="serie">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TSerie">
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="nCT" type="{http://www.portalfiscal.inf.br/cte}TNF"/>
+ *                             &lt;element name="dhEmi">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC">
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="tpImp">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                   &lt;whiteSpace value="preserve"/>
+ *                                   &lt;enumeration value="1"/>
+ *                                   &lt;enumeration value="2"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="tpEmis">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                   &lt;whiteSpace value="preserve"/>
+ *                                   &lt;enumeration value="1"/>
+ *                                   &lt;enumeration value="3"/>
+ *                                   &lt;enumeration value="4"/>
+ *                                   &lt;enumeration value="5"/>
+ *                                   &lt;enumeration value="7"/>
+ *                                   &lt;enumeration value="8"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="cDV">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                   &lt;whiteSpace value="preserve"/>
+ *                                   &lt;pattern value="[0-9]{1}"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/>
+ *                             &lt;element name="tpCTe" type="{http://www.portalfiscal.inf.br/cte}TFinCTe"/>
+ *                             &lt;element name="procEmi" type="{http://www.portalfiscal.inf.br/cte}TProcEmi"/>
+ *                             &lt;element name="verProc">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;minLength value="1"/>
+ *                                   &lt;maxLength value="20"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="indGlobalizado" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                   &lt;enumeration value="1"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="cMunEnv" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/>
+ *                             &lt;element name="xMunEnv">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;minLength value="2"/>
+ *                                   &lt;maxLength value="60"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="UFEnv" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+ *                             &lt;element name="modal" type="{http://www.portalfiscal.inf.br/cte}TModTransp"/>
+ *                             &lt;element name="tpServ">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                   &lt;whiteSpace value="preserve"/>
+ *                                   &lt;enumeration value="0"/>
+ *                                   &lt;enumeration value="1"/>
+ *                                   &lt;enumeration value="2"/>
+ *                                   &lt;enumeration value="3"/>
+ *                                   &lt;enumeration value="4"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="cMunIni" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/>
+ *                             &lt;element name="xMunIni">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;minLength value="2"/>
+ *                                   &lt;maxLength value="60"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="UFIni" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+ *                             &lt;element name="cMunFim" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/>
+ *                             &lt;element name="xMunFim">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;minLength value="2"/>
+ *                                   &lt;maxLength value="60"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="UFFim" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+ *                             &lt;element name="retira">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                   &lt;whiteSpace value="preserve"/>
+ *                                   &lt;enumeration value="0"/>
+ *                                   &lt;enumeration value="1"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="xDetRetira" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;minLength value="1"/>
+ *                                   &lt;maxLength value="160"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="indIEToma">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                   &lt;whiteSpace value="preserve"/>
+ *                                   &lt;enumeration value="1"/>
+ *                                   &lt;enumeration value="2"/>
+ *                                   &lt;enumeration value="9"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;choice>
+ *                               &lt;element name="toma3">
+ *                                 &lt;complexType>
+ *                                   &lt;complexContent>
+ *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                       &lt;sequence>
+ *                                         &lt;element name="toma">
+ *                                           &lt;simpleType>
+ *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                               &lt;whiteSpace value="preserve"/>
+ *                                               &lt;enumeration value="0"/>
+ *                                               &lt;enumeration value="1"/>
+ *                                               &lt;enumeration value="2"/>
+ *                                               &lt;enumeration value="3"/>
+ *                                             &lt;/restriction>
+ *                                           &lt;/simpleType>
+ *                                         &lt;/element>
+ *                                       &lt;/sequence>
+ *                                     &lt;/restriction>
+ *                                   &lt;/complexContent>
+ *                                 &lt;/complexType>
+ *                               &lt;/element>
+ *                               &lt;element name="toma4">
+ *                                 &lt;complexType>
+ *                                   &lt;complexContent>
+ *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                       &lt;sequence>
+ *                                         &lt;element name="toma">
+ *                                           &lt;simpleType>
+ *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                               &lt;whiteSpace value="preserve"/>
+ *                                               &lt;enumeration value="4"/>
+ *                                             &lt;/restriction>
+ *                                           &lt;/simpleType>
+ *                                         &lt;/element>
+ *                                         &lt;choice>
+ *                                           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+ *                                           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+ *                                         &lt;/choice>
+ *                                         &lt;element name="IE" minOccurs="0">
+ *                                           &lt;simpleType>
+ *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+ *                                             &lt;/restriction>
+ *                                           &lt;/simpleType>
+ *                                         &lt;/element>
+ *                                         &lt;sequence>
+ *                                           &lt;element name="xNome">
+ *                                             &lt;simpleType>
+ *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                 &lt;maxLength value="60"/>
+ *                                                 &lt;minLength value="2"/>
+ *                                               &lt;/restriction>
+ *                                             &lt;/simpleType>
+ *                                           &lt;/element>
+ *                                           &lt;element name="xFant" minOccurs="0">
+ *                                             &lt;simpleType>
+ *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                 &lt;maxLength value="60"/>
+ *                                                 &lt;minLength value="2"/>
+ *                                               &lt;/restriction>
+ *                                             &lt;/simpleType>
+ *                                           &lt;/element>
+ *                                           &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+ *                                           &lt;element name="enderToma" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+ *                                           &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/>
+ *                                         &lt;/sequence>
+ *                                       &lt;/sequence>
+ *                                     &lt;/restriction>
+ *                                   &lt;/complexContent>
+ *                                 &lt;/complexType>
+ *                               &lt;/element>
+ *                             &lt;/choice>
+ *                             &lt;sequence minOccurs="0">
+ *                               &lt;element name="dhCont" type="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC"/>
+ *                               &lt;element name="xJust">
+ *                                 &lt;simpleType>
+ *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                     &lt;minLength value="15"/>
+ *                                     &lt;maxLength value="256"/>
+ *                                   &lt;/restriction>
+ *                                 &lt;/simpleType>
+ *                               &lt;/element>
+ *                             &lt;/sequence>
+ *                             &lt;element name="gCompraGov" type="{http://www.portalfiscal.inf.br/cte}TCompraGovReduzido" minOccurs="0"/>
+ *                           &lt;/sequence>
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
+ *                   &lt;element name="compl" minOccurs="0">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;sequence>
+ *                             &lt;element name="xCaracAd" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;minLength value="1"/>
+ *                                   &lt;maxLength value="15"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="xCaracSer" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;minLength value="1"/>
+ *                                   &lt;maxLength value="30"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="xEmi" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;minLength value="1"/>
+ *                                   &lt;maxLength value="20"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="fluxo" minOccurs="0">
+ *                               &lt;complexType>
+ *                                 &lt;complexContent>
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                     &lt;sequence>
+ *                                       &lt;element name="xOrig" minOccurs="0">
+ *                                         &lt;simpleType>
+ *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                             &lt;minLength value="1"/>
+ *                                             &lt;maxLength value="60"/>
+ *                                           &lt;/restriction>
+ *                                         &lt;/simpleType>
+ *                                       &lt;/element>
+ *                                       &lt;element name="pass" maxOccurs="unbounded" minOccurs="0">
+ *                                         &lt;complexType>
+ *                                           &lt;complexContent>
+ *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                               &lt;sequence>
+ *                                                 &lt;element name="xPass" minOccurs="0">
+ *                                                   &lt;simpleType>
+ *                                                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                       &lt;minLength value="1"/>
+ *                                                       &lt;maxLength value="15"/>
+ *                                                     &lt;/restriction>
+ *                                                   &lt;/simpleType>
+ *                                                 &lt;/element>
+ *                                               &lt;/sequence>
+ *                                             &lt;/restriction>
+ *                                           &lt;/complexContent>
+ *                                         &lt;/complexType>
+ *                                       &lt;/element>
+ *                                       &lt;element name="xDest" minOccurs="0">
+ *                                         &lt;simpleType>
+ *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                             &lt;minLength value="1"/>
+ *                                             &lt;maxLength value="60"/>
+ *                                           &lt;/restriction>
+ *                                         &lt;/simpleType>
+ *                                       &lt;/element>
+ *                                       &lt;element name="xRota" minOccurs="0">
+ *                                         &lt;simpleType>
+ *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                             &lt;minLength value="1"/>
+ *                                             &lt;maxLength value="10"/>
+ *                                           &lt;/restriction>
+ *                                         &lt;/simpleType>
+ *                                       &lt;/element>
+ *                                     &lt;/sequence>
+ *                                   &lt;/restriction>
+ *                                 &lt;/complexContent>
+ *                               &lt;/complexType>
+ *                             &lt;/element>
+ *                             &lt;element name="Entrega" minOccurs="0">
+ *                               &lt;complexType>
+ *                                 &lt;complexContent>
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                     &lt;sequence>
+ *                                       &lt;choice>
+ *                                         &lt;element name="semData">
+ *                                           &lt;complexType>
+ *                                             &lt;complexContent>
+ *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                 &lt;sequence>
+ *                                                   &lt;element name="tpPer">
+ *                                                     &lt;simpleType>
+ *                                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                                         &lt;whiteSpace value="preserve"/>
+ *                                                         &lt;enumeration value="0"/>
+ *                                                       &lt;/restriction>
+ *                                                     &lt;/simpleType>
+ *                                                   &lt;/element>
+ *                                                 &lt;/sequence>
+ *                                               &lt;/restriction>
+ *                                             &lt;/complexContent>
+ *                                           &lt;/complexType>
+ *                                         &lt;/element>
+ *                                         &lt;element name="comData">
+ *                                           &lt;complexType>
+ *                                             &lt;complexContent>
+ *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                 &lt;sequence>
+ *                                                   &lt;element name="tpPer">
+ *                                                     &lt;simpleType>
+ *                                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                                         &lt;whiteSpace value="preserve"/>
+ *                                                         &lt;enumeration value="1"/>
+ *                                                         &lt;enumeration value="2"/>
+ *                                                         &lt;enumeration value="3"/>
+ *                                                       &lt;/restriction>
+ *                                                     &lt;/simpleType>
+ *                                                   &lt;/element>
+ *                                                   &lt;element name="dProg" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+ *                                                 &lt;/sequence>
+ *                                               &lt;/restriction>
+ *                                             &lt;/complexContent>
+ *                                           &lt;/complexType>
+ *                                         &lt;/element>
+ *                                         &lt;element name="noPeriodo">
+ *                                           &lt;complexType>
+ *                                             &lt;complexContent>
+ *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                 &lt;sequence>
+ *                                                   &lt;element name="tpPer">
+ *                                                     &lt;simpleType>
+ *                                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                                         &lt;whiteSpace value="preserve"/>
+ *                                                         &lt;enumeration value="4"/>
+ *                                                       &lt;/restriction>
+ *                                                     &lt;/simpleType>
+ *                                                   &lt;/element>
+ *                                                   &lt;element name="dIni" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+ *                                                   &lt;element name="dFim" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+ *                                                 &lt;/sequence>
+ *                                               &lt;/restriction>
+ *                                             &lt;/complexContent>
+ *                                           &lt;/complexType>
+ *                                         &lt;/element>
+ *                                       &lt;/choice>
+ *                                       &lt;choice>
+ *                                         &lt;element name="semHora">
+ *                                           &lt;complexType>
+ *                                             &lt;complexContent>
+ *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                 &lt;sequence>
+ *                                                   &lt;element name="tpHor">
+ *                                                     &lt;simpleType>
+ *                                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                                         &lt;whiteSpace value="preserve"/>
+ *                                                         &lt;enumeration value="0"/>
+ *                                                       &lt;/restriction>
+ *                                                     &lt;/simpleType>
+ *                                                   &lt;/element>
+ *                                                 &lt;/sequence>
+ *                                               &lt;/restriction>
+ *                                             &lt;/complexContent>
+ *                                           &lt;/complexType>
+ *                                         &lt;/element>
+ *                                         &lt;element name="comHora">
+ *                                           &lt;complexType>
+ *                                             &lt;complexContent>
+ *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                 &lt;sequence>
+ *                                                   &lt;element name="tpHor">
+ *                                                     &lt;simpleType>
+ *                                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                                         &lt;whiteSpace value="preserve"/>
+ *                                                         &lt;enumeration value="1"/>
+ *                                                         &lt;enumeration value="2"/>
+ *                                                         &lt;enumeration value="3"/>
+ *                                                       &lt;/restriction>
+ *                                                     &lt;/simpleType>
+ *                                                   &lt;/element>
+ *                                                   &lt;element name="hProg" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+ *                                                 &lt;/sequence>
+ *                                               &lt;/restriction>
+ *                                             &lt;/complexContent>
+ *                                           &lt;/complexType>
+ *                                         &lt;/element>
+ *                                         &lt;element name="noInter">
+ *                                           &lt;complexType>
+ *                                             &lt;complexContent>
+ *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                 &lt;sequence>
+ *                                                   &lt;element name="tpHor">
+ *                                                     &lt;simpleType>
+ *                                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                                         &lt;whiteSpace value="preserve"/>
+ *                                                         &lt;enumeration value="4"/>
+ *                                                       &lt;/restriction>
+ *                                                     &lt;/simpleType>
+ *                                                   &lt;/element>
+ *                                                   &lt;element name="hIni" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+ *                                                   &lt;element name="hFim" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+ *                                                 &lt;/sequence>
+ *                                               &lt;/restriction>
+ *                                             &lt;/complexContent>
+ *                                           &lt;/complexType>
+ *                                         &lt;/element>
+ *                                       &lt;/choice>
+ *                                     &lt;/sequence>
+ *                                   &lt;/restriction>
+ *                                 &lt;/complexContent>
+ *                               &lt;/complexType>
+ *                             &lt;/element>
+ *                             &lt;element name="origCalc" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;minLength value="2"/>
+ *                                   &lt;maxLength value="40"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="destCalc" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;minLength value="2"/>
+ *                                   &lt;maxLength value="40"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="xObs" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;minLength value="1"/>
+ *                                   &lt;maxLength value="2000"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="ObsCont" maxOccurs="10" minOccurs="0">
+ *                               &lt;complexType>
+ *                                 &lt;complexContent>
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                     &lt;sequence>
+ *                                       &lt;element name="xTexto">
+ *                                         &lt;simpleType>
+ *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                             &lt;minLength value="1"/>
+ *                                             &lt;maxLength value="160"/>
+ *                                           &lt;/restriction>
+ *                                         &lt;/simpleType>
+ *                                       &lt;/element>
+ *                                     &lt;/sequence>
+ *                                     &lt;attribute name="xCampo" use="required">
+ *                                       &lt;simpleType>
+ *                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                           &lt;minLength value="1"/>
+ *                                           &lt;maxLength value="20"/>
+ *                                         &lt;/restriction>
+ *                                       &lt;/simpleType>
+ *                                     &lt;/attribute>
+ *                                   &lt;/restriction>
+ *                                 &lt;/complexContent>
+ *                               &lt;/complexType>
+ *                             &lt;/element>
+ *                             &lt;element name="ObsFisco" maxOccurs="10" minOccurs="0">
+ *                               &lt;complexType>
+ *                                 &lt;complexContent>
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                     &lt;sequence>
+ *                                       &lt;element name="xTexto">
+ *                                         &lt;simpleType>
+ *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                             &lt;minLength value="1"/>
+ *                                             &lt;maxLength value="60"/>
+ *                                           &lt;/restriction>
+ *                                         &lt;/simpleType>
+ *                                       &lt;/element>
+ *                                     &lt;/sequence>
+ *                                     &lt;attribute name="xCampo" use="required">
+ *                                       &lt;simpleType>
+ *                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                           &lt;minLength value="1"/>
+ *                                           &lt;maxLength value="20"/>
+ *                                         &lt;/restriction>
+ *                                       &lt;/simpleType>
+ *                                     &lt;/attribute>
+ *                                   &lt;/restriction>
+ *                                 &lt;/complexContent>
+ *                               &lt;/complexType>
+ *                             &lt;/element>
+ *                           &lt;/sequence>
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
+ *                   &lt;element name="emit">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;sequence>
+ *                             &lt;choice>
+ *                               &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/>
+ *                               &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+ *                             &lt;/choice>
+ *                             &lt;element name="IE" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIe">
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="IEST" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIe">
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="xNome">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;maxLength value="60"/>
+ *                                   &lt;minLength value="2"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="xFant" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;maxLength value="60"/>
+ *                                   &lt;minLength value="2"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="enderEmit" type="{http://www.portalfiscal.inf.br/cte}TEndeEmi"/>
+ *                             &lt;element name="CRT" type="{http://www.portalfiscal.inf.br/cte}TCRT"/>
+ *                           &lt;/sequence>
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
+ *                   &lt;element name="rem" minOccurs="0">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;sequence>
+ *                             &lt;choice>
+ *                               &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+ *                               &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+ *                             &lt;/choice>
+ *                             &lt;element name="IE" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="xNome">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;maxLength value="60"/>
+ *                                   &lt;minLength value="2"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="xFant" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;maxLength value="60"/>
+ *                                   &lt;minLength value="2"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+ *                             &lt;element name="enderReme" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+ *                             &lt;element name="email" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TEmail">
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                           &lt;/sequence>
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
+ *                   &lt;element name="exped" minOccurs="0">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;sequence>
+ *                             &lt;choice>
+ *                               &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+ *                               &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+ *                             &lt;/choice>
+ *                             &lt;element name="IE" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="xNome">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;maxLength value="60"/>
+ *                                   &lt;minLength value="2"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+ *                             &lt;element name="enderExped" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+ *                             &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/>
+ *                           &lt;/sequence>
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
+ *                   &lt;element name="receb" minOccurs="0">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;sequence>
+ *                             &lt;choice>
+ *                               &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+ *                               &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+ *                             &lt;/choice>
+ *                             &lt;element name="IE" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="xNome">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;maxLength value="60"/>
+ *                                   &lt;minLength value="2"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+ *                             &lt;element name="enderReceb" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+ *                             &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/>
+ *                           &lt;/sequence>
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
+ *                   &lt;element name="dest" minOccurs="0">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;sequence>
+ *                             &lt;choice>
+ *                               &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+ *                               &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+ *                             &lt;/choice>
+ *                             &lt;element name="IE" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="xNome">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;maxLength value="60"/>
+ *                                   &lt;minLength value="2"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+ *                             &lt;element name="ISUF" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                   &lt;whiteSpace value="preserve"/>
+ *                                   &lt;pattern value="[0-9]{8,9}"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="enderDest" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+ *                             &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/>
+ *                           &lt;/sequence>
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
+ *                   &lt;element name="vPrest">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;sequence>
+ *                             &lt;element name="vTPrest" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                             &lt;element name="vRec" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                             &lt;element name="Comp" maxOccurs="unbounded" minOccurs="0">
+ *                               &lt;complexType>
+ *                                 &lt;complexContent>
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                     &lt;sequence>
+ *                                       &lt;element name="xNome">
+ *                                         &lt;simpleType>
+ *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                             &lt;maxLength value="15"/>
+ *                                             &lt;minLength value="1"/>
+ *                                           &lt;/restriction>
+ *                                         &lt;/simpleType>
+ *                                       &lt;/element>
+ *                                       &lt;element name="vComp" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                                     &lt;/sequence>
+ *                                   &lt;/restriction>
+ *                                 &lt;/complexContent>
+ *                               &lt;/complexType>
+ *                             &lt;/element>
+ *                           &lt;/sequence>
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
+ *                   &lt;element name="imp">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;sequence>
+ *                             &lt;element name="ICMS" type="{http://www.portalfiscal.inf.br/cte}TImp"/>
+ *                             &lt;element name="vTotTrib" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
+ *                             &lt;element name="infAdFisco" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;maxLength value="2000"/>
+ *                                   &lt;minLength value="1"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                             &lt;element name="ICMSUFFim" minOccurs="0">
+ *                               &lt;complexType>
+ *                                 &lt;complexContent>
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                     &lt;sequence>
+ *                                       &lt;element name="vBCUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                                       &lt;element name="pFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+ *                                       &lt;element name="pICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+ *                                       &lt;element name="pICMSInter" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+ *                                       &lt;element name="vFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                                       &lt;element name="vICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                                       &lt;element name="vICMSUFIni" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                                     &lt;/sequence>
+ *                                   &lt;/restriction>
+ *                                 &lt;/complexContent>
+ *                               &lt;/complexType>
+ *                             &lt;/element>
+ *                             &lt;element name="IBSCBS" type="{http://www.portalfiscal.inf.br/cte}TTribCTe" minOccurs="0"/>
+ *                             &lt;element name="vTotDFe" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
+ *                           &lt;/sequence>
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
+ *                   &lt;choice>
+ *                     &lt;element name="infCTeNorm">
+ *                       &lt;complexType>
+ *                         &lt;complexContent>
+ *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                             &lt;sequence>
+ *                               &lt;element name="infCarga">
+ *                                 &lt;complexType>
+ *                                   &lt;complexContent>
+ *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                       &lt;sequence>
+ *                                         &lt;element name="vCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
+ *                                         &lt;element name="proPred">
+ *                                           &lt;simpleType>
+ *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                               &lt;minLength value="1"/>
+ *                                               &lt;maxLength value="60"/>
+ *                                             &lt;/restriction>
+ *                                           &lt;/simpleType>
+ *                                         &lt;/element>
+ *                                         &lt;element name="xOutCat" minOccurs="0">
+ *                                           &lt;simpleType>
+ *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                               &lt;minLength value="1"/>
+ *                                               &lt;maxLength value="30"/>
+ *                                             &lt;/restriction>
+ *                                           &lt;/simpleType>
+ *                                         &lt;/element>
+ *                                         &lt;element name="infQ" maxOccurs="unbounded">
+ *                                           &lt;complexType>
+ *                                             &lt;complexContent>
+ *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                 &lt;sequence>
+ *                                                   &lt;element name="cUnid">
+ *                                                     &lt;simpleType>
+ *                                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                                         &lt;whiteSpace value="preserve"/>
+ *                                                         &lt;enumeration value="00"/>
+ *                                                         &lt;enumeration value="01"/>
+ *                                                         &lt;enumeration value="02"/>
+ *                                                         &lt;enumeration value="03"/>
+ *                                                         &lt;enumeration value="04"/>
+ *                                                         &lt;enumeration value="05"/>
+ *                                                       &lt;/restriction>
+ *                                                     &lt;/simpleType>
+ *                                                   &lt;/element>
+ *                                                   &lt;element name="tpMed">
+ *                                                     &lt;simpleType>
+ *                                                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                         &lt;minLength value="1"/>
+ *                                                         &lt;maxLength value="20"/>
+ *                                                       &lt;/restriction>
+ *                                                     &lt;/simpleType>
+ *                                                   &lt;/element>
+ *                                                   &lt;element name="qCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1104"/>
+ *                                                 &lt;/sequence>
+ *                                               &lt;/restriction>
+ *                                             &lt;/complexContent>
+ *                                           &lt;/complexType>
+ *                                         &lt;/element>
+ *                                         &lt;element name="vCargaAverb" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+ *                                       &lt;/sequence>
+ *                                     &lt;/restriction>
+ *                                   &lt;/complexContent>
+ *                                 &lt;/complexType>
+ *                               &lt;/element>
+ *                               &lt;element name="infDoc" minOccurs="0">
+ *                                 &lt;complexType>
+ *                                   &lt;complexContent>
+ *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                       &lt;sequence>
+ *                                         &lt;choice>
+ *                                           &lt;element name="infNF" maxOccurs="unbounded">
+ *                                             &lt;complexType>
+ *                                               &lt;complexContent>
+ *                                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                   &lt;sequence>
+ *                                                     &lt;element name="nRoma" minOccurs="0">
+ *                                                       &lt;simpleType>
+ *                                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                           &lt;minLength value="1"/>
+ *                                                           &lt;maxLength value="20"/>
+ *                                                         &lt;/restriction>
+ *                                                       &lt;/simpleType>
+ *                                                     &lt;/element>
+ *                                                     &lt;element name="nPed" minOccurs="0">
+ *                                                       &lt;simpleType>
+ *                                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                           &lt;minLength value="1"/>
+ *                                                           &lt;maxLength value="20"/>
+ *                                                         &lt;/restriction>
+ *                                                       &lt;/simpleType>
+ *                                                     &lt;/element>
+ *                                                     &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModNF"/>
+ *                                                     &lt;element name="serie">
+ *                                                       &lt;simpleType>
+ *                                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                           &lt;minLength value="1"/>
+ *                                                           &lt;maxLength value="3"/>
+ *                                                         &lt;/restriction>
+ *                                                       &lt;/simpleType>
+ *                                                     &lt;/element>
+ *                                                     &lt;element name="nDoc">
+ *                                                       &lt;simpleType>
+ *                                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                           &lt;minLength value="1"/>
+ *                                                           &lt;maxLength value="20"/>
+ *                                                         &lt;/restriction>
+ *                                                       &lt;/simpleType>
+ *                                                     &lt;/element>
+ *                                                     &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+ *                                                     &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                                                     &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                                                     &lt;element name="vBCST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                                                     &lt;element name="vST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                                                     &lt;element name="vProd" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                                                     &lt;element name="vNF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                                                     &lt;element name="nCFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/>
+ *                                                     &lt;element name="nPeso" type="{http://www.portalfiscal.inf.br/cte}TDec_1203Opc" minOccurs="0"/>
+ *                                                     &lt;element name="PIN" minOccurs="0">
+ *                                                       &lt;simpleType>
+ *                                                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                                           &lt;whiteSpace value="preserve"/>
+ *                                                           &lt;minLength value="2"/>
+ *                                                           &lt;maxLength value="9"/>
+ *                                                           &lt;pattern value="[1-9]{1}[0-9]{1,8}"/>
+ *                                                         &lt;/restriction>
+ *                                                       &lt;/simpleType>
+ *                                                     &lt;/element>
+ *                                                     &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+ *                                                     &lt;choice>
+ *                                                       &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+ *                                                       &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+ *                                                     &lt;/choice>
+ *                                                   &lt;/sequence>
+ *                                                 &lt;/restriction>
+ *                                               &lt;/complexContent>
+ *                                             &lt;/complexType>
+ *                                           &lt;/element>
+ *                                           &lt;element name="infNFe" maxOccurs="unbounded">
+ *                                             &lt;complexType>
+ *                                               &lt;complexContent>
+ *                                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                   &lt;sequence>
+ *                                                     &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+ *                                                     &lt;element name="PIN" minOccurs="0">
+ *                                                       &lt;simpleType>
+ *                                                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                                           &lt;whiteSpace value="preserve"/>
+ *                                                           &lt;minLength value="2"/>
+ *                                                           &lt;maxLength value="9"/>
+ *                                                           &lt;pattern value="[1-9]{1}[0-9]{1,8}"/>
+ *                                                         &lt;/restriction>
+ *                                                       &lt;/simpleType>
+ *                                                     &lt;/element>
+ *                                                     &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+ *                                                     &lt;choice>
+ *                                                       &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+ *                                                       &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+ *                                                     &lt;/choice>
+ *                                                   &lt;/sequence>
+ *                                                 &lt;/restriction>
+ *                                               &lt;/complexContent>
+ *                                             &lt;/complexType>
+ *                                           &lt;/element>
+ *                                           &lt;element name="infOutros" maxOccurs="unbounded">
+ *                                             &lt;complexType>
+ *                                               &lt;complexContent>
+ *                                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                   &lt;sequence>
+ *                                                     &lt;element name="tpDoc">
+ *                                                       &lt;simpleType>
+ *                                                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                                           &lt;whiteSpace value="preserve"/>
+ *                                                           &lt;enumeration value="00"/>
+ *                                                           &lt;enumeration value="10"/>
+ *                                                           &lt;enumeration value="59"/>
+ *                                                           &lt;enumeration value="65"/>
+ *                                                           &lt;enumeration value="99"/>
+ *                                                         &lt;/restriction>
+ *                                                       &lt;/simpleType>
+ *                                                     &lt;/element>
+ *                                                     &lt;element name="descOutros" minOccurs="0">
+ *                                                       &lt;simpleType>
+ *                                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                           &lt;minLength value="1"/>
+ *                                                           &lt;maxLength value="100"/>
+ *                                                         &lt;/restriction>
+ *                                                       &lt;/simpleType>
+ *                                                     &lt;/element>
+ *                                                     &lt;element name="nDoc" minOccurs="0">
+ *                                                       &lt;simpleType>
+ *                                                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                           &lt;minLength value="1"/>
+ *                                                           &lt;maxLength value="20"/>
+ *                                                         &lt;/restriction>
+ *                                                       &lt;/simpleType>
+ *                                                     &lt;/element>
+ *                                                     &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+ *                                                     &lt;element name="vDocFisc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+ *                                                     &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+ *                                                     &lt;choice>
+ *                                                       &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+ *                                                       &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+ *                                                     &lt;/choice>
+ *                                                   &lt;/sequence>
+ *                                                 &lt;/restriction>
+ *                                               &lt;/complexContent>
+ *                                             &lt;/complexType>
+ *                                           &lt;/element>
+ *                                           &lt;element name="infDCe" maxOccurs="unbounded">
+ *                                             &lt;complexType>
+ *                                               &lt;complexContent>
+ *                                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                   &lt;sequence>
+ *                                                     &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+ *                                                   &lt;/sequence>
+ *                                                 &lt;/restriction>
+ *                                               &lt;/complexContent>
+ *                                             &lt;/complexType>
+ *                                           &lt;/element>
+ *                                         &lt;/choice>
+ *                                       &lt;/sequence>
+ *                                     &lt;/restriction>
+ *                                   &lt;/complexContent>
+ *                                 &lt;/complexType>
+ *                               &lt;/element>
+ *                               &lt;element name="docAnt" minOccurs="0">
+ *                                 &lt;complexType>
+ *                                   &lt;complexContent>
+ *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                       &lt;sequence>
+ *                                         &lt;element name="emiDocAnt" maxOccurs="unbounded">
+ *                                           &lt;complexType>
+ *                                             &lt;complexContent>
+ *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                 &lt;sequence>
+ *                                                   &lt;choice>
+ *                                                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+ *                                                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+ *                                                   &lt;/choice>
+ *                                                   &lt;sequence minOccurs="0">
+ *                                                     &lt;element name="IE" type="{http://www.portalfiscal.inf.br/cte}TIe"/>
+ *                                                     &lt;element name="UF" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+ *                                                   &lt;/sequence>
+ *                                                   &lt;element name="xNome">
+ *                                                     &lt;simpleType>
+ *                                                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                         &lt;maxLength value="60"/>
+ *                                                         &lt;minLength value="1"/>
+ *                                                       &lt;/restriction>
+ *                                                     &lt;/simpleType>
+ *                                                   &lt;/element>
+ *                                                   &lt;element name="idDocAnt" maxOccurs="2">
+ *                                                     &lt;complexType>
+ *                                                       &lt;complexContent>
+ *                                                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                           &lt;choice>
+ *                                                             &lt;element name="idDocAntPap" maxOccurs="unbounded">
+ *                                                               &lt;complexType>
+ *                                                                 &lt;complexContent>
+ *                                                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                                     &lt;sequence>
+ *                                                                       &lt;element name="tpDoc">
+ *                                                                         &lt;simpleType>
+ *                                                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDocAssoc">
+ *                                                                           &lt;/restriction>
+ *                                                                         &lt;/simpleType>
+ *                                                                       &lt;/element>
+ *                                                                       &lt;element name="serie">
+ *                                                                         &lt;simpleType>
+ *                                                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                                             &lt;minLength value="1"/>
+ *                                                                             &lt;maxLength value="3"/>
+ *                                                                           &lt;/restriction>
+ *                                                                         &lt;/simpleType>
+ *                                                                       &lt;/element>
+ *                                                                       &lt;element name="subser" minOccurs="0">
+ *                                                                         &lt;simpleType>
+ *                                                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                                             &lt;minLength value="1"/>
+ *                                                                             &lt;maxLength value="2"/>
+ *                                                                           &lt;/restriction>
+ *                                                                         &lt;/simpleType>
+ *                                                                       &lt;/element>
+ *                                                                       &lt;element name="nDoc">
+ *                                                                         &lt;simpleType>
+ *                                                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                                             &lt;minLength value="1"/>
+ *                                                                             &lt;maxLength value="30"/>
+ *                                                                           &lt;/restriction>
+ *                                                                         &lt;/simpleType>
+ *                                                                       &lt;/element>
+ *                                                                       &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+ *                                                                     &lt;/sequence>
+ *                                                                   &lt;/restriction>
+ *                                                                 &lt;/complexContent>
+ *                                                               &lt;/complexType>
+ *                                                             &lt;/element>
+ *                                                             &lt;element name="idDocAntEle" maxOccurs="unbounded">
+ *                                                               &lt;complexType>
+ *                                                                 &lt;complexContent>
+ *                                                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                                     &lt;sequence>
+ *                                                                       &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+ *                                                                     &lt;/sequence>
+ *                                                                   &lt;/restriction>
+ *                                                                 &lt;/complexContent>
+ *                                                               &lt;/complexType>
+ *                                                             &lt;/element>
+ *                                                           &lt;/choice>
+ *                                                         &lt;/restriction>
+ *                                                       &lt;/complexContent>
+ *                                                     &lt;/complexType>
+ *                                                   &lt;/element>
+ *                                                 &lt;/sequence>
+ *                                               &lt;/restriction>
+ *                                             &lt;/complexContent>
+ *                                           &lt;/complexType>
+ *                                         &lt;/element>
+ *                                       &lt;/sequence>
+ *                                     &lt;/restriction>
+ *                                   &lt;/complexContent>
+ *                                 &lt;/complexType>
+ *                               &lt;/element>
+ *                               &lt;element name="infModal">
+ *                                 &lt;complexType>
+ *                                   &lt;complexContent>
+ *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                       &lt;sequence>
+ *                                         &lt;any processContents='skip'/>
+ *                                       &lt;/sequence>
+ *                                       &lt;attribute name="versaoModal" use="required">
+ *                                         &lt;simpleType>
+ *                                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                             &lt;whiteSpace value="preserve"/>
+ *                                             &lt;pattern value="4\.(0[0-9]|[1-9][0-9])"/>
+ *                                           &lt;/restriction>
+ *                                         &lt;/simpleType>
+ *                                       &lt;/attribute>
+ *                                     &lt;/restriction>
+ *                                   &lt;/complexContent>
+ *                                 &lt;/complexType>
+ *                               &lt;/element>
+ *                               &lt;element name="veicNovos" maxOccurs="unbounded" minOccurs="0">
+ *                                 &lt;complexType>
+ *                                   &lt;complexContent>
+ *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                       &lt;sequence>
+ *                                         &lt;element name="chassi">
+ *                                           &lt;simpleType>
+ *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                               &lt;whiteSpace value="preserve"/>
+ *                                               &lt;length value="17"/>
+ *                                               &lt;pattern value="[A-Z0-9]+"/>
+ *                                             &lt;/restriction>
+ *                                           &lt;/simpleType>
+ *                                         &lt;/element>
+ *                                         &lt;element name="cCor">
+ *                                           &lt;simpleType>
+ *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                               &lt;minLength value="1"/>
+ *                                               &lt;maxLength value="4"/>
+ *                                             &lt;/restriction>
+ *                                           &lt;/simpleType>
+ *                                         &lt;/element>
+ *                                         &lt;element name="xCor">
+ *                                           &lt;simpleType>
+ *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                               &lt;minLength value="1"/>
+ *                                               &lt;maxLength value="40"/>
+ *                                             &lt;/restriction>
+ *                                           &lt;/simpleType>
+ *                                         &lt;/element>
+ *                                         &lt;element name="cMod">
+ *                                           &lt;simpleType>
+ *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                               &lt;minLength value="1"/>
+ *                                               &lt;maxLength value="6"/>
+ *                                             &lt;/restriction>
+ *                                           &lt;/simpleType>
+ *                                         &lt;/element>
+ *                                         &lt;element name="vUnit" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                                         &lt;element name="vFrete" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+ *                                       &lt;/sequence>
+ *                                     &lt;/restriction>
+ *                                   &lt;/complexContent>
+ *                                 &lt;/complexType>
+ *                               &lt;/element>
+ *                               &lt;element name="cobr" minOccurs="0">
+ *                                 &lt;complexType>
+ *                                   &lt;complexContent>
+ *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                       &lt;sequence>
+ *                                         &lt;element name="fat" minOccurs="0">
+ *                                           &lt;complexType>
+ *                                             &lt;complexContent>
+ *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                 &lt;sequence>
+ *                                                   &lt;element name="nFat" minOccurs="0">
+ *                                                     &lt;simpleType>
+ *                                                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                         &lt;minLength value="1"/>
+ *                                                         &lt;maxLength value="60"/>
+ *                                                       &lt;/restriction>
+ *                                                     &lt;/simpleType>
+ *                                                   &lt;/element>
+ *                                                   &lt;element name="vOrig" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+ *                                                   &lt;element name="vDesc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+ *                                                   &lt;element name="vLiq" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+ *                                                 &lt;/sequence>
+ *                                               &lt;/restriction>
+ *                                             &lt;/complexContent>
+ *                                           &lt;/complexType>
+ *                                         &lt;/element>
+ *                                         &lt;element name="dup" maxOccurs="unbounded" minOccurs="0">
+ *                                           &lt;complexType>
+ *                                             &lt;complexContent>
+ *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                 &lt;sequence>
+ *                                                   &lt;element name="nDup" minOccurs="0">
+ *                                                     &lt;simpleType>
+ *                                                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                                         &lt;maxLength value="60"/>
+ *                                                         &lt;minLength value="1"/>
+ *                                                       &lt;/restriction>
+ *                                                     &lt;/simpleType>
+ *                                                   &lt;/element>
+ *                                                   &lt;element name="dVenc" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+ *                                                   &lt;element name="vDup" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+ *                                                 &lt;/sequence>
+ *                                               &lt;/restriction>
+ *                                             &lt;/complexContent>
+ *                                           &lt;/complexType>
+ *                                         &lt;/element>
+ *                                       &lt;/sequence>
+ *                                     &lt;/restriction>
+ *                                   &lt;/complexContent>
+ *                                 &lt;/complexType>
+ *                               &lt;/element>
+ *                               &lt;element name="infCteSub" minOccurs="0">
+ *                                 &lt;complexType>
+ *                                   &lt;complexContent>
+ *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                       &lt;sequence>
+ *                                         &lt;element name="chCte">
+ *                                           &lt;simpleType>
+ *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                               &lt;pattern value="[0-9]{44}"/>
+ *                                             &lt;/restriction>
+ *                                           &lt;/simpleType>
+ *                                         &lt;/element>
+ *                                         &lt;element name="indAlteraToma" minOccurs="0">
+ *                                           &lt;simpleType>
+ *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                               &lt;enumeration value="1"/>
+ *                                             &lt;/restriction>
+ *                                           &lt;/simpleType>
+ *                                         &lt;/element>
+ *                                       &lt;/sequence>
+ *                                     &lt;/restriction>
+ *                                   &lt;/complexContent>
+ *                                 &lt;/complexType>
+ *                               &lt;/element>
+ *                               &lt;element name="infGlobalizado" minOccurs="0">
+ *                                 &lt;complexType>
+ *                                   &lt;complexContent>
+ *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                       &lt;sequence>
+ *                                         &lt;element name="xObs">
+ *                                           &lt;simpleType>
+ *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                               &lt;minLength value="15"/>
+ *                                               &lt;maxLength value="256"/>
+ *                                             &lt;/restriction>
+ *                                           &lt;/simpleType>
+ *                                         &lt;/element>
+ *                                       &lt;/sequence>
+ *                                     &lt;/restriction>
+ *                                   &lt;/complexContent>
+ *                                 &lt;/complexType>
+ *                               &lt;/element>
+ *                               &lt;element name="infServVinc" minOccurs="0">
+ *                                 &lt;complexType>
+ *                                   &lt;complexContent>
+ *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                       &lt;sequence>
+ *                                         &lt;element name="infCTeMultimodal" maxOccurs="unbounded">
+ *                                           &lt;complexType>
+ *                                             &lt;complexContent>
+ *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                 &lt;sequence>
+ *                                                   &lt;element name="chCTeMultimodal" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+ *                                                 &lt;/sequence>
+ *                                               &lt;/restriction>
+ *                                             &lt;/complexContent>
+ *                                           &lt;/complexType>
+ *                                         &lt;/element>
+ *                                       &lt;/sequence>
+ *                                     &lt;/restriction>
+ *                                   &lt;/complexContent>
+ *                                 &lt;/complexType>
+ *                               &lt;/element>
+ *                             &lt;/sequence>
+ *                           &lt;/restriction>
+ *                         &lt;/complexContent>
+ *                       &lt;/complexType>
+ *                     &lt;/element>
+ *                     &lt;element name="infCteComp" maxOccurs="10">
+ *                       &lt;complexType>
+ *                         &lt;complexContent>
+ *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                             &lt;sequence>
+ *                               &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+ *                             &lt;/sequence>
+ *                           &lt;/restriction>
+ *                         &lt;/complexContent>
+ *                       &lt;/complexType>
+ *                     &lt;/element>
+ *                   &lt;/choice>
+ *                   &lt;element name="autXML" maxOccurs="10" minOccurs="0">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;sequence>
+ *                             &lt;choice>
+ *                               &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/>
+ *                               &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+ *                             &lt;/choice>
+ *                           &lt;/sequence>
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
+ *                   &lt;element name="infRespTec" type="{http://www.portalfiscal.inf.br/cte}TRespTec" minOccurs="0"/>
+ *                   &lt;element name="infSolicNFF" minOccurs="0">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;sequence>
+ *                             &lt;element name="xSolic">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                                   &lt;minLength value="2"/>
+ *                                   &lt;maxLength value="8000"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
+ *                           &lt;/sequence>
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
+ *                   &lt;element name="infPAA" minOccurs="0">
+ *                     &lt;complexType>
+ *                       &lt;complexContent>
+ *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                           &lt;sequence>
+ *                             &lt;element name="CNPJPAA" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/>
+ *                             &lt;element name="PAASignature">
+ *                               &lt;complexType>
+ *                                 &lt;complexContent>
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                     &lt;sequence>
+ *                                       &lt;element name="SignatureValue" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/>
+ *                                       &lt;element name="RSAKeyValue" type="{http://www.portalfiscal.inf.br/cte}TRSAKeyValueType"/>
+ *                                     &lt;/sequence>
+ *                                   &lt;/restriction>
+ *                                 &lt;/complexContent>
+ *                               &lt;/complexType>
+ *                             &lt;/element>
+ *                           &lt;/sequence>
+ *                         &lt;/restriction>
+ *                       &lt;/complexContent>
+ *                     &lt;/complexType>
+ *                   &lt;/element>
+ *                 &lt;/sequence>
+ *                 &lt;attribute name="versao" use="required">
+ *                   &lt;simpleType>
+ *                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TVerCTe">
+ *                     &lt;/restriction>
+ *                   &lt;/simpleType>
+ *                 &lt;/attribute>
+ *                 &lt;attribute name="Id" use="required">
+ *                   &lt;simpleType>
+ *                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}ID">
+ *                       &lt;pattern value="CTe[0-9]{6}[A-Z0-9]{12}[0-9]{26}"/>
+ *                     &lt;/restriction>
+ *                   &lt;/simpleType>
+ *                 &lt;/attribute>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="infCTeSupl" minOccurs="0">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="qrCodCTe">
+ *                     &lt;simpleType>
+ *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                         &lt;whiteSpace value="preserve"/>
+ *                         &lt;minLength value="50"/>
+ *                         &lt;maxLength value="1000"/>
+ *                         &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{6}[A-Z0-9]{12}[0-9]{26}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/>
+ *                       &lt;/restriction>
+ *                     &lt;/simpleType>
+ *                   &lt;/element>
+ *                 &lt;/sequence>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element ref="{http://www.w3.org/2000/09/xmldsig#}Signature"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TCTe", propOrder = {
+@XmlType(name = "TCTe", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
     "infCte",
     "infCTeSupl",
     "signature"
 })
-@XmlRootElement(name = "CTeSimp",namespace = "http://www.portalfiscal.inf.br/cte")
 public class TCTe {
 
-    @XmlElement(required = true)
-    protected InfCte infCte;
-    protected InfCTeSupl infCTeSupl;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+    protected TCTe.InfCte infCte;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+    protected TCTe.InfCTeSupl infCTeSupl;
     @XmlElement(name = "Signature", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected SignatureType signature;
 
     /**
-     * Gets the value of the infCte property.
+     * Obtém o valor da propriedade infCte.
      * 
      * @return
      *     possible object is
-     *     {@link InfCte }
+     *     {@link TCTe.InfCte }
      *     
      */
-    public InfCte getInfCte() {
+    public TCTe.InfCte getInfCte() {
         return infCte;
     }
 
     /**
-     * Sets the value of the infCte property.
+     * Define o valor da propriedade infCte.
      * 
      * @param value
      *     allowed object is
-     *     {@link InfCte }
+     *     {@link TCTe.InfCte }
      *     
      */
-    public void setInfCte(InfCte value) {
+    public void setInfCte(TCTe.InfCte value) {
         this.infCte = value;
     }
 
     /**
-     * Gets the value of the infCTeSupl property.
+     * Obtém o valor da propriedade infCTeSupl.
      * 
      * @return
      *     possible object is
-     *     {@link InfCTeSupl }
+     *     {@link TCTe.InfCTeSupl }
      *     
      */
-    public InfCTeSupl getInfCTeSupl() {
+    public TCTe.InfCTeSupl getInfCTeSupl() {
         return infCTeSupl;
     }
 
     /**
-     * Sets the value of the infCTeSupl property.
+     * Define o valor da propriedade infCTeSupl.
      * 
      * @param value
      *     allowed object is
-     *     {@link InfCTeSupl }
+     *     {@link TCTe.InfCTeSupl }
      *     
      */
-    public void setInfCTeSupl(InfCTeSupl value) {
+    public void setInfCTeSupl(TCTe.InfCTeSupl value) {
         this.infCTeSupl = value;
     }
 
     /**
-     * Gets the value of the signature property.
+     * Obtém o valor da propriedade signature.
      * 
      * @return
      *     possible object is
@@ -1511,7 +1529,7 @@ public class TCTe {
     }
 
     /**
-     * Sets the value of the signature property.
+     * Define o valor da propriedade signature.
      * 
      * @param value
      *     allowed object is
@@ -1524,1391 +1542,1469 @@ public class TCTe {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;element name="ide"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/cte}TCodUfIBGE"/&gt;
-     *                   &lt;element name="cCT"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                         &lt;whiteSpace value="preserve"/&gt;
-     *                         &lt;pattern value="[0-9]{8}"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="CFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/&gt;
-     *                   &lt;element name="natOp"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;minLength value="1"/&gt;
-     *                         &lt;maxLength value="60"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModCT"/&gt;
-     *                   &lt;element name="serie"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TSerie"&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="nCT" type="{http://www.portalfiscal.inf.br/cte}TNF"/&gt;
-     *                   &lt;element name="dhEmi"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC"&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="tpImp"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                         &lt;whiteSpace value="preserve"/&gt;
-     *                         &lt;enumeration value="1"/&gt;
-     *                         &lt;enumeration value="2"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="tpEmis"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                         &lt;whiteSpace value="preserve"/&gt;
-     *                         &lt;enumeration value="1"/&gt;
-     *                         &lt;enumeration value="3"/&gt;
-     *                         &lt;enumeration value="4"/&gt;
-     *                         &lt;enumeration value="5"/&gt;
-     *                         &lt;enumeration value="7"/&gt;
-     *                         &lt;enumeration value="8"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="cDV"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                         &lt;whiteSpace value="preserve"/&gt;
-     *                         &lt;pattern value="[0-9]{1}"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/&gt;
-     *                   &lt;element name="tpCTe" type="{http://www.portalfiscal.inf.br/cte}TFinCTe"/&gt;
-     *                   &lt;element name="procEmi" type="{http://www.portalfiscal.inf.br/cte}TProcEmi"/&gt;
-     *                   &lt;element name="verProc"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;minLength value="1"/&gt;
-     *                         &lt;maxLength value="20"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="indGlobalizado" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                         &lt;enumeration value="1"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="cMunEnv" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/&gt;
-     *                   &lt;element name="xMunEnv"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;minLength value="2"/&gt;
-     *                         &lt;maxLength value="60"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="UFEnv" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
-     *                   &lt;element name="modal" type="{http://www.portalfiscal.inf.br/cte}TModTransp"/&gt;
-     *                   &lt;element name="tpServ"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                         &lt;whiteSpace value="preserve"/&gt;
-     *                         &lt;enumeration value="0"/&gt;
-     *                         &lt;enumeration value="1"/&gt;
-     *                         &lt;enumeration value="2"/&gt;
-     *                         &lt;enumeration value="3"/&gt;
-     *                         &lt;enumeration value="4"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="cMunIni" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/&gt;
-     *                   &lt;element name="xMunIni"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;minLength value="2"/&gt;
-     *                         &lt;maxLength value="60"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="UFIni" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
-     *                   &lt;element name="cMunFim" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/&gt;
-     *                   &lt;element name="xMunFim"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;minLength value="2"/&gt;
-     *                         &lt;maxLength value="60"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="UFFim" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
-     *                   &lt;element name="retira"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                         &lt;whiteSpace value="preserve"/&gt;
-     *                         &lt;enumeration value="0"/&gt;
-     *                         &lt;enumeration value="1"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="xDetRetira" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;minLength value="1"/&gt;
-     *                         &lt;maxLength value="160"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="indIEToma"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                         &lt;whiteSpace value="preserve"/&gt;
-     *                         &lt;enumeration value="1"/&gt;
-     *                         &lt;enumeration value="2"/&gt;
-     *                         &lt;enumeration value="9"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;choice&gt;
-     *                     &lt;element name="toma3"&gt;
-     *                       &lt;complexType&gt;
-     *                         &lt;complexContent&gt;
-     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                             &lt;sequence&gt;
-     *                               &lt;element name="toma"&gt;
-     *                                 &lt;simpleType&gt;
-     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                     &lt;whiteSpace value="preserve"/&gt;
-     *                                     &lt;enumeration value="0"/&gt;
-     *                                     &lt;enumeration value="1"/&gt;
-     *                                     &lt;enumeration value="2"/&gt;
-     *                                     &lt;enumeration value="3"/&gt;
-     *                                   &lt;/restriction&gt;
-     *                                 &lt;/simpleType&gt;
-     *                               &lt;/element&gt;
-     *                             &lt;/sequence&gt;
-     *                           &lt;/restriction&gt;
-     *                         &lt;/complexContent&gt;
-     *                       &lt;/complexType&gt;
-     *                     &lt;/element&gt;
-     *                     &lt;element name="toma4"&gt;
-     *                       &lt;complexType&gt;
-     *                         &lt;complexContent&gt;
-     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                             &lt;sequence&gt;
-     *                               &lt;element name="toma"&gt;
-     *                                 &lt;simpleType&gt;
-     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                     &lt;whiteSpace value="preserve"/&gt;
-     *                                     &lt;enumeration value="4"/&gt;
-     *                                   &lt;/restriction&gt;
-     *                                 &lt;/simpleType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;choice&gt;
-     *                                 &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-     *                                 &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-     *                               &lt;/choice&gt;
-     *                               &lt;element name="IE" minOccurs="0"&gt;
-     *                                 &lt;simpleType&gt;
-     *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
-     *                                   &lt;/restriction&gt;
-     *                                 &lt;/simpleType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;sequence&gt;
-     *                                 &lt;element name="xNome"&gt;
-     *                                   &lt;simpleType&gt;
-     *                                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                       &lt;maxLength value="60"/&gt;
-     *                                       &lt;minLength value="2"/&gt;
-     *                                     &lt;/restriction&gt;
-     *                                   &lt;/simpleType&gt;
-     *                                 &lt;/element&gt;
-     *                                 &lt;element name="xFant" minOccurs="0"&gt;
-     *                                   &lt;simpleType&gt;
-     *                                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                       &lt;maxLength value="60"/&gt;
-     *                                       &lt;minLength value="2"/&gt;
-     *                                     &lt;/restriction&gt;
-     *                                   &lt;/simpleType&gt;
-     *                                 &lt;/element&gt;
-     *                                 &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
-     *                                 &lt;element name="enderToma" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
-     *                                 &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/&gt;
-     *                               &lt;/sequence&gt;
-     *                             &lt;/sequence&gt;
-     *                           &lt;/restriction&gt;
-     *                         &lt;/complexContent&gt;
-     *                       &lt;/complexType&gt;
-     *                     &lt;/element&gt;
-     *                   &lt;/choice&gt;
-     *                   &lt;sequence minOccurs="0"&gt;
-     *                     &lt;element name="dhCont" type="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC"/&gt;
-     *                     &lt;element name="xJust"&gt;
-     *                       &lt;simpleType&gt;
-     *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                           &lt;minLength value="15"/&gt;
-     *                           &lt;maxLength value="256"/&gt;
-     *                         &lt;/restriction&gt;
-     *                       &lt;/simpleType&gt;
-     *                     &lt;/element&gt;
-     *                   &lt;/sequence&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="compl" minOccurs="0"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;element name="xCaracAd" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;minLength value="1"/&gt;
-     *                         &lt;maxLength value="15"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="xCaracSer" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;minLength value="1"/&gt;
-     *                         &lt;maxLength value="30"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="xEmi" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;minLength value="1"/&gt;
-     *                         &lt;maxLength value="20"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="fluxo" minOccurs="0"&gt;
-     *                     &lt;complexType&gt;
-     *                       &lt;complexContent&gt;
-     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                           &lt;sequence&gt;
-     *                             &lt;element name="xOrig" minOccurs="0"&gt;
-     *                               &lt;simpleType&gt;
-     *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                   &lt;minLength value="1"/&gt;
-     *                                   &lt;maxLength value="60"/&gt;
-     *                                 &lt;/restriction&gt;
-     *                               &lt;/simpleType&gt;
-     *                             &lt;/element&gt;
-     *                             &lt;element name="pass" maxOccurs="unbounded" minOccurs="0"&gt;
-     *                               &lt;complexType&gt;
-     *                                 &lt;complexContent&gt;
-     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                     &lt;sequence&gt;
-     *                                       &lt;element name="xPass" minOccurs="0"&gt;
-     *                                         &lt;simpleType&gt;
-     *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                             &lt;minLength value="1"/&gt;
-     *                                             &lt;maxLength value="15"/&gt;
-     *                                           &lt;/restriction&gt;
-     *                                         &lt;/simpleType&gt;
-     *                                       &lt;/element&gt;
-     *                                     &lt;/sequence&gt;
-     *                                   &lt;/restriction&gt;
-     *                                 &lt;/complexContent&gt;
-     *                               &lt;/complexType&gt;
-     *                             &lt;/element&gt;
-     *                             &lt;element name="xDest" minOccurs="0"&gt;
-     *                               &lt;simpleType&gt;
-     *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                   &lt;minLength value="1"/&gt;
-     *                                   &lt;maxLength value="60"/&gt;
-     *                                 &lt;/restriction&gt;
-     *                               &lt;/simpleType&gt;
-     *                             &lt;/element&gt;
-     *                             &lt;element name="xRota" minOccurs="0"&gt;
-     *                               &lt;simpleType&gt;
-     *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                   &lt;minLength value="1"/&gt;
-     *                                   &lt;maxLength value="10"/&gt;
-     *                                 &lt;/restriction&gt;
-     *                               &lt;/simpleType&gt;
-     *                             &lt;/element&gt;
-     *                           &lt;/sequence&gt;
-     *                         &lt;/restriction&gt;
-     *                       &lt;/complexContent&gt;
-     *                     &lt;/complexType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="Entrega" minOccurs="0"&gt;
-     *                     &lt;complexType&gt;
-     *                       &lt;complexContent&gt;
-     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                           &lt;sequence&gt;
-     *                             &lt;choice&gt;
-     *                               &lt;element name="semData"&gt;
-     *                                 &lt;complexType&gt;
-     *                                   &lt;complexContent&gt;
-     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                       &lt;sequence&gt;
-     *                                         &lt;element name="tpPer"&gt;
-     *                                           &lt;simpleType&gt;
-     *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                               &lt;whiteSpace value="preserve"/&gt;
-     *                                               &lt;enumeration value="0"/&gt;
-     *                                             &lt;/restriction&gt;
-     *                                           &lt;/simpleType&gt;
-     *                                         &lt;/element&gt;
-     *                                       &lt;/sequence&gt;
-     *                                     &lt;/restriction&gt;
-     *                                   &lt;/complexContent&gt;
-     *                                 &lt;/complexType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;element name="comData"&gt;
-     *                                 &lt;complexType&gt;
-     *                                   &lt;complexContent&gt;
-     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                       &lt;sequence&gt;
-     *                                         &lt;element name="tpPer"&gt;
-     *                                           &lt;simpleType&gt;
-     *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                               &lt;whiteSpace value="preserve"/&gt;
-     *                                               &lt;enumeration value="1"/&gt;
-     *                                               &lt;enumeration value="2"/&gt;
-     *                                               &lt;enumeration value="3"/&gt;
-     *                                             &lt;/restriction&gt;
-     *                                           &lt;/simpleType&gt;
-     *                                         &lt;/element&gt;
-     *                                         &lt;element name="dProg" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-     *                                       &lt;/sequence&gt;
-     *                                     &lt;/restriction&gt;
-     *                                   &lt;/complexContent&gt;
-     *                                 &lt;/complexType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;element name="noPeriodo"&gt;
-     *                                 &lt;complexType&gt;
-     *                                   &lt;complexContent&gt;
-     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                       &lt;sequence&gt;
-     *                                         &lt;element name="tpPer"&gt;
-     *                                           &lt;simpleType&gt;
-     *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                               &lt;whiteSpace value="preserve"/&gt;
-     *                                               &lt;enumeration value="4"/&gt;
-     *                                             &lt;/restriction&gt;
-     *                                           &lt;/simpleType&gt;
-     *                                         &lt;/element&gt;
-     *                                         &lt;element name="dIni" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-     *                                         &lt;element name="dFim" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-     *                                       &lt;/sequence&gt;
-     *                                     &lt;/restriction&gt;
-     *                                   &lt;/complexContent&gt;
-     *                                 &lt;/complexType&gt;
-     *                               &lt;/element&gt;
-     *                             &lt;/choice&gt;
-     *                             &lt;choice&gt;
-     *                               &lt;element name="semHora"&gt;
-     *                                 &lt;complexType&gt;
-     *                                   &lt;complexContent&gt;
-     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                       &lt;sequence&gt;
-     *                                         &lt;element name="tpHor"&gt;
-     *                                           &lt;simpleType&gt;
-     *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                               &lt;whiteSpace value="preserve"/&gt;
-     *                                               &lt;enumeration value="0"/&gt;
-     *                                             &lt;/restriction&gt;
-     *                                           &lt;/simpleType&gt;
-     *                                         &lt;/element&gt;
-     *                                       &lt;/sequence&gt;
-     *                                     &lt;/restriction&gt;
-     *                                   &lt;/complexContent&gt;
-     *                                 &lt;/complexType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;element name="comHora"&gt;
-     *                                 &lt;complexType&gt;
-     *                                   &lt;complexContent&gt;
-     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                       &lt;sequence&gt;
-     *                                         &lt;element name="tpHor"&gt;
-     *                                           &lt;simpleType&gt;
-     *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                               &lt;whiteSpace value="preserve"/&gt;
-     *                                               &lt;enumeration value="1"/&gt;
-     *                                               &lt;enumeration value="2"/&gt;
-     *                                               &lt;enumeration value="3"/&gt;
-     *                                             &lt;/restriction&gt;
-     *                                           &lt;/simpleType&gt;
-     *                                         &lt;/element&gt;
-     *                                         &lt;element name="hProg" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
-     *                                       &lt;/sequence&gt;
-     *                                     &lt;/restriction&gt;
-     *                                   &lt;/complexContent&gt;
-     *                                 &lt;/complexType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;element name="noInter"&gt;
-     *                                 &lt;complexType&gt;
-     *                                   &lt;complexContent&gt;
-     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                       &lt;sequence&gt;
-     *                                         &lt;element name="tpHor"&gt;
-     *                                           &lt;simpleType&gt;
-     *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                               &lt;whiteSpace value="preserve"/&gt;
-     *                                               &lt;enumeration value="4"/&gt;
-     *                                             &lt;/restriction&gt;
-     *                                           &lt;/simpleType&gt;
-     *                                         &lt;/element&gt;
-     *                                         &lt;element name="hIni" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
-     *                                         &lt;element name="hFim" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
-     *                                       &lt;/sequence&gt;
-     *                                     &lt;/restriction&gt;
-     *                                   &lt;/complexContent&gt;
-     *                                 &lt;/complexType&gt;
-     *                               &lt;/element&gt;
-     *                             &lt;/choice&gt;
-     *                           &lt;/sequence&gt;
-     *                         &lt;/restriction&gt;
-     *                       &lt;/complexContent&gt;
-     *                     &lt;/complexType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="origCalc" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;minLength value="2"/&gt;
-     *                         &lt;maxLength value="40"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="destCalc" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;minLength value="2"/&gt;
-     *                         &lt;maxLength value="40"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="xObs" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;minLength value="1"/&gt;
-     *                         &lt;maxLength value="2000"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="ObsCont" maxOccurs="10" minOccurs="0"&gt;
-     *                     &lt;complexType&gt;
-     *                       &lt;complexContent&gt;
-     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                           &lt;sequence&gt;
-     *                             &lt;element name="xTexto"&gt;
-     *                               &lt;simpleType&gt;
-     *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                   &lt;minLength value="1"/&gt;
-     *                                   &lt;maxLength value="160"/&gt;
-     *                                 &lt;/restriction&gt;
-     *                               &lt;/simpleType&gt;
-     *                             &lt;/element&gt;
-     *                           &lt;/sequence&gt;
-     *                           &lt;attribute name="xCampo" use="required"&gt;
-     *                             &lt;simpleType&gt;
-     *                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                 &lt;minLength value="1"/&gt;
-     *                                 &lt;maxLength value="20"/&gt;
-     *                               &lt;/restriction&gt;
-     *                             &lt;/simpleType&gt;
-     *                           &lt;/attribute&gt;
-     *                         &lt;/restriction&gt;
-     *                       &lt;/complexContent&gt;
-     *                     &lt;/complexType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="ObsFisco" maxOccurs="10" minOccurs="0"&gt;
-     *                     &lt;complexType&gt;
-     *                       &lt;complexContent&gt;
-     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                           &lt;sequence&gt;
-     *                             &lt;element name="xTexto"&gt;
-     *                               &lt;simpleType&gt;
-     *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                   &lt;minLength value="1"/&gt;
-     *                                   &lt;maxLength value="60"/&gt;
-     *                                 &lt;/restriction&gt;
-     *                               &lt;/simpleType&gt;
-     *                             &lt;/element&gt;
-     *                           &lt;/sequence&gt;
-     *                           &lt;attribute name="xCampo" use="required"&gt;
-     *                             &lt;simpleType&gt;
-     *                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                 &lt;minLength value="1"/&gt;
-     *                                 &lt;maxLength value="20"/&gt;
-     *                               &lt;/restriction&gt;
-     *                             &lt;/simpleType&gt;
-     *                           &lt;/attribute&gt;
-     *                         &lt;/restriction&gt;
-     *                       &lt;/complexContent&gt;
-     *                     &lt;/complexType&gt;
-     *                   &lt;/element&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="emit"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;choice&gt;
-     *                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/&gt;
-     *                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-     *                   &lt;/choice&gt;
-     *                   &lt;element name="IE" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIe"&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="IEST" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIe"&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="xNome"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;maxLength value="60"/&gt;
-     *                         &lt;minLength value="2"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="xFant" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;maxLength value="60"/&gt;
-     *                         &lt;minLength value="2"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="enderEmit" type="{http://www.portalfiscal.inf.br/cte}TEndeEmi"/&gt;
-     *                   &lt;element name="CRT" type="{http://www.portalfiscal.inf.br/cte}TCRT"/&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="rem" minOccurs="0"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;choice&gt;
-     *                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-     *                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-     *                   &lt;/choice&gt;
-     *                   &lt;element name="IE" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="xNome"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;maxLength value="60"/&gt;
-     *                         &lt;minLength value="2"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="xFant" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;maxLength value="60"/&gt;
-     *                         &lt;minLength value="2"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
-     *                   &lt;element name="enderReme" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
-     *                   &lt;element name="email" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TEmail"&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="exped" minOccurs="0"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;choice&gt;
-     *                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-     *                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-     *                   &lt;/choice&gt;
-     *                   &lt;element name="IE" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="xNome"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;maxLength value="60"/&gt;
-     *                         &lt;minLength value="2"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
-     *                   &lt;element name="enderExped" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
-     *                   &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="receb" minOccurs="0"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;choice&gt;
-     *                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-     *                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-     *                   &lt;/choice&gt;
-     *                   &lt;element name="IE" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="xNome"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;maxLength value="60"/&gt;
-     *                         &lt;minLength value="2"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
-     *                   &lt;element name="enderReceb" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
-     *                   &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="dest" minOccurs="0"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;choice&gt;
-     *                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-     *                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-     *                   &lt;/choice&gt;
-     *                   &lt;element name="IE" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="xNome"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;maxLength value="60"/&gt;
-     *                         &lt;minLength value="2"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
-     *                   &lt;element name="ISUF" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                         &lt;whiteSpace value="preserve"/&gt;
-     *                         &lt;pattern value="[0-9]{8,9}"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="enderDest" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
-     *                   &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="vPrest"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;element name="vTPrest" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                   &lt;element name="vRec" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                   &lt;element name="Comp" maxOccurs="unbounded" minOccurs="0"&gt;
-     *                     &lt;complexType&gt;
-     *                       &lt;complexContent&gt;
-     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                           &lt;sequence&gt;
-     *                             &lt;element name="xNome"&gt;
-     *                               &lt;simpleType&gt;
-     *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                   &lt;maxLength value="15"/&gt;
-     *                                   &lt;minLength value="1"/&gt;
-     *                                 &lt;/restriction&gt;
-     *                               &lt;/simpleType&gt;
-     *                             &lt;/element&gt;
-     *                             &lt;element name="vComp" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                           &lt;/sequence&gt;
-     *                         &lt;/restriction&gt;
-     *                       &lt;/complexContent&gt;
-     *                     &lt;/complexType&gt;
-     *                   &lt;/element&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="imp"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;element name="ICMS" type="{http://www.portalfiscal.inf.br/cte}TImp"/&gt;
-     *                   &lt;element name="vTotTrib" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/&gt;
-     *                   &lt;element name="infAdFisco" minOccurs="0"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;maxLength value="2000"/&gt;
-     *                         &lt;minLength value="1"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                   &lt;element name="ICMSUFFim" minOccurs="0"&gt;
-     *                     &lt;complexType&gt;
-     *                       &lt;complexContent&gt;
-     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                           &lt;sequence&gt;
-     *                             &lt;element name="vBCUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                             &lt;element name="pFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
-     *                             &lt;element name="pICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
-     *                             &lt;element name="pICMSInter" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
-     *                             &lt;element name="vFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                             &lt;element name="vICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                             &lt;element name="vICMSUFIni" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                           &lt;/sequence&gt;
-     *                         &lt;/restriction&gt;
-     *                       &lt;/complexContent&gt;
-     *                     &lt;/complexType&gt;
-     *                   &lt;/element&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *         &lt;choice&gt;
-     *           &lt;element name="infCTeNorm"&gt;
-     *             &lt;complexType&gt;
-     *               &lt;complexContent&gt;
-     *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                   &lt;sequence&gt;
-     *                     &lt;element name="infCarga"&gt;
-     *                       &lt;complexType&gt;
-     *                         &lt;complexContent&gt;
-     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                             &lt;sequence&gt;
-     *                               &lt;element name="vCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/&gt;
-     *                               &lt;element name="proPred"&gt;
-     *                                 &lt;simpleType&gt;
-     *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                     &lt;minLength value="1"/&gt;
-     *                                     &lt;maxLength value="60"/&gt;
-     *                                   &lt;/restriction&gt;
-     *                                 &lt;/simpleType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;element name="xOutCat" minOccurs="0"&gt;
-     *                                 &lt;simpleType&gt;
-     *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                     &lt;minLength value="1"/&gt;
-     *                                     &lt;maxLength value="30"/&gt;
-     *                                   &lt;/restriction&gt;
-     *                                 &lt;/simpleType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;element name="infQ" maxOccurs="unbounded"&gt;
-     *                                 &lt;complexType&gt;
-     *                                   &lt;complexContent&gt;
-     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                       &lt;sequence&gt;
-     *                                         &lt;element name="cUnid"&gt;
-     *                                           &lt;simpleType&gt;
-     *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                               &lt;whiteSpace value="preserve"/&gt;
-     *                                               &lt;enumeration value="00"/&gt;
-     *                                               &lt;enumeration value="01"/&gt;
-     *                                               &lt;enumeration value="02"/&gt;
-     *                                               &lt;enumeration value="03"/&gt;
-     *                                               &lt;enumeration value="04"/&gt;
-     *                                               &lt;enumeration value="05"/&gt;
-     *                                             &lt;/restriction&gt;
-     *                                           &lt;/simpleType&gt;
-     *                                         &lt;/element&gt;
-     *                                         &lt;element name="tpMed"&gt;
-     *                                           &lt;simpleType&gt;
-     *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                               &lt;minLength value="1"/&gt;
-     *                                               &lt;maxLength value="20"/&gt;
-     *                                             &lt;/restriction&gt;
-     *                                           &lt;/simpleType&gt;
-     *                                         &lt;/element&gt;
-     *                                         &lt;element name="qCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1104"/&gt;
-     *                                       &lt;/sequence&gt;
-     *                                     &lt;/restriction&gt;
-     *                                   &lt;/complexContent&gt;
-     *                                 &lt;/complexType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;element name="vCargaAverb" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-     *                             &lt;/sequence&gt;
-     *                           &lt;/restriction&gt;
-     *                         &lt;/complexContent&gt;
-     *                       &lt;/complexType&gt;
-     *                     &lt;/element&gt;
-     *                     &lt;element name="infDoc" minOccurs="0"&gt;
-     *                       &lt;complexType&gt;
-     *                         &lt;complexContent&gt;
-     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                             &lt;sequence&gt;
-     *                               &lt;choice&gt;
-     *                                 &lt;element name="infNF" maxOccurs="unbounded"&gt;
-     *                                   &lt;complexType&gt;
-     *                                     &lt;complexContent&gt;
-     *                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                         &lt;sequence&gt;
-     *                                           &lt;element name="nRoma" minOccurs="0"&gt;
-     *                                             &lt;simpleType&gt;
-     *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                                 &lt;minLength value="1"/&gt;
-     *                                                 &lt;maxLength value="20"/&gt;
-     *                                               &lt;/restriction&gt;
-     *                                             &lt;/simpleType&gt;
-     *                                           &lt;/element&gt;
-     *                                           &lt;element name="nPed" minOccurs="0"&gt;
-     *                                             &lt;simpleType&gt;
-     *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                                 &lt;minLength value="1"/&gt;
-     *                                                 &lt;maxLength value="20"/&gt;
-     *                                               &lt;/restriction&gt;
-     *                                             &lt;/simpleType&gt;
-     *                                           &lt;/element&gt;
-     *                                           &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModNF"/&gt;
-     *                                           &lt;element name="serie"&gt;
-     *                                             &lt;simpleType&gt;
-     *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                                 &lt;minLength value="1"/&gt;
-     *                                                 &lt;maxLength value="3"/&gt;
-     *                                               &lt;/restriction&gt;
-     *                                             &lt;/simpleType&gt;
-     *                                           &lt;/element&gt;
-     *                                           &lt;element name="nDoc"&gt;
-     *                                             &lt;simpleType&gt;
-     *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                                 &lt;minLength value="1"/&gt;
-     *                                                 &lt;maxLength value="20"/&gt;
-     *                                               &lt;/restriction&gt;
-     *                                             &lt;/simpleType&gt;
-     *                                           &lt;/element&gt;
-     *                                           &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-     *                                           &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                                           &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                                           &lt;element name="vBCST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                                           &lt;element name="vST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                                           &lt;element name="vProd" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                                           &lt;element name="vNF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                                           &lt;element name="nCFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/&gt;
-     *                                           &lt;element name="nPeso" type="{http://www.portalfiscal.inf.br/cte}TDec_1203Opc" minOccurs="0"/&gt;
-     *                                           &lt;element name="PIN" minOccurs="0"&gt;
-     *                                             &lt;simpleType&gt;
-     *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                                 &lt;whiteSpace value="preserve"/&gt;
-     *                                                 &lt;minLength value="2"/&gt;
-     *                                                 &lt;maxLength value="9"/&gt;
-     *                                                 &lt;pattern value="[1-9]{1}[0-9]{1,8}"/&gt;
-     *                                               &lt;/restriction&gt;
-     *                                             &lt;/simpleType&gt;
-     *                                           &lt;/element&gt;
-     *                                           &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-     *                                           &lt;choice&gt;
-     *                                             &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
-     *                                             &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
-     *                                           &lt;/choice&gt;
-     *                                         &lt;/sequence&gt;
-     *                                       &lt;/restriction&gt;
-     *                                     &lt;/complexContent&gt;
-     *                                   &lt;/complexType&gt;
-     *                                 &lt;/element&gt;
-     *                                 &lt;element name="infNFe" maxOccurs="unbounded"&gt;
-     *                                   &lt;complexType&gt;
-     *                                     &lt;complexContent&gt;
-     *                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                         &lt;sequence&gt;
-     *                                           &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-     *                                           &lt;element name="PIN" minOccurs="0"&gt;
-     *                                             &lt;simpleType&gt;
-     *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                                 &lt;whiteSpace value="preserve"/&gt;
-     *                                                 &lt;minLength value="2"/&gt;
-     *                                                 &lt;maxLength value="9"/&gt;
-     *                                                 &lt;pattern value="[1-9]{1}[0-9]{1,8}"/&gt;
-     *                                               &lt;/restriction&gt;
-     *                                             &lt;/simpleType&gt;
-     *                                           &lt;/element&gt;
-     *                                           &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-     *                                           &lt;choice&gt;
-     *                                             &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
-     *                                             &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
-     *                                           &lt;/choice&gt;
-     *                                         &lt;/sequence&gt;
-     *                                       &lt;/restriction&gt;
-     *                                     &lt;/complexContent&gt;
-     *                                   &lt;/complexType&gt;
-     *                                 &lt;/element&gt;
-     *                                 &lt;element name="infOutros" maxOccurs="unbounded"&gt;
-     *                                   &lt;complexType&gt;
-     *                                     &lt;complexContent&gt;
-     *                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                         &lt;sequence&gt;
-     *                                           &lt;element name="tpDoc"&gt;
-     *                                             &lt;simpleType&gt;
-     *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                                 &lt;whiteSpace value="preserve"/&gt;
-     *                                                 &lt;enumeration value="00"/&gt;
-     *                                                 &lt;enumeration value="10"/&gt;
-     *                                                 &lt;enumeration value="59"/&gt;
-     *                                                 &lt;enumeration value="65"/&gt;
-     *                                                 &lt;enumeration value="99"/&gt;
-     *                                               &lt;/restriction&gt;
-     *                                             &lt;/simpleType&gt;
-     *                                           &lt;/element&gt;
-     *                                           &lt;element name="descOutros" minOccurs="0"&gt;
-     *                                             &lt;simpleType&gt;
-     *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                                 &lt;minLength value="1"/&gt;
-     *                                                 &lt;maxLength value="100"/&gt;
-     *                                               &lt;/restriction&gt;
-     *                                             &lt;/simpleType&gt;
-     *                                           &lt;/element&gt;
-     *                                           &lt;element name="nDoc" minOccurs="0"&gt;
-     *                                             &lt;simpleType&gt;
-     *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                                 &lt;minLength value="1"/&gt;
-     *                                                 &lt;maxLength value="20"/&gt;
-     *                                               &lt;/restriction&gt;
-     *                                             &lt;/simpleType&gt;
-     *                                           &lt;/element&gt;
-     *                                           &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-     *                                           &lt;element name="vDocFisc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-     *                                           &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-     *                                           &lt;choice&gt;
-     *                                             &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
-     *                                             &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
-     *                                           &lt;/choice&gt;
-     *                                         &lt;/sequence&gt;
-     *                                       &lt;/restriction&gt;
-     *                                     &lt;/complexContent&gt;
-     *                                   &lt;/complexType&gt;
-     *                                 &lt;/element&gt;
-     *                               &lt;/choice&gt;
-     *                             &lt;/sequence&gt;
-     *                           &lt;/restriction&gt;
-     *                         &lt;/complexContent&gt;
-     *                       &lt;/complexType&gt;
-     *                     &lt;/element&gt;
-     *                     &lt;element name="docAnt" minOccurs="0"&gt;
-     *                       &lt;complexType&gt;
-     *                         &lt;complexContent&gt;
-     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                             &lt;sequence&gt;
-     *                               &lt;element name="emiDocAnt" maxOccurs="unbounded"&gt;
-     *                                 &lt;complexType&gt;
-     *                                   &lt;complexContent&gt;
-     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                       &lt;sequence&gt;
-     *                                         &lt;choice&gt;
-     *                                           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-     *                                           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-     *                                         &lt;/choice&gt;
-     *                                         &lt;sequence minOccurs="0"&gt;
-     *                                           &lt;element name="IE" type="{http://www.portalfiscal.inf.br/cte}TIe"/&gt;
-     *                                           &lt;element name="UF" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
-     *                                         &lt;/sequence&gt;
-     *                                         &lt;element name="xNome"&gt;
-     *                                           &lt;simpleType&gt;
-     *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                               &lt;maxLength value="60"/&gt;
-     *                                               &lt;minLength value="1"/&gt;
-     *                                             &lt;/restriction&gt;
-     *                                           &lt;/simpleType&gt;
-     *                                         &lt;/element&gt;
-     *                                         &lt;element name="idDocAnt" maxOccurs="2"&gt;
-     *                                           &lt;complexType&gt;
-     *                                             &lt;complexContent&gt;
-     *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                                 &lt;choice&gt;
-     *                                                   &lt;element name="idDocAntPap" maxOccurs="unbounded"&gt;
-     *                                                     &lt;complexType&gt;
-     *                                                       &lt;complexContent&gt;
-     *                                                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                                           &lt;sequence&gt;
-     *                                                             &lt;element name="tpDoc"&gt;
-     *                                                               &lt;simpleType&gt;
-     *                                                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDocAssoc"&gt;
-     *                                                                 &lt;/restriction&gt;
-     *                                                               &lt;/simpleType&gt;
-     *                                                             &lt;/element&gt;
-     *                                                             &lt;element name="serie"&gt;
-     *                                                               &lt;simpleType&gt;
-     *                                                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                                                   &lt;minLength value="1"/&gt;
-     *                                                                   &lt;maxLength value="3"/&gt;
-     *                                                                 &lt;/restriction&gt;
-     *                                                               &lt;/simpleType&gt;
-     *                                                             &lt;/element&gt;
-     *                                                             &lt;element name="subser" minOccurs="0"&gt;
-     *                                                               &lt;simpleType&gt;
-     *                                                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                                                   &lt;minLength value="1"/&gt;
-     *                                                                   &lt;maxLength value="2"/&gt;
-     *                                                                 &lt;/restriction&gt;
-     *                                                               &lt;/simpleType&gt;
-     *                                                             &lt;/element&gt;
-     *                                                             &lt;element name="nDoc"&gt;
-     *                                                               &lt;simpleType&gt;
-     *                                                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                                                   &lt;minLength value="1"/&gt;
-     *                                                                   &lt;maxLength value="30"/&gt;
-     *                                                                 &lt;/restriction&gt;
-     *                                                               &lt;/simpleType&gt;
-     *                                                             &lt;/element&gt;
-     *                                                             &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-     *                                                           &lt;/sequence&gt;
-     *                                                         &lt;/restriction&gt;
-     *                                                       &lt;/complexContent&gt;
-     *                                                     &lt;/complexType&gt;
-     *                                                   &lt;/element&gt;
-     *                                                   &lt;element name="idDocAntEle" maxOccurs="unbounded"&gt;
-     *                                                     &lt;complexType&gt;
-     *                                                       &lt;complexContent&gt;
-     *                                                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                                           &lt;sequence&gt;
-     *                                                             &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-     *                                                           &lt;/sequence&gt;
-     *                                                         &lt;/restriction&gt;
-     *                                                       &lt;/complexContent&gt;
-     *                                                     &lt;/complexType&gt;
-     *                                                   &lt;/element&gt;
-     *                                                 &lt;/choice&gt;
-     *                                               &lt;/restriction&gt;
-     *                                             &lt;/complexContent&gt;
-     *                                           &lt;/complexType&gt;
-     *                                         &lt;/element&gt;
-     *                                       &lt;/sequence&gt;
-     *                                     &lt;/restriction&gt;
-     *                                   &lt;/complexContent&gt;
-     *                                 &lt;/complexType&gt;
-     *                               &lt;/element&gt;
-     *                             &lt;/sequence&gt;
-     *                           &lt;/restriction&gt;
-     *                         &lt;/complexContent&gt;
-     *                       &lt;/complexType&gt;
-     *                     &lt;/element&gt;
-     *                     &lt;element name="infModal"&gt;
-     *                       &lt;complexType&gt;
-     *                         &lt;complexContent&gt;
-     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                             &lt;sequence&gt;
-     *                               &lt;any processContents='skip'/&gt;
-     *                             &lt;/sequence&gt;
-     *                             &lt;attribute name="versaoModal" use="required"&gt;
-     *                               &lt;simpleType&gt;
-     *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                   &lt;whiteSpace value="preserve"/&gt;
-     *                                   &lt;pattern value="4\.(0[0-9]|[1-9][0-9])"/&gt;
-     *                                 &lt;/restriction&gt;
-     *                               &lt;/simpleType&gt;
-     *                             &lt;/attribute&gt;
-     *                           &lt;/restriction&gt;
-     *                         &lt;/complexContent&gt;
-     *                       &lt;/complexType&gt;
-     *                     &lt;/element&gt;
-     *                     &lt;element name="veicNovos" maxOccurs="unbounded" minOccurs="0"&gt;
-     *                       &lt;complexType&gt;
-     *                         &lt;complexContent&gt;
-     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                             &lt;sequence&gt;
-     *                               &lt;element name="chassi"&gt;
-     *                                 &lt;simpleType&gt;
-     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                     &lt;whiteSpace value="preserve"/&gt;
-     *                                     &lt;length value="17"/&gt;
-     *                                     &lt;pattern value="[A-Z0-9]+"/&gt;
-     *                                   &lt;/restriction&gt;
-     *                                 &lt;/simpleType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;element name="cCor"&gt;
-     *                                 &lt;simpleType&gt;
-     *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                     &lt;minLength value="1"/&gt;
-     *                                     &lt;maxLength value="4"/&gt;
-     *                                   &lt;/restriction&gt;
-     *                                 &lt;/simpleType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;element name="xCor"&gt;
-     *                                 &lt;simpleType&gt;
-     *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                     &lt;minLength value="1"/&gt;
-     *                                     &lt;maxLength value="40"/&gt;
-     *                                   &lt;/restriction&gt;
-     *                                 &lt;/simpleType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;element name="cMod"&gt;
-     *                                 &lt;simpleType&gt;
-     *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                     &lt;minLength value="1"/&gt;
-     *                                     &lt;maxLength value="6"/&gt;
-     *                                   &lt;/restriction&gt;
-     *                                 &lt;/simpleType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;element name="vUnit" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                               &lt;element name="vFrete" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-     *                             &lt;/sequence&gt;
-     *                           &lt;/restriction&gt;
-     *                         &lt;/complexContent&gt;
-     *                       &lt;/complexType&gt;
-     *                     &lt;/element&gt;
-     *                     &lt;element name="cobr" minOccurs="0"&gt;
-     *                       &lt;complexType&gt;
-     *                         &lt;complexContent&gt;
-     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                             &lt;sequence&gt;
-     *                               &lt;element name="fat" minOccurs="0"&gt;
-     *                                 &lt;complexType&gt;
-     *                                   &lt;complexContent&gt;
-     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                       &lt;sequence&gt;
-     *                                         &lt;element name="nFat" minOccurs="0"&gt;
-     *                                           &lt;simpleType&gt;
-     *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                               &lt;minLength value="1"/&gt;
-     *                                               &lt;maxLength value="60"/&gt;
-     *                                             &lt;/restriction&gt;
-     *                                           &lt;/simpleType&gt;
-     *                                         &lt;/element&gt;
-     *                                         &lt;element name="vOrig" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-     *                                         &lt;element name="vDesc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-     *                                         &lt;element name="vLiq" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-     *                                       &lt;/sequence&gt;
-     *                                     &lt;/restriction&gt;
-     *                                   &lt;/complexContent&gt;
-     *                                 &lt;/complexType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;element name="dup" maxOccurs="unbounded" minOccurs="0"&gt;
-     *                                 &lt;complexType&gt;
-     *                                   &lt;complexContent&gt;
-     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                       &lt;sequence&gt;
-     *                                         &lt;element name="nDup" minOccurs="0"&gt;
-     *                                           &lt;simpleType&gt;
-     *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                               &lt;maxLength value="60"/&gt;
-     *                                               &lt;minLength value="1"/&gt;
-     *                                             &lt;/restriction&gt;
-     *                                           &lt;/simpleType&gt;
-     *                                         &lt;/element&gt;
-     *                                         &lt;element name="dVenc" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-     *                                         &lt;element name="vDup" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-     *                                       &lt;/sequence&gt;
-     *                                     &lt;/restriction&gt;
-     *                                   &lt;/complexContent&gt;
-     *                                 &lt;/complexType&gt;
-     *                               &lt;/element&gt;
-     *                             &lt;/sequence&gt;
-     *                           &lt;/restriction&gt;
-     *                         &lt;/complexContent&gt;
-     *                       &lt;/complexType&gt;
-     *                     &lt;/element&gt;
-     *                     &lt;element name="infCteSub" minOccurs="0"&gt;
-     *                       &lt;complexType&gt;
-     *                         &lt;complexContent&gt;
-     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                             &lt;sequence&gt;
-     *                               &lt;element name="chCte"&gt;
-     *                                 &lt;simpleType&gt;
-     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                     &lt;pattern value="[0-9]{44}"/&gt;
-     *                                   &lt;/restriction&gt;
-     *                                 &lt;/simpleType&gt;
-     *                               &lt;/element&gt;
-     *                               &lt;element name="indAlteraToma" minOccurs="0"&gt;
-     *                                 &lt;simpleType&gt;
-     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                                     &lt;enumeration value="1"/&gt;
-     *                                   &lt;/restriction&gt;
-     *                                 &lt;/simpleType&gt;
-     *                               &lt;/element&gt;
-     *                             &lt;/sequence&gt;
-     *                           &lt;/restriction&gt;
-     *                         &lt;/complexContent&gt;
-     *                       &lt;/complexType&gt;
-     *                     &lt;/element&gt;
-     *                     &lt;element name="infGlobalizado" minOccurs="0"&gt;
-     *                       &lt;complexType&gt;
-     *                         &lt;complexContent&gt;
-     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                             &lt;sequence&gt;
-     *                               &lt;element name="xObs"&gt;
-     *                                 &lt;simpleType&gt;
-     *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                                     &lt;minLength value="15"/&gt;
-     *                                     &lt;maxLength value="256"/&gt;
-     *                                   &lt;/restriction&gt;
-     *                                 &lt;/simpleType&gt;
-     *                               &lt;/element&gt;
-     *                             &lt;/sequence&gt;
-     *                           &lt;/restriction&gt;
-     *                         &lt;/complexContent&gt;
-     *                       &lt;/complexType&gt;
-     *                     &lt;/element&gt;
-     *                     &lt;element name="infServVinc" minOccurs="0"&gt;
-     *                       &lt;complexType&gt;
-     *                         &lt;complexContent&gt;
-     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                             &lt;sequence&gt;
-     *                               &lt;element name="infCTeMultimodal" maxOccurs="unbounded"&gt;
-     *                                 &lt;complexType&gt;
-     *                                   &lt;complexContent&gt;
-     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                                       &lt;sequence&gt;
-     *                                         &lt;element name="chCTeMultimodal" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-     *                                       &lt;/sequence&gt;
-     *                                     &lt;/restriction&gt;
-     *                                   &lt;/complexContent&gt;
-     *                                 &lt;/complexType&gt;
-     *                               &lt;/element&gt;
-     *                             &lt;/sequence&gt;
-     *                           &lt;/restriction&gt;
-     *                         &lt;/complexContent&gt;
-     *                       &lt;/complexType&gt;
-     *                     &lt;/element&gt;
-     *                   &lt;/sequence&gt;
-     *                 &lt;/restriction&gt;
-     *               &lt;/complexContent&gt;
-     *             &lt;/complexType&gt;
-     *           &lt;/element&gt;
-     *           &lt;element name="infCteComp" maxOccurs="10"&gt;
-     *             &lt;complexType&gt;
-     *               &lt;complexContent&gt;
-     *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                   &lt;sequence&gt;
-     *                     &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-     *                   &lt;/sequence&gt;
-     *                 &lt;/restriction&gt;
-     *               &lt;/complexContent&gt;
-     *             &lt;/complexType&gt;
-     *           &lt;/element&gt;
-     *         &lt;/choice&gt;
-     *         &lt;element name="autXML" maxOccurs="10" minOccurs="0"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;choice&gt;
-     *                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/&gt;
-     *                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-     *                   &lt;/choice&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="infRespTec" type="{http://www.portalfiscal.inf.br/cte}TRespTec" minOccurs="0"/&gt;
-     *         &lt;element name="infSolicNFF" minOccurs="0"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;element name="xSolic"&gt;
-     *                     &lt;simpleType&gt;
-     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *                         &lt;minLength value="2"/&gt;
-     *                         &lt;maxLength value="8000"/&gt;
-     *                       &lt;/restriction&gt;
-     *                     &lt;/simpleType&gt;
-     *                   &lt;/element&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="infPAA" minOccurs="0"&gt;
-     *           &lt;complexType&gt;
-     *             &lt;complexContent&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                 &lt;sequence&gt;
-     *                   &lt;element name="CNPJPAA" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/&gt;
-     *                   &lt;element name="PAASignature"&gt;
-     *                     &lt;complexType&gt;
-     *                       &lt;complexContent&gt;
-     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *                           &lt;sequence&gt;
-     *                             &lt;element name="SignatureValue" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/&gt;
-     *                             &lt;element name="RSAKeyValue" type="{http://www.portalfiscal.inf.br/cte}TRSAKeyValueType"/&gt;
-     *                           &lt;/sequence&gt;
-     *                         &lt;/restriction&gt;
-     *                       &lt;/complexContent&gt;
-     *                     &lt;/complexType&gt;
-     *                   &lt;/element&gt;
-     *                 &lt;/sequence&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/complexContent&gt;
-     *           &lt;/complexType&gt;
-     *         &lt;/element&gt;
-     *       &lt;/sequence&gt;
-     *       &lt;attribute name="versao" use="required"&gt;
-     *         &lt;simpleType&gt;
-     *           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TVerCTe"&gt;
-     *           &lt;/restriction&gt;
-     *         &lt;/simpleType&gt;
-     *       &lt;/attribute&gt;
-     *       &lt;attribute name="Id" use="required"&gt;
-     *         &lt;simpleType&gt;
-     *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}ID"&gt;
-     *             &lt;pattern value="CTe[0-9]{44}"/&gt;
-     *           &lt;/restriction&gt;
-     *         &lt;/simpleType&gt;
-     *       &lt;/attribute&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="qrCodCTe">
+     *           &lt;simpleType>
+     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *               &lt;whiteSpace value="preserve"/>
+     *               &lt;minLength value="50"/>
+     *               &lt;maxLength value="1000"/>
+     *               &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{6}[A-Z0-9]{12}[0-9]{26}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/>
+     *             &lt;/restriction>
+     *           &lt;/simpleType>
+     *         &lt;/element>
+     *       &lt;/sequence>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "qrCodCTe"
+    })
+    public static class InfCTeSupl {
+
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+        protected String qrCodCTe;
+
+        /**
+         * Obtém o valor da propriedade qrCodCTe.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getQrCodCTe() {
+            return qrCodCTe;
+        }
+
+        /**
+         * Define o valor da propriedade qrCodCTe.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setQrCodCTe(String value) {
+            this.qrCodCTe = value;
+        }
+
+    }
+
+
+    /**
+     * <p>Classe Java de anonymous complex type.
+     * 
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="ide">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;sequence>
+     *                   &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/cte}TCodUfIBGE"/>
+     *                   &lt;element name="cCT">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                         &lt;whiteSpace value="preserve"/>
+     *                         &lt;pattern value="[0-9]{8}"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="CFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/>
+     *                   &lt;element name="natOp">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;minLength value="1"/>
+     *                         &lt;maxLength value="60"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModCT"/>
+     *                   &lt;element name="serie">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TSerie">
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="nCT" type="{http://www.portalfiscal.inf.br/cte}TNF"/>
+     *                   &lt;element name="dhEmi">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC">
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="tpImp">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                         &lt;whiteSpace value="preserve"/>
+     *                         &lt;enumeration value="1"/>
+     *                         &lt;enumeration value="2"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="tpEmis">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                         &lt;whiteSpace value="preserve"/>
+     *                         &lt;enumeration value="1"/>
+     *                         &lt;enumeration value="3"/>
+     *                         &lt;enumeration value="4"/>
+     *                         &lt;enumeration value="5"/>
+     *                         &lt;enumeration value="7"/>
+     *                         &lt;enumeration value="8"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="cDV">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                         &lt;whiteSpace value="preserve"/>
+     *                         &lt;pattern value="[0-9]{1}"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/>
+     *                   &lt;element name="tpCTe" type="{http://www.portalfiscal.inf.br/cte}TFinCTe"/>
+     *                   &lt;element name="procEmi" type="{http://www.portalfiscal.inf.br/cte}TProcEmi"/>
+     *                   &lt;element name="verProc">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;minLength value="1"/>
+     *                         &lt;maxLength value="20"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="indGlobalizado" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                         &lt;enumeration value="1"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="cMunEnv" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/>
+     *                   &lt;element name="xMunEnv">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;minLength value="2"/>
+     *                         &lt;maxLength value="60"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="UFEnv" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+     *                   &lt;element name="modal" type="{http://www.portalfiscal.inf.br/cte}TModTransp"/>
+     *                   &lt;element name="tpServ">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                         &lt;whiteSpace value="preserve"/>
+     *                         &lt;enumeration value="0"/>
+     *                         &lt;enumeration value="1"/>
+     *                         &lt;enumeration value="2"/>
+     *                         &lt;enumeration value="3"/>
+     *                         &lt;enumeration value="4"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="cMunIni" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/>
+     *                   &lt;element name="xMunIni">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;minLength value="2"/>
+     *                         &lt;maxLength value="60"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="UFIni" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+     *                   &lt;element name="cMunFim" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/>
+     *                   &lt;element name="xMunFim">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;minLength value="2"/>
+     *                         &lt;maxLength value="60"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="UFFim" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+     *                   &lt;element name="retira">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                         &lt;whiteSpace value="preserve"/>
+     *                         &lt;enumeration value="0"/>
+     *                         &lt;enumeration value="1"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="xDetRetira" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;minLength value="1"/>
+     *                         &lt;maxLength value="160"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="indIEToma">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                         &lt;whiteSpace value="preserve"/>
+     *                         &lt;enumeration value="1"/>
+     *                         &lt;enumeration value="2"/>
+     *                         &lt;enumeration value="9"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;choice>
+     *                     &lt;element name="toma3">
+     *                       &lt;complexType>
+     *                         &lt;complexContent>
+     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                             &lt;sequence>
+     *                               &lt;element name="toma">
+     *                                 &lt;simpleType>
+     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                     &lt;whiteSpace value="preserve"/>
+     *                                     &lt;enumeration value="0"/>
+     *                                     &lt;enumeration value="1"/>
+     *                                     &lt;enumeration value="2"/>
+     *                                     &lt;enumeration value="3"/>
+     *                                   &lt;/restriction>
+     *                                 &lt;/simpleType>
+     *                               &lt;/element>
+     *                             &lt;/sequence>
+     *                           &lt;/restriction>
+     *                         &lt;/complexContent>
+     *                       &lt;/complexType>
+     *                     &lt;/element>
+     *                     &lt;element name="toma4">
+     *                       &lt;complexType>
+     *                         &lt;complexContent>
+     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                             &lt;sequence>
+     *                               &lt;element name="toma">
+     *                                 &lt;simpleType>
+     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                     &lt;whiteSpace value="preserve"/>
+     *                                     &lt;enumeration value="4"/>
+     *                                   &lt;/restriction>
+     *                                 &lt;/simpleType>
+     *                               &lt;/element>
+     *                               &lt;choice>
+     *                                 &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+     *                                 &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+     *                               &lt;/choice>
+     *                               &lt;element name="IE" minOccurs="0">
+     *                                 &lt;simpleType>
+     *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+     *                                   &lt;/restriction>
+     *                                 &lt;/simpleType>
+     *                               &lt;/element>
+     *                               &lt;sequence>
+     *                                 &lt;element name="xNome">
+     *                                   &lt;simpleType>
+     *                                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                       &lt;maxLength value="60"/>
+     *                                       &lt;minLength value="2"/>
+     *                                     &lt;/restriction>
+     *                                   &lt;/simpleType>
+     *                                 &lt;/element>
+     *                                 &lt;element name="xFant" minOccurs="0">
+     *                                   &lt;simpleType>
+     *                                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                       &lt;maxLength value="60"/>
+     *                                       &lt;minLength value="2"/>
+     *                                     &lt;/restriction>
+     *                                   &lt;/simpleType>
+     *                                 &lt;/element>
+     *                                 &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+     *                                 &lt;element name="enderToma" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+     *                                 &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/>
+     *                               &lt;/sequence>
+     *                             &lt;/sequence>
+     *                           &lt;/restriction>
+     *                         &lt;/complexContent>
+     *                       &lt;/complexType>
+     *                     &lt;/element>
+     *                   &lt;/choice>
+     *                   &lt;sequence minOccurs="0">
+     *                     &lt;element name="dhCont" type="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC"/>
+     *                     &lt;element name="xJust">
+     *                       &lt;simpleType>
+     *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                           &lt;minLength value="15"/>
+     *                           &lt;maxLength value="256"/>
+     *                         &lt;/restriction>
+     *                       &lt;/simpleType>
+     *                     &lt;/element>
+     *                   &lt;/sequence>
+     *                   &lt;element name="gCompraGov" type="{http://www.portalfiscal.inf.br/cte}TCompraGovReduzido" minOccurs="0"/>
+     *                 &lt;/sequence>
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
+     *         &lt;element name="compl" minOccurs="0">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;sequence>
+     *                   &lt;element name="xCaracAd" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;minLength value="1"/>
+     *                         &lt;maxLength value="15"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="xCaracSer" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;minLength value="1"/>
+     *                         &lt;maxLength value="30"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="xEmi" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;minLength value="1"/>
+     *                         &lt;maxLength value="20"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="fluxo" minOccurs="0">
+     *                     &lt;complexType>
+     *                       &lt;complexContent>
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                           &lt;sequence>
+     *                             &lt;element name="xOrig" minOccurs="0">
+     *                               &lt;simpleType>
+     *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                   &lt;minLength value="1"/>
+     *                                   &lt;maxLength value="60"/>
+     *                                 &lt;/restriction>
+     *                               &lt;/simpleType>
+     *                             &lt;/element>
+     *                             &lt;element name="pass" maxOccurs="unbounded" minOccurs="0">
+     *                               &lt;complexType>
+     *                                 &lt;complexContent>
+     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                     &lt;sequence>
+     *                                       &lt;element name="xPass" minOccurs="0">
+     *                                         &lt;simpleType>
+     *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                             &lt;minLength value="1"/>
+     *                                             &lt;maxLength value="15"/>
+     *                                           &lt;/restriction>
+     *                                         &lt;/simpleType>
+     *                                       &lt;/element>
+     *                                     &lt;/sequence>
+     *                                   &lt;/restriction>
+     *                                 &lt;/complexContent>
+     *                               &lt;/complexType>
+     *                             &lt;/element>
+     *                             &lt;element name="xDest" minOccurs="0">
+     *                               &lt;simpleType>
+     *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                   &lt;minLength value="1"/>
+     *                                   &lt;maxLength value="60"/>
+     *                                 &lt;/restriction>
+     *                               &lt;/simpleType>
+     *                             &lt;/element>
+     *                             &lt;element name="xRota" minOccurs="0">
+     *                               &lt;simpleType>
+     *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                   &lt;minLength value="1"/>
+     *                                   &lt;maxLength value="10"/>
+     *                                 &lt;/restriction>
+     *                               &lt;/simpleType>
+     *                             &lt;/element>
+     *                           &lt;/sequence>
+     *                         &lt;/restriction>
+     *                       &lt;/complexContent>
+     *                     &lt;/complexType>
+     *                   &lt;/element>
+     *                   &lt;element name="Entrega" minOccurs="0">
+     *                     &lt;complexType>
+     *                       &lt;complexContent>
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                           &lt;sequence>
+     *                             &lt;choice>
+     *                               &lt;element name="semData">
+     *                                 &lt;complexType>
+     *                                   &lt;complexContent>
+     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                       &lt;sequence>
+     *                                         &lt;element name="tpPer">
+     *                                           &lt;simpleType>
+     *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                               &lt;whiteSpace value="preserve"/>
+     *                                               &lt;enumeration value="0"/>
+     *                                             &lt;/restriction>
+     *                                           &lt;/simpleType>
+     *                                         &lt;/element>
+     *                                       &lt;/sequence>
+     *                                     &lt;/restriction>
+     *                                   &lt;/complexContent>
+     *                                 &lt;/complexType>
+     *                               &lt;/element>
+     *                               &lt;element name="comData">
+     *                                 &lt;complexType>
+     *                                   &lt;complexContent>
+     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                       &lt;sequence>
+     *                                         &lt;element name="tpPer">
+     *                                           &lt;simpleType>
+     *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                               &lt;whiteSpace value="preserve"/>
+     *                                               &lt;enumeration value="1"/>
+     *                                               &lt;enumeration value="2"/>
+     *                                               &lt;enumeration value="3"/>
+     *                                             &lt;/restriction>
+     *                                           &lt;/simpleType>
+     *                                         &lt;/element>
+     *                                         &lt;element name="dProg" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+     *                                       &lt;/sequence>
+     *                                     &lt;/restriction>
+     *                                   &lt;/complexContent>
+     *                                 &lt;/complexType>
+     *                               &lt;/element>
+     *                               &lt;element name="noPeriodo">
+     *                                 &lt;complexType>
+     *                                   &lt;complexContent>
+     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                       &lt;sequence>
+     *                                         &lt;element name="tpPer">
+     *                                           &lt;simpleType>
+     *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                               &lt;whiteSpace value="preserve"/>
+     *                                               &lt;enumeration value="4"/>
+     *                                             &lt;/restriction>
+     *                                           &lt;/simpleType>
+     *                                         &lt;/element>
+     *                                         &lt;element name="dIni" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+     *                                         &lt;element name="dFim" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+     *                                       &lt;/sequence>
+     *                                     &lt;/restriction>
+     *                                   &lt;/complexContent>
+     *                                 &lt;/complexType>
+     *                               &lt;/element>
+     *                             &lt;/choice>
+     *                             &lt;choice>
+     *                               &lt;element name="semHora">
+     *                                 &lt;complexType>
+     *                                   &lt;complexContent>
+     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                       &lt;sequence>
+     *                                         &lt;element name="tpHor">
+     *                                           &lt;simpleType>
+     *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                               &lt;whiteSpace value="preserve"/>
+     *                                               &lt;enumeration value="0"/>
+     *                                             &lt;/restriction>
+     *                                           &lt;/simpleType>
+     *                                         &lt;/element>
+     *                                       &lt;/sequence>
+     *                                     &lt;/restriction>
+     *                                   &lt;/complexContent>
+     *                                 &lt;/complexType>
+     *                               &lt;/element>
+     *                               &lt;element name="comHora">
+     *                                 &lt;complexType>
+     *                                   &lt;complexContent>
+     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                       &lt;sequence>
+     *                                         &lt;element name="tpHor">
+     *                                           &lt;simpleType>
+     *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                               &lt;whiteSpace value="preserve"/>
+     *                                               &lt;enumeration value="1"/>
+     *                                               &lt;enumeration value="2"/>
+     *                                               &lt;enumeration value="3"/>
+     *                                             &lt;/restriction>
+     *                                           &lt;/simpleType>
+     *                                         &lt;/element>
+     *                                         &lt;element name="hProg" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+     *                                       &lt;/sequence>
+     *                                     &lt;/restriction>
+     *                                   &lt;/complexContent>
+     *                                 &lt;/complexType>
+     *                               &lt;/element>
+     *                               &lt;element name="noInter">
+     *                                 &lt;complexType>
+     *                                   &lt;complexContent>
+     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                       &lt;sequence>
+     *                                         &lt;element name="tpHor">
+     *                                           &lt;simpleType>
+     *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                               &lt;whiteSpace value="preserve"/>
+     *                                               &lt;enumeration value="4"/>
+     *                                             &lt;/restriction>
+     *                                           &lt;/simpleType>
+     *                                         &lt;/element>
+     *                                         &lt;element name="hIni" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+     *                                         &lt;element name="hFim" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+     *                                       &lt;/sequence>
+     *                                     &lt;/restriction>
+     *                                   &lt;/complexContent>
+     *                                 &lt;/complexType>
+     *                               &lt;/element>
+     *                             &lt;/choice>
+     *                           &lt;/sequence>
+     *                         &lt;/restriction>
+     *                       &lt;/complexContent>
+     *                     &lt;/complexType>
+     *                   &lt;/element>
+     *                   &lt;element name="origCalc" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;minLength value="2"/>
+     *                         &lt;maxLength value="40"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="destCalc" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;minLength value="2"/>
+     *                         &lt;maxLength value="40"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="xObs" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;minLength value="1"/>
+     *                         &lt;maxLength value="2000"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="ObsCont" maxOccurs="10" minOccurs="0">
+     *                     &lt;complexType>
+     *                       &lt;complexContent>
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                           &lt;sequence>
+     *                             &lt;element name="xTexto">
+     *                               &lt;simpleType>
+     *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                   &lt;minLength value="1"/>
+     *                                   &lt;maxLength value="160"/>
+     *                                 &lt;/restriction>
+     *                               &lt;/simpleType>
+     *                             &lt;/element>
+     *                           &lt;/sequence>
+     *                           &lt;attribute name="xCampo" use="required">
+     *                             &lt;simpleType>
+     *                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                 &lt;minLength value="1"/>
+     *                                 &lt;maxLength value="20"/>
+     *                               &lt;/restriction>
+     *                             &lt;/simpleType>
+     *                           &lt;/attribute>
+     *                         &lt;/restriction>
+     *                       &lt;/complexContent>
+     *                     &lt;/complexType>
+     *                   &lt;/element>
+     *                   &lt;element name="ObsFisco" maxOccurs="10" minOccurs="0">
+     *                     &lt;complexType>
+     *                       &lt;complexContent>
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                           &lt;sequence>
+     *                             &lt;element name="xTexto">
+     *                               &lt;simpleType>
+     *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                   &lt;minLength value="1"/>
+     *                                   &lt;maxLength value="60"/>
+     *                                 &lt;/restriction>
+     *                               &lt;/simpleType>
+     *                             &lt;/element>
+     *                           &lt;/sequence>
+     *                           &lt;attribute name="xCampo" use="required">
+     *                             &lt;simpleType>
+     *                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                 &lt;minLength value="1"/>
+     *                                 &lt;maxLength value="20"/>
+     *                               &lt;/restriction>
+     *                             &lt;/simpleType>
+     *                           &lt;/attribute>
+     *                         &lt;/restriction>
+     *                       &lt;/complexContent>
+     *                     &lt;/complexType>
+     *                   &lt;/element>
+     *                 &lt;/sequence>
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
+     *         &lt;element name="emit">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;sequence>
+     *                   &lt;choice>
+     *                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/>
+     *                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+     *                   &lt;/choice>
+     *                   &lt;element name="IE" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIe">
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="IEST" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIe">
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="xNome">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;maxLength value="60"/>
+     *                         &lt;minLength value="2"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="xFant" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;maxLength value="60"/>
+     *                         &lt;minLength value="2"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="enderEmit" type="{http://www.portalfiscal.inf.br/cte}TEndeEmi"/>
+     *                   &lt;element name="CRT" type="{http://www.portalfiscal.inf.br/cte}TCRT"/>
+     *                 &lt;/sequence>
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
+     *         &lt;element name="rem" minOccurs="0">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;sequence>
+     *                   &lt;choice>
+     *                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+     *                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+     *                   &lt;/choice>
+     *                   &lt;element name="IE" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="xNome">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;maxLength value="60"/>
+     *                         &lt;minLength value="2"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="xFant" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;maxLength value="60"/>
+     *                         &lt;minLength value="2"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+     *                   &lt;element name="enderReme" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+     *                   &lt;element name="email" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TEmail">
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                 &lt;/sequence>
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
+     *         &lt;element name="exped" minOccurs="0">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;sequence>
+     *                   &lt;choice>
+     *                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+     *                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+     *                   &lt;/choice>
+     *                   &lt;element name="IE" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="xNome">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;maxLength value="60"/>
+     *                         &lt;minLength value="2"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+     *                   &lt;element name="enderExped" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+     *                   &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/>
+     *                 &lt;/sequence>
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
+     *         &lt;element name="receb" minOccurs="0">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;sequence>
+     *                   &lt;choice>
+     *                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+     *                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+     *                   &lt;/choice>
+     *                   &lt;element name="IE" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="xNome">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;maxLength value="60"/>
+     *                         &lt;minLength value="2"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+     *                   &lt;element name="enderReceb" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+     *                   &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/>
+     *                 &lt;/sequence>
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
+     *         &lt;element name="dest" minOccurs="0">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;sequence>
+     *                   &lt;choice>
+     *                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+     *                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+     *                   &lt;/choice>
+     *                   &lt;element name="IE" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="xNome">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;maxLength value="60"/>
+     *                         &lt;minLength value="2"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+     *                   &lt;element name="ISUF" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                         &lt;whiteSpace value="preserve"/>
+     *                         &lt;pattern value="[0-9]{8,9}"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="enderDest" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+     *                   &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/>
+     *                 &lt;/sequence>
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
+     *         &lt;element name="vPrest">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;sequence>
+     *                   &lt;element name="vTPrest" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                   &lt;element name="vRec" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                   &lt;element name="Comp" maxOccurs="unbounded" minOccurs="0">
+     *                     &lt;complexType>
+     *                       &lt;complexContent>
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                           &lt;sequence>
+     *                             &lt;element name="xNome">
+     *                               &lt;simpleType>
+     *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                   &lt;maxLength value="15"/>
+     *                                   &lt;minLength value="1"/>
+     *                                 &lt;/restriction>
+     *                               &lt;/simpleType>
+     *                             &lt;/element>
+     *                             &lt;element name="vComp" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                           &lt;/sequence>
+     *                         &lt;/restriction>
+     *                       &lt;/complexContent>
+     *                     &lt;/complexType>
+     *                   &lt;/element>
+     *                 &lt;/sequence>
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
+     *         &lt;element name="imp">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;sequence>
+     *                   &lt;element name="ICMS" type="{http://www.portalfiscal.inf.br/cte}TImp"/>
+     *                   &lt;element name="vTotTrib" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
+     *                   &lt;element name="infAdFisco" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;maxLength value="2000"/>
+     *                         &lt;minLength value="1"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                   &lt;element name="ICMSUFFim" minOccurs="0">
+     *                     &lt;complexType>
+     *                       &lt;complexContent>
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                           &lt;sequence>
+     *                             &lt;element name="vBCUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                             &lt;element name="pFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+     *                             &lt;element name="pICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+     *                             &lt;element name="pICMSInter" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+     *                             &lt;element name="vFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                             &lt;element name="vICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                             &lt;element name="vICMSUFIni" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                           &lt;/sequence>
+     *                         &lt;/restriction>
+     *                       &lt;/complexContent>
+     *                     &lt;/complexType>
+     *                   &lt;/element>
+     *                   &lt;element name="IBSCBS" type="{http://www.portalfiscal.inf.br/cte}TTribCTe" minOccurs="0"/>
+     *                   &lt;element name="vTotDFe" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
+     *                 &lt;/sequence>
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
+     *         &lt;choice>
+     *           &lt;element name="infCTeNorm">
+     *             &lt;complexType>
+     *               &lt;complexContent>
+     *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                   &lt;sequence>
+     *                     &lt;element name="infCarga">
+     *                       &lt;complexType>
+     *                         &lt;complexContent>
+     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                             &lt;sequence>
+     *                               &lt;element name="vCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
+     *                               &lt;element name="proPred">
+     *                                 &lt;simpleType>
+     *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                     &lt;minLength value="1"/>
+     *                                     &lt;maxLength value="60"/>
+     *                                   &lt;/restriction>
+     *                                 &lt;/simpleType>
+     *                               &lt;/element>
+     *                               &lt;element name="xOutCat" minOccurs="0">
+     *                                 &lt;simpleType>
+     *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                     &lt;minLength value="1"/>
+     *                                     &lt;maxLength value="30"/>
+     *                                   &lt;/restriction>
+     *                                 &lt;/simpleType>
+     *                               &lt;/element>
+     *                               &lt;element name="infQ" maxOccurs="unbounded">
+     *                                 &lt;complexType>
+     *                                   &lt;complexContent>
+     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                       &lt;sequence>
+     *                                         &lt;element name="cUnid">
+     *                                           &lt;simpleType>
+     *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                               &lt;whiteSpace value="preserve"/>
+     *                                               &lt;enumeration value="00"/>
+     *                                               &lt;enumeration value="01"/>
+     *                                               &lt;enumeration value="02"/>
+     *                                               &lt;enumeration value="03"/>
+     *                                               &lt;enumeration value="04"/>
+     *                                               &lt;enumeration value="05"/>
+     *                                             &lt;/restriction>
+     *                                           &lt;/simpleType>
+     *                                         &lt;/element>
+     *                                         &lt;element name="tpMed">
+     *                                           &lt;simpleType>
+     *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                               &lt;minLength value="1"/>
+     *                                               &lt;maxLength value="20"/>
+     *                                             &lt;/restriction>
+     *                                           &lt;/simpleType>
+     *                                         &lt;/element>
+     *                                         &lt;element name="qCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1104"/>
+     *                                       &lt;/sequence>
+     *                                     &lt;/restriction>
+     *                                   &lt;/complexContent>
+     *                                 &lt;/complexType>
+     *                               &lt;/element>
+     *                               &lt;element name="vCargaAverb" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+     *                             &lt;/sequence>
+     *                           &lt;/restriction>
+     *                         &lt;/complexContent>
+     *                       &lt;/complexType>
+     *                     &lt;/element>
+     *                     &lt;element name="infDoc" minOccurs="0">
+     *                       &lt;complexType>
+     *                         &lt;complexContent>
+     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                             &lt;sequence>
+     *                               &lt;choice>
+     *                                 &lt;element name="infNF" maxOccurs="unbounded">
+     *                                   &lt;complexType>
+     *                                     &lt;complexContent>
+     *                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                         &lt;sequence>
+     *                                           &lt;element name="nRoma" minOccurs="0">
+     *                                             &lt;simpleType>
+     *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                                 &lt;minLength value="1"/>
+     *                                                 &lt;maxLength value="20"/>
+     *                                               &lt;/restriction>
+     *                                             &lt;/simpleType>
+     *                                           &lt;/element>
+     *                                           &lt;element name="nPed" minOccurs="0">
+     *                                             &lt;simpleType>
+     *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                                 &lt;minLength value="1"/>
+     *                                                 &lt;maxLength value="20"/>
+     *                                               &lt;/restriction>
+     *                                             &lt;/simpleType>
+     *                                           &lt;/element>
+     *                                           &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModNF"/>
+     *                                           &lt;element name="serie">
+     *                                             &lt;simpleType>
+     *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                                 &lt;minLength value="1"/>
+     *                                                 &lt;maxLength value="3"/>
+     *                                               &lt;/restriction>
+     *                                             &lt;/simpleType>
+     *                                           &lt;/element>
+     *                                           &lt;element name="nDoc">
+     *                                             &lt;simpleType>
+     *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                                 &lt;minLength value="1"/>
+     *                                                 &lt;maxLength value="20"/>
+     *                                               &lt;/restriction>
+     *                                             &lt;/simpleType>
+     *                                           &lt;/element>
+     *                                           &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+     *                                           &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                                           &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                                           &lt;element name="vBCST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                                           &lt;element name="vST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                                           &lt;element name="vProd" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                                           &lt;element name="vNF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                                           &lt;element name="nCFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/>
+     *                                           &lt;element name="nPeso" type="{http://www.portalfiscal.inf.br/cte}TDec_1203Opc" minOccurs="0"/>
+     *                                           &lt;element name="PIN" minOccurs="0">
+     *                                             &lt;simpleType>
+     *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                                 &lt;whiteSpace value="preserve"/>
+     *                                                 &lt;minLength value="2"/>
+     *                                                 &lt;maxLength value="9"/>
+     *                                                 &lt;pattern value="[1-9]{1}[0-9]{1,8}"/>
+     *                                               &lt;/restriction>
+     *                                             &lt;/simpleType>
+     *                                           &lt;/element>
+     *                                           &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+     *                                           &lt;choice>
+     *                                             &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+     *                                             &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+     *                                           &lt;/choice>
+     *                                         &lt;/sequence>
+     *                                       &lt;/restriction>
+     *                                     &lt;/complexContent>
+     *                                   &lt;/complexType>
+     *                                 &lt;/element>
+     *                                 &lt;element name="infNFe" maxOccurs="unbounded">
+     *                                   &lt;complexType>
+     *                                     &lt;complexContent>
+     *                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                         &lt;sequence>
+     *                                           &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+     *                                           &lt;element name="PIN" minOccurs="0">
+     *                                             &lt;simpleType>
+     *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                                 &lt;whiteSpace value="preserve"/>
+     *                                                 &lt;minLength value="2"/>
+     *                                                 &lt;maxLength value="9"/>
+     *                                                 &lt;pattern value="[1-9]{1}[0-9]{1,8}"/>
+     *                                               &lt;/restriction>
+     *                                             &lt;/simpleType>
+     *                                           &lt;/element>
+     *                                           &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+     *                                           &lt;choice>
+     *                                             &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+     *                                             &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+     *                                           &lt;/choice>
+     *                                         &lt;/sequence>
+     *                                       &lt;/restriction>
+     *                                     &lt;/complexContent>
+     *                                   &lt;/complexType>
+     *                                 &lt;/element>
+     *                                 &lt;element name="infOutros" maxOccurs="unbounded">
+     *                                   &lt;complexType>
+     *                                     &lt;complexContent>
+     *                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                         &lt;sequence>
+     *                                           &lt;element name="tpDoc">
+     *                                             &lt;simpleType>
+     *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                                 &lt;whiteSpace value="preserve"/>
+     *                                                 &lt;enumeration value="00"/>
+     *                                                 &lt;enumeration value="10"/>
+     *                                                 &lt;enumeration value="59"/>
+     *                                                 &lt;enumeration value="65"/>
+     *                                                 &lt;enumeration value="99"/>
+     *                                               &lt;/restriction>
+     *                                             &lt;/simpleType>
+     *                                           &lt;/element>
+     *                                           &lt;element name="descOutros" minOccurs="0">
+     *                                             &lt;simpleType>
+     *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                                 &lt;minLength value="1"/>
+     *                                                 &lt;maxLength value="100"/>
+     *                                               &lt;/restriction>
+     *                                             &lt;/simpleType>
+     *                                           &lt;/element>
+     *                                           &lt;element name="nDoc" minOccurs="0">
+     *                                             &lt;simpleType>
+     *                                               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                                 &lt;minLength value="1"/>
+     *                                                 &lt;maxLength value="20"/>
+     *                                               &lt;/restriction>
+     *                                             &lt;/simpleType>
+     *                                           &lt;/element>
+     *                                           &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+     *                                           &lt;element name="vDocFisc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+     *                                           &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+     *                                           &lt;choice>
+     *                                             &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+     *                                             &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+     *                                           &lt;/choice>
+     *                                         &lt;/sequence>
+     *                                       &lt;/restriction>
+     *                                     &lt;/complexContent>
+     *                                   &lt;/complexType>
+     *                                 &lt;/element>
+     *                                 &lt;element name="infDCe" maxOccurs="unbounded">
+     *                                   &lt;complexType>
+     *                                     &lt;complexContent>
+     *                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                         &lt;sequence>
+     *                                           &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+     *                                         &lt;/sequence>
+     *                                       &lt;/restriction>
+     *                                     &lt;/complexContent>
+     *                                   &lt;/complexType>
+     *                                 &lt;/element>
+     *                               &lt;/choice>
+     *                             &lt;/sequence>
+     *                           &lt;/restriction>
+     *                         &lt;/complexContent>
+     *                       &lt;/complexType>
+     *                     &lt;/element>
+     *                     &lt;element name="docAnt" minOccurs="0">
+     *                       &lt;complexType>
+     *                         &lt;complexContent>
+     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                             &lt;sequence>
+     *                               &lt;element name="emiDocAnt" maxOccurs="unbounded">
+     *                                 &lt;complexType>
+     *                                   &lt;complexContent>
+     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                       &lt;sequence>
+     *                                         &lt;choice>
+     *                                           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+     *                                           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+     *                                         &lt;/choice>
+     *                                         &lt;sequence minOccurs="0">
+     *                                           &lt;element name="IE" type="{http://www.portalfiscal.inf.br/cte}TIe"/>
+     *                                           &lt;element name="UF" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+     *                                         &lt;/sequence>
+     *                                         &lt;element name="xNome">
+     *                                           &lt;simpleType>
+     *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                               &lt;maxLength value="60"/>
+     *                                               &lt;minLength value="1"/>
+     *                                             &lt;/restriction>
+     *                                           &lt;/simpleType>
+     *                                         &lt;/element>
+     *                                         &lt;element name="idDocAnt" maxOccurs="2">
+     *                                           &lt;complexType>
+     *                                             &lt;complexContent>
+     *                                               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                                 &lt;choice>
+     *                                                   &lt;element name="idDocAntPap" maxOccurs="unbounded">
+     *                                                     &lt;complexType>
+     *                                                       &lt;complexContent>
+     *                                                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                                           &lt;sequence>
+     *                                                             &lt;element name="tpDoc">
+     *                                                               &lt;simpleType>
+     *                                                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDocAssoc">
+     *                                                                 &lt;/restriction>
+     *                                                               &lt;/simpleType>
+     *                                                             &lt;/element>
+     *                                                             &lt;element name="serie">
+     *                                                               &lt;simpleType>
+     *                                                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                                                   &lt;minLength value="1"/>
+     *                                                                   &lt;maxLength value="3"/>
+     *                                                                 &lt;/restriction>
+     *                                                               &lt;/simpleType>
+     *                                                             &lt;/element>
+     *                                                             &lt;element name="subser" minOccurs="0">
+     *                                                               &lt;simpleType>
+     *                                                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                                                   &lt;minLength value="1"/>
+     *                                                                   &lt;maxLength value="2"/>
+     *                                                                 &lt;/restriction>
+     *                                                               &lt;/simpleType>
+     *                                                             &lt;/element>
+     *                                                             &lt;element name="nDoc">
+     *                                                               &lt;simpleType>
+     *                                                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                                                   &lt;minLength value="1"/>
+     *                                                                   &lt;maxLength value="30"/>
+     *                                                                 &lt;/restriction>
+     *                                                               &lt;/simpleType>
+     *                                                             &lt;/element>
+     *                                                             &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+     *                                                           &lt;/sequence>
+     *                                                         &lt;/restriction>
+     *                                                       &lt;/complexContent>
+     *                                                     &lt;/complexType>
+     *                                                   &lt;/element>
+     *                                                   &lt;element name="idDocAntEle" maxOccurs="unbounded">
+     *                                                     &lt;complexType>
+     *                                                       &lt;complexContent>
+     *                                                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                                           &lt;sequence>
+     *                                                             &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+     *                                                           &lt;/sequence>
+     *                                                         &lt;/restriction>
+     *                                                       &lt;/complexContent>
+     *                                                     &lt;/complexType>
+     *                                                   &lt;/element>
+     *                                                 &lt;/choice>
+     *                                               &lt;/restriction>
+     *                                             &lt;/complexContent>
+     *                                           &lt;/complexType>
+     *                                         &lt;/element>
+     *                                       &lt;/sequence>
+     *                                     &lt;/restriction>
+     *                                   &lt;/complexContent>
+     *                                 &lt;/complexType>
+     *                               &lt;/element>
+     *                             &lt;/sequence>
+     *                           &lt;/restriction>
+     *                         &lt;/complexContent>
+     *                       &lt;/complexType>
+     *                     &lt;/element>
+     *                     &lt;element name="infModal">
+     *                       &lt;complexType>
+     *                         &lt;complexContent>
+     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                             &lt;sequence>
+     *                               &lt;any processContents='skip'/>
+     *                             &lt;/sequence>
+     *                             &lt;attribute name="versaoModal" use="required">
+     *                               &lt;simpleType>
+     *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                   &lt;whiteSpace value="preserve"/>
+     *                                   &lt;pattern value="4\.(0[0-9]|[1-9][0-9])"/>
+     *                                 &lt;/restriction>
+     *                               &lt;/simpleType>
+     *                             &lt;/attribute>
+     *                           &lt;/restriction>
+     *                         &lt;/complexContent>
+     *                       &lt;/complexType>
+     *                     &lt;/element>
+     *                     &lt;element name="veicNovos" maxOccurs="unbounded" minOccurs="0">
+     *                       &lt;complexType>
+     *                         &lt;complexContent>
+     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                             &lt;sequence>
+     *                               &lt;element name="chassi">
+     *                                 &lt;simpleType>
+     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                     &lt;whiteSpace value="preserve"/>
+     *                                     &lt;length value="17"/>
+     *                                     &lt;pattern value="[A-Z0-9]+"/>
+     *                                   &lt;/restriction>
+     *                                 &lt;/simpleType>
+     *                               &lt;/element>
+     *                               &lt;element name="cCor">
+     *                                 &lt;simpleType>
+     *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                     &lt;minLength value="1"/>
+     *                                     &lt;maxLength value="4"/>
+     *                                   &lt;/restriction>
+     *                                 &lt;/simpleType>
+     *                               &lt;/element>
+     *                               &lt;element name="xCor">
+     *                                 &lt;simpleType>
+     *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                     &lt;minLength value="1"/>
+     *                                     &lt;maxLength value="40"/>
+     *                                   &lt;/restriction>
+     *                                 &lt;/simpleType>
+     *                               &lt;/element>
+     *                               &lt;element name="cMod">
+     *                                 &lt;simpleType>
+     *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                     &lt;minLength value="1"/>
+     *                                     &lt;maxLength value="6"/>
+     *                                   &lt;/restriction>
+     *                                 &lt;/simpleType>
+     *                               &lt;/element>
+     *                               &lt;element name="vUnit" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                               &lt;element name="vFrete" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+     *                             &lt;/sequence>
+     *                           &lt;/restriction>
+     *                         &lt;/complexContent>
+     *                       &lt;/complexType>
+     *                     &lt;/element>
+     *                     &lt;element name="cobr" minOccurs="0">
+     *                       &lt;complexType>
+     *                         &lt;complexContent>
+     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                             &lt;sequence>
+     *                               &lt;element name="fat" minOccurs="0">
+     *                                 &lt;complexType>
+     *                                   &lt;complexContent>
+     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                       &lt;sequence>
+     *                                         &lt;element name="nFat" minOccurs="0">
+     *                                           &lt;simpleType>
+     *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                               &lt;minLength value="1"/>
+     *                                               &lt;maxLength value="60"/>
+     *                                             &lt;/restriction>
+     *                                           &lt;/simpleType>
+     *                                         &lt;/element>
+     *                                         &lt;element name="vOrig" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+     *                                         &lt;element name="vDesc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+     *                                         &lt;element name="vLiq" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+     *                                       &lt;/sequence>
+     *                                     &lt;/restriction>
+     *                                   &lt;/complexContent>
+     *                                 &lt;/complexType>
+     *                               &lt;/element>
+     *                               &lt;element name="dup" maxOccurs="unbounded" minOccurs="0">
+     *                                 &lt;complexType>
+     *                                   &lt;complexContent>
+     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                       &lt;sequence>
+     *                                         &lt;element name="nDup" minOccurs="0">
+     *                                           &lt;simpleType>
+     *                                             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                               &lt;maxLength value="60"/>
+     *                                               &lt;minLength value="1"/>
+     *                                             &lt;/restriction>
+     *                                           &lt;/simpleType>
+     *                                         &lt;/element>
+     *                                         &lt;element name="dVenc" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+     *                                         &lt;element name="vDup" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+     *                                       &lt;/sequence>
+     *                                     &lt;/restriction>
+     *                                   &lt;/complexContent>
+     *                                 &lt;/complexType>
+     *                               &lt;/element>
+     *                             &lt;/sequence>
+     *                           &lt;/restriction>
+     *                         &lt;/complexContent>
+     *                       &lt;/complexType>
+     *                     &lt;/element>
+     *                     &lt;element name="infCteSub" minOccurs="0">
+     *                       &lt;complexType>
+     *                         &lt;complexContent>
+     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                             &lt;sequence>
+     *                               &lt;element name="chCte">
+     *                                 &lt;simpleType>
+     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                     &lt;pattern value="[0-9]{44}"/>
+     *                                   &lt;/restriction>
+     *                                 &lt;/simpleType>
+     *                               &lt;/element>
+     *                               &lt;element name="indAlteraToma" minOccurs="0">
+     *                                 &lt;simpleType>
+     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                                     &lt;enumeration value="1"/>
+     *                                   &lt;/restriction>
+     *                                 &lt;/simpleType>
+     *                               &lt;/element>
+     *                             &lt;/sequence>
+     *                           &lt;/restriction>
+     *                         &lt;/complexContent>
+     *                       &lt;/complexType>
+     *                     &lt;/element>
+     *                     &lt;element name="infGlobalizado" minOccurs="0">
+     *                       &lt;complexType>
+     *                         &lt;complexContent>
+     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                             &lt;sequence>
+     *                               &lt;element name="xObs">
+     *                                 &lt;simpleType>
+     *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                                     &lt;minLength value="15"/>
+     *                                     &lt;maxLength value="256"/>
+     *                                   &lt;/restriction>
+     *                                 &lt;/simpleType>
+     *                               &lt;/element>
+     *                             &lt;/sequence>
+     *                           &lt;/restriction>
+     *                         &lt;/complexContent>
+     *                       &lt;/complexType>
+     *                     &lt;/element>
+     *                     &lt;element name="infServVinc" minOccurs="0">
+     *                       &lt;complexType>
+     *                         &lt;complexContent>
+     *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                             &lt;sequence>
+     *                               &lt;element name="infCTeMultimodal" maxOccurs="unbounded">
+     *                                 &lt;complexType>
+     *                                   &lt;complexContent>
+     *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                       &lt;sequence>
+     *                                         &lt;element name="chCTeMultimodal" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+     *                                       &lt;/sequence>
+     *                                     &lt;/restriction>
+     *                                   &lt;/complexContent>
+     *                                 &lt;/complexType>
+     *                               &lt;/element>
+     *                             &lt;/sequence>
+     *                           &lt;/restriction>
+     *                         &lt;/complexContent>
+     *                       &lt;/complexType>
+     *                     &lt;/element>
+     *                   &lt;/sequence>
+     *                 &lt;/restriction>
+     *               &lt;/complexContent>
+     *             &lt;/complexType>
+     *           &lt;/element>
+     *           &lt;element name="infCteComp" maxOccurs="10">
+     *             &lt;complexType>
+     *               &lt;complexContent>
+     *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                   &lt;sequence>
+     *                     &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+     *                   &lt;/sequence>
+     *                 &lt;/restriction>
+     *               &lt;/complexContent>
+     *             &lt;/complexType>
+     *           &lt;/element>
+     *         &lt;/choice>
+     *         &lt;element name="autXML" maxOccurs="10" minOccurs="0">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;sequence>
+     *                   &lt;choice>
+     *                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/>
+     *                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+     *                   &lt;/choice>
+     *                 &lt;/sequence>
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
+     *         &lt;element name="infRespTec" type="{http://www.portalfiscal.inf.br/cte}TRespTec" minOccurs="0"/>
+     *         &lt;element name="infSolicNFF" minOccurs="0">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;sequence>
+     *                   &lt;element name="xSolic">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *                         &lt;minLength value="2"/>
+     *                         &lt;maxLength value="8000"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
+     *                 &lt;/sequence>
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
+     *         &lt;element name="infPAA" minOccurs="0">
+     *           &lt;complexType>
+     *             &lt;complexContent>
+     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                 &lt;sequence>
+     *                   &lt;element name="CNPJPAA" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/>
+     *                   &lt;element name="PAASignature">
+     *                     &lt;complexType>
+     *                       &lt;complexContent>
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                           &lt;sequence>
+     *                             &lt;element name="SignatureValue" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/>
+     *                             &lt;element name="RSAKeyValue" type="{http://www.portalfiscal.inf.br/cte}TRSAKeyValueType"/>
+     *                           &lt;/sequence>
+     *                         &lt;/restriction>
+     *                       &lt;/complexContent>
+     *                     &lt;/complexType>
+     *                   &lt;/element>
+     *                 &lt;/sequence>
+     *               &lt;/restriction>
+     *             &lt;/complexContent>
+     *           &lt;/complexType>
+     *         &lt;/element>
+     *       &lt;/sequence>
+     *       &lt;attribute name="versao" use="required">
+     *         &lt;simpleType>
+     *           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TVerCTe">
+     *           &lt;/restriction>
+     *         &lt;/simpleType>
+     *       &lt;/attribute>
+     *       &lt;attribute name="Id" use="required">
+     *         &lt;simpleType>
+     *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}ID">
+     *             &lt;pattern value="CTe[0-9]{6}[A-Z0-9]{12}[0-9]{26}"/>
+     *           &lt;/restriction>
+     *         &lt;/simpleType>
+     *       &lt;/attribute>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
      * </pre>
      * 
      * 
@@ -2933,25 +3029,36 @@ public class TCTe {
     })
     public static class InfCte {
 
-        @XmlElement(required = true)
-        protected Ide ide;
-        protected Compl compl;
-        @XmlElement(required = true)
-        protected Emit emit;
-        protected Rem rem;
-        protected Exped exped;
-        protected Receb receb;
-        protected Dest dest;
-        @XmlElement(required = true)
-        protected VPrest vPrest;
-        @XmlElement(required = true)
-        protected Imp imp;
-        protected InfCTeNorm infCTeNorm;
-        protected List<InfCteComp> infCteComp;
-        protected List<AutXML> autXML;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+        protected TCTe.InfCte.Ide ide;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+        protected TCTe.InfCte.Compl compl;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+        protected TCTe.InfCte.Emit emit;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+        protected TCTe.InfCte.Rem rem;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+        protected TCTe.InfCte.Exped exped;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+        protected TCTe.InfCte.Receb receb;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+        protected TCTe.InfCte.Dest dest;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+        protected TCTe.InfCte.VPrest vPrest;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+        protected TCTe.InfCte.Imp imp;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+        protected TCTe.InfCte.InfCTeNorm infCTeNorm;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+        protected List<TCTe.InfCte.InfCteComp> infCteComp;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+        protected List<TCTe.InfCte.AutXML> autXML;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
         protected TRespTec infRespTec;
-        protected InfSolicNFF infSolicNFF;
-        protected InfPAA infPAA;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+        protected TCTe.InfCte.InfSolicNFF infSolicNFF;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+        protected TCTe.InfCte.InfPAA infPAA;
         @XmlAttribute(name = "versao", required = true)
         protected String versao;
         @XmlAttribute(name = "Id", required = true)
@@ -2960,242 +3067,242 @@ public class TCTe {
         protected String id;
 
         /**
-         * Gets the value of the ide property.
+         * Obtém o valor da propriedade ide.
          * 
          * @return
          *     possible object is
-         *     {@link Ide }
+         *     {@link TCTe.InfCte.Ide }
          *     
          */
-        public Ide getIde() {
+        public TCTe.InfCte.Ide getIde() {
             return ide;
         }
 
         /**
-         * Sets the value of the ide property.
+         * Define o valor da propriedade ide.
          * 
          * @param value
          *     allowed object is
-         *     {@link Ide }
+         *     {@link TCTe.InfCte.Ide }
          *     
          */
-        public void setIde(Ide value) {
+        public void setIde(TCTe.InfCte.Ide value) {
             this.ide = value;
         }
 
         /**
-         * Gets the value of the compl property.
+         * Obtém o valor da propriedade compl.
          * 
          * @return
          *     possible object is
-         *     {@link Compl }
+         *     {@link TCTe.InfCte.Compl }
          *     
          */
-        public Compl getCompl() {
+        public TCTe.InfCte.Compl getCompl() {
             return compl;
         }
 
         /**
-         * Sets the value of the compl property.
+         * Define o valor da propriedade compl.
          * 
          * @param value
          *     allowed object is
-         *     {@link Compl }
+         *     {@link TCTe.InfCte.Compl }
          *     
          */
-        public void setCompl(Compl value) {
+        public void setCompl(TCTe.InfCte.Compl value) {
             this.compl = value;
         }
 
         /**
-         * Gets the value of the emit property.
+         * Obtém o valor da propriedade emit.
          * 
          * @return
          *     possible object is
-         *     {@link Emit }
+         *     {@link TCTe.InfCte.Emit }
          *     
          */
-        public Emit getEmit() {
+        public TCTe.InfCte.Emit getEmit() {
             return emit;
         }
 
         /**
-         * Sets the value of the emit property.
+         * Define o valor da propriedade emit.
          * 
          * @param value
          *     allowed object is
-         *     {@link Emit }
+         *     {@link TCTe.InfCte.Emit }
          *     
          */
-        public void setEmit(Emit value) {
+        public void setEmit(TCTe.InfCte.Emit value) {
             this.emit = value;
         }
 
         /**
-         * Gets the value of the rem property.
+         * Obtém o valor da propriedade rem.
          * 
          * @return
          *     possible object is
-         *     {@link Rem }
+         *     {@link TCTe.InfCte.Rem }
          *     
          */
-        public Rem getRem() {
+        public TCTe.InfCte.Rem getRem() {
             return rem;
         }
 
         /**
-         * Sets the value of the rem property.
+         * Define o valor da propriedade rem.
          * 
          * @param value
          *     allowed object is
-         *     {@link Rem }
+         *     {@link TCTe.InfCte.Rem }
          *     
          */
-        public void setRem(Rem value) {
+        public void setRem(TCTe.InfCte.Rem value) {
             this.rem = value;
         }
 
         /**
-         * Gets the value of the exped property.
+         * Obtém o valor da propriedade exped.
          * 
          * @return
          *     possible object is
-         *     {@link Exped }
+         *     {@link TCTe.InfCte.Exped }
          *     
          */
-        public Exped getExped() {
+        public TCTe.InfCte.Exped getExped() {
             return exped;
         }
 
         /**
-         * Sets the value of the exped property.
+         * Define o valor da propriedade exped.
          * 
          * @param value
          *     allowed object is
-         *     {@link Exped }
+         *     {@link TCTe.InfCte.Exped }
          *     
          */
-        public void setExped(Exped value) {
+        public void setExped(TCTe.InfCte.Exped value) {
             this.exped = value;
         }
 
         /**
-         * Gets the value of the receb property.
+         * Obtém o valor da propriedade receb.
          * 
          * @return
          *     possible object is
-         *     {@link Receb }
+         *     {@link TCTe.InfCte.Receb }
          *     
          */
-        public Receb getReceb() {
+        public TCTe.InfCte.Receb getReceb() {
             return receb;
         }
 
         /**
-         * Sets the value of the receb property.
+         * Define o valor da propriedade receb.
          * 
          * @param value
          *     allowed object is
-         *     {@link Receb }
+         *     {@link TCTe.InfCte.Receb }
          *     
          */
-        public void setReceb(Receb value) {
+        public void setReceb(TCTe.InfCte.Receb value) {
             this.receb = value;
         }
 
         /**
-         * Gets the value of the dest property.
+         * Obtém o valor da propriedade dest.
          * 
          * @return
          *     possible object is
-         *     {@link Dest }
+         *     {@link TCTe.InfCte.Dest }
          *     
          */
-        public Dest getDest() {
+        public TCTe.InfCte.Dest getDest() {
             return dest;
         }
 
         /**
-         * Sets the value of the dest property.
+         * Define o valor da propriedade dest.
          * 
          * @param value
          *     allowed object is
-         *     {@link Dest }
+         *     {@link TCTe.InfCte.Dest }
          *     
          */
-        public void setDest(Dest value) {
+        public void setDest(TCTe.InfCte.Dest value) {
             this.dest = value;
         }
 
         /**
-         * Gets the value of the vPrest property.
+         * Obtém o valor da propriedade vPrest.
          * 
          * @return
          *     possible object is
-         *     {@link VPrest }
+         *     {@link TCTe.InfCte.VPrest }
          *     
          */
-        public VPrest getVPrest() {
+        public TCTe.InfCte.VPrest getVPrest() {
             return vPrest;
         }
 
         /**
-         * Sets the value of the vPrest property.
+         * Define o valor da propriedade vPrest.
          * 
          * @param value
          *     allowed object is
-         *     {@link VPrest }
+         *     {@link TCTe.InfCte.VPrest }
          *     
          */
-        public void setVPrest(VPrest value) {
+        public void setVPrest(TCTe.InfCte.VPrest value) {
             this.vPrest = value;
         }
 
         /**
-         * Gets the value of the imp property.
+         * Obtém o valor da propriedade imp.
          * 
          * @return
          *     possible object is
-         *     {@link Imp }
+         *     {@link TCTe.InfCte.Imp }
          *     
          */
-        public Imp getImp() {
+        public TCTe.InfCte.Imp getImp() {
             return imp;
         }
 
         /**
-         * Sets the value of the imp property.
+         * Define o valor da propriedade imp.
          * 
          * @param value
          *     allowed object is
-         *     {@link Imp }
+         *     {@link TCTe.InfCte.Imp }
          *     
          */
-        public void setImp(Imp value) {
+        public void setImp(TCTe.InfCte.Imp value) {
             this.imp = value;
         }
 
         /**
-         * Gets the value of the infCTeNorm property.
+         * Obtém o valor da propriedade infCTeNorm.
          * 
          * @return
          *     possible object is
-         *     {@link InfCTeNorm }
+         *     {@link TCTe.InfCte.InfCTeNorm }
          *     
          */
-        public InfCTeNorm getInfCTeNorm() {
+        public TCTe.InfCte.InfCTeNorm getInfCTeNorm() {
             return infCTeNorm;
         }
 
         /**
-         * Sets the value of the infCTeNorm property.
+         * Define o valor da propriedade infCTeNorm.
          * 
          * @param value
          *     allowed object is
-         *     {@link InfCTeNorm }
+         *     {@link TCTe.InfCte.InfCTeNorm }
          *     
          */
-        public void setInfCTeNorm(InfCTeNorm value) {
+        public void setInfCTeNorm(TCTe.InfCte.InfCTeNorm value) {
             this.infCTeNorm = value;
         }
 
@@ -3217,13 +3324,13 @@ public class TCTe {
          * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link InfCteComp }
+         * {@link TCTe.InfCte.InfCteComp }
          * 
          * 
          */
-        public List<InfCteComp> getInfCteComp() {
+        public List<TCTe.InfCte.InfCteComp> getInfCteComp() {
             if (infCteComp == null) {
-                infCteComp = new ArrayList<InfCteComp>();
+                infCteComp = new ArrayList<TCTe.InfCte.InfCteComp>();
             }
             return this.infCteComp;
         }
@@ -3246,19 +3353,19 @@ public class TCTe {
          * 
          * <p>
          * Objects of the following type(s) are allowed in the list
-         * {@link AutXML }
+         * {@link TCTe.InfCte.AutXML }
          * 
          * 
          */
-        public List<AutXML> getAutXML() {
+        public List<TCTe.InfCte.AutXML> getAutXML() {
             if (autXML == null) {
-                autXML = new ArrayList<AutXML>();
+                autXML = new ArrayList<TCTe.InfCte.AutXML>();
             }
             return this.autXML;
         }
 
         /**
-         * Gets the value of the infRespTec property.
+         * Obtém o valor da propriedade infRespTec.
          * 
          * @return
          *     possible object is
@@ -3270,7 +3377,7 @@ public class TCTe {
         }
 
         /**
-         * Sets the value of the infRespTec property.
+         * Define o valor da propriedade infRespTec.
          * 
          * @param value
          *     allowed object is
@@ -3282,55 +3389,55 @@ public class TCTe {
         }
 
         /**
-         * Gets the value of the infSolicNFF property.
+         * Obtém o valor da propriedade infSolicNFF.
          * 
          * @return
          *     possible object is
-         *     {@link InfSolicNFF }
+         *     {@link TCTe.InfCte.InfSolicNFF }
          *     
          */
-        public InfSolicNFF getInfSolicNFF() {
+        public TCTe.InfCte.InfSolicNFF getInfSolicNFF() {
             return infSolicNFF;
         }
 
         /**
-         * Sets the value of the infSolicNFF property.
+         * Define o valor da propriedade infSolicNFF.
          * 
          * @param value
          *     allowed object is
-         *     {@link InfSolicNFF }
+         *     {@link TCTe.InfCte.InfSolicNFF }
          *     
          */
-        public void setInfSolicNFF(InfSolicNFF value) {
+        public void setInfSolicNFF(TCTe.InfCte.InfSolicNFF value) {
             this.infSolicNFF = value;
         }
 
         /**
-         * Gets the value of the infPAA property.
+         * Obtém o valor da propriedade infPAA.
          * 
          * @return
          *     possible object is
-         *     {@link InfPAA }
+         *     {@link TCTe.InfCte.InfPAA }
          *     
          */
-        public InfPAA getInfPAA() {
+        public TCTe.InfCte.InfPAA getInfPAA() {
             return infPAA;
         }
 
         /**
-         * Sets the value of the infPAA property.
+         * Define o valor da propriedade infPAA.
          * 
          * @param value
          *     allowed object is
-         *     {@link InfPAA }
+         *     {@link TCTe.InfCte.InfPAA }
          *     
          */
-        public void setInfPAA(InfPAA value) {
+        public void setInfPAA(TCTe.InfCte.InfPAA value) {
             this.infPAA = value;
         }
 
         /**
-         * Gets the value of the versao property.
+         * Obtém o valor da propriedade versao.
          * 
          * @return
          *     possible object is
@@ -3342,7 +3449,7 @@ public class TCTe {
         }
 
         /**
-         * Sets the value of the versao property.
+         * Define o valor da propriedade versao.
          * 
          * @param value
          *     allowed object is
@@ -3354,7 +3461,7 @@ public class TCTe {
         }
 
         /**
-         * Gets the value of the id property.
+         * Obtém o valor da propriedade id.
          * 
          * @return
          *     possible object is
@@ -3366,7 +3473,7 @@ public class TCTe {
         }
 
         /**
-         * Sets the value of the id property.
+         * Define o valor da propriedade id.
          * 
          * @param value
          *     allowed object is
@@ -3379,23 +3486,23 @@ public class TCTe {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <p>Classe Java de anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
          * 
          * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;choice&gt;
-         *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/&gt;
-         *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-         *         &lt;/choice&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;choice>
+         *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/>
+         *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+         *         &lt;/choice>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
          * </pre>
          * 
          * 
@@ -3407,13 +3514,13 @@ public class TCTe {
         })
         public static class AutXML {
 
-            @XmlElement(name = "CNPJ")
+            @XmlElement(name = "CNPJ", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String cnpj;
-            @XmlElement(name = "CPF")
+            @XmlElement(name = "CPF", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String cpf;
 
             /**
-             * Gets the value of the cnpj property.
+             * Obtém o valor da propriedade cnpj.
              * 
              * @return
              *     possible object is
@@ -3425,7 +3532,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cnpj property.
+             * Define o valor da propriedade cnpj.
              * 
              * @param value
              *     allowed object is
@@ -3437,7 +3544,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the cpf property.
+             * Obtém o valor da propriedade cpf.
              * 
              * @return
              *     possible object is
@@ -3449,7 +3556,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cpf property.
+             * Define o valor da propriedade cpf.
              * 
              * @param value
              *     allowed object is
@@ -3464,303 +3571,303 @@ public class TCTe {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <p>Classe Java de anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
          * 
          * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;element name="xCaracAd" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;minLength value="1"/&gt;
-         *               &lt;maxLength value="15"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="xCaracSer" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;minLength value="1"/&gt;
-         *               &lt;maxLength value="30"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="xEmi" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;minLength value="1"/&gt;
-         *               &lt;maxLength value="20"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="fluxo" minOccurs="0"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;element name="xOrig" minOccurs="0"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                         &lt;minLength value="1"/&gt;
-         *                         &lt;maxLength value="60"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                   &lt;element name="pass" maxOccurs="unbounded" minOccurs="0"&gt;
-         *                     &lt;complexType&gt;
-         *                       &lt;complexContent&gt;
-         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                           &lt;sequence&gt;
-         *                             &lt;element name="xPass" minOccurs="0"&gt;
-         *                               &lt;simpleType&gt;
-         *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                                   &lt;minLength value="1"/&gt;
-         *                                   &lt;maxLength value="15"/&gt;
-         *                                 &lt;/restriction&gt;
-         *                               &lt;/simpleType&gt;
-         *                             &lt;/element&gt;
-         *                           &lt;/sequence&gt;
-         *                         &lt;/restriction&gt;
-         *                       &lt;/complexContent&gt;
-         *                     &lt;/complexType&gt;
-         *                   &lt;/element&gt;
-         *                   &lt;element name="xDest" minOccurs="0"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                         &lt;minLength value="1"/&gt;
-         *                         &lt;maxLength value="60"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                   &lt;element name="xRota" minOccurs="0"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                         &lt;minLength value="1"/&gt;
-         *                         &lt;maxLength value="10"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                 &lt;/sequence&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="Entrega" minOccurs="0"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;choice&gt;
-         *                     &lt;element name="semData"&gt;
-         *                       &lt;complexType&gt;
-         *                         &lt;complexContent&gt;
-         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                             &lt;sequence&gt;
-         *                               &lt;element name="tpPer"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                                     &lt;whiteSpace value="preserve"/&gt;
-         *                                     &lt;enumeration value="0"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                             &lt;/sequence&gt;
-         *                           &lt;/restriction&gt;
-         *                         &lt;/complexContent&gt;
-         *                       &lt;/complexType&gt;
-         *                     &lt;/element&gt;
-         *                     &lt;element name="comData"&gt;
-         *                       &lt;complexType&gt;
-         *                         &lt;complexContent&gt;
-         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                             &lt;sequence&gt;
-         *                               &lt;element name="tpPer"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                                     &lt;whiteSpace value="preserve"/&gt;
-         *                                     &lt;enumeration value="1"/&gt;
-         *                                     &lt;enumeration value="2"/&gt;
-         *                                     &lt;enumeration value="3"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                               &lt;element name="dProg" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-         *                             &lt;/sequence&gt;
-         *                           &lt;/restriction&gt;
-         *                         &lt;/complexContent&gt;
-         *                       &lt;/complexType&gt;
-         *                     &lt;/element&gt;
-         *                     &lt;element name="noPeriodo"&gt;
-         *                       &lt;complexType&gt;
-         *                         &lt;complexContent&gt;
-         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                             &lt;sequence&gt;
-         *                               &lt;element name="tpPer"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                                     &lt;whiteSpace value="preserve"/&gt;
-         *                                     &lt;enumeration value="4"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                               &lt;element name="dIni" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-         *                               &lt;element name="dFim" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-         *                             &lt;/sequence&gt;
-         *                           &lt;/restriction&gt;
-         *                         &lt;/complexContent&gt;
-         *                       &lt;/complexType&gt;
-         *                     &lt;/element&gt;
-         *                   &lt;/choice&gt;
-         *                   &lt;choice&gt;
-         *                     &lt;element name="semHora"&gt;
-         *                       &lt;complexType&gt;
-         *                         &lt;complexContent&gt;
-         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                             &lt;sequence&gt;
-         *                               &lt;element name="tpHor"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                                     &lt;whiteSpace value="preserve"/&gt;
-         *                                     &lt;enumeration value="0"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                             &lt;/sequence&gt;
-         *                           &lt;/restriction&gt;
-         *                         &lt;/complexContent&gt;
-         *                       &lt;/complexType&gt;
-         *                     &lt;/element&gt;
-         *                     &lt;element name="comHora"&gt;
-         *                       &lt;complexType&gt;
-         *                         &lt;complexContent&gt;
-         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                             &lt;sequence&gt;
-         *                               &lt;element name="tpHor"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                                     &lt;whiteSpace value="preserve"/&gt;
-         *                                     &lt;enumeration value="1"/&gt;
-         *                                     &lt;enumeration value="2"/&gt;
-         *                                     &lt;enumeration value="3"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                               &lt;element name="hProg" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
-         *                             &lt;/sequence&gt;
-         *                           &lt;/restriction&gt;
-         *                         &lt;/complexContent&gt;
-         *                       &lt;/complexType&gt;
-         *                     &lt;/element&gt;
-         *                     &lt;element name="noInter"&gt;
-         *                       &lt;complexType&gt;
-         *                         &lt;complexContent&gt;
-         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                             &lt;sequence&gt;
-         *                               &lt;element name="tpHor"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                                     &lt;whiteSpace value="preserve"/&gt;
-         *                                     &lt;enumeration value="4"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                               &lt;element name="hIni" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
-         *                               &lt;element name="hFim" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
-         *                             &lt;/sequence&gt;
-         *                           &lt;/restriction&gt;
-         *                         &lt;/complexContent&gt;
-         *                       &lt;/complexType&gt;
-         *                     &lt;/element&gt;
-         *                   &lt;/choice&gt;
-         *                 &lt;/sequence&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="origCalc" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;minLength value="2"/&gt;
-         *               &lt;maxLength value="40"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="destCalc" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;minLength value="2"/&gt;
-         *               &lt;maxLength value="40"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="xObs" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;minLength value="1"/&gt;
-         *               &lt;maxLength value="2000"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="ObsCont" maxOccurs="10" minOccurs="0"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;element name="xTexto"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                         &lt;minLength value="1"/&gt;
-         *                         &lt;maxLength value="160"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                 &lt;/sequence&gt;
-         *                 &lt;attribute name="xCampo" use="required"&gt;
-         *                   &lt;simpleType&gt;
-         *                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                       &lt;minLength value="1"/&gt;
-         *                       &lt;maxLength value="20"/&gt;
-         *                     &lt;/restriction&gt;
-         *                   &lt;/simpleType&gt;
-         *                 &lt;/attribute&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="ObsFisco" maxOccurs="10" minOccurs="0"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;element name="xTexto"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                         &lt;minLength value="1"/&gt;
-         *                         &lt;maxLength value="60"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                 &lt;/sequence&gt;
-         *                 &lt;attribute name="xCampo" use="required"&gt;
-         *                   &lt;simpleType&gt;
-         *                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                       &lt;minLength value="1"/&gt;
-         *                       &lt;maxLength value="20"/&gt;
-         *                     &lt;/restriction&gt;
-         *                   &lt;/simpleType&gt;
-         *                 &lt;/attribute&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;element name="xCaracAd" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;minLength value="1"/>
+         *               &lt;maxLength value="15"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="xCaracSer" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;minLength value="1"/>
+         *               &lt;maxLength value="30"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="xEmi" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;minLength value="1"/>
+         *               &lt;maxLength value="20"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="fluxo" minOccurs="0">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;element name="xOrig" minOccurs="0">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                         &lt;minLength value="1"/>
+         *                         &lt;maxLength value="60"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                   &lt;element name="pass" maxOccurs="unbounded" minOccurs="0">
+         *                     &lt;complexType>
+         *                       &lt;complexContent>
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                           &lt;sequence>
+         *                             &lt;element name="xPass" minOccurs="0">
+         *                               &lt;simpleType>
+         *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                                   &lt;minLength value="1"/>
+         *                                   &lt;maxLength value="15"/>
+         *                                 &lt;/restriction>
+         *                               &lt;/simpleType>
+         *                             &lt;/element>
+         *                           &lt;/sequence>
+         *                         &lt;/restriction>
+         *                       &lt;/complexContent>
+         *                     &lt;/complexType>
+         *                   &lt;/element>
+         *                   &lt;element name="xDest" minOccurs="0">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                         &lt;minLength value="1"/>
+         *                         &lt;maxLength value="60"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                   &lt;element name="xRota" minOccurs="0">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                         &lt;minLength value="1"/>
+         *                         &lt;maxLength value="10"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                 &lt;/sequence>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *         &lt;element name="Entrega" minOccurs="0">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;choice>
+         *                     &lt;element name="semData">
+         *                       &lt;complexType>
+         *                         &lt;complexContent>
+         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                             &lt;sequence>
+         *                               &lt;element name="tpPer">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                                     &lt;whiteSpace value="preserve"/>
+         *                                     &lt;enumeration value="0"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                             &lt;/sequence>
+         *                           &lt;/restriction>
+         *                         &lt;/complexContent>
+         *                       &lt;/complexType>
+         *                     &lt;/element>
+         *                     &lt;element name="comData">
+         *                       &lt;complexType>
+         *                         &lt;complexContent>
+         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                             &lt;sequence>
+         *                               &lt;element name="tpPer">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                                     &lt;whiteSpace value="preserve"/>
+         *                                     &lt;enumeration value="1"/>
+         *                                     &lt;enumeration value="2"/>
+         *                                     &lt;enumeration value="3"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                               &lt;element name="dProg" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+         *                             &lt;/sequence>
+         *                           &lt;/restriction>
+         *                         &lt;/complexContent>
+         *                       &lt;/complexType>
+         *                     &lt;/element>
+         *                     &lt;element name="noPeriodo">
+         *                       &lt;complexType>
+         *                         &lt;complexContent>
+         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                             &lt;sequence>
+         *                               &lt;element name="tpPer">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                                     &lt;whiteSpace value="preserve"/>
+         *                                     &lt;enumeration value="4"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                               &lt;element name="dIni" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+         *                               &lt;element name="dFim" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+         *                             &lt;/sequence>
+         *                           &lt;/restriction>
+         *                         &lt;/complexContent>
+         *                       &lt;/complexType>
+         *                     &lt;/element>
+         *                   &lt;/choice>
+         *                   &lt;choice>
+         *                     &lt;element name="semHora">
+         *                       &lt;complexType>
+         *                         &lt;complexContent>
+         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                             &lt;sequence>
+         *                               &lt;element name="tpHor">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                                     &lt;whiteSpace value="preserve"/>
+         *                                     &lt;enumeration value="0"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                             &lt;/sequence>
+         *                           &lt;/restriction>
+         *                         &lt;/complexContent>
+         *                       &lt;/complexType>
+         *                     &lt;/element>
+         *                     &lt;element name="comHora">
+         *                       &lt;complexType>
+         *                         &lt;complexContent>
+         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                             &lt;sequence>
+         *                               &lt;element name="tpHor">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                                     &lt;whiteSpace value="preserve"/>
+         *                                     &lt;enumeration value="1"/>
+         *                                     &lt;enumeration value="2"/>
+         *                                     &lt;enumeration value="3"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                               &lt;element name="hProg" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+         *                             &lt;/sequence>
+         *                           &lt;/restriction>
+         *                         &lt;/complexContent>
+         *                       &lt;/complexType>
+         *                     &lt;/element>
+         *                     &lt;element name="noInter">
+         *                       &lt;complexType>
+         *                         &lt;complexContent>
+         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                             &lt;sequence>
+         *                               &lt;element name="tpHor">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                                     &lt;whiteSpace value="preserve"/>
+         *                                     &lt;enumeration value="4"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                               &lt;element name="hIni" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+         *                               &lt;element name="hFim" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+         *                             &lt;/sequence>
+         *                           &lt;/restriction>
+         *                         &lt;/complexContent>
+         *                       &lt;/complexType>
+         *                     &lt;/element>
+         *                   &lt;/choice>
+         *                 &lt;/sequence>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *         &lt;element name="origCalc" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;minLength value="2"/>
+         *               &lt;maxLength value="40"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="destCalc" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;minLength value="2"/>
+         *               &lt;maxLength value="40"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="xObs" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;minLength value="1"/>
+         *               &lt;maxLength value="2000"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="ObsCont" maxOccurs="10" minOccurs="0">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;element name="xTexto">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                         &lt;minLength value="1"/>
+         *                         &lt;maxLength value="160"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                 &lt;/sequence>
+         *                 &lt;attribute name="xCampo" use="required">
+         *                   &lt;simpleType>
+         *                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                       &lt;minLength value="1"/>
+         *                       &lt;maxLength value="20"/>
+         *                     &lt;/restriction>
+         *                   &lt;/simpleType>
+         *                 &lt;/attribute>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *         &lt;element name="ObsFisco" maxOccurs="10" minOccurs="0">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;element name="xTexto">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                         &lt;minLength value="1"/>
+         *                         &lt;maxLength value="60"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                 &lt;/sequence>
+         *                 &lt;attribute name="xCampo" use="required">
+         *                   &lt;simpleType>
+         *                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                       &lt;minLength value="1"/>
+         *                       &lt;maxLength value="20"/>
+         *                     &lt;/restriction>
+         *                   &lt;/simpleType>
+         *                 &lt;/attribute>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
          * </pre>
          * 
          * 
@@ -3780,22 +3887,29 @@ public class TCTe {
         })
         public static class Compl {
 
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String xCaracAd;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String xCaracSer;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String xEmi;
-            protected Fluxo fluxo;
-            @XmlElement(name = "Entrega")
-            protected Entrega entrega;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TCTe.InfCte.Compl.Fluxo fluxo;
+            @XmlElement(name = "Entrega", namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TCTe.InfCte.Compl.Entrega entrega;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String origCalc;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String destCalc;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String xObs;
-            @XmlElement(name = "ObsCont")
-            protected List<ObsCont> obsCont;
-            @XmlElement(name = "ObsFisco")
-            protected List<ObsFisco> obsFisco;
+            @XmlElement(name = "ObsCont", namespace = "http://www.portalfiscal.inf.br/cte")
+            protected List<TCTe.InfCte.Compl.ObsCont> obsCont;
+            @XmlElement(name = "ObsFisco", namespace = "http://www.portalfiscal.inf.br/cte")
+            protected List<TCTe.InfCte.Compl.ObsFisco> obsFisco;
 
             /**
-             * Gets the value of the xCaracAd property.
+             * Obtém o valor da propriedade xCaracAd.
              * 
              * @return
              *     possible object is
@@ -3807,7 +3921,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xCaracAd property.
+             * Define o valor da propriedade xCaracAd.
              * 
              * @param value
              *     allowed object is
@@ -3819,7 +3933,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xCaracSer property.
+             * Obtém o valor da propriedade xCaracSer.
              * 
              * @return
              *     possible object is
@@ -3831,7 +3945,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xCaracSer property.
+             * Define o valor da propriedade xCaracSer.
              * 
              * @param value
              *     allowed object is
@@ -3843,7 +3957,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xEmi property.
+             * Obtém o valor da propriedade xEmi.
              * 
              * @return
              *     possible object is
@@ -3855,7 +3969,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xEmi property.
+             * Define o valor da propriedade xEmi.
              * 
              * @param value
              *     allowed object is
@@ -3867,55 +3981,55 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the fluxo property.
+             * Obtém o valor da propriedade fluxo.
              * 
              * @return
              *     possible object is
-             *     {@link Fluxo }
+             *     {@link TCTe.InfCte.Compl.Fluxo }
              *     
              */
-            public Fluxo getFluxo() {
+            public TCTe.InfCte.Compl.Fluxo getFluxo() {
                 return fluxo;
             }
 
             /**
-             * Sets the value of the fluxo property.
+             * Define o valor da propriedade fluxo.
              * 
              * @param value
              *     allowed object is
-             *     {@link Fluxo }
+             *     {@link TCTe.InfCte.Compl.Fluxo }
              *     
              */
-            public void setFluxo(Fluxo value) {
+            public void setFluxo(TCTe.InfCte.Compl.Fluxo value) {
                 this.fluxo = value;
             }
 
             /**
-             * Gets the value of the entrega property.
+             * Obtém o valor da propriedade entrega.
              * 
              * @return
              *     possible object is
-             *     {@link Entrega }
+             *     {@link TCTe.InfCte.Compl.Entrega }
              *     
              */
-            public Entrega getEntrega() {
+            public TCTe.InfCte.Compl.Entrega getEntrega() {
                 return entrega;
             }
 
             /**
-             * Sets the value of the entrega property.
+             * Define o valor da propriedade entrega.
              * 
              * @param value
              *     allowed object is
-             *     {@link Entrega }
+             *     {@link TCTe.InfCte.Compl.Entrega }
              *     
              */
-            public void setEntrega(Entrega value) {
+            public void setEntrega(TCTe.InfCte.Compl.Entrega value) {
                 this.entrega = value;
             }
 
             /**
-             * Gets the value of the origCalc property.
+             * Obtém o valor da propriedade origCalc.
              * 
              * @return
              *     possible object is
@@ -3927,7 +4041,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the origCalc property.
+             * Define o valor da propriedade origCalc.
              * 
              * @param value
              *     allowed object is
@@ -3939,7 +4053,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the destCalc property.
+             * Obtém o valor da propriedade destCalc.
              * 
              * @return
              *     possible object is
@@ -3951,7 +4065,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the destCalc property.
+             * Define o valor da propriedade destCalc.
              * 
              * @param value
              *     allowed object is
@@ -3963,7 +4077,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xObs property.
+             * Obtém o valor da propriedade xObs.
              * 
              * @return
              *     possible object is
@@ -3975,7 +4089,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xObs property.
+             * Define o valor da propriedade xObs.
              * 
              * @param value
              *     allowed object is
@@ -4004,13 +4118,13 @@ public class TCTe {
              * 
              * <p>
              * Objects of the following type(s) are allowed in the list
-             * {@link ObsCont }
+             * {@link TCTe.InfCte.Compl.ObsCont }
              * 
              * 
              */
-            public List<ObsCont> getObsCont() {
+            public List<TCTe.InfCte.Compl.ObsCont> getObsCont() {
                 if (obsCont == null) {
-                    obsCont = new ArrayList<ObsCont>();
+                    obsCont = new ArrayList<TCTe.InfCte.Compl.ObsCont>();
                 }
                 return this.obsCont;
             }
@@ -4033,154 +4147,154 @@ public class TCTe {
              * 
              * <p>
              * Objects of the following type(s) are allowed in the list
-             * {@link ObsFisco }
+             * {@link TCTe.InfCte.Compl.ObsFisco }
              * 
              * 
              */
-            public List<ObsFisco> getObsFisco() {
+            public List<TCTe.InfCte.Compl.ObsFisco> getObsFisco() {
                 if (obsFisco == null) {
-                    obsFisco = new ArrayList<ObsFisco>();
+                    obsFisco = new ArrayList<TCTe.InfCte.Compl.ObsFisco>();
                 }
                 return this.obsFisco;
             }
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;choice&gt;
-             *           &lt;element name="semData"&gt;
-             *             &lt;complexType&gt;
-             *               &lt;complexContent&gt;
-             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                   &lt;sequence&gt;
-             *                     &lt;element name="tpPer"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *                           &lt;whiteSpace value="preserve"/&gt;
-             *                           &lt;enumeration value="0"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                   &lt;/sequence&gt;
-             *                 &lt;/restriction&gt;
-             *               &lt;/complexContent&gt;
-             *             &lt;/complexType&gt;
-             *           &lt;/element&gt;
-             *           &lt;element name="comData"&gt;
-             *             &lt;complexType&gt;
-             *               &lt;complexContent&gt;
-             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                   &lt;sequence&gt;
-             *                     &lt;element name="tpPer"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *                           &lt;whiteSpace value="preserve"/&gt;
-             *                           &lt;enumeration value="1"/&gt;
-             *                           &lt;enumeration value="2"/&gt;
-             *                           &lt;enumeration value="3"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                     &lt;element name="dProg" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-             *                   &lt;/sequence&gt;
-             *                 &lt;/restriction&gt;
-             *               &lt;/complexContent&gt;
-             *             &lt;/complexType&gt;
-             *           &lt;/element&gt;
-             *           &lt;element name="noPeriodo"&gt;
-             *             &lt;complexType&gt;
-             *               &lt;complexContent&gt;
-             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                   &lt;sequence&gt;
-             *                     &lt;element name="tpPer"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *                           &lt;whiteSpace value="preserve"/&gt;
-             *                           &lt;enumeration value="4"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                     &lt;element name="dIni" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-             *                     &lt;element name="dFim" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-             *                   &lt;/sequence&gt;
-             *                 &lt;/restriction&gt;
-             *               &lt;/complexContent&gt;
-             *             &lt;/complexType&gt;
-             *           &lt;/element&gt;
-             *         &lt;/choice&gt;
-             *         &lt;choice&gt;
-             *           &lt;element name="semHora"&gt;
-             *             &lt;complexType&gt;
-             *               &lt;complexContent&gt;
-             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                   &lt;sequence&gt;
-             *                     &lt;element name="tpHor"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *                           &lt;whiteSpace value="preserve"/&gt;
-             *                           &lt;enumeration value="0"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                   &lt;/sequence&gt;
-             *                 &lt;/restriction&gt;
-             *               &lt;/complexContent&gt;
-             *             &lt;/complexType&gt;
-             *           &lt;/element&gt;
-             *           &lt;element name="comHora"&gt;
-             *             &lt;complexType&gt;
-             *               &lt;complexContent&gt;
-             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                   &lt;sequence&gt;
-             *                     &lt;element name="tpHor"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *                           &lt;whiteSpace value="preserve"/&gt;
-             *                           &lt;enumeration value="1"/&gt;
-             *                           &lt;enumeration value="2"/&gt;
-             *                           &lt;enumeration value="3"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                     &lt;element name="hProg" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
-             *                   &lt;/sequence&gt;
-             *                 &lt;/restriction&gt;
-             *               &lt;/complexContent&gt;
-             *             &lt;/complexType&gt;
-             *           &lt;/element&gt;
-             *           &lt;element name="noInter"&gt;
-             *             &lt;complexType&gt;
-             *               &lt;complexContent&gt;
-             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                   &lt;sequence&gt;
-             *                     &lt;element name="tpHor"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *                           &lt;whiteSpace value="preserve"/&gt;
-             *                           &lt;enumeration value="4"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                     &lt;element name="hIni" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
-             *                     &lt;element name="hFim" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
-             *                   &lt;/sequence&gt;
-             *                 &lt;/restriction&gt;
-             *               &lt;/complexContent&gt;
-             *             &lt;/complexType&gt;
-             *           &lt;/element&gt;
-             *         &lt;/choice&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;choice>
+             *           &lt;element name="semData">
+             *             &lt;complexType>
+             *               &lt;complexContent>
+             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                   &lt;sequence>
+             *                     &lt;element name="tpPer">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *                           &lt;whiteSpace value="preserve"/>
+             *                           &lt;enumeration value="0"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                   &lt;/sequence>
+             *                 &lt;/restriction>
+             *               &lt;/complexContent>
+             *             &lt;/complexType>
+             *           &lt;/element>
+             *           &lt;element name="comData">
+             *             &lt;complexType>
+             *               &lt;complexContent>
+             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                   &lt;sequence>
+             *                     &lt;element name="tpPer">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *                           &lt;whiteSpace value="preserve"/>
+             *                           &lt;enumeration value="1"/>
+             *                           &lt;enumeration value="2"/>
+             *                           &lt;enumeration value="3"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                     &lt;element name="dProg" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+             *                   &lt;/sequence>
+             *                 &lt;/restriction>
+             *               &lt;/complexContent>
+             *             &lt;/complexType>
+             *           &lt;/element>
+             *           &lt;element name="noPeriodo">
+             *             &lt;complexType>
+             *               &lt;complexContent>
+             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                   &lt;sequence>
+             *                     &lt;element name="tpPer">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *                           &lt;whiteSpace value="preserve"/>
+             *                           &lt;enumeration value="4"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                     &lt;element name="dIni" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+             *                     &lt;element name="dFim" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+             *                   &lt;/sequence>
+             *                 &lt;/restriction>
+             *               &lt;/complexContent>
+             *             &lt;/complexType>
+             *           &lt;/element>
+             *         &lt;/choice>
+             *         &lt;choice>
+             *           &lt;element name="semHora">
+             *             &lt;complexType>
+             *               &lt;complexContent>
+             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                   &lt;sequence>
+             *                     &lt;element name="tpHor">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *                           &lt;whiteSpace value="preserve"/>
+             *                           &lt;enumeration value="0"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                   &lt;/sequence>
+             *                 &lt;/restriction>
+             *               &lt;/complexContent>
+             *             &lt;/complexType>
+             *           &lt;/element>
+             *           &lt;element name="comHora">
+             *             &lt;complexType>
+             *               &lt;complexContent>
+             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                   &lt;sequence>
+             *                     &lt;element name="tpHor">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *                           &lt;whiteSpace value="preserve"/>
+             *                           &lt;enumeration value="1"/>
+             *                           &lt;enumeration value="2"/>
+             *                           &lt;enumeration value="3"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                     &lt;element name="hProg" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+             *                   &lt;/sequence>
+             *                 &lt;/restriction>
+             *               &lt;/complexContent>
+             *             &lt;/complexType>
+             *           &lt;/element>
+             *           &lt;element name="noInter">
+             *             &lt;complexType>
+             *               &lt;complexContent>
+             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                   &lt;sequence>
+             *                     &lt;element name="tpHor">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *                           &lt;whiteSpace value="preserve"/>
+             *                           &lt;enumeration value="4"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                     &lt;element name="hIni" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+             *                     &lt;element name="hFim" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+             *                   &lt;/sequence>
+             *                 &lt;/restriction>
+             *               &lt;/complexContent>
+             *             &lt;/complexType>
+             *           &lt;/element>
+             *         &lt;/choice>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -4196,183 +4310,189 @@ public class TCTe {
             })
             public static class Entrega {
 
-                protected SemData semData;
-                protected ComData comData;
-                protected NoPeriodo noPeriodo;
-                protected SemHora semHora;
-                protected ComHora comHora;
-                protected NoInter noInter;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                protected TCTe.InfCte.Compl.Entrega.SemData semData;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                protected TCTe.InfCte.Compl.Entrega.ComData comData;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                protected TCTe.InfCte.Compl.Entrega.NoPeriodo noPeriodo;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                protected TCTe.InfCte.Compl.Entrega.SemHora semHora;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                protected TCTe.InfCte.Compl.Entrega.ComHora comHora;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                protected TCTe.InfCte.Compl.Entrega.NoInter noInter;
 
                 /**
-                 * Gets the value of the semData property.
+                 * Obtém o valor da propriedade semData.
                  * 
                  * @return
                  *     possible object is
-                 *     {@link SemData }
+                 *     {@link TCTe.InfCte.Compl.Entrega.SemData }
                  *     
                  */
-                public SemData getSemData() {
+                public TCTe.InfCte.Compl.Entrega.SemData getSemData() {
                     return semData;
                 }
 
                 /**
-                 * Sets the value of the semData property.
+                 * Define o valor da propriedade semData.
                  * 
                  * @param value
                  *     allowed object is
-                 *     {@link SemData }
+                 *     {@link TCTe.InfCte.Compl.Entrega.SemData }
                  *     
                  */
-                public void setSemData(SemData value) {
+                public void setSemData(TCTe.InfCte.Compl.Entrega.SemData value) {
                     this.semData = value;
                 }
 
                 /**
-                 * Gets the value of the comData property.
+                 * Obtém o valor da propriedade comData.
                  * 
                  * @return
                  *     possible object is
-                 *     {@link ComData }
+                 *     {@link TCTe.InfCte.Compl.Entrega.ComData }
                  *     
                  */
-                public ComData getComData() {
+                public TCTe.InfCte.Compl.Entrega.ComData getComData() {
                     return comData;
                 }
 
                 /**
-                 * Sets the value of the comData property.
+                 * Define o valor da propriedade comData.
                  * 
                  * @param value
                  *     allowed object is
-                 *     {@link ComData }
+                 *     {@link TCTe.InfCte.Compl.Entrega.ComData }
                  *     
                  */
-                public void setComData(ComData value) {
+                public void setComData(TCTe.InfCte.Compl.Entrega.ComData value) {
                     this.comData = value;
                 }
 
                 /**
-                 * Gets the value of the noPeriodo property.
+                 * Obtém o valor da propriedade noPeriodo.
                  * 
                  * @return
                  *     possible object is
-                 *     {@link NoPeriodo }
+                 *     {@link TCTe.InfCte.Compl.Entrega.NoPeriodo }
                  *     
                  */
-                public NoPeriodo getNoPeriodo() {
+                public TCTe.InfCte.Compl.Entrega.NoPeriodo getNoPeriodo() {
                     return noPeriodo;
                 }
 
                 /**
-                 * Sets the value of the noPeriodo property.
+                 * Define o valor da propriedade noPeriodo.
                  * 
                  * @param value
                  *     allowed object is
-                 *     {@link NoPeriodo }
+                 *     {@link TCTe.InfCte.Compl.Entrega.NoPeriodo }
                  *     
                  */
-                public void setNoPeriodo(NoPeriodo value) {
+                public void setNoPeriodo(TCTe.InfCte.Compl.Entrega.NoPeriodo value) {
                     this.noPeriodo = value;
                 }
 
                 /**
-                 * Gets the value of the semHora property.
+                 * Obtém o valor da propriedade semHora.
                  * 
                  * @return
                  *     possible object is
-                 *     {@link SemHora }
+                 *     {@link TCTe.InfCte.Compl.Entrega.SemHora }
                  *     
                  */
-                public SemHora getSemHora() {
+                public TCTe.InfCte.Compl.Entrega.SemHora getSemHora() {
                     return semHora;
                 }
 
                 /**
-                 * Sets the value of the semHora property.
+                 * Define o valor da propriedade semHora.
                  * 
                  * @param value
                  *     allowed object is
-                 *     {@link SemHora }
+                 *     {@link TCTe.InfCte.Compl.Entrega.SemHora }
                  *     
                  */
-                public void setSemHora(SemHora value) {
+                public void setSemHora(TCTe.InfCte.Compl.Entrega.SemHora value) {
                     this.semHora = value;
                 }
 
                 /**
-                 * Gets the value of the comHora property.
+                 * Obtém o valor da propriedade comHora.
                  * 
                  * @return
                  *     possible object is
-                 *     {@link ComHora }
+                 *     {@link TCTe.InfCte.Compl.Entrega.ComHora }
                  *     
                  */
-                public ComHora getComHora() {
+                public TCTe.InfCte.Compl.Entrega.ComHora getComHora() {
                     return comHora;
                 }
 
                 /**
-                 * Sets the value of the comHora property.
+                 * Define o valor da propriedade comHora.
                  * 
                  * @param value
                  *     allowed object is
-                 *     {@link ComHora }
+                 *     {@link TCTe.InfCte.Compl.Entrega.ComHora }
                  *     
                  */
-                public void setComHora(ComHora value) {
+                public void setComHora(TCTe.InfCte.Compl.Entrega.ComHora value) {
                     this.comHora = value;
                 }
 
                 /**
-                 * Gets the value of the noInter property.
+                 * Obtém o valor da propriedade noInter.
                  * 
                  * @return
                  *     possible object is
-                 *     {@link NoInter }
+                 *     {@link TCTe.InfCte.Compl.Entrega.NoInter }
                  *     
                  */
-                public NoInter getNoInter() {
+                public TCTe.InfCte.Compl.Entrega.NoInter getNoInter() {
                     return noInter;
                 }
 
                 /**
-                 * Sets the value of the noInter property.
+                 * Define o valor da propriedade noInter.
                  * 
                  * @param value
                  *     allowed object is
-                 *     {@link NoInter }
+                 *     {@link TCTe.InfCte.Compl.Entrega.NoInter }
                  *     
                  */
-                public void setNoInter(NoInter value) {
+                public void setNoInter(TCTe.InfCte.Compl.Entrega.NoInter value) {
                     this.noInter = value;
                 }
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="tpPer"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-                 *               &lt;whiteSpace value="preserve"/&gt;
-                 *               &lt;enumeration value="1"/&gt;
-                 *               &lt;enumeration value="2"/&gt;
-                 *               &lt;enumeration value="3"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="dProg" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="tpPer">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+                 *               &lt;whiteSpace value="preserve"/>
+                 *               &lt;enumeration value="1"/>
+                 *               &lt;enumeration value="2"/>
+                 *               &lt;enumeration value="3"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="dProg" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -4384,13 +4504,13 @@ public class TCTe {
                 })
                 public static class ComData {
 
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String tpPer;
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String dProg;
 
                     /**
-                     * Gets the value of the tpPer property.
+                     * Obtém o valor da propriedade tpPer.
                      * 
                      * @return
                      *     possible object is
@@ -4402,7 +4522,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the tpPer property.
+                     * Define o valor da propriedade tpPer.
                      * 
                      * @param value
                      *     allowed object is
@@ -4414,7 +4534,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the dProg property.
+                     * Obtém o valor da propriedade dProg.
                      * 
                      * @return
                      *     possible object is
@@ -4426,7 +4546,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the dProg property.
+                     * Define o valor da propriedade dProg.
                      * 
                      * @param value
                      *     allowed object is
@@ -4441,30 +4561,30 @@ public class TCTe {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="tpHor"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-                 *               &lt;whiteSpace value="preserve"/&gt;
-                 *               &lt;enumeration value="1"/&gt;
-                 *               &lt;enumeration value="2"/&gt;
-                 *               &lt;enumeration value="3"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="hProg" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="tpHor">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+                 *               &lt;whiteSpace value="preserve"/>
+                 *               &lt;enumeration value="1"/>
+                 *               &lt;enumeration value="2"/>
+                 *               &lt;enumeration value="3"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="hProg" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -4476,13 +4596,13 @@ public class TCTe {
                 })
                 public static class ComHora {
 
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String tpHor;
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String hProg;
 
                     /**
-                     * Gets the value of the tpHor property.
+                     * Obtém o valor da propriedade tpHor.
                      * 
                      * @return
                      *     possible object is
@@ -4494,7 +4614,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the tpHor property.
+                     * Define o valor da propriedade tpHor.
                      * 
                      * @param value
                      *     allowed object is
@@ -4506,7 +4626,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the hProg property.
+                     * Obtém o valor da propriedade hProg.
                      * 
                      * @return
                      *     possible object is
@@ -4518,7 +4638,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the hProg property.
+                     * Define o valor da propriedade hProg.
                      * 
                      * @param value
                      *     allowed object is
@@ -4533,29 +4653,29 @@ public class TCTe {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="tpHor"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-                 *               &lt;whiteSpace value="preserve"/&gt;
-                 *               &lt;enumeration value="4"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="hIni" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
-                 *         &lt;element name="hFim" type="{http://www.portalfiscal.inf.br/cte}TTime"/&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="tpHor">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+                 *               &lt;whiteSpace value="preserve"/>
+                 *               &lt;enumeration value="4"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="hIni" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+                 *         &lt;element name="hFim" type="{http://www.portalfiscal.inf.br/cte}TTime"/>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -4568,15 +4688,15 @@ public class TCTe {
                 })
                 public static class NoInter {
 
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String tpHor;
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String hIni;
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String hFim;
 
                     /**
-                     * Gets the value of the tpHor property.
+                     * Obtém o valor da propriedade tpHor.
                      * 
                      * @return
                      *     possible object is
@@ -4588,7 +4708,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the tpHor property.
+                     * Define o valor da propriedade tpHor.
                      * 
                      * @param value
                      *     allowed object is
@@ -4600,7 +4720,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the hIni property.
+                     * Obtém o valor da propriedade hIni.
                      * 
                      * @return
                      *     possible object is
@@ -4612,7 +4732,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the hIni property.
+                     * Define o valor da propriedade hIni.
                      * 
                      * @param value
                      *     allowed object is
@@ -4624,7 +4744,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the hFim property.
+                     * Obtém o valor da propriedade hFim.
                      * 
                      * @return
                      *     possible object is
@@ -4636,7 +4756,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the hFim property.
+                     * Define o valor da propriedade hFim.
                      * 
                      * @param value
                      *     allowed object is
@@ -4651,29 +4771,29 @@ public class TCTe {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="tpPer"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-                 *               &lt;whiteSpace value="preserve"/&gt;
-                 *               &lt;enumeration value="4"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="dIni" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-                 *         &lt;element name="dFim" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="tpPer">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+                 *               &lt;whiteSpace value="preserve"/>
+                 *               &lt;enumeration value="4"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="dIni" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+                 *         &lt;element name="dFim" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -4686,15 +4806,15 @@ public class TCTe {
                 })
                 public static class NoPeriodo {
 
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String tpPer;
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String dIni;
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String dFim;
 
                     /**
-                     * Gets the value of the tpPer property.
+                     * Obtém o valor da propriedade tpPer.
                      * 
                      * @return
                      *     possible object is
@@ -4706,7 +4826,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the tpPer property.
+                     * Define o valor da propriedade tpPer.
                      * 
                      * @param value
                      *     allowed object is
@@ -4718,7 +4838,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the dIni property.
+                     * Obtém o valor da propriedade dIni.
                      * 
                      * @return
                      *     possible object is
@@ -4730,7 +4850,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the dIni property.
+                     * Define o valor da propriedade dIni.
                      * 
                      * @param value
                      *     allowed object is
@@ -4742,7 +4862,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the dFim property.
+                     * Obtém o valor da propriedade dFim.
                      * 
                      * @return
                      *     possible object is
@@ -4754,7 +4874,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the dFim property.
+                     * Define o valor da propriedade dFim.
                      * 
                      * @param value
                      *     allowed object is
@@ -4769,27 +4889,27 @@ public class TCTe {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="tpPer"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-                 *               &lt;whiteSpace value="preserve"/&gt;
-                 *               &lt;enumeration value="0"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="tpPer">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+                 *               &lt;whiteSpace value="preserve"/>
+                 *               &lt;enumeration value="0"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -4800,11 +4920,11 @@ public class TCTe {
                 })
                 public static class SemData {
 
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String tpPer;
 
                     /**
-                     * Gets the value of the tpPer property.
+                     * Obtém o valor da propriedade tpPer.
                      * 
                      * @return
                      *     possible object is
@@ -4816,7 +4936,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the tpPer property.
+                     * Define o valor da propriedade tpPer.
                      * 
                      * @param value
                      *     allowed object is
@@ -4831,27 +4951,27 @@ public class TCTe {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="tpHor"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-                 *               &lt;whiteSpace value="preserve"/&gt;
-                 *               &lt;enumeration value="0"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="tpHor">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+                 *               &lt;whiteSpace value="preserve"/>
+                 *               &lt;enumeration value="0"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -4862,11 +4982,11 @@ public class TCTe {
                 })
                 public static class SemHora {
 
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String tpHor;
 
                     /**
-                     * Gets the value of the tpHor property.
+                     * Obtém o valor da propriedade tpHor.
                      * 
                      * @return
                      *     possible object is
@@ -4878,7 +4998,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the tpHor property.
+                     * Define o valor da propriedade tpHor.
                      * 
                      * @param value
                      *     allowed object is
@@ -4895,61 +5015,61 @@ public class TCTe {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="xOrig" minOccurs="0"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *               &lt;minLength value="1"/&gt;
-             *               &lt;maxLength value="60"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *         &lt;element name="pass" maxOccurs="unbounded" minOccurs="0"&gt;
-             *           &lt;complexType&gt;
-             *             &lt;complexContent&gt;
-             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                 &lt;sequence&gt;
-             *                   &lt;element name="xPass" minOccurs="0"&gt;
-             *                     &lt;simpleType&gt;
-             *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                         &lt;minLength value="1"/&gt;
-             *                         &lt;maxLength value="15"/&gt;
-             *                       &lt;/restriction&gt;
-             *                     &lt;/simpleType&gt;
-             *                   &lt;/element&gt;
-             *                 &lt;/sequence&gt;
-             *               &lt;/restriction&gt;
-             *             &lt;/complexContent&gt;
-             *           &lt;/complexType&gt;
-             *         &lt;/element&gt;
-             *         &lt;element name="xDest" minOccurs="0"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *               &lt;minLength value="1"/&gt;
-             *               &lt;maxLength value="60"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *         &lt;element name="xRota" minOccurs="0"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *               &lt;minLength value="1"/&gt;
-             *               &lt;maxLength value="10"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="xOrig" minOccurs="0">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *               &lt;minLength value="1"/>
+             *               &lt;maxLength value="60"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *         &lt;element name="pass" maxOccurs="unbounded" minOccurs="0">
+             *           &lt;complexType>
+             *             &lt;complexContent>
+             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                 &lt;sequence>
+             *                   &lt;element name="xPass" minOccurs="0">
+             *                     &lt;simpleType>
+             *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                         &lt;minLength value="1"/>
+             *                         &lt;maxLength value="15"/>
+             *                       &lt;/restriction>
+             *                     &lt;/simpleType>
+             *                   &lt;/element>
+             *                 &lt;/sequence>
+             *               &lt;/restriction>
+             *             &lt;/complexContent>
+             *           &lt;/complexType>
+             *         &lt;/element>
+             *         &lt;element name="xDest" minOccurs="0">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *               &lt;minLength value="1"/>
+             *               &lt;maxLength value="60"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *         &lt;element name="xRota" minOccurs="0">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *               &lt;minLength value="1"/>
+             *               &lt;maxLength value="10"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -4963,13 +5083,17 @@ public class TCTe {
             })
             public static class Fluxo {
 
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String xOrig;
-                protected List<Pass> pass;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                protected List<TCTe.InfCte.Compl.Fluxo.Pass> pass;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String xDest;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String xRota;
 
                 /**
-                 * Gets the value of the xOrig property.
+                 * Obtém o valor da propriedade xOrig.
                  * 
                  * @return
                  *     possible object is
@@ -4981,7 +5105,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the xOrig property.
+                 * Define o valor da propriedade xOrig.
                  * 
                  * @param value
                  *     allowed object is
@@ -5010,19 +5134,19 @@ public class TCTe {
                  * 
                  * <p>
                  * Objects of the following type(s) are allowed in the list
-                 * {@link Pass }
+                 * {@link TCTe.InfCte.Compl.Fluxo.Pass }
                  * 
                  * 
                  */
-                public List<Pass> getPass() {
+                public List<TCTe.InfCte.Compl.Fluxo.Pass> getPass() {
                     if (pass == null) {
-                        pass = new ArrayList<Pass>();
+                        pass = new ArrayList<TCTe.InfCte.Compl.Fluxo.Pass>();
                     }
                     return this.pass;
                 }
 
                 /**
-                 * Gets the value of the xDest property.
+                 * Obtém o valor da propriedade xDest.
                  * 
                  * @return
                  *     possible object is
@@ -5034,7 +5158,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the xDest property.
+                 * Define o valor da propriedade xDest.
                  * 
                  * @param value
                  *     allowed object is
@@ -5046,7 +5170,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the xRota property.
+                 * Obtém o valor da propriedade xRota.
                  * 
                  * @return
                  *     possible object is
@@ -5058,7 +5182,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the xRota property.
+                 * Define o valor da propriedade xRota.
                  * 
                  * @param value
                  *     allowed object is
@@ -5071,27 +5195,27 @@ public class TCTe {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="xPass" minOccurs="0"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                 *               &lt;minLength value="1"/&gt;
-                 *               &lt;maxLength value="15"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="xPass" minOccurs="0">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                 *               &lt;minLength value="1"/>
+                 *               &lt;maxLength value="15"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -5102,10 +5226,11 @@ public class TCTe {
                 })
                 public static class Pass {
 
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String xPass;
 
                     /**
-                     * Gets the value of the xPass property.
+                     * Obtém o valor da propriedade xPass.
                      * 
                      * @return
                      *     possible object is
@@ -5117,7 +5242,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the xPass property.
+                     * Define o valor da propriedade xPass.
                      * 
                      * @param value
                      *     allowed object is
@@ -5134,35 +5259,35 @@ public class TCTe {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="xTexto"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *               &lt;minLength value="1"/&gt;
-             *               &lt;maxLength value="160"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *       &lt;/sequence&gt;
-             *       &lt;attribute name="xCampo" use="required"&gt;
-             *         &lt;simpleType&gt;
-             *           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *             &lt;minLength value="1"/&gt;
-             *             &lt;maxLength value="20"/&gt;
-             *           &lt;/restriction&gt;
-             *         &lt;/simpleType&gt;
-             *       &lt;/attribute&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="xTexto">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *               &lt;minLength value="1"/>
+             *               &lt;maxLength value="160"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *       &lt;/sequence>
+             *       &lt;attribute name="xCampo" use="required">
+             *         &lt;simpleType>
+             *           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *             &lt;minLength value="1"/>
+             *             &lt;maxLength value="20"/>
+             *           &lt;/restriction>
+             *         &lt;/simpleType>
+             *       &lt;/attribute>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -5173,13 +5298,13 @@ public class TCTe {
             })
             public static class ObsCont {
 
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String xTexto;
                 @XmlAttribute(name = "xCampo", required = true)
                 protected String xCampo;
 
                 /**
-                 * Gets the value of the xTexto property.
+                 * Obtém o valor da propriedade xTexto.
                  * 
                  * @return
                  *     possible object is
@@ -5191,7 +5316,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the xTexto property.
+                 * Define o valor da propriedade xTexto.
                  * 
                  * @param value
                  *     allowed object is
@@ -5203,7 +5328,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the xCampo property.
+                 * Obtém o valor da propriedade xCampo.
                  * 
                  * @return
                  *     possible object is
@@ -5215,7 +5340,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the xCampo property.
+                 * Define o valor da propriedade xCampo.
                  * 
                  * @param value
                  *     allowed object is
@@ -5230,35 +5355,35 @@ public class TCTe {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="xTexto"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *               &lt;minLength value="1"/&gt;
-             *               &lt;maxLength value="60"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *       &lt;/sequence&gt;
-             *       &lt;attribute name="xCampo" use="required"&gt;
-             *         &lt;simpleType&gt;
-             *           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *             &lt;minLength value="1"/&gt;
-             *             &lt;maxLength value="20"/&gt;
-             *           &lt;/restriction&gt;
-             *         &lt;/simpleType&gt;
-             *       &lt;/attribute&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="xTexto">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *               &lt;minLength value="1"/>
+             *               &lt;maxLength value="60"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *       &lt;/sequence>
+             *       &lt;attribute name="xCampo" use="required">
+             *         &lt;simpleType>
+             *           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *             &lt;minLength value="1"/>
+             *             &lt;maxLength value="20"/>
+             *           &lt;/restriction>
+             *         &lt;/simpleType>
+             *       &lt;/attribute>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -5269,13 +5394,13 @@ public class TCTe {
             })
             public static class ObsFisco {
 
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String xTexto;
                 @XmlAttribute(name = "xCampo", required = true)
                 protected String xCampo;
 
                 /**
-                 * Gets the value of the xTexto property.
+                 * Obtém o valor da propriedade xTexto.
                  * 
                  * @return
                  *     possible object is
@@ -5287,7 +5412,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the xTexto property.
+                 * Define o valor da propriedade xTexto.
                  * 
                  * @param value
                  *     allowed object is
@@ -5299,7 +5424,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the xCampo property.
+                 * Obtém o valor da propriedade xCampo.
                  * 
                  * @return
                  *     possible object is
@@ -5311,7 +5436,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the xCampo property.
+                 * Define o valor da propriedade xCampo.
                  * 
                  * @param value
                  *     allowed object is
@@ -5328,48 +5453,48 @@ public class TCTe {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <p>Classe Java de anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
          * 
          * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;choice&gt;
-         *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-         *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-         *         &lt;/choice&gt;
-         *         &lt;element name="IE" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="xNome"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;maxLength value="60"/&gt;
-         *               &lt;minLength value="2"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
-         *         &lt;element name="ISUF" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *               &lt;whiteSpace value="preserve"/&gt;
-         *               &lt;pattern value="[0-9]{8,9}"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="enderDest" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
-         *         &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;choice>
+         *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+         *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+         *         &lt;/choice>
+         *         &lt;element name="IE" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="xNome">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;maxLength value="60"/>
+         *               &lt;minLength value="2"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+         *         &lt;element name="ISUF" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *               &lt;whiteSpace value="preserve"/>
+         *               &lt;pattern value="[0-9]{8,9}"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="enderDest" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+         *         &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
          * </pre>
          * 
          * 
@@ -5387,23 +5512,25 @@ public class TCTe {
         })
         public static class Dest {
 
-            @XmlElement(name = "CNPJ")
+            @XmlElement(name = "CNPJ", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String cnpj;
-            @XmlElement(name = "CPF")
+            @XmlElement(name = "CPF", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String cpf;
-            @XmlElement(name = "IE")
+            @XmlElement(name = "IE", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String ie;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String xNome;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String fone;
-            @XmlElement(name = "ISUF")
+            @XmlElement(name = "ISUF", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String isuf;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected TEndereco enderDest;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String email;
 
             /**
-             * Gets the value of the cnpj property.
+             * Obtém o valor da propriedade cnpj.
              * 
              * @return
              *     possible object is
@@ -5415,7 +5542,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cnpj property.
+             * Define o valor da propriedade cnpj.
              * 
              * @param value
              *     allowed object is
@@ -5427,7 +5554,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the cpf property.
+             * Obtém o valor da propriedade cpf.
              * 
              * @return
              *     possible object is
@@ -5439,7 +5566,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cpf property.
+             * Define o valor da propriedade cpf.
              * 
              * @param value
              *     allowed object is
@@ -5451,7 +5578,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the ie property.
+             * Obtém o valor da propriedade ie.
              * 
              * @return
              *     possible object is
@@ -5463,7 +5590,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the ie property.
+             * Define o valor da propriedade ie.
              * 
              * @param value
              *     allowed object is
@@ -5475,7 +5602,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xNome property.
+             * Obtém o valor da propriedade xNome.
              * 
              * @return
              *     possible object is
@@ -5487,7 +5614,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xNome property.
+             * Define o valor da propriedade xNome.
              * 
              * @param value
              *     allowed object is
@@ -5499,7 +5626,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the fone property.
+             * Obtém o valor da propriedade fone.
              * 
              * @return
              *     possible object is
@@ -5511,7 +5638,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the fone property.
+             * Define o valor da propriedade fone.
              * 
              * @param value
              *     allowed object is
@@ -5523,7 +5650,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the isuf property.
+             * Obtém o valor da propriedade isuf.
              * 
              * @return
              *     possible object is
@@ -5535,7 +5662,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the isuf property.
+             * Define o valor da propriedade isuf.
              * 
              * @param value
              *     allowed object is
@@ -5547,7 +5674,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the enderDest property.
+             * Obtém o valor da propriedade enderDest.
              * 
              * @return
              *     possible object is
@@ -5559,7 +5686,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the enderDest property.
+             * Define o valor da propriedade enderDest.
              * 
              * @param value
              *     allowed object is
@@ -5571,7 +5698,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the email property.
+             * Obtém o valor da propriedade email.
              * 
              * @return
              *     possible object is
@@ -5583,7 +5710,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the email property.
+             * Define o valor da propriedade email.
              * 
              * @param value
              *     allowed object is
@@ -5598,53 +5725,53 @@ public class TCTe {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <p>Classe Java de anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
          * 
          * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;choice&gt;
-         *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/&gt;
-         *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-         *         &lt;/choice&gt;
-         *         &lt;element name="IE" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIe"&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="IEST" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIe"&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="xNome"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;maxLength value="60"/&gt;
-         *               &lt;minLength value="2"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="xFant" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;maxLength value="60"/&gt;
-         *               &lt;minLength value="2"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="enderEmit" type="{http://www.portalfiscal.inf.br/cte}TEndeEmi"/&gt;
-         *         &lt;element name="CRT" type="{http://www.portalfiscal.inf.br/cte}TCRT"/&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;choice>
+         *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/>
+         *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+         *         &lt;/choice>
+         *         &lt;element name="IE" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIe">
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="IEST" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIe">
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="xNome">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;maxLength value="60"/>
+         *               &lt;minLength value="2"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="xFant" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;maxLength value="60"/>
+         *               &lt;minLength value="2"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="enderEmit" type="{http://www.portalfiscal.inf.br/cte}TEndeEmi"/>
+         *         &lt;element name="CRT" type="{http://www.portalfiscal.inf.br/cte}TCRT"/>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
          * </pre>
          * 
          * 
@@ -5662,24 +5789,25 @@ public class TCTe {
         })
         public static class Emit {
 
-            @XmlElement(name = "CNPJ")
+            @XmlElement(name = "CNPJ", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String cnpj;
-            @XmlElement(name = "CPF")
+            @XmlElement(name = "CPF", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String cpf;
-            @XmlElement(name = "IE")
+            @XmlElement(name = "IE", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String ie;
-            @XmlElement(name = "IEST")
+            @XmlElement(name = "IEST", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String iest;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String xNome;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String xFant;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected TEndeEmi enderEmit;
-            @XmlElement(name = "CRT", required = true)
+            @XmlElement(name = "CRT", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String crt;
 
             /**
-             * Gets the value of the cnpj property.
+             * Obtém o valor da propriedade cnpj.
              * 
              * @return
              *     possible object is
@@ -5691,7 +5819,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cnpj property.
+             * Define o valor da propriedade cnpj.
              * 
              * @param value
              *     allowed object is
@@ -5703,7 +5831,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the cpf property.
+             * Obtém o valor da propriedade cpf.
              * 
              * @return
              *     possible object is
@@ -5715,7 +5843,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cpf property.
+             * Define o valor da propriedade cpf.
              * 
              * @param value
              *     allowed object is
@@ -5727,7 +5855,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the ie property.
+             * Obtém o valor da propriedade ie.
              * 
              * @return
              *     possible object is
@@ -5739,7 +5867,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the ie property.
+             * Define o valor da propriedade ie.
              * 
              * @param value
              *     allowed object is
@@ -5751,7 +5879,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the iest property.
+             * Obtém o valor da propriedade iest.
              * 
              * @return
              *     possible object is
@@ -5763,7 +5891,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the iest property.
+             * Define o valor da propriedade iest.
              * 
              * @param value
              *     allowed object is
@@ -5775,7 +5903,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xNome property.
+             * Obtém o valor da propriedade xNome.
              * 
              * @return
              *     possible object is
@@ -5787,7 +5915,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xNome property.
+             * Define o valor da propriedade xNome.
              * 
              * @param value
              *     allowed object is
@@ -5799,7 +5927,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xFant property.
+             * Obtém o valor da propriedade xFant.
              * 
              * @return
              *     possible object is
@@ -5811,7 +5939,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xFant property.
+             * Define o valor da propriedade xFant.
              * 
              * @param value
              *     allowed object is
@@ -5823,7 +5951,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the enderEmit property.
+             * Obtém o valor da propriedade enderEmit.
              * 
              * @return
              *     possible object is
@@ -5835,7 +5963,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the enderEmit property.
+             * Define o valor da propriedade enderEmit.
              * 
              * @param value
              *     allowed object is
@@ -5847,7 +5975,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the crt property.
+             * Obtém o valor da propriedade crt.
              * 
              * @return
              *     possible object is
@@ -5859,7 +5987,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the crt property.
+             * Define o valor da propriedade crt.
              * 
              * @param value
              *     allowed object is
@@ -5874,40 +6002,40 @@ public class TCTe {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <p>Classe Java de anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
          * 
          * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;choice&gt;
-         *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-         *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-         *         &lt;/choice&gt;
-         *         &lt;element name="IE" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="xNome"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;maxLength value="60"/&gt;
-         *               &lt;minLength value="2"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
-         *         &lt;element name="enderExped" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
-         *         &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;choice>
+         *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+         *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+         *         &lt;/choice>
+         *         &lt;element name="IE" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="xNome">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;maxLength value="60"/>
+         *               &lt;minLength value="2"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+         *         &lt;element name="enderExped" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+         *         &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
          * </pre>
          * 
          * 
@@ -5924,21 +6052,23 @@ public class TCTe {
         })
         public static class Exped {
 
-            @XmlElement(name = "CNPJ")
+            @XmlElement(name = "CNPJ", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String cnpj;
-            @XmlElement(name = "CPF")
+            @XmlElement(name = "CPF", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String cpf;
-            @XmlElement(name = "IE")
+            @XmlElement(name = "IE", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String ie;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String xNome;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String fone;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected TEndereco enderExped;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String email;
 
             /**
-             * Gets the value of the cnpj property.
+             * Obtém o valor da propriedade cnpj.
              * 
              * @return
              *     possible object is
@@ -5950,7 +6080,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cnpj property.
+             * Define o valor da propriedade cnpj.
              * 
              * @param value
              *     allowed object is
@@ -5962,7 +6092,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the cpf property.
+             * Obtém o valor da propriedade cpf.
              * 
              * @return
              *     possible object is
@@ -5974,7 +6104,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cpf property.
+             * Define o valor da propriedade cpf.
              * 
              * @param value
              *     allowed object is
@@ -5986,7 +6116,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the ie property.
+             * Obtém o valor da propriedade ie.
              * 
              * @return
              *     possible object is
@@ -5998,7 +6128,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the ie property.
+             * Define o valor da propriedade ie.
              * 
              * @param value
              *     allowed object is
@@ -6010,7 +6140,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xNome property.
+             * Obtém o valor da propriedade xNome.
              * 
              * @return
              *     possible object is
@@ -6022,7 +6152,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xNome property.
+             * Define o valor da propriedade xNome.
              * 
              * @param value
              *     allowed object is
@@ -6034,7 +6164,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the fone property.
+             * Obtém o valor da propriedade fone.
              * 
              * @return
              *     possible object is
@@ -6046,7 +6176,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the fone property.
+             * Define o valor da propriedade fone.
              * 
              * @param value
              *     allowed object is
@@ -6058,7 +6188,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the enderExped property.
+             * Obtém o valor da propriedade enderExped.
              * 
              * @return
              *     possible object is
@@ -6070,7 +6200,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the enderExped property.
+             * Define o valor da propriedade enderExped.
              * 
              * @param value
              *     allowed object is
@@ -6082,7 +6212,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the email property.
+             * Obtém o valor da propriedade email.
              * 
              * @return
              *     possible object is
@@ -6094,7 +6224,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the email property.
+             * Define o valor da propriedade email.
              * 
              * @param value
              *     allowed object is
@@ -6109,252 +6239,253 @@ public class TCTe {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <p>Classe Java de anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
          * 
          * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/cte}TCodUfIBGE"/&gt;
-         *         &lt;element name="cCT"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *               &lt;whiteSpace value="preserve"/&gt;
-         *               &lt;pattern value="[0-9]{8}"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="CFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/&gt;
-         *         &lt;element name="natOp"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;minLength value="1"/&gt;
-         *               &lt;maxLength value="60"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModCT"/&gt;
-         *         &lt;element name="serie"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TSerie"&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="nCT" type="{http://www.portalfiscal.inf.br/cte}TNF"/&gt;
-         *         &lt;element name="dhEmi"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC"&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="tpImp"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *               &lt;whiteSpace value="preserve"/&gt;
-         *               &lt;enumeration value="1"/&gt;
-         *               &lt;enumeration value="2"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="tpEmis"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *               &lt;whiteSpace value="preserve"/&gt;
-         *               &lt;enumeration value="1"/&gt;
-         *               &lt;enumeration value="3"/&gt;
-         *               &lt;enumeration value="4"/&gt;
-         *               &lt;enumeration value="5"/&gt;
-         *               &lt;enumeration value="7"/&gt;
-         *               &lt;enumeration value="8"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="cDV"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *               &lt;whiteSpace value="preserve"/&gt;
-         *               &lt;pattern value="[0-9]{1}"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/&gt;
-         *         &lt;element name="tpCTe" type="{http://www.portalfiscal.inf.br/cte}TFinCTe"/&gt;
-         *         &lt;element name="procEmi" type="{http://www.portalfiscal.inf.br/cte}TProcEmi"/&gt;
-         *         &lt;element name="verProc"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;minLength value="1"/&gt;
-         *               &lt;maxLength value="20"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="indGlobalizado" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *               &lt;enumeration value="1"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="cMunEnv" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/&gt;
-         *         &lt;element name="xMunEnv"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;minLength value="2"/&gt;
-         *               &lt;maxLength value="60"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="UFEnv" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
-         *         &lt;element name="modal" type="{http://www.portalfiscal.inf.br/cte}TModTransp"/&gt;
-         *         &lt;element name="tpServ"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *               &lt;whiteSpace value="preserve"/&gt;
-         *               &lt;enumeration value="0"/&gt;
-         *               &lt;enumeration value="1"/&gt;
-         *               &lt;enumeration value="2"/&gt;
-         *               &lt;enumeration value="3"/&gt;
-         *               &lt;enumeration value="4"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="cMunIni" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/&gt;
-         *         &lt;element name="xMunIni"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;minLength value="2"/&gt;
-         *               &lt;maxLength value="60"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="UFIni" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
-         *         &lt;element name="cMunFim" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/&gt;
-         *         &lt;element name="xMunFim"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;minLength value="2"/&gt;
-         *               &lt;maxLength value="60"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="UFFim" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
-         *         &lt;element name="retira"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *               &lt;whiteSpace value="preserve"/&gt;
-         *               &lt;enumeration value="0"/&gt;
-         *               &lt;enumeration value="1"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="xDetRetira" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;minLength value="1"/&gt;
-         *               &lt;maxLength value="160"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="indIEToma"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *               &lt;whiteSpace value="preserve"/&gt;
-         *               &lt;enumeration value="1"/&gt;
-         *               &lt;enumeration value="2"/&gt;
-         *               &lt;enumeration value="9"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;choice&gt;
-         *           &lt;element name="toma3"&gt;
-         *             &lt;complexType&gt;
-         *               &lt;complexContent&gt;
-         *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                   &lt;sequence&gt;
-         *                     &lt;element name="toma"&gt;
-         *                       &lt;simpleType&gt;
-         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                           &lt;whiteSpace value="preserve"/&gt;
-         *                           &lt;enumeration value="0"/&gt;
-         *                           &lt;enumeration value="1"/&gt;
-         *                           &lt;enumeration value="2"/&gt;
-         *                           &lt;enumeration value="3"/&gt;
-         *                         &lt;/restriction&gt;
-         *                       &lt;/simpleType&gt;
-         *                     &lt;/element&gt;
-         *                   &lt;/sequence&gt;
-         *                 &lt;/restriction&gt;
-         *               &lt;/complexContent&gt;
-         *             &lt;/complexType&gt;
-         *           &lt;/element&gt;
-         *           &lt;element name="toma4"&gt;
-         *             &lt;complexType&gt;
-         *               &lt;complexContent&gt;
-         *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                   &lt;sequence&gt;
-         *                     &lt;element name="toma"&gt;
-         *                       &lt;simpleType&gt;
-         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                           &lt;whiteSpace value="preserve"/&gt;
-         *                           &lt;enumeration value="4"/&gt;
-         *                         &lt;/restriction&gt;
-         *                       &lt;/simpleType&gt;
-         *                     &lt;/element&gt;
-         *                     &lt;choice&gt;
-         *                       &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-         *                       &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-         *                     &lt;/choice&gt;
-         *                     &lt;element name="IE" minOccurs="0"&gt;
-         *                       &lt;simpleType&gt;
-         *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
-         *                         &lt;/restriction&gt;
-         *                       &lt;/simpleType&gt;
-         *                     &lt;/element&gt;
-         *                     &lt;sequence&gt;
-         *                       &lt;element name="xNome"&gt;
-         *                         &lt;simpleType&gt;
-         *                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                             &lt;maxLength value="60"/&gt;
-         *                             &lt;minLength value="2"/&gt;
-         *                           &lt;/restriction&gt;
-         *                         &lt;/simpleType&gt;
-         *                       &lt;/element&gt;
-         *                       &lt;element name="xFant" minOccurs="0"&gt;
-         *                         &lt;simpleType&gt;
-         *                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                             &lt;maxLength value="60"/&gt;
-         *                             &lt;minLength value="2"/&gt;
-         *                           &lt;/restriction&gt;
-         *                         &lt;/simpleType&gt;
-         *                       &lt;/element&gt;
-         *                       &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
-         *                       &lt;element name="enderToma" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
-         *                       &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/&gt;
-         *                     &lt;/sequence&gt;
-         *                   &lt;/sequence&gt;
-         *                 &lt;/restriction&gt;
-         *               &lt;/complexContent&gt;
-         *             &lt;/complexType&gt;
-         *           &lt;/element&gt;
-         *         &lt;/choice&gt;
-         *         &lt;sequence minOccurs="0"&gt;
-         *           &lt;element name="dhCont" type="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC"/&gt;
-         *           &lt;element name="xJust"&gt;
-         *             &lt;simpleType&gt;
-         *               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                 &lt;minLength value="15"/&gt;
-         *                 &lt;maxLength value="256"/&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/simpleType&gt;
-         *           &lt;/element&gt;
-         *         &lt;/sequence&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/cte}TCodUfIBGE"/>
+         *         &lt;element name="cCT">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *               &lt;whiteSpace value="preserve"/>
+         *               &lt;pattern value="[0-9]{8}"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="CFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/>
+         *         &lt;element name="natOp">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;minLength value="1"/>
+         *               &lt;maxLength value="60"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModCT"/>
+         *         &lt;element name="serie">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TSerie">
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="nCT" type="{http://www.portalfiscal.inf.br/cte}TNF"/>
+         *         &lt;element name="dhEmi">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC">
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="tpImp">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *               &lt;whiteSpace value="preserve"/>
+         *               &lt;enumeration value="1"/>
+         *               &lt;enumeration value="2"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="tpEmis">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *               &lt;whiteSpace value="preserve"/>
+         *               &lt;enumeration value="1"/>
+         *               &lt;enumeration value="3"/>
+         *               &lt;enumeration value="4"/>
+         *               &lt;enumeration value="5"/>
+         *               &lt;enumeration value="7"/>
+         *               &lt;enumeration value="8"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="cDV">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *               &lt;whiteSpace value="preserve"/>
+         *               &lt;pattern value="[0-9]{1}"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/>
+         *         &lt;element name="tpCTe" type="{http://www.portalfiscal.inf.br/cte}TFinCTe"/>
+         *         &lt;element name="procEmi" type="{http://www.portalfiscal.inf.br/cte}TProcEmi"/>
+         *         &lt;element name="verProc">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;minLength value="1"/>
+         *               &lt;maxLength value="20"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="indGlobalizado" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *               &lt;enumeration value="1"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="cMunEnv" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/>
+         *         &lt;element name="xMunEnv">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;minLength value="2"/>
+         *               &lt;maxLength value="60"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="UFEnv" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+         *         &lt;element name="modal" type="{http://www.portalfiscal.inf.br/cte}TModTransp"/>
+         *         &lt;element name="tpServ">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *               &lt;whiteSpace value="preserve"/>
+         *               &lt;enumeration value="0"/>
+         *               &lt;enumeration value="1"/>
+         *               &lt;enumeration value="2"/>
+         *               &lt;enumeration value="3"/>
+         *               &lt;enumeration value="4"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="cMunIni" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/>
+         *         &lt;element name="xMunIni">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;minLength value="2"/>
+         *               &lt;maxLength value="60"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="UFIni" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+         *         &lt;element name="cMunFim" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/>
+         *         &lt;element name="xMunFim">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;minLength value="2"/>
+         *               &lt;maxLength value="60"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="UFFim" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+         *         &lt;element name="retira">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *               &lt;whiteSpace value="preserve"/>
+         *               &lt;enumeration value="0"/>
+         *               &lt;enumeration value="1"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="xDetRetira" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;minLength value="1"/>
+         *               &lt;maxLength value="160"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="indIEToma">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *               &lt;whiteSpace value="preserve"/>
+         *               &lt;enumeration value="1"/>
+         *               &lt;enumeration value="2"/>
+         *               &lt;enumeration value="9"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;choice>
+         *           &lt;element name="toma3">
+         *             &lt;complexType>
+         *               &lt;complexContent>
+         *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                   &lt;sequence>
+         *                     &lt;element name="toma">
+         *                       &lt;simpleType>
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                           &lt;whiteSpace value="preserve"/>
+         *                           &lt;enumeration value="0"/>
+         *                           &lt;enumeration value="1"/>
+         *                           &lt;enumeration value="2"/>
+         *                           &lt;enumeration value="3"/>
+         *                         &lt;/restriction>
+         *                       &lt;/simpleType>
+         *                     &lt;/element>
+         *                   &lt;/sequence>
+         *                 &lt;/restriction>
+         *               &lt;/complexContent>
+         *             &lt;/complexType>
+         *           &lt;/element>
+         *           &lt;element name="toma4">
+         *             &lt;complexType>
+         *               &lt;complexContent>
+         *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                   &lt;sequence>
+         *                     &lt;element name="toma">
+         *                       &lt;simpleType>
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                           &lt;whiteSpace value="preserve"/>
+         *                           &lt;enumeration value="4"/>
+         *                         &lt;/restriction>
+         *                       &lt;/simpleType>
+         *                     &lt;/element>
+         *                     &lt;choice>
+         *                       &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+         *                       &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+         *                     &lt;/choice>
+         *                     &lt;element name="IE" minOccurs="0">
+         *                       &lt;simpleType>
+         *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+         *                         &lt;/restriction>
+         *                       &lt;/simpleType>
+         *                     &lt;/element>
+         *                     &lt;sequence>
+         *                       &lt;element name="xNome">
+         *                         &lt;simpleType>
+         *                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                             &lt;maxLength value="60"/>
+         *                             &lt;minLength value="2"/>
+         *                           &lt;/restriction>
+         *                         &lt;/simpleType>
+         *                       &lt;/element>
+         *                       &lt;element name="xFant" minOccurs="0">
+         *                         &lt;simpleType>
+         *                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                             &lt;maxLength value="60"/>
+         *                             &lt;minLength value="2"/>
+         *                           &lt;/restriction>
+         *                         &lt;/simpleType>
+         *                       &lt;/element>
+         *                       &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+         *                       &lt;element name="enderToma" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+         *                       &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/>
+         *                     &lt;/sequence>
+         *                   &lt;/sequence>
+         *                 &lt;/restriction>
+         *               &lt;/complexContent>
+         *             &lt;/complexType>
+         *           &lt;/element>
+         *         &lt;/choice>
+         *         &lt;sequence minOccurs="0">
+         *           &lt;element name="dhCont" type="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC"/>
+         *           &lt;element name="xJust">
+         *             &lt;simpleType>
+         *               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                 &lt;minLength value="15"/>
+         *                 &lt;maxLength value="256"/>
+         *               &lt;/restriction>
+         *             &lt;/simpleType>
+         *           &lt;/element>
+         *         &lt;/sequence>
+         *         &lt;element name="gCompraGov" type="{http://www.portalfiscal.inf.br/cte}TCompraGovReduzido" minOccurs="0"/>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
          * </pre>
          * 
          * 
@@ -6394,78 +6525,87 @@ public class TCTe {
             "toma3",
             "toma4",
             "dhCont",
-            "xJust"
+            "xJust",
+            "gCompraGov"
         })
         public static class Ide {
 
-            @XmlElement(name = "cUF", required = true)
+            @XmlElement(name = "cUF", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String cuf;
-            @XmlElement(name = "cCT", required = true)
+            @XmlElement(name = "cCT", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String cct;
-            @XmlElement(name = "CFOP", required = true)
+            @XmlElement(name = "CFOP", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String cfop;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String natOp;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String mod;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String serie;
-            @XmlElement(name = "nCT", required = true)
+            @XmlElement(name = "nCT", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String nct;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String dhEmi;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String tpImp;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String tpEmis;
-            @XmlElement(name = "cDV", required = true)
+            @XmlElement(name = "cDV", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String cdv;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String tpAmb;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String tpCTe;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String procEmi;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String verProc;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String indGlobalizado;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String cMunEnv;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String xMunEnv;
-            @XmlElement(name = "UFEnv", required = true)
+            @XmlElement(name = "UFEnv", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             @XmlSchemaType(name = "string")
             protected TUf ufEnv;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String modal;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String tpServ;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String cMunIni;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String xMunIni;
-            @XmlElement(name = "UFIni", required = true)
+            @XmlElement(name = "UFIni", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             @XmlSchemaType(name = "string")
             protected TUf ufIni;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String cMunFim;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String xMunFim;
-            @XmlElement(name = "UFFim", required = true)
+            @XmlElement(name = "UFFim", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             @XmlSchemaType(name = "string")
             protected TUf ufFim;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String retira;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String xDetRetira;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String indIEToma;
-            protected Toma3 toma3;
-            protected Toma4 toma4;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TCTe.InfCte.Ide.Toma3 toma3;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TCTe.InfCte.Ide.Toma4 toma4;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String dhCont;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String xJust;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TCompraGovReduzido gCompraGov;
 
             /**
-             * Gets the value of the cuf property.
+             * Obtém o valor da propriedade cuf.
              * 
              * @return
              *     possible object is
@@ -6477,7 +6617,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cuf property.
+             * Define o valor da propriedade cuf.
              * 
              * @param value
              *     allowed object is
@@ -6489,7 +6629,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the cct property.
+             * Obtém o valor da propriedade cct.
              * 
              * @return
              *     possible object is
@@ -6501,7 +6641,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cct property.
+             * Define o valor da propriedade cct.
              * 
              * @param value
              *     allowed object is
@@ -6513,7 +6653,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the cfop property.
+             * Obtém o valor da propriedade cfop.
              * 
              * @return
              *     possible object is
@@ -6525,7 +6665,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cfop property.
+             * Define o valor da propriedade cfop.
              * 
              * @param value
              *     allowed object is
@@ -6537,7 +6677,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the natOp property.
+             * Obtém o valor da propriedade natOp.
              * 
              * @return
              *     possible object is
@@ -6549,7 +6689,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the natOp property.
+             * Define o valor da propriedade natOp.
              * 
              * @param value
              *     allowed object is
@@ -6561,7 +6701,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the mod property.
+             * Obtém o valor da propriedade mod.
              * 
              * @return
              *     possible object is
@@ -6573,7 +6713,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the mod property.
+             * Define o valor da propriedade mod.
              * 
              * @param value
              *     allowed object is
@@ -6585,7 +6725,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the serie property.
+             * Obtém o valor da propriedade serie.
              * 
              * @return
              *     possible object is
@@ -6597,7 +6737,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the serie property.
+             * Define o valor da propriedade serie.
              * 
              * @param value
              *     allowed object is
@@ -6609,7 +6749,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the nct property.
+             * Obtém o valor da propriedade nct.
              * 
              * @return
              *     possible object is
@@ -6621,7 +6761,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the nct property.
+             * Define o valor da propriedade nct.
              * 
              * @param value
              *     allowed object is
@@ -6633,7 +6773,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the dhEmi property.
+             * Obtém o valor da propriedade dhEmi.
              * 
              * @return
              *     possible object is
@@ -6645,7 +6785,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the dhEmi property.
+             * Define o valor da propriedade dhEmi.
              * 
              * @param value
              *     allowed object is
@@ -6657,7 +6797,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the tpImp property.
+             * Obtém o valor da propriedade tpImp.
              * 
              * @return
              *     possible object is
@@ -6669,7 +6809,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the tpImp property.
+             * Define o valor da propriedade tpImp.
              * 
              * @param value
              *     allowed object is
@@ -6681,7 +6821,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the tpEmis property.
+             * Obtém o valor da propriedade tpEmis.
              * 
              * @return
              *     possible object is
@@ -6693,7 +6833,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the tpEmis property.
+             * Define o valor da propriedade tpEmis.
              * 
              * @param value
              *     allowed object is
@@ -6705,7 +6845,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the cdv property.
+             * Obtém o valor da propriedade cdv.
              * 
              * @return
              *     possible object is
@@ -6717,7 +6857,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cdv property.
+             * Define o valor da propriedade cdv.
              * 
              * @param value
              *     allowed object is
@@ -6729,7 +6869,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the tpAmb property.
+             * Obtém o valor da propriedade tpAmb.
              * 
              * @return
              *     possible object is
@@ -6741,7 +6881,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the tpAmb property.
+             * Define o valor da propriedade tpAmb.
              * 
              * @param value
              *     allowed object is
@@ -6753,7 +6893,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the tpCTe property.
+             * Obtém o valor da propriedade tpCTe.
              * 
              * @return
              *     possible object is
@@ -6765,7 +6905,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the tpCTe property.
+             * Define o valor da propriedade tpCTe.
              * 
              * @param value
              *     allowed object is
@@ -6777,7 +6917,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the procEmi property.
+             * Obtém o valor da propriedade procEmi.
              * 
              * @return
              *     possible object is
@@ -6789,7 +6929,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the procEmi property.
+             * Define o valor da propriedade procEmi.
              * 
              * @param value
              *     allowed object is
@@ -6801,7 +6941,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the verProc property.
+             * Obtém o valor da propriedade verProc.
              * 
              * @return
              *     possible object is
@@ -6813,7 +6953,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the verProc property.
+             * Define o valor da propriedade verProc.
              * 
              * @param value
              *     allowed object is
@@ -6825,7 +6965,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the indGlobalizado property.
+             * Obtém o valor da propriedade indGlobalizado.
              * 
              * @return
              *     possible object is
@@ -6837,7 +6977,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the indGlobalizado property.
+             * Define o valor da propriedade indGlobalizado.
              * 
              * @param value
              *     allowed object is
@@ -6849,7 +6989,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the cMunEnv property.
+             * Obtém o valor da propriedade cMunEnv.
              * 
              * @return
              *     possible object is
@@ -6861,7 +7001,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cMunEnv property.
+             * Define o valor da propriedade cMunEnv.
              * 
              * @param value
              *     allowed object is
@@ -6873,7 +7013,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xMunEnv property.
+             * Obtém o valor da propriedade xMunEnv.
              * 
              * @return
              *     possible object is
@@ -6885,7 +7025,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xMunEnv property.
+             * Define o valor da propriedade xMunEnv.
              * 
              * @param value
              *     allowed object is
@@ -6897,7 +7037,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the ufEnv property.
+             * Obtém o valor da propriedade ufEnv.
              * 
              * @return
              *     possible object is
@@ -6909,7 +7049,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the ufEnv property.
+             * Define o valor da propriedade ufEnv.
              * 
              * @param value
              *     allowed object is
@@ -6921,7 +7061,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the modal property.
+             * Obtém o valor da propriedade modal.
              * 
              * @return
              *     possible object is
@@ -6933,7 +7073,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the modal property.
+             * Define o valor da propriedade modal.
              * 
              * @param value
              *     allowed object is
@@ -6945,7 +7085,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the tpServ property.
+             * Obtém o valor da propriedade tpServ.
              * 
              * @return
              *     possible object is
@@ -6957,7 +7097,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the tpServ property.
+             * Define o valor da propriedade tpServ.
              * 
              * @param value
              *     allowed object is
@@ -6969,7 +7109,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the cMunIni property.
+             * Obtém o valor da propriedade cMunIni.
              * 
              * @return
              *     possible object is
@@ -6981,7 +7121,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cMunIni property.
+             * Define o valor da propriedade cMunIni.
              * 
              * @param value
              *     allowed object is
@@ -6993,7 +7133,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xMunIni property.
+             * Obtém o valor da propriedade xMunIni.
              * 
              * @return
              *     possible object is
@@ -7005,7 +7145,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xMunIni property.
+             * Define o valor da propriedade xMunIni.
              * 
              * @param value
              *     allowed object is
@@ -7017,7 +7157,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the ufIni property.
+             * Obtém o valor da propriedade ufIni.
              * 
              * @return
              *     possible object is
@@ -7029,7 +7169,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the ufIni property.
+             * Define o valor da propriedade ufIni.
              * 
              * @param value
              *     allowed object is
@@ -7041,7 +7181,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the cMunFim property.
+             * Obtém o valor da propriedade cMunFim.
              * 
              * @return
              *     possible object is
@@ -7053,7 +7193,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cMunFim property.
+             * Define o valor da propriedade cMunFim.
              * 
              * @param value
              *     allowed object is
@@ -7065,7 +7205,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xMunFim property.
+             * Obtém o valor da propriedade xMunFim.
              * 
              * @return
              *     possible object is
@@ -7077,7 +7217,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xMunFim property.
+             * Define o valor da propriedade xMunFim.
              * 
              * @param value
              *     allowed object is
@@ -7089,7 +7229,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the ufFim property.
+             * Obtém o valor da propriedade ufFim.
              * 
              * @return
              *     possible object is
@@ -7101,7 +7241,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the ufFim property.
+             * Define o valor da propriedade ufFim.
              * 
              * @param value
              *     allowed object is
@@ -7113,7 +7253,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the retira property.
+             * Obtém o valor da propriedade retira.
              * 
              * @return
              *     possible object is
@@ -7125,7 +7265,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the retira property.
+             * Define o valor da propriedade retira.
              * 
              * @param value
              *     allowed object is
@@ -7137,7 +7277,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xDetRetira property.
+             * Obtém o valor da propriedade xDetRetira.
              * 
              * @return
              *     possible object is
@@ -7149,7 +7289,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xDetRetira property.
+             * Define o valor da propriedade xDetRetira.
              * 
              * @param value
              *     allowed object is
@@ -7161,7 +7301,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the indIEToma property.
+             * Obtém o valor da propriedade indIEToma.
              * 
              * @return
              *     possible object is
@@ -7173,7 +7313,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the indIEToma property.
+             * Define o valor da propriedade indIEToma.
              * 
              * @param value
              *     allowed object is
@@ -7185,55 +7325,55 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the toma3 property.
+             * Obtém o valor da propriedade toma3.
              * 
              * @return
              *     possible object is
-             *     {@link Toma3 }
+             *     {@link TCTe.InfCte.Ide.Toma3 }
              *     
              */
-            public Toma3 getToma3() {
+            public TCTe.InfCte.Ide.Toma3 getToma3() {
                 return toma3;
             }
 
             /**
-             * Sets the value of the toma3 property.
+             * Define o valor da propriedade toma3.
              * 
              * @param value
              *     allowed object is
-             *     {@link Toma3 }
+             *     {@link TCTe.InfCte.Ide.Toma3 }
              *     
              */
-            public void setToma3(Toma3 value) {
+            public void setToma3(TCTe.InfCte.Ide.Toma3 value) {
                 this.toma3 = value;
             }
 
             /**
-             * Gets the value of the toma4 property.
+             * Obtém o valor da propriedade toma4.
              * 
              * @return
              *     possible object is
-             *     {@link Toma4 }
+             *     {@link TCTe.InfCte.Ide.Toma4 }
              *     
              */
-            public Toma4 getToma4() {
+            public TCTe.InfCte.Ide.Toma4 getToma4() {
                 return toma4;
             }
 
             /**
-             * Sets the value of the toma4 property.
+             * Define o valor da propriedade toma4.
              * 
              * @param value
              *     allowed object is
-             *     {@link Toma4 }
+             *     {@link TCTe.InfCte.Ide.Toma4 }
              *     
              */
-            public void setToma4(Toma4 value) {
+            public void setToma4(TCTe.InfCte.Ide.Toma4 value) {
                 this.toma4 = value;
             }
 
             /**
-             * Gets the value of the dhCont property.
+             * Obtém o valor da propriedade dhCont.
              * 
              * @return
              *     possible object is
@@ -7245,7 +7385,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the dhCont property.
+             * Define o valor da propriedade dhCont.
              * 
              * @param value
              *     allowed object is
@@ -7257,7 +7397,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xJust property.
+             * Obtém o valor da propriedade xJust.
              * 
              * @return
              *     possible object is
@@ -7269,7 +7409,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xJust property.
+             * Define o valor da propriedade xJust.
              * 
              * @param value
              *     allowed object is
@@ -7280,32 +7420,56 @@ public class TCTe {
                 this.xJust = value;
             }
 
+            /**
+             * Obtém o valor da propriedade gCompraGov.
+             * 
+             * @return
+             *     possible object is
+             *     {@link TCompraGovReduzido }
+             *     
+             */
+            public TCompraGovReduzido getGCompraGov() {
+                return gCompraGov;
+            }
 
             /**
-             * <p>Java class for anonymous complex type.
+             * Define o valor da propriedade gCompraGov.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * @param value
+             *     allowed object is
+             *     {@link TCompraGovReduzido }
+             *     
+             */
+            public void setGCompraGov(TCompraGovReduzido value) {
+                this.gCompraGov = value;
+            }
+
+
+            /**
+             * <p>Classe Java de anonymous complex type.
+             * 
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="toma"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *               &lt;whiteSpace value="preserve"/&gt;
-             *               &lt;enumeration value="0"/&gt;
-             *               &lt;enumeration value="1"/&gt;
-             *               &lt;enumeration value="2"/&gt;
-             *               &lt;enumeration value="3"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="toma">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *               &lt;whiteSpace value="preserve"/>
+             *               &lt;enumeration value="0"/>
+             *               &lt;enumeration value="1"/>
+             *               &lt;enumeration value="2"/>
+             *               &lt;enumeration value="3"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -7316,11 +7480,11 @@ public class TCTe {
             })
             public static class Toma3 {
 
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String toma;
 
                 /**
-                 * Gets the value of the toma property.
+                 * Obtém o valor da propriedade toma.
                  * 
                  * @return
                  *     possible object is
@@ -7332,7 +7496,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the toma property.
+                 * Define o valor da propriedade toma.
                  * 
                  * @param value
                  *     allowed object is
@@ -7347,58 +7511,58 @@ public class TCTe {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="toma"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *               &lt;whiteSpace value="preserve"/&gt;
-             *               &lt;enumeration value="4"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *         &lt;choice&gt;
-             *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-             *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-             *         &lt;/choice&gt;
-             *         &lt;element name="IE" minOccurs="0"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *         &lt;sequence&gt;
-             *           &lt;element name="xNome"&gt;
-             *             &lt;simpleType&gt;
-             *               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                 &lt;maxLength value="60"/&gt;
-             *                 &lt;minLength value="2"/&gt;
-             *               &lt;/restriction&gt;
-             *             &lt;/simpleType&gt;
-             *           &lt;/element&gt;
-             *           &lt;element name="xFant" minOccurs="0"&gt;
-             *             &lt;simpleType&gt;
-             *               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                 &lt;maxLength value="60"/&gt;
-             *                 &lt;minLength value="2"/&gt;
-             *               &lt;/restriction&gt;
-             *             &lt;/simpleType&gt;
-             *           &lt;/element&gt;
-             *           &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
-             *           &lt;element name="enderToma" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
-             *           &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/&gt;
-             *         &lt;/sequence&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="toma">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *               &lt;whiteSpace value="preserve"/>
+             *               &lt;enumeration value="4"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *         &lt;choice>
+             *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+             *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+             *         &lt;/choice>
+             *         &lt;element name="IE" minOccurs="0">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *         &lt;sequence>
+             *           &lt;element name="xNome">
+             *             &lt;simpleType>
+             *               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                 &lt;maxLength value="60"/>
+             *                 &lt;minLength value="2"/>
+             *               &lt;/restriction>
+             *             &lt;/simpleType>
+             *           &lt;/element>
+             *           &lt;element name="xFant" minOccurs="0">
+             *             &lt;simpleType>
+             *               &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                 &lt;maxLength value="60"/>
+             *                 &lt;minLength value="2"/>
+             *               &lt;/restriction>
+             *             &lt;/simpleType>
+             *           &lt;/element>
+             *           &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+             *           &lt;element name="enderToma" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+             *           &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/>
+             *         &lt;/sequence>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -7417,24 +7581,27 @@ public class TCTe {
             })
             public static class Toma4 {
 
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String toma;
-                @XmlElement(name = "CNPJ")
+                @XmlElement(name = "CNPJ", namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String cnpj;
-                @XmlElement(name = "CPF")
+                @XmlElement(name = "CPF", namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String cpf;
-                @XmlElement(name = "IE")
+                @XmlElement(name = "IE", namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String ie;
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String xNome;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String xFant;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String fone;
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected TEndereco enderToma;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String email;
 
                 /**
-                 * Gets the value of the toma property.
+                 * Obtém o valor da propriedade toma.
                  * 
                  * @return
                  *     possible object is
@@ -7446,7 +7613,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the toma property.
+                 * Define o valor da propriedade toma.
                  * 
                  * @param value
                  *     allowed object is
@@ -7458,7 +7625,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the cnpj property.
+                 * Obtém o valor da propriedade cnpj.
                  * 
                  * @return
                  *     possible object is
@@ -7470,7 +7637,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the cnpj property.
+                 * Define o valor da propriedade cnpj.
                  * 
                  * @param value
                  *     allowed object is
@@ -7482,7 +7649,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the cpf property.
+                 * Obtém o valor da propriedade cpf.
                  * 
                  * @return
                  *     possible object is
@@ -7494,7 +7661,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the cpf property.
+                 * Define o valor da propriedade cpf.
                  * 
                  * @param value
                  *     allowed object is
@@ -7506,7 +7673,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the ie property.
+                 * Obtém o valor da propriedade ie.
                  * 
                  * @return
                  *     possible object is
@@ -7518,7 +7685,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the ie property.
+                 * Define o valor da propriedade ie.
                  * 
                  * @param value
                  *     allowed object is
@@ -7530,7 +7697,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the xNome property.
+                 * Obtém o valor da propriedade xNome.
                  * 
                  * @return
                  *     possible object is
@@ -7542,7 +7709,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the xNome property.
+                 * Define o valor da propriedade xNome.
                  * 
                  * @param value
                  *     allowed object is
@@ -7554,7 +7721,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the xFant property.
+                 * Obtém o valor da propriedade xFant.
                  * 
                  * @return
                  *     possible object is
@@ -7566,7 +7733,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the xFant property.
+                 * Define o valor da propriedade xFant.
                  * 
                  * @param value
                  *     allowed object is
@@ -7578,7 +7745,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the fone property.
+                 * Obtém o valor da propriedade fone.
                  * 
                  * @return
                  *     possible object is
@@ -7590,7 +7757,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the fone property.
+                 * Define o valor da propriedade fone.
                  * 
                  * @param value
                  *     allowed object is
@@ -7602,7 +7769,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the enderToma property.
+                 * Obtém o valor da propriedade enderToma.
                  * 
                  * @return
                  *     possible object is
@@ -7614,7 +7781,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the enderToma property.
+                 * Define o valor da propriedade enderToma.
                  * 
                  * @param value
                  *     allowed object is
@@ -7626,7 +7793,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the email property.
+                 * Obtém o valor da propriedade email.
                  * 
                  * @return
                  *     possible object is
@@ -7638,7 +7805,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the email property.
+                 * Define o valor da propriedade email.
                  * 
                  * @param value
                  *     allowed object is
@@ -7655,46 +7822,48 @@ public class TCTe {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <p>Classe Java de anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
          * 
          * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;element name="ICMS" type="{http://www.portalfiscal.inf.br/cte}TImp"/&gt;
-         *         &lt;element name="vTotTrib" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/&gt;
-         *         &lt;element name="infAdFisco" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;maxLength value="2000"/&gt;
-         *               &lt;minLength value="1"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="ICMSUFFim" minOccurs="0"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;element name="vBCUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *                   &lt;element name="pFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
-         *                   &lt;element name="pICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
-         *                   &lt;element name="pICMSInter" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
-         *                   &lt;element name="vFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *                   &lt;element name="vICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *                   &lt;element name="vICMSUFIni" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *                 &lt;/sequence&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;element name="ICMS" type="{http://www.portalfiscal.inf.br/cte}TImp"/>
+         *         &lt;element name="vTotTrib" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
+         *         &lt;element name="infAdFisco" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;maxLength value="2000"/>
+         *               &lt;minLength value="1"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="ICMSUFFim" minOccurs="0">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;element name="vBCUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *                   &lt;element name="pFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+         *                   &lt;element name="pICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+         *                   &lt;element name="pICMSInter" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+         *                   &lt;element name="vFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *                   &lt;element name="vICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *                   &lt;element name="vICMSUFIni" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *                 &lt;/sequence>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *         &lt;element name="IBSCBS" type="{http://www.portalfiscal.inf.br/cte}TTribCTe" minOccurs="0"/>
+         *         &lt;element name="vTotDFe" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
          * </pre>
          * 
          * 
@@ -7704,19 +7873,27 @@ public class TCTe {
             "icms",
             "vTotTrib",
             "infAdFisco",
-            "icmsufFim"
+            "icmsufFim",
+            "ibscbs",
+            "vTotDFe"
         })
         public static class Imp {
 
-            @XmlElement(name = "ICMS", required = true)
+            @XmlElement(name = "ICMS", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected TImp icms;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String vTotTrib;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String infAdFisco;
-            @XmlElement(name = "ICMSUFFim")
-            protected ICMSUFFim icmsufFim;
+            @XmlElement(name = "ICMSUFFim", namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TCTe.InfCte.Imp.ICMSUFFim icmsufFim;
+            @XmlElement(name = "IBSCBS", namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TTribCTe ibscbs;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected String vTotDFe;
 
             /**
-             * Gets the value of the icms property.
+             * Obtém o valor da propriedade icms.
              * 
              * @return
              *     possible object is
@@ -7728,7 +7905,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the icms property.
+             * Define o valor da propriedade icms.
              * 
              * @param value
              *     allowed object is
@@ -7740,7 +7917,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the vTotTrib property.
+             * Obtém o valor da propriedade vTotTrib.
              * 
              * @return
              *     possible object is
@@ -7752,7 +7929,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the vTotTrib property.
+             * Define o valor da propriedade vTotTrib.
              * 
              * @param value
              *     allowed object is
@@ -7764,7 +7941,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the infAdFisco property.
+             * Obtém o valor da propriedade infAdFisco.
              * 
              * @return
              *     possible object is
@@ -7776,7 +7953,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the infAdFisco property.
+             * Define o valor da propriedade infAdFisco.
              * 
              * @param value
              *     allowed object is
@@ -7788,51 +7965,99 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the icmsufFim property.
+             * Obtém o valor da propriedade icmsufFim.
              * 
              * @return
              *     possible object is
-             *     {@link ICMSUFFim }
+             *     {@link TCTe.InfCte.Imp.ICMSUFFim }
              *     
              */
-            public ICMSUFFim getICMSUFFim() {
+            public TCTe.InfCte.Imp.ICMSUFFim getICMSUFFim() {
                 return icmsufFim;
             }
 
             /**
-             * Sets the value of the icmsufFim property.
+             * Define o valor da propriedade icmsufFim.
              * 
              * @param value
              *     allowed object is
-             *     {@link ICMSUFFim }
+             *     {@link TCTe.InfCte.Imp.ICMSUFFim }
              *     
              */
-            public void setICMSUFFim(ICMSUFFim value) {
+            public void setICMSUFFim(TCTe.InfCte.Imp.ICMSUFFim value) {
                 this.icmsufFim = value;
+            }
+
+            /**
+             * Obtém o valor da propriedade ibscbs.
+             * 
+             * @return
+             *     possible object is
+             *     {@link TTribCTe }
+             *     
+             */
+            public TTribCTe getIBSCBS() {
+                return ibscbs;
+            }
+
+            /**
+             * Define o valor da propriedade ibscbs.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link TTribCTe }
+             *     
+             */
+            public void setIBSCBS(TTribCTe value) {
+                this.ibscbs = value;
+            }
+
+            /**
+             * Obtém o valor da propriedade vTotDFe.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getVTotDFe() {
+                return vTotDFe;
+            }
+
+            /**
+             * Define o valor da propriedade vTotDFe.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setVTotDFe(String value) {
+                this.vTotDFe = value;
             }
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="vBCUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-             *         &lt;element name="pFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
-             *         &lt;element name="pICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
-             *         &lt;element name="pICMSInter" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/&gt;
-             *         &lt;element name="vFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-             *         &lt;element name="vICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-             *         &lt;element name="vICMSUFIni" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="vBCUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+             *         &lt;element name="pFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+             *         &lt;element name="pICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+             *         &lt;element name="pICMSInter" type="{http://www.portalfiscal.inf.br/cte}TDec_0302"/>
+             *         &lt;element name="vFCPUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+             *         &lt;element name="vICMSUFFim" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+             *         &lt;element name="vICMSUFIni" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -7849,23 +8074,23 @@ public class TCTe {
             })
             public static class ICMSUFFim {
 
-                @XmlElement(name = "vBCUFFim", required = true)
+                @XmlElement(name = "vBCUFFim", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String vbcufFim;
-                @XmlElement(name = "pFCPUFFim", required = true)
+                @XmlElement(name = "pFCPUFFim", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String pfcpufFim;
-                @XmlElement(name = "pICMSUFFim", required = true)
+                @XmlElement(name = "pICMSUFFim", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String picmsufFim;
-                @XmlElement(name = "pICMSInter", required = true)
+                @XmlElement(name = "pICMSInter", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String picmsInter;
-                @XmlElement(name = "vFCPUFFim", required = true)
+                @XmlElement(name = "vFCPUFFim", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String vfcpufFim;
-                @XmlElement(name = "vICMSUFFim", required = true)
+                @XmlElement(name = "vICMSUFFim", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String vicmsufFim;
-                @XmlElement(name = "vICMSUFIni", required = true)
+                @XmlElement(name = "vICMSUFIni", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String vicmsufIni;
 
                 /**
-                 * Gets the value of the vbcufFim property.
+                 * Obtém o valor da propriedade vbcufFim.
                  * 
                  * @return
                  *     possible object is
@@ -7877,7 +8102,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the vbcufFim property.
+                 * Define o valor da propriedade vbcufFim.
                  * 
                  * @param value
                  *     allowed object is
@@ -7889,7 +8114,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the pfcpufFim property.
+                 * Obtém o valor da propriedade pfcpufFim.
                  * 
                  * @return
                  *     possible object is
@@ -7901,7 +8126,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the pfcpufFim property.
+                 * Define o valor da propriedade pfcpufFim.
                  * 
                  * @param value
                  *     allowed object is
@@ -7913,7 +8138,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the picmsufFim property.
+                 * Obtém o valor da propriedade picmsufFim.
                  * 
                  * @return
                  *     possible object is
@@ -7925,7 +8150,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the picmsufFim property.
+                 * Define o valor da propriedade picmsufFim.
                  * 
                  * @param value
                  *     allowed object is
@@ -7937,7 +8162,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the picmsInter property.
+                 * Obtém o valor da propriedade picmsInter.
                  * 
                  * @return
                  *     possible object is
@@ -7949,7 +8174,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the picmsInter property.
+                 * Define o valor da propriedade picmsInter.
                  * 
                  * @param value
                  *     allowed object is
@@ -7961,7 +8186,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the vfcpufFim property.
+                 * Obtém o valor da propriedade vfcpufFim.
                  * 
                  * @return
                  *     possible object is
@@ -7973,7 +8198,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the vfcpufFim property.
+                 * Define o valor da propriedade vfcpufFim.
                  * 
                  * @param value
                  *     allowed object is
@@ -7985,7 +8210,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the vicmsufFim property.
+                 * Obtém o valor da propriedade vicmsufFim.
                  * 
                  * @return
                  *     possible object is
@@ -7997,7 +8222,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the vicmsufFim property.
+                 * Define o valor da propriedade vicmsufFim.
                  * 
                  * @param value
                  *     allowed object is
@@ -8009,7 +8234,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the vicmsufIni property.
+                 * Obtém o valor da propriedade vicmsufIni.
                  * 
                  * @return
                  *     possible object is
@@ -8021,7 +8246,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the vicmsufIni property.
+                 * Define o valor da propriedade vicmsufIni.
                  * 
                  * @param value
                  *     allowed object is
@@ -8038,560 +8263,516 @@ public class TCTe {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <p>Classe Java de anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
-         * 
-         * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
-         * </pre>
-         * 
-         * 
-         */
-        @XmlAccessorType(XmlAccessType.FIELD)
-        @XmlType(name = "", propOrder = {
-            "chCTe"
-        })
-        public static class InfCteComp {
-
-            @XmlElement(required = true)
-            protected String chCTe;
-
-            /**
-             * Gets the value of the chCTe property.
-             * 
-             * @return
-             *     possible object is
-             *     {@link String }
-             *     
-             */
-            public String getChCTe() {
-                return chCTe;
-            }
-
-            /**
-             * Sets the value of the chCTe property.
-             * 
-             * @param value
-             *     allowed object is
-             *     {@link String }
-             *     
-             */
-            public void setChCTe(String value) {
-                this.chCTe = value;
-            }
-
-        }
-
-
-        /**
-         * <p>Java class for anonymous complex type.
-         * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
          * 
          * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;element name="infCarga"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;element name="vCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/&gt;
-         *                   &lt;element name="proPred"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                         &lt;minLength value="1"/&gt;
-         *                         &lt;maxLength value="60"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                   &lt;element name="xOutCat" minOccurs="0"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                         &lt;minLength value="1"/&gt;
-         *                         &lt;maxLength value="30"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                   &lt;element name="infQ" maxOccurs="unbounded"&gt;
-         *                     &lt;complexType&gt;
-         *                       &lt;complexContent&gt;
-         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                           &lt;sequence&gt;
-         *                             &lt;element name="cUnid"&gt;
-         *                               &lt;simpleType&gt;
-         *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                                   &lt;whiteSpace value="preserve"/&gt;
-         *                                   &lt;enumeration value="00"/&gt;
-         *                                   &lt;enumeration value="01"/&gt;
-         *                                   &lt;enumeration value="02"/&gt;
-         *                                   &lt;enumeration value="03"/&gt;
-         *                                   &lt;enumeration value="04"/&gt;
-         *                                   &lt;enumeration value="05"/&gt;
-         *                                 &lt;/restriction&gt;
-         *                               &lt;/simpleType&gt;
-         *                             &lt;/element&gt;
-         *                             &lt;element name="tpMed"&gt;
-         *                               &lt;simpleType&gt;
-         *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                                   &lt;minLength value="1"/&gt;
-         *                                   &lt;maxLength value="20"/&gt;
-         *                                 &lt;/restriction&gt;
-         *                               &lt;/simpleType&gt;
-         *                             &lt;/element&gt;
-         *                             &lt;element name="qCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1104"/&gt;
-         *                           &lt;/sequence&gt;
-         *                         &lt;/restriction&gt;
-         *                       &lt;/complexContent&gt;
-         *                     &lt;/complexType&gt;
-         *                   &lt;/element&gt;
-         *                   &lt;element name="vCargaAverb" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-         *                 &lt;/sequence&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="infDoc" minOccurs="0"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;choice&gt;
-         *                     &lt;element name="infNF" maxOccurs="unbounded"&gt;
-         *                       &lt;complexType&gt;
-         *                         &lt;complexContent&gt;
-         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                             &lt;sequence&gt;
-         *                               &lt;element name="nRoma" minOccurs="0"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                                     &lt;minLength value="1"/&gt;
-         *                                     &lt;maxLength value="20"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                               &lt;element name="nPed" minOccurs="0"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                                     &lt;minLength value="1"/&gt;
-         *                                     &lt;maxLength value="20"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                               &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModNF"/&gt;
-         *                               &lt;element name="serie"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                                     &lt;minLength value="1"/&gt;
-         *                                     &lt;maxLength value="3"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                               &lt;element name="nDoc"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                                     &lt;minLength value="1"/&gt;
-         *                                     &lt;maxLength value="20"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                               &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-         *                               &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *                               &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *                               &lt;element name="vBCST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *                               &lt;element name="vST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *                               &lt;element name="vProd" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *                               &lt;element name="vNF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *                               &lt;element name="nCFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/&gt;
-         *                               &lt;element name="nPeso" type="{http://www.portalfiscal.inf.br/cte}TDec_1203Opc" minOccurs="0"/&gt;
-         *                               &lt;element name="PIN" minOccurs="0"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                                     &lt;whiteSpace value="preserve"/&gt;
-         *                                     &lt;minLength value="2"/&gt;
-         *                                     &lt;maxLength value="9"/&gt;
-         *                                     &lt;pattern value="[1-9]{1}[0-9]{1,8}"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                               &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-         *                               &lt;choice&gt;
-         *                                 &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
-         *                                 &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
-         *                               &lt;/choice&gt;
-         *                             &lt;/sequence&gt;
-         *                           &lt;/restriction&gt;
-         *                         &lt;/complexContent&gt;
-         *                       &lt;/complexType&gt;
-         *                     &lt;/element&gt;
-         *                     &lt;element name="infNFe" maxOccurs="unbounded"&gt;
-         *                       &lt;complexType&gt;
-         *                         &lt;complexContent&gt;
-         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                             &lt;sequence&gt;
-         *                               &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-         *                               &lt;element name="PIN" minOccurs="0"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                                     &lt;whiteSpace value="preserve"/&gt;
-         *                                     &lt;minLength value="2"/&gt;
-         *                                     &lt;maxLength value="9"/&gt;
-         *                                     &lt;pattern value="[1-9]{1}[0-9]{1,8}"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                               &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-         *                               &lt;choice&gt;
-         *                                 &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
-         *                                 &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
-         *                               &lt;/choice&gt;
-         *                             &lt;/sequence&gt;
-         *                           &lt;/restriction&gt;
-         *                         &lt;/complexContent&gt;
-         *                       &lt;/complexType&gt;
-         *                     &lt;/element&gt;
-         *                     &lt;element name="infOutros" maxOccurs="unbounded"&gt;
-         *                       &lt;complexType&gt;
-         *                         &lt;complexContent&gt;
-         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                             &lt;sequence&gt;
-         *                               &lt;element name="tpDoc"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                                     &lt;whiteSpace value="preserve"/&gt;
-         *                                     &lt;enumeration value="00"/&gt;
-         *                                     &lt;enumeration value="10"/&gt;
-         *                                     &lt;enumeration value="59"/&gt;
-         *                                     &lt;enumeration value="65"/&gt;
-         *                                     &lt;enumeration value="99"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                               &lt;element name="descOutros" minOccurs="0"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                                     &lt;minLength value="1"/&gt;
-         *                                     &lt;maxLength value="100"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                               &lt;element name="nDoc" minOccurs="0"&gt;
-         *                                 &lt;simpleType&gt;
-         *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                                     &lt;minLength value="1"/&gt;
-         *                                     &lt;maxLength value="20"/&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/simpleType&gt;
-         *                               &lt;/element&gt;
-         *                               &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-         *                               &lt;element name="vDocFisc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-         *                               &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-         *                               &lt;choice&gt;
-         *                                 &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
-         *                                 &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
-         *                               &lt;/choice&gt;
-         *                             &lt;/sequence&gt;
-         *                           &lt;/restriction&gt;
-         *                         &lt;/complexContent&gt;
-         *                       &lt;/complexType&gt;
-         *                     &lt;/element&gt;
-         *                   &lt;/choice&gt;
-         *                 &lt;/sequence&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="docAnt" minOccurs="0"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;element name="emiDocAnt" maxOccurs="unbounded"&gt;
-         *                     &lt;complexType&gt;
-         *                       &lt;complexContent&gt;
-         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                           &lt;sequence&gt;
-         *                             &lt;choice&gt;
-         *                               &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-         *                               &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-         *                             &lt;/choice&gt;
-         *                             &lt;sequence minOccurs="0"&gt;
-         *                               &lt;element name="IE" type="{http://www.portalfiscal.inf.br/cte}TIe"/&gt;
-         *                               &lt;element name="UF" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
-         *                             &lt;/sequence&gt;
-         *                             &lt;element name="xNome"&gt;
-         *                               &lt;simpleType&gt;
-         *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                                   &lt;maxLength value="60"/&gt;
-         *                                   &lt;minLength value="1"/&gt;
-         *                                 &lt;/restriction&gt;
-         *                               &lt;/simpleType&gt;
-         *                             &lt;/element&gt;
-         *                             &lt;element name="idDocAnt" maxOccurs="2"&gt;
-         *                               &lt;complexType&gt;
-         *                                 &lt;complexContent&gt;
-         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                                     &lt;choice&gt;
-         *                                       &lt;element name="idDocAntPap" maxOccurs="unbounded"&gt;
-         *                                         &lt;complexType&gt;
-         *                                           &lt;complexContent&gt;
-         *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                                               &lt;sequence&gt;
-         *                                                 &lt;element name="tpDoc"&gt;
-         *                                                   &lt;simpleType&gt;
-         *                                                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDocAssoc"&gt;
-         *                                                     &lt;/restriction&gt;
-         *                                                   &lt;/simpleType&gt;
-         *                                                 &lt;/element&gt;
-         *                                                 &lt;element name="serie"&gt;
-         *                                                   &lt;simpleType&gt;
-         *                                                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                                                       &lt;minLength value="1"/&gt;
-         *                                                       &lt;maxLength value="3"/&gt;
-         *                                                     &lt;/restriction&gt;
-         *                                                   &lt;/simpleType&gt;
-         *                                                 &lt;/element&gt;
-         *                                                 &lt;element name="subser" minOccurs="0"&gt;
-         *                                                   &lt;simpleType&gt;
-         *                                                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                                                       &lt;minLength value="1"/&gt;
-         *                                                       &lt;maxLength value="2"/&gt;
-         *                                                     &lt;/restriction&gt;
-         *                                                   &lt;/simpleType&gt;
-         *                                                 &lt;/element&gt;
-         *                                                 &lt;element name="nDoc"&gt;
-         *                                                   &lt;simpleType&gt;
-         *                                                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                                                       &lt;minLength value="1"/&gt;
-         *                                                       &lt;maxLength value="30"/&gt;
-         *                                                     &lt;/restriction&gt;
-         *                                                   &lt;/simpleType&gt;
-         *                                                 &lt;/element&gt;
-         *                                                 &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-         *                                               &lt;/sequence&gt;
-         *                                             &lt;/restriction&gt;
-         *                                           &lt;/complexContent&gt;
-         *                                         &lt;/complexType&gt;
-         *                                       &lt;/element&gt;
-         *                                       &lt;element name="idDocAntEle" maxOccurs="unbounded"&gt;
-         *                                         &lt;complexType&gt;
-         *                                           &lt;complexContent&gt;
-         *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                                               &lt;sequence&gt;
-         *                                                 &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-         *                                               &lt;/sequence&gt;
-         *                                             &lt;/restriction&gt;
-         *                                           &lt;/complexContent&gt;
-         *                                         &lt;/complexType&gt;
-         *                                       &lt;/element&gt;
-         *                                     &lt;/choice&gt;
-         *                                   &lt;/restriction&gt;
-         *                                 &lt;/complexContent&gt;
-         *                               &lt;/complexType&gt;
-         *                             &lt;/element&gt;
-         *                           &lt;/sequence&gt;
-         *                         &lt;/restriction&gt;
-         *                       &lt;/complexContent&gt;
-         *                     &lt;/complexType&gt;
-         *                   &lt;/element&gt;
-         *                 &lt;/sequence&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="infModal"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;any processContents='skip'/&gt;
-         *                 &lt;/sequence&gt;
-         *                 &lt;attribute name="versaoModal" use="required"&gt;
-         *                   &lt;simpleType&gt;
-         *                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                       &lt;whiteSpace value="preserve"/&gt;
-         *                       &lt;pattern value="4\.(0[0-9]|[1-9][0-9])"/&gt;
-         *                     &lt;/restriction&gt;
-         *                   &lt;/simpleType&gt;
-         *                 &lt;/attribute&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="veicNovos" maxOccurs="unbounded" minOccurs="0"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;element name="chassi"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                         &lt;whiteSpace value="preserve"/&gt;
-         *                         &lt;length value="17"/&gt;
-         *                         &lt;pattern value="[A-Z0-9]+"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                   &lt;element name="cCor"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                         &lt;minLength value="1"/&gt;
-         *                         &lt;maxLength value="4"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                   &lt;element name="xCor"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                         &lt;minLength value="1"/&gt;
-         *                         &lt;maxLength value="40"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                   &lt;element name="cMod"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                         &lt;minLength value="1"/&gt;
-         *                         &lt;maxLength value="6"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                   &lt;element name="vUnit" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *                   &lt;element name="vFrete" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *                 &lt;/sequence&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="cobr" minOccurs="0"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;element name="fat" minOccurs="0"&gt;
-         *                     &lt;complexType&gt;
-         *                       &lt;complexContent&gt;
-         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                           &lt;sequence&gt;
-         *                             &lt;element name="nFat" minOccurs="0"&gt;
-         *                               &lt;simpleType&gt;
-         *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                                   &lt;minLength value="1"/&gt;
-         *                                   &lt;maxLength value="60"/&gt;
-         *                                 &lt;/restriction&gt;
-         *                               &lt;/simpleType&gt;
-         *                             &lt;/element&gt;
-         *                             &lt;element name="vOrig" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-         *                             &lt;element name="vDesc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-         *                             &lt;element name="vLiq" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-         *                           &lt;/sequence&gt;
-         *                         &lt;/restriction&gt;
-         *                       &lt;/complexContent&gt;
-         *                     &lt;/complexType&gt;
-         *                   &lt;/element&gt;
-         *                   &lt;element name="dup" maxOccurs="unbounded" minOccurs="0"&gt;
-         *                     &lt;complexType&gt;
-         *                       &lt;complexContent&gt;
-         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                           &lt;sequence&gt;
-         *                             &lt;element name="nDup" minOccurs="0"&gt;
-         *                               &lt;simpleType&gt;
-         *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                                   &lt;maxLength value="60"/&gt;
-         *                                   &lt;minLength value="1"/&gt;
-         *                                 &lt;/restriction&gt;
-         *                               &lt;/simpleType&gt;
-         *                             &lt;/element&gt;
-         *                             &lt;element name="dVenc" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-         *                             &lt;element name="vDup" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-         *                           &lt;/sequence&gt;
-         *                         &lt;/restriction&gt;
-         *                       &lt;/complexContent&gt;
-         *                     &lt;/complexType&gt;
-         *                   &lt;/element&gt;
-         *                 &lt;/sequence&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="infCteSub" minOccurs="0"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;element name="chCte"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                         &lt;pattern value="[0-9]{44}"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                   &lt;element name="indAlteraToma" minOccurs="0"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-         *                         &lt;enumeration value="1"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                 &lt;/sequence&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="infGlobalizado" minOccurs="0"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;element name="xObs"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                         &lt;minLength value="15"/&gt;
-         *                         &lt;maxLength value="256"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                 &lt;/sequence&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="infServVinc" minOccurs="0"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;element name="infCTeMultimodal" maxOccurs="unbounded"&gt;
-         *                     &lt;complexType&gt;
-         *                       &lt;complexContent&gt;
-         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                           &lt;sequence&gt;
-         *                             &lt;element name="chCTeMultimodal" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-         *                           &lt;/sequence&gt;
-         *                         &lt;/restriction&gt;
-         *                       &lt;/complexContent&gt;
-         *                     &lt;/complexType&gt;
-         *                   &lt;/element&gt;
-         *                 &lt;/sequence&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;element name="infCarga">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;element name="vCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
+         *                   &lt;element name="proPred">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                         &lt;minLength value="1"/>
+         *                         &lt;maxLength value="60"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                   &lt;element name="xOutCat" minOccurs="0">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                         &lt;minLength value="1"/>
+         *                         &lt;maxLength value="30"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                   &lt;element name="infQ" maxOccurs="unbounded">
+         *                     &lt;complexType>
+         *                       &lt;complexContent>
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                           &lt;sequence>
+         *                             &lt;element name="cUnid">
+         *                               &lt;simpleType>
+         *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                                   &lt;whiteSpace value="preserve"/>
+         *                                   &lt;enumeration value="00"/>
+         *                                   &lt;enumeration value="01"/>
+         *                                   &lt;enumeration value="02"/>
+         *                                   &lt;enumeration value="03"/>
+         *                                   &lt;enumeration value="04"/>
+         *                                   &lt;enumeration value="05"/>
+         *                                 &lt;/restriction>
+         *                               &lt;/simpleType>
+         *                             &lt;/element>
+         *                             &lt;element name="tpMed">
+         *                               &lt;simpleType>
+         *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                                   &lt;minLength value="1"/>
+         *                                   &lt;maxLength value="20"/>
+         *                                 &lt;/restriction>
+         *                               &lt;/simpleType>
+         *                             &lt;/element>
+         *                             &lt;element name="qCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1104"/>
+         *                           &lt;/sequence>
+         *                         &lt;/restriction>
+         *                       &lt;/complexContent>
+         *                     &lt;/complexType>
+         *                   &lt;/element>
+         *                   &lt;element name="vCargaAverb" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+         *                 &lt;/sequence>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *         &lt;element name="infDoc" minOccurs="0">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;choice>
+         *                     &lt;element name="infNF" maxOccurs="unbounded">
+         *                       &lt;complexType>
+         *                         &lt;complexContent>
+         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                             &lt;sequence>
+         *                               &lt;element name="nRoma" minOccurs="0">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                                     &lt;minLength value="1"/>
+         *                                     &lt;maxLength value="20"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                               &lt;element name="nPed" minOccurs="0">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                                     &lt;minLength value="1"/>
+         *                                     &lt;maxLength value="20"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                               &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModNF"/>
+         *                               &lt;element name="serie">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                                     &lt;minLength value="1"/>
+         *                                     &lt;maxLength value="3"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                               &lt;element name="nDoc">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                                     &lt;minLength value="1"/>
+         *                                     &lt;maxLength value="20"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                               &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+         *                               &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *                               &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *                               &lt;element name="vBCST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *                               &lt;element name="vST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *                               &lt;element name="vProd" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *                               &lt;element name="vNF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *                               &lt;element name="nCFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/>
+         *                               &lt;element name="nPeso" type="{http://www.portalfiscal.inf.br/cte}TDec_1203Opc" minOccurs="0"/>
+         *                               &lt;element name="PIN" minOccurs="0">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                                     &lt;whiteSpace value="preserve"/>
+         *                                     &lt;minLength value="2"/>
+         *                                     &lt;maxLength value="9"/>
+         *                                     &lt;pattern value="[1-9]{1}[0-9]{1,8}"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                               &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+         *                               &lt;choice>
+         *                                 &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+         *                                 &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+         *                               &lt;/choice>
+         *                             &lt;/sequence>
+         *                           &lt;/restriction>
+         *                         &lt;/complexContent>
+         *                       &lt;/complexType>
+         *                     &lt;/element>
+         *                     &lt;element name="infNFe" maxOccurs="unbounded">
+         *                       &lt;complexType>
+         *                         &lt;complexContent>
+         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                             &lt;sequence>
+         *                               &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+         *                               &lt;element name="PIN" minOccurs="0">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                                     &lt;whiteSpace value="preserve"/>
+         *                                     &lt;minLength value="2"/>
+         *                                     &lt;maxLength value="9"/>
+         *                                     &lt;pattern value="[1-9]{1}[0-9]{1,8}"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                               &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+         *                               &lt;choice>
+         *                                 &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+         *                                 &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+         *                               &lt;/choice>
+         *                             &lt;/sequence>
+         *                           &lt;/restriction>
+         *                         &lt;/complexContent>
+         *                       &lt;/complexType>
+         *                     &lt;/element>
+         *                     &lt;element name="infOutros" maxOccurs="unbounded">
+         *                       &lt;complexType>
+         *                         &lt;complexContent>
+         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                             &lt;sequence>
+         *                               &lt;element name="tpDoc">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                                     &lt;whiteSpace value="preserve"/>
+         *                                     &lt;enumeration value="00"/>
+         *                                     &lt;enumeration value="10"/>
+         *                                     &lt;enumeration value="59"/>
+         *                                     &lt;enumeration value="65"/>
+         *                                     &lt;enumeration value="99"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                               &lt;element name="descOutros" minOccurs="0">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                                     &lt;minLength value="1"/>
+         *                                     &lt;maxLength value="100"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                               &lt;element name="nDoc" minOccurs="0">
+         *                                 &lt;simpleType>
+         *                                   &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                                     &lt;minLength value="1"/>
+         *                                     &lt;maxLength value="20"/>
+         *                                   &lt;/restriction>
+         *                                 &lt;/simpleType>
+         *                               &lt;/element>
+         *                               &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+         *                               &lt;element name="vDocFisc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+         *                               &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+         *                               &lt;choice>
+         *                                 &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+         *                                 &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+         *                               &lt;/choice>
+         *                             &lt;/sequence>
+         *                           &lt;/restriction>
+         *                         &lt;/complexContent>
+         *                       &lt;/complexType>
+         *                     &lt;/element>
+         *                     &lt;element name="infDCe" maxOccurs="unbounded">
+         *                       &lt;complexType>
+         *                         &lt;complexContent>
+         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                             &lt;sequence>
+         *                               &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+         *                             &lt;/sequence>
+         *                           &lt;/restriction>
+         *                         &lt;/complexContent>
+         *                       &lt;/complexType>
+         *                     &lt;/element>
+         *                   &lt;/choice>
+         *                 &lt;/sequence>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *         &lt;element name="docAnt" minOccurs="0">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;element name="emiDocAnt" maxOccurs="unbounded">
+         *                     &lt;complexType>
+         *                       &lt;complexContent>
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                           &lt;sequence>
+         *                             &lt;choice>
+         *                               &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+         *                               &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+         *                             &lt;/choice>
+         *                             &lt;sequence minOccurs="0">
+         *                               &lt;element name="IE" type="{http://www.portalfiscal.inf.br/cte}TIe"/>
+         *                               &lt;element name="UF" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+         *                             &lt;/sequence>
+         *                             &lt;element name="xNome">
+         *                               &lt;simpleType>
+         *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                                   &lt;maxLength value="60"/>
+         *                                   &lt;minLength value="1"/>
+         *                                 &lt;/restriction>
+         *                               &lt;/simpleType>
+         *                             &lt;/element>
+         *                             &lt;element name="idDocAnt" maxOccurs="2">
+         *                               &lt;complexType>
+         *                                 &lt;complexContent>
+         *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                                     &lt;choice>
+         *                                       &lt;element name="idDocAntPap" maxOccurs="unbounded">
+         *                                         &lt;complexType>
+         *                                           &lt;complexContent>
+         *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                                               &lt;sequence>
+         *                                                 &lt;element name="tpDoc">
+         *                                                   &lt;simpleType>
+         *                                                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDocAssoc">
+         *                                                     &lt;/restriction>
+         *                                                   &lt;/simpleType>
+         *                                                 &lt;/element>
+         *                                                 &lt;element name="serie">
+         *                                                   &lt;simpleType>
+         *                                                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                                                       &lt;minLength value="1"/>
+         *                                                       &lt;maxLength value="3"/>
+         *                                                     &lt;/restriction>
+         *                                                   &lt;/simpleType>
+         *                                                 &lt;/element>
+         *                                                 &lt;element name="subser" minOccurs="0">
+         *                                                   &lt;simpleType>
+         *                                                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                                                       &lt;minLength value="1"/>
+         *                                                       &lt;maxLength value="2"/>
+         *                                                     &lt;/restriction>
+         *                                                   &lt;/simpleType>
+         *                                                 &lt;/element>
+         *                                                 &lt;element name="nDoc">
+         *                                                   &lt;simpleType>
+         *                                                     &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                                                       &lt;minLength value="1"/>
+         *                                                       &lt;maxLength value="30"/>
+         *                                                     &lt;/restriction>
+         *                                                   &lt;/simpleType>
+         *                                                 &lt;/element>
+         *                                                 &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+         *                                               &lt;/sequence>
+         *                                             &lt;/restriction>
+         *                                           &lt;/complexContent>
+         *                                         &lt;/complexType>
+         *                                       &lt;/element>
+         *                                       &lt;element name="idDocAntEle" maxOccurs="unbounded">
+         *                                         &lt;complexType>
+         *                                           &lt;complexContent>
+         *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                                               &lt;sequence>
+         *                                                 &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+         *                                               &lt;/sequence>
+         *                                             &lt;/restriction>
+         *                                           &lt;/complexContent>
+         *                                         &lt;/complexType>
+         *                                       &lt;/element>
+         *                                     &lt;/choice>
+         *                                   &lt;/restriction>
+         *                                 &lt;/complexContent>
+         *                               &lt;/complexType>
+         *                             &lt;/element>
+         *                           &lt;/sequence>
+         *                         &lt;/restriction>
+         *                       &lt;/complexContent>
+         *                     &lt;/complexType>
+         *                   &lt;/element>
+         *                 &lt;/sequence>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *         &lt;element name="infModal">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;any processContents='skip'/>
+         *                 &lt;/sequence>
+         *                 &lt;attribute name="versaoModal" use="required">
+         *                   &lt;simpleType>
+         *                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                       &lt;whiteSpace value="preserve"/>
+         *                       &lt;pattern value="4\.(0[0-9]|[1-9][0-9])"/>
+         *                     &lt;/restriction>
+         *                   &lt;/simpleType>
+         *                 &lt;/attribute>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *         &lt;element name="veicNovos" maxOccurs="unbounded" minOccurs="0">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;element name="chassi">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                         &lt;whiteSpace value="preserve"/>
+         *                         &lt;length value="17"/>
+         *                         &lt;pattern value="[A-Z0-9]+"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                   &lt;element name="cCor">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                         &lt;minLength value="1"/>
+         *                         &lt;maxLength value="4"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                   &lt;element name="xCor">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                         &lt;minLength value="1"/>
+         *                         &lt;maxLength value="40"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                   &lt;element name="cMod">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                         &lt;minLength value="1"/>
+         *                         &lt;maxLength value="6"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                   &lt;element name="vUnit" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *                   &lt;element name="vFrete" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *                 &lt;/sequence>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *         &lt;element name="cobr" minOccurs="0">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;element name="fat" minOccurs="0">
+         *                     &lt;complexType>
+         *                       &lt;complexContent>
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                           &lt;sequence>
+         *                             &lt;element name="nFat" minOccurs="0">
+         *                               &lt;simpleType>
+         *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                                   &lt;minLength value="1"/>
+         *                                   &lt;maxLength value="60"/>
+         *                                 &lt;/restriction>
+         *                               &lt;/simpleType>
+         *                             &lt;/element>
+         *                             &lt;element name="vOrig" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+         *                             &lt;element name="vDesc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+         *                             &lt;element name="vLiq" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+         *                           &lt;/sequence>
+         *                         &lt;/restriction>
+         *                       &lt;/complexContent>
+         *                     &lt;/complexType>
+         *                   &lt;/element>
+         *                   &lt;element name="dup" maxOccurs="unbounded" minOccurs="0">
+         *                     &lt;complexType>
+         *                       &lt;complexContent>
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                           &lt;sequence>
+         *                             &lt;element name="nDup" minOccurs="0">
+         *                               &lt;simpleType>
+         *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                                   &lt;maxLength value="60"/>
+         *                                   &lt;minLength value="1"/>
+         *                                 &lt;/restriction>
+         *                               &lt;/simpleType>
+         *                             &lt;/element>
+         *                             &lt;element name="dVenc" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+         *                             &lt;element name="vDup" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+         *                           &lt;/sequence>
+         *                         &lt;/restriction>
+         *                       &lt;/complexContent>
+         *                     &lt;/complexType>
+         *                   &lt;/element>
+         *                 &lt;/sequence>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *         &lt;element name="infCteSub" minOccurs="0">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;element name="chCte">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                         &lt;pattern value="[0-9]{44}"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                   &lt;element name="indAlteraToma" minOccurs="0">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *                         &lt;enumeration value="1"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                 &lt;/sequence>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *         &lt;element name="infGlobalizado" minOccurs="0">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;element name="xObs">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                         &lt;minLength value="15"/>
+         *                         &lt;maxLength value="256"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                 &lt;/sequence>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *         &lt;element name="infServVinc" minOccurs="0">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;element name="infCTeMultimodal" maxOccurs="unbounded">
+         *                     &lt;complexType>
+         *                       &lt;complexContent>
+         *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                           &lt;sequence>
+         *                             &lt;element name="chCTeMultimodal" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+         *                           &lt;/sequence>
+         *                         &lt;/restriction>
+         *                       &lt;/complexContent>
+         *                     &lt;/complexType>
+         *                   &lt;/element>
+         *                 &lt;/sequence>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
          * </pre>
          * 
          * 
@@ -8610,111 +8791,118 @@ public class TCTe {
         })
         public static class InfCTeNorm {
 
-            @XmlElement(required = true)
-            protected InfCarga infCarga;
-            protected InfDoc infDoc;
-            protected DocAnt docAnt;
-            @XmlElement(required = true)
-            protected InfModal infModal;
-            protected List<VeicNovos> veicNovos;
-            protected Cobr cobr;
-            protected InfCteSub infCteSub;
-            protected InfGlobalizado infGlobalizado;
-            protected InfServVinc infServVinc;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+            protected TCTe.InfCte.InfCTeNorm.InfCarga infCarga;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TCTe.InfCte.InfCTeNorm.InfDoc infDoc;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TCTe.InfCte.InfCTeNorm.DocAnt docAnt;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+            protected TCTe.InfCte.InfCTeNorm.InfModal infModal;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected List<TCTe.InfCte.InfCTeNorm.VeicNovos> veicNovos;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TCTe.InfCte.InfCTeNorm.Cobr cobr;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TCTe.InfCte.InfCTeNorm.InfCteSub infCteSub;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TCTe.InfCte.InfCTeNorm.InfGlobalizado infGlobalizado;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TCTe.InfCte.InfCTeNorm.InfServVinc infServVinc;
 
             /**
-             * Gets the value of the infCarga property.
+             * Obtém o valor da propriedade infCarga.
              * 
              * @return
              *     possible object is
-             *     {@link InfCarga }
+             *     {@link TCTe.InfCte.InfCTeNorm.InfCarga }
              *     
              */
-            public InfCarga getInfCarga() {
+            public TCTe.InfCte.InfCTeNorm.InfCarga getInfCarga() {
                 return infCarga;
             }
 
             /**
-             * Sets the value of the infCarga property.
+             * Define o valor da propriedade infCarga.
              * 
              * @param value
              *     allowed object is
-             *     {@link InfCarga }
+             *     {@link TCTe.InfCte.InfCTeNorm.InfCarga }
              *     
              */
-            public void setInfCarga(InfCarga value) {
+            public void setInfCarga(TCTe.InfCte.InfCTeNorm.InfCarga value) {
                 this.infCarga = value;
             }
 
             /**
-             * Gets the value of the infDoc property.
+             * Obtém o valor da propriedade infDoc.
              * 
              * @return
              *     possible object is
-             *     {@link InfDoc }
+             *     {@link TCTe.InfCte.InfCTeNorm.InfDoc }
              *     
              */
-            public InfDoc getInfDoc() {
+            public TCTe.InfCte.InfCTeNorm.InfDoc getInfDoc() {
                 return infDoc;
             }
 
             /**
-             * Sets the value of the infDoc property.
+             * Define o valor da propriedade infDoc.
              * 
              * @param value
              *     allowed object is
-             *     {@link InfDoc }
+             *     {@link TCTe.InfCte.InfCTeNorm.InfDoc }
              *     
              */
-            public void setInfDoc(InfDoc value) {
+            public void setInfDoc(TCTe.InfCte.InfCTeNorm.InfDoc value) {
                 this.infDoc = value;
             }
 
             /**
-             * Gets the value of the docAnt property.
+             * Obtém o valor da propriedade docAnt.
              * 
              * @return
              *     possible object is
-             *     {@link DocAnt }
+             *     {@link TCTe.InfCte.InfCTeNorm.DocAnt }
              *     
              */
-            public DocAnt getDocAnt() {
+            public TCTe.InfCte.InfCTeNorm.DocAnt getDocAnt() {
                 return docAnt;
             }
 
             /**
-             * Sets the value of the docAnt property.
+             * Define o valor da propriedade docAnt.
              * 
              * @param value
              *     allowed object is
-             *     {@link DocAnt }
+             *     {@link TCTe.InfCte.InfCTeNorm.DocAnt }
              *     
              */
-            public void setDocAnt(DocAnt value) {
+            public void setDocAnt(TCTe.InfCte.InfCTeNorm.DocAnt value) {
                 this.docAnt = value;
             }
 
             /**
-             * Gets the value of the infModal property.
+             * Obtém o valor da propriedade infModal.
              * 
              * @return
              *     possible object is
-             *     {@link InfModal }
+             *     {@link TCTe.InfCte.InfCTeNorm.InfModal }
              *     
              */
-            public InfModal getInfModal() {
+            public TCTe.InfCte.InfCTeNorm.InfModal getInfModal() {
                 return infModal;
             }
 
             /**
-             * Sets the value of the infModal property.
+             * Define o valor da propriedade infModal.
              * 
              * @param value
              *     allowed object is
-             *     {@link InfModal }
+             *     {@link TCTe.InfCte.InfCTeNorm.InfModal }
              *     
              */
-            public void setInfModal(InfModal value) {
+            public void setInfModal(TCTe.InfCte.InfCTeNorm.InfModal value) {
                 this.infModal = value;
             }
 
@@ -8736,169 +8924,169 @@ public class TCTe {
              * 
              * <p>
              * Objects of the following type(s) are allowed in the list
-             * {@link VeicNovos }
+             * {@link TCTe.InfCte.InfCTeNorm.VeicNovos }
              * 
              * 
              */
-            public List<VeicNovos> getVeicNovos() {
+            public List<TCTe.InfCte.InfCTeNorm.VeicNovos> getVeicNovos() {
                 if (veicNovos == null) {
-                    veicNovos = new ArrayList<VeicNovos>();
+                    veicNovos = new ArrayList<TCTe.InfCte.InfCTeNorm.VeicNovos>();
                 }
                 return this.veicNovos;
             }
 
             /**
-             * Gets the value of the cobr property.
+             * Obtém o valor da propriedade cobr.
              * 
              * @return
              *     possible object is
-             *     {@link Cobr }
+             *     {@link TCTe.InfCte.InfCTeNorm.Cobr }
              *     
              */
-            public Cobr getCobr() {
+            public TCTe.InfCte.InfCTeNorm.Cobr getCobr() {
                 return cobr;
             }
 
             /**
-             * Sets the value of the cobr property.
+             * Define o valor da propriedade cobr.
              * 
              * @param value
              *     allowed object is
-             *     {@link Cobr }
+             *     {@link TCTe.InfCte.InfCTeNorm.Cobr }
              *     
              */
-            public void setCobr(Cobr value) {
+            public void setCobr(TCTe.InfCte.InfCTeNorm.Cobr value) {
                 this.cobr = value;
             }
 
             /**
-             * Gets the value of the infCteSub property.
+             * Obtém o valor da propriedade infCteSub.
              * 
              * @return
              *     possible object is
-             *     {@link InfCteSub }
+             *     {@link TCTe.InfCte.InfCTeNorm.InfCteSub }
              *     
              */
-            public InfCteSub getInfCteSub() {
+            public TCTe.InfCte.InfCTeNorm.InfCteSub getInfCteSub() {
                 return infCteSub;
             }
 
             /**
-             * Sets the value of the infCteSub property.
+             * Define o valor da propriedade infCteSub.
              * 
              * @param value
              *     allowed object is
-             *     {@link InfCteSub }
+             *     {@link TCTe.InfCte.InfCTeNorm.InfCteSub }
              *     
              */
-            public void setInfCteSub(InfCteSub value) {
+            public void setInfCteSub(TCTe.InfCte.InfCTeNorm.InfCteSub value) {
                 this.infCteSub = value;
             }
 
             /**
-             * Gets the value of the infGlobalizado property.
+             * Obtém o valor da propriedade infGlobalizado.
              * 
              * @return
              *     possible object is
-             *     {@link InfGlobalizado }
+             *     {@link TCTe.InfCte.InfCTeNorm.InfGlobalizado }
              *     
              */
-            public InfGlobalizado getInfGlobalizado() {
+            public TCTe.InfCte.InfCTeNorm.InfGlobalizado getInfGlobalizado() {
                 return infGlobalizado;
             }
 
             /**
-             * Sets the value of the infGlobalizado property.
+             * Define o valor da propriedade infGlobalizado.
              * 
              * @param value
              *     allowed object is
-             *     {@link InfGlobalizado }
+             *     {@link TCTe.InfCte.InfCTeNorm.InfGlobalizado }
              *     
              */
-            public void setInfGlobalizado(InfGlobalizado value) {
+            public void setInfGlobalizado(TCTe.InfCte.InfCTeNorm.InfGlobalizado value) {
                 this.infGlobalizado = value;
             }
 
             /**
-             * Gets the value of the infServVinc property.
+             * Obtém o valor da propriedade infServVinc.
              * 
              * @return
              *     possible object is
-             *     {@link InfServVinc }
+             *     {@link TCTe.InfCte.InfCTeNorm.InfServVinc }
              *     
              */
-            public InfServVinc getInfServVinc() {
+            public TCTe.InfCte.InfCTeNorm.InfServVinc getInfServVinc() {
                 return infServVinc;
             }
 
             /**
-             * Sets the value of the infServVinc property.
+             * Define o valor da propriedade infServVinc.
              * 
              * @param value
              *     allowed object is
-             *     {@link InfServVinc }
+             *     {@link TCTe.InfCte.InfCTeNorm.InfServVinc }
              *     
              */
-            public void setInfServVinc(InfServVinc value) {
+            public void setInfServVinc(TCTe.InfCte.InfCTeNorm.InfServVinc value) {
                 this.infServVinc = value;
             }
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="fat" minOccurs="0"&gt;
-             *           &lt;complexType&gt;
-             *             &lt;complexContent&gt;
-             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                 &lt;sequence&gt;
-             *                   &lt;element name="nFat" minOccurs="0"&gt;
-             *                     &lt;simpleType&gt;
-             *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                         &lt;minLength value="1"/&gt;
-             *                         &lt;maxLength value="60"/&gt;
-             *                       &lt;/restriction&gt;
-             *                     &lt;/simpleType&gt;
-             *                   &lt;/element&gt;
-             *                   &lt;element name="vOrig" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-             *                   &lt;element name="vDesc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-             *                   &lt;element name="vLiq" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-             *                 &lt;/sequence&gt;
-             *               &lt;/restriction&gt;
-             *             &lt;/complexContent&gt;
-             *           &lt;/complexType&gt;
-             *         &lt;/element&gt;
-             *         &lt;element name="dup" maxOccurs="unbounded" minOccurs="0"&gt;
-             *           &lt;complexType&gt;
-             *             &lt;complexContent&gt;
-             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                 &lt;sequence&gt;
-             *                   &lt;element name="nDup" minOccurs="0"&gt;
-             *                     &lt;simpleType&gt;
-             *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                         &lt;maxLength value="60"/&gt;
-             *                         &lt;minLength value="1"/&gt;
-             *                       &lt;/restriction&gt;
-             *                     &lt;/simpleType&gt;
-             *                   &lt;/element&gt;
-             *                   &lt;element name="dVenc" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-             *                   &lt;element name="vDup" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-             *                 &lt;/sequence&gt;
-             *               &lt;/restriction&gt;
-             *             &lt;/complexContent&gt;
-             *           &lt;/complexType&gt;
-             *         &lt;/element&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="fat" minOccurs="0">
+             *           &lt;complexType>
+             *             &lt;complexContent>
+             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                 &lt;sequence>
+             *                   &lt;element name="nFat" minOccurs="0">
+             *                     &lt;simpleType>
+             *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                         &lt;minLength value="1"/>
+             *                         &lt;maxLength value="60"/>
+             *                       &lt;/restriction>
+             *                     &lt;/simpleType>
+             *                   &lt;/element>
+             *                   &lt;element name="vOrig" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+             *                   &lt;element name="vDesc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+             *                   &lt;element name="vLiq" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+             *                 &lt;/sequence>
+             *               &lt;/restriction>
+             *             &lt;/complexContent>
+             *           &lt;/complexType>
+             *         &lt;/element>
+             *         &lt;element name="dup" maxOccurs="unbounded" minOccurs="0">
+             *           &lt;complexType>
+             *             &lt;complexContent>
+             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                 &lt;sequence>
+             *                   &lt;element name="nDup" minOccurs="0">
+             *                     &lt;simpleType>
+             *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                         &lt;maxLength value="60"/>
+             *                         &lt;minLength value="1"/>
+             *                       &lt;/restriction>
+             *                     &lt;/simpleType>
+             *                   &lt;/element>
+             *                   &lt;element name="dVenc" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+             *                   &lt;element name="vDup" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+             *                 &lt;/sequence>
+             *               &lt;/restriction>
+             *             &lt;/complexContent>
+             *           &lt;/complexType>
+             *         &lt;/element>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -8910,30 +9098,32 @@ public class TCTe {
             })
             public static class Cobr {
 
-                protected Fat fat;
-                protected List<Dup> dup;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                protected TCTe.InfCte.InfCTeNorm.Cobr.Fat fat;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                protected List<TCTe.InfCte.InfCTeNorm.Cobr.Dup> dup;
 
                 /**
-                 * Gets the value of the fat property.
+                 * Obtém o valor da propriedade fat.
                  * 
                  * @return
                  *     possible object is
-                 *     {@link Fat }
+                 *     {@link TCTe.InfCte.InfCTeNorm.Cobr.Fat }
                  *     
                  */
-                public Fat getFat() {
+                public TCTe.InfCte.InfCTeNorm.Cobr.Fat getFat() {
                     return fat;
                 }
 
                 /**
-                 * Sets the value of the fat property.
+                 * Define o valor da propriedade fat.
                  * 
                  * @param value
                  *     allowed object is
-                 *     {@link Fat }
+                 *     {@link TCTe.InfCte.InfCTeNorm.Cobr.Fat }
                  *     
                  */
-                public void setFat(Fat value) {
+                public void setFat(TCTe.InfCte.InfCTeNorm.Cobr.Fat value) {
                     this.fat = value;
                 }
 
@@ -8955,42 +9145,42 @@ public class TCTe {
                  * 
                  * <p>
                  * Objects of the following type(s) are allowed in the list
-                 * {@link Dup }
+                 * {@link TCTe.InfCte.InfCTeNorm.Cobr.Dup }
                  * 
                  * 
                  */
-                public List<Dup> getDup() {
+                public List<TCTe.InfCte.InfCTeNorm.Cobr.Dup> getDup() {
                     if (dup == null) {
-                        dup = new ArrayList<Dup>();
+                        dup = new ArrayList<TCTe.InfCte.InfCTeNorm.Cobr.Dup>();
                     }
                     return this.dup;
                 }
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="nDup" minOccurs="0"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                 *               &lt;maxLength value="60"/&gt;
-                 *               &lt;minLength value="1"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="dVenc" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-                 *         &lt;element name="vDup" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="nDup" minOccurs="0">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                 *               &lt;maxLength value="60"/>
+                 *               &lt;minLength value="1"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="dVenc" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+                 *         &lt;element name="vDup" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -9003,12 +9193,15 @@ public class TCTe {
                 })
                 public static class Dup {
 
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String nDup;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String dVenc;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String vDup;
 
                     /**
-                     * Gets the value of the nDup property.
+                     * Obtém o valor da propriedade nDup.
                      * 
                      * @return
                      *     possible object is
@@ -9020,7 +9213,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the nDup property.
+                     * Define o valor da propriedade nDup.
                      * 
                      * @param value
                      *     allowed object is
@@ -9032,7 +9225,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the dVenc property.
+                     * Obtém o valor da propriedade dVenc.
                      * 
                      * @return
                      *     possible object is
@@ -9044,7 +9237,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the dVenc property.
+                     * Define o valor da propriedade dVenc.
                      * 
                      * @param value
                      *     allowed object is
@@ -9056,7 +9249,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the vDup property.
+                     * Obtém o valor da propriedade vDup.
                      * 
                      * @return
                      *     possible object is
@@ -9068,7 +9261,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the vDup property.
+                     * Define o valor da propriedade vDup.
                      * 
                      * @param value
                      *     allowed object is
@@ -9083,30 +9276,30 @@ public class TCTe {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="nFat" minOccurs="0"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                 *               &lt;minLength value="1"/&gt;
-                 *               &lt;maxLength value="60"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="vOrig" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-                 *         &lt;element name="vDesc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-                 *         &lt;element name="vLiq" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="nFat" minOccurs="0">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                 *               &lt;minLength value="1"/>
+                 *               &lt;maxLength value="60"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="vOrig" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+                 *         &lt;element name="vDesc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+                 *         &lt;element name="vLiq" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -9120,13 +9313,17 @@ public class TCTe {
                 })
                 public static class Fat {
 
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String nFat;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String vOrig;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String vDesc;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String vLiq;
 
                     /**
-                     * Gets the value of the nFat property.
+                     * Obtém o valor da propriedade nFat.
                      * 
                      * @return
                      *     possible object is
@@ -9138,7 +9335,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the nFat property.
+                     * Define o valor da propriedade nFat.
                      * 
                      * @param value
                      *     allowed object is
@@ -9150,7 +9347,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the vOrig property.
+                     * Obtém o valor da propriedade vOrig.
                      * 
                      * @return
                      *     possible object is
@@ -9162,7 +9359,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the vOrig property.
+                     * Define o valor da propriedade vOrig.
                      * 
                      * @param value
                      *     allowed object is
@@ -9174,7 +9371,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the vDesc property.
+                     * Obtém o valor da propriedade vDesc.
                      * 
                      * @return
                      *     possible object is
@@ -9186,7 +9383,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the vDesc property.
+                     * Define o valor da propriedade vDesc.
                      * 
                      * @param value
                      *     allowed object is
@@ -9198,7 +9395,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the vLiq property.
+                     * Obtém o valor da propriedade vLiq.
                      * 
                      * @return
                      *     possible object is
@@ -9210,7 +9407,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the vLiq property.
+                     * Define o valor da propriedade vLiq.
                      * 
                      * @param value
                      *     allowed object is
@@ -9227,107 +9424,107 @@ public class TCTe {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="emiDocAnt" maxOccurs="unbounded"&gt;
-             *           &lt;complexType&gt;
-             *             &lt;complexContent&gt;
-             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                 &lt;sequence&gt;
-             *                   &lt;choice&gt;
-             *                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-             *                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-             *                   &lt;/choice&gt;
-             *                   &lt;sequence minOccurs="0"&gt;
-             *                     &lt;element name="IE" type="{http://www.portalfiscal.inf.br/cte}TIe"/&gt;
-             *                     &lt;element name="UF" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
-             *                   &lt;/sequence&gt;
-             *                   &lt;element name="xNome"&gt;
-             *                     &lt;simpleType&gt;
-             *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                         &lt;maxLength value="60"/&gt;
-             *                         &lt;minLength value="1"/&gt;
-             *                       &lt;/restriction&gt;
-             *                     &lt;/simpleType&gt;
-             *                   &lt;/element&gt;
-             *                   &lt;element name="idDocAnt" maxOccurs="2"&gt;
-             *                     &lt;complexType&gt;
-             *                       &lt;complexContent&gt;
-             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                           &lt;choice&gt;
-             *                             &lt;element name="idDocAntPap" maxOccurs="unbounded"&gt;
-             *                               &lt;complexType&gt;
-             *                                 &lt;complexContent&gt;
-             *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                                     &lt;sequence&gt;
-             *                                       &lt;element name="tpDoc"&gt;
-             *                                         &lt;simpleType&gt;
-             *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDocAssoc"&gt;
-             *                                           &lt;/restriction&gt;
-             *                                         &lt;/simpleType&gt;
-             *                                       &lt;/element&gt;
-             *                                       &lt;element name="serie"&gt;
-             *                                         &lt;simpleType&gt;
-             *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                                             &lt;minLength value="1"/&gt;
-             *                                             &lt;maxLength value="3"/&gt;
-             *                                           &lt;/restriction&gt;
-             *                                         &lt;/simpleType&gt;
-             *                                       &lt;/element&gt;
-             *                                       &lt;element name="subser" minOccurs="0"&gt;
-             *                                         &lt;simpleType&gt;
-             *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                                             &lt;minLength value="1"/&gt;
-             *                                             &lt;maxLength value="2"/&gt;
-             *                                           &lt;/restriction&gt;
-             *                                         &lt;/simpleType&gt;
-             *                                       &lt;/element&gt;
-             *                                       &lt;element name="nDoc"&gt;
-             *                                         &lt;simpleType&gt;
-             *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                                             &lt;minLength value="1"/&gt;
-             *                                             &lt;maxLength value="30"/&gt;
-             *                                           &lt;/restriction&gt;
-             *                                         &lt;/simpleType&gt;
-             *                                       &lt;/element&gt;
-             *                                       &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-             *                                     &lt;/sequence&gt;
-             *                                   &lt;/restriction&gt;
-             *                                 &lt;/complexContent&gt;
-             *                               &lt;/complexType&gt;
-             *                             &lt;/element&gt;
-             *                             &lt;element name="idDocAntEle" maxOccurs="unbounded"&gt;
-             *                               &lt;complexType&gt;
-             *                                 &lt;complexContent&gt;
-             *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                                     &lt;sequence&gt;
-             *                                       &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-             *                                     &lt;/sequence&gt;
-             *                                   &lt;/restriction&gt;
-             *                                 &lt;/complexContent&gt;
-             *                               &lt;/complexType&gt;
-             *                             &lt;/element&gt;
-             *                           &lt;/choice&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/complexContent&gt;
-             *                     &lt;/complexType&gt;
-             *                   &lt;/element&gt;
-             *                 &lt;/sequence&gt;
-             *               &lt;/restriction&gt;
-             *             &lt;/complexContent&gt;
-             *           &lt;/complexType&gt;
-             *         &lt;/element&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="emiDocAnt" maxOccurs="unbounded">
+             *           &lt;complexType>
+             *             &lt;complexContent>
+             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                 &lt;sequence>
+             *                   &lt;choice>
+             *                     &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+             *                     &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+             *                   &lt;/choice>
+             *                   &lt;sequence minOccurs="0">
+             *                     &lt;element name="IE" type="{http://www.portalfiscal.inf.br/cte}TIe"/>
+             *                     &lt;element name="UF" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+             *                   &lt;/sequence>
+             *                   &lt;element name="xNome">
+             *                     &lt;simpleType>
+             *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                         &lt;maxLength value="60"/>
+             *                         &lt;minLength value="1"/>
+             *                       &lt;/restriction>
+             *                     &lt;/simpleType>
+             *                   &lt;/element>
+             *                   &lt;element name="idDocAnt" maxOccurs="2">
+             *                     &lt;complexType>
+             *                       &lt;complexContent>
+             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                           &lt;choice>
+             *                             &lt;element name="idDocAntPap" maxOccurs="unbounded">
+             *                               &lt;complexType>
+             *                                 &lt;complexContent>
+             *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                                     &lt;sequence>
+             *                                       &lt;element name="tpDoc">
+             *                                         &lt;simpleType>
+             *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDocAssoc">
+             *                                           &lt;/restriction>
+             *                                         &lt;/simpleType>
+             *                                       &lt;/element>
+             *                                       &lt;element name="serie">
+             *                                         &lt;simpleType>
+             *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                                             &lt;minLength value="1"/>
+             *                                             &lt;maxLength value="3"/>
+             *                                           &lt;/restriction>
+             *                                         &lt;/simpleType>
+             *                                       &lt;/element>
+             *                                       &lt;element name="subser" minOccurs="0">
+             *                                         &lt;simpleType>
+             *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                                             &lt;minLength value="1"/>
+             *                                             &lt;maxLength value="2"/>
+             *                                           &lt;/restriction>
+             *                                         &lt;/simpleType>
+             *                                       &lt;/element>
+             *                                       &lt;element name="nDoc">
+             *                                         &lt;simpleType>
+             *                                           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                                             &lt;minLength value="1"/>
+             *                                             &lt;maxLength value="30"/>
+             *                                           &lt;/restriction>
+             *                                         &lt;/simpleType>
+             *                                       &lt;/element>
+             *                                       &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+             *                                     &lt;/sequence>
+             *                                   &lt;/restriction>
+             *                                 &lt;/complexContent>
+             *                               &lt;/complexType>
+             *                             &lt;/element>
+             *                             &lt;element name="idDocAntEle" maxOccurs="unbounded">
+             *                               &lt;complexType>
+             *                                 &lt;complexContent>
+             *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                                     &lt;sequence>
+             *                                       &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+             *                                     &lt;/sequence>
+             *                                   &lt;/restriction>
+             *                                 &lt;/complexContent>
+             *                               &lt;/complexType>
+             *                             &lt;/element>
+             *                           &lt;/choice>
+             *                         &lt;/restriction>
+             *                       &lt;/complexContent>
+             *                     &lt;/complexType>
+             *                   &lt;/element>
+             *                 &lt;/sequence>
+             *               &lt;/restriction>
+             *             &lt;/complexContent>
+             *           &lt;/complexType>
+             *         &lt;/element>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -9338,8 +9535,8 @@ public class TCTe {
             })
             public static class DocAnt {
 
-                @XmlElement(required = true)
-                protected List<EmiDocAnt> emiDocAnt;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+                protected List<TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt> emiDocAnt;
 
                 /**
                  * Gets the value of the emiDocAnt property.
@@ -9359,110 +9556,110 @@ public class TCTe {
                  * 
                  * <p>
                  * Objects of the following type(s) are allowed in the list
-                 * {@link EmiDocAnt }
+                 * {@link TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt }
                  * 
                  * 
                  */
-                public List<EmiDocAnt> getEmiDocAnt() {
+                public List<TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt> getEmiDocAnt() {
                     if (emiDocAnt == null) {
-                        emiDocAnt = new ArrayList<EmiDocAnt>();
+                        emiDocAnt = new ArrayList<TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt>();
                     }
                     return this.emiDocAnt;
                 }
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;choice&gt;
-                 *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-                 *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-                 *         &lt;/choice&gt;
-                 *         &lt;sequence minOccurs="0"&gt;
-                 *           &lt;element name="IE" type="{http://www.portalfiscal.inf.br/cte}TIe"/&gt;
-                 *           &lt;element name="UF" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
-                 *         &lt;/sequence&gt;
-                 *         &lt;element name="xNome"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                 *               &lt;maxLength value="60"/&gt;
-                 *               &lt;minLength value="1"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="idDocAnt" maxOccurs="2"&gt;
-                 *           &lt;complexType&gt;
-                 *             &lt;complexContent&gt;
-                 *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *                 &lt;choice&gt;
-                 *                   &lt;element name="idDocAntPap" maxOccurs="unbounded"&gt;
-                 *                     &lt;complexType&gt;
-                 *                       &lt;complexContent&gt;
-                 *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *                           &lt;sequence&gt;
-                 *                             &lt;element name="tpDoc"&gt;
-                 *                               &lt;simpleType&gt;
-                 *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDocAssoc"&gt;
-                 *                                 &lt;/restriction&gt;
-                 *                               &lt;/simpleType&gt;
-                 *                             &lt;/element&gt;
-                 *                             &lt;element name="serie"&gt;
-                 *                               &lt;simpleType&gt;
-                 *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                 *                                   &lt;minLength value="1"/&gt;
-                 *                                   &lt;maxLength value="3"/&gt;
-                 *                                 &lt;/restriction&gt;
-                 *                               &lt;/simpleType&gt;
-                 *                             &lt;/element&gt;
-                 *                             &lt;element name="subser" minOccurs="0"&gt;
-                 *                               &lt;simpleType&gt;
-                 *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                 *                                   &lt;minLength value="1"/&gt;
-                 *                                   &lt;maxLength value="2"/&gt;
-                 *                                 &lt;/restriction&gt;
-                 *                               &lt;/simpleType&gt;
-                 *                             &lt;/element&gt;
-                 *                             &lt;element name="nDoc"&gt;
-                 *                               &lt;simpleType&gt;
-                 *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                 *                                   &lt;minLength value="1"/&gt;
-                 *                                   &lt;maxLength value="30"/&gt;
-                 *                                 &lt;/restriction&gt;
-                 *                               &lt;/simpleType&gt;
-                 *                             &lt;/element&gt;
-                 *                             &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-                 *                           &lt;/sequence&gt;
-                 *                         &lt;/restriction&gt;
-                 *                       &lt;/complexContent&gt;
-                 *                     &lt;/complexType&gt;
-                 *                   &lt;/element&gt;
-                 *                   &lt;element name="idDocAntEle" maxOccurs="unbounded"&gt;
-                 *                     &lt;complexType&gt;
-                 *                       &lt;complexContent&gt;
-                 *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *                           &lt;sequence&gt;
-                 *                             &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-                 *                           &lt;/sequence&gt;
-                 *                         &lt;/restriction&gt;
-                 *                       &lt;/complexContent&gt;
-                 *                     &lt;/complexType&gt;
-                 *                   &lt;/element&gt;
-                 *                 &lt;/choice&gt;
-                 *               &lt;/restriction&gt;
-                 *             &lt;/complexContent&gt;
-                 *           &lt;/complexType&gt;
-                 *         &lt;/element&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;choice>
+                 *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+                 *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+                 *         &lt;/choice>
+                 *         &lt;sequence minOccurs="0">
+                 *           &lt;element name="IE" type="{http://www.portalfiscal.inf.br/cte}TIe"/>
+                 *           &lt;element name="UF" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+                 *         &lt;/sequence>
+                 *         &lt;element name="xNome">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                 *               &lt;maxLength value="60"/>
+                 *               &lt;minLength value="1"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="idDocAnt" maxOccurs="2">
+                 *           &lt;complexType>
+                 *             &lt;complexContent>
+                 *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *                 &lt;choice>
+                 *                   &lt;element name="idDocAntPap" maxOccurs="unbounded">
+                 *                     &lt;complexType>
+                 *                       &lt;complexContent>
+                 *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *                           &lt;sequence>
+                 *                             &lt;element name="tpDoc">
+                 *                               &lt;simpleType>
+                 *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDocAssoc">
+                 *                                 &lt;/restriction>
+                 *                               &lt;/simpleType>
+                 *                             &lt;/element>
+                 *                             &lt;element name="serie">
+                 *                               &lt;simpleType>
+                 *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                 *                                   &lt;minLength value="1"/>
+                 *                                   &lt;maxLength value="3"/>
+                 *                                 &lt;/restriction>
+                 *                               &lt;/simpleType>
+                 *                             &lt;/element>
+                 *                             &lt;element name="subser" minOccurs="0">
+                 *                               &lt;simpleType>
+                 *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                 *                                   &lt;minLength value="1"/>
+                 *                                   &lt;maxLength value="2"/>
+                 *                                 &lt;/restriction>
+                 *                               &lt;/simpleType>
+                 *                             &lt;/element>
+                 *                             &lt;element name="nDoc">
+                 *                               &lt;simpleType>
+                 *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                 *                                   &lt;minLength value="1"/>
+                 *                                   &lt;maxLength value="30"/>
+                 *                                 &lt;/restriction>
+                 *                               &lt;/simpleType>
+                 *                             &lt;/element>
+                 *                             &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+                 *                           &lt;/sequence>
+                 *                         &lt;/restriction>
+                 *                       &lt;/complexContent>
+                 *                     &lt;/complexType>
+                 *                   &lt;/element>
+                 *                   &lt;element name="idDocAntEle" maxOccurs="unbounded">
+                 *                     &lt;complexType>
+                 *                       &lt;complexContent>
+                 *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *                           &lt;sequence>
+                 *                             &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+                 *                           &lt;/sequence>
+                 *                         &lt;/restriction>
+                 *                       &lt;/complexContent>
+                 *                     &lt;/complexType>
+                 *                   &lt;/element>
+                 *                 &lt;/choice>
+                 *               &lt;/restriction>
+                 *             &lt;/complexContent>
+                 *           &lt;/complexType>
+                 *         &lt;/element>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -9478,22 +9675,22 @@ public class TCTe {
                 })
                 public static class EmiDocAnt {
 
-                    @XmlElement(name = "CNPJ")
+                    @XmlElement(name = "CNPJ", namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String cnpj;
-                    @XmlElement(name = "CPF")
+                    @XmlElement(name = "CPF", namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String cpf;
-                    @XmlElement(name = "IE")
+                    @XmlElement(name = "IE", namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String ie;
-                    @XmlElement(name = "UF")
+                    @XmlElement(name = "UF", namespace = "http://www.portalfiscal.inf.br/cte")
                     @XmlSchemaType(name = "string")
                     protected TUf uf;
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String xNome;
-                    @XmlElement(required = true)
-                    protected List<IdDocAnt> idDocAnt;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+                    protected List<TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt> idDocAnt;
 
                     /**
-                     * Gets the value of the cnpj property.
+                     * Obtém o valor da propriedade cnpj.
                      * 
                      * @return
                      *     possible object is
@@ -9505,7 +9702,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the cnpj property.
+                     * Define o valor da propriedade cnpj.
                      * 
                      * @param value
                      *     allowed object is
@@ -9517,7 +9714,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the cpf property.
+                     * Obtém o valor da propriedade cpf.
                      * 
                      * @return
                      *     possible object is
@@ -9529,7 +9726,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the cpf property.
+                     * Define o valor da propriedade cpf.
                      * 
                      * @param value
                      *     allowed object is
@@ -9541,7 +9738,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the ie property.
+                     * Obtém o valor da propriedade ie.
                      * 
                      * @return
                      *     possible object is
@@ -9553,7 +9750,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the ie property.
+                     * Define o valor da propriedade ie.
                      * 
                      * @param value
                      *     allowed object is
@@ -9565,7 +9762,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the uf property.
+                     * Obtém o valor da propriedade uf.
                      * 
                      * @return
                      *     possible object is
@@ -9577,7 +9774,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the uf property.
+                     * Define o valor da propriedade uf.
                      * 
                      * @param value
                      *     allowed object is
@@ -9589,7 +9786,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the xNome property.
+                     * Obtém o valor da propriedade xNome.
                      * 
                      * @return
                      *     possible object is
@@ -9601,7 +9798,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the xNome property.
+                     * Define o valor da propriedade xNome.
                      * 
                      * @param value
                      *     allowed object is
@@ -9630,84 +9827,84 @@ public class TCTe {
                      * 
                      * <p>
                      * Objects of the following type(s) are allowed in the list
-                     * {@link IdDocAnt }
+                     * {@link TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt }
                      * 
                      * 
                      */
-                    public List<IdDocAnt> getIdDocAnt() {
+                    public List<TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt> getIdDocAnt() {
                         if (idDocAnt == null) {
-                            idDocAnt = new ArrayList<IdDocAnt>();
+                            idDocAnt = new ArrayList<TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt>();
                         }
                         return this.idDocAnt;
                     }
 
 
                     /**
-                     * <p>Java class for anonymous complex type.
+                     * <p>Classe Java de anonymous complex type.
                      * 
-                     * <p>The following schema fragment specifies the expected content contained within this class.
+                     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                      * 
                      * <pre>
-                     * &lt;complexType&gt;
-                     *   &lt;complexContent&gt;
-                     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                     *       &lt;choice&gt;
-                     *         &lt;element name="idDocAntPap" maxOccurs="unbounded"&gt;
-                     *           &lt;complexType&gt;
-                     *             &lt;complexContent&gt;
-                     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                     *                 &lt;sequence&gt;
-                     *                   &lt;element name="tpDoc"&gt;
-                     *                     &lt;simpleType&gt;
-                     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDocAssoc"&gt;
-                     *                       &lt;/restriction&gt;
-                     *                     &lt;/simpleType&gt;
-                     *                   &lt;/element&gt;
-                     *                   &lt;element name="serie"&gt;
-                     *                     &lt;simpleType&gt;
-                     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                     *                         &lt;minLength value="1"/&gt;
-                     *                         &lt;maxLength value="3"/&gt;
-                     *                       &lt;/restriction&gt;
-                     *                     &lt;/simpleType&gt;
-                     *                   &lt;/element&gt;
-                     *                   &lt;element name="subser" minOccurs="0"&gt;
-                     *                     &lt;simpleType&gt;
-                     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                     *                         &lt;minLength value="1"/&gt;
-                     *                         &lt;maxLength value="2"/&gt;
-                     *                       &lt;/restriction&gt;
-                     *                     &lt;/simpleType&gt;
-                     *                   &lt;/element&gt;
-                     *                   &lt;element name="nDoc"&gt;
-                     *                     &lt;simpleType&gt;
-                     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                     *                         &lt;minLength value="1"/&gt;
-                     *                         &lt;maxLength value="30"/&gt;
-                     *                       &lt;/restriction&gt;
-                     *                     &lt;/simpleType&gt;
-                     *                   &lt;/element&gt;
-                     *                   &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-                     *                 &lt;/sequence&gt;
-                     *               &lt;/restriction&gt;
-                     *             &lt;/complexContent&gt;
-                     *           &lt;/complexType&gt;
-                     *         &lt;/element&gt;
-                     *         &lt;element name="idDocAntEle" maxOccurs="unbounded"&gt;
-                     *           &lt;complexType&gt;
-                     *             &lt;complexContent&gt;
-                     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                     *                 &lt;sequence&gt;
-                     *                   &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-                     *                 &lt;/sequence&gt;
-                     *               &lt;/restriction&gt;
-                     *             &lt;/complexContent&gt;
-                     *           &lt;/complexType&gt;
-                     *         &lt;/element&gt;
-                     *       &lt;/choice&gt;
-                     *     &lt;/restriction&gt;
-                     *   &lt;/complexContent&gt;
-                     * &lt;/complexType&gt;
+                     * &lt;complexType>
+                     *   &lt;complexContent>
+                     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                     *       &lt;choice>
+                     *         &lt;element name="idDocAntPap" maxOccurs="unbounded">
+                     *           &lt;complexType>
+                     *             &lt;complexContent>
+                     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                     *                 &lt;sequence>
+                     *                   &lt;element name="tpDoc">
+                     *                     &lt;simpleType>
+                     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDocAssoc">
+                     *                       &lt;/restriction>
+                     *                     &lt;/simpleType>
+                     *                   &lt;/element>
+                     *                   &lt;element name="serie">
+                     *                     &lt;simpleType>
+                     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                     *                         &lt;minLength value="1"/>
+                     *                         &lt;maxLength value="3"/>
+                     *                       &lt;/restriction>
+                     *                     &lt;/simpleType>
+                     *                   &lt;/element>
+                     *                   &lt;element name="subser" minOccurs="0">
+                     *                     &lt;simpleType>
+                     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                     *                         &lt;minLength value="1"/>
+                     *                         &lt;maxLength value="2"/>
+                     *                       &lt;/restriction>
+                     *                     &lt;/simpleType>
+                     *                   &lt;/element>
+                     *                   &lt;element name="nDoc">
+                     *                     &lt;simpleType>
+                     *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                     *                         &lt;minLength value="1"/>
+                     *                         &lt;maxLength value="30"/>
+                     *                       &lt;/restriction>
+                     *                     &lt;/simpleType>
+                     *                   &lt;/element>
+                     *                   &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+                     *                 &lt;/sequence>
+                     *               &lt;/restriction>
+                     *             &lt;/complexContent>
+                     *           &lt;/complexType>
+                     *         &lt;/element>
+                     *         &lt;element name="idDocAntEle" maxOccurs="unbounded">
+                     *           &lt;complexType>
+                     *             &lt;complexContent>
+                     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                     *                 &lt;sequence>
+                     *                   &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+                     *                 &lt;/sequence>
+                     *               &lt;/restriction>
+                     *             &lt;/complexContent>
+                     *           &lt;/complexType>
+                     *         &lt;/element>
+                     *       &lt;/choice>
+                     *     &lt;/restriction>
+                     *   &lt;/complexContent>
+                     * &lt;/complexType>
                      * </pre>
                      * 
                      * 
@@ -9719,8 +9916,10 @@ public class TCTe {
                     })
                     public static class IdDocAnt {
 
-                        protected List<IdDocAntPap> idDocAntPap;
-                        protected List<IdDocAntEle> idDocAntEle;
+                        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                        protected List<TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt.IdDocAntPap> idDocAntPap;
+                        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                        protected List<TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt.IdDocAntEle> idDocAntEle;
 
                         /**
                          * Gets the value of the idDocAntPap property.
@@ -9740,13 +9939,13 @@ public class TCTe {
                          * 
                          * <p>
                          * Objects of the following type(s) are allowed in the list
-                         * {@link IdDocAntPap }
+                         * {@link TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt.IdDocAntPap }
                          * 
                          * 
                          */
-                        public List<IdDocAntPap> getIdDocAntPap() {
+                        public List<TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt.IdDocAntPap> getIdDocAntPap() {
                             if (idDocAntPap == null) {
-                                idDocAntPap = new ArrayList<IdDocAntPap>();
+                                idDocAntPap = new ArrayList<TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt.IdDocAntPap>();
                             }
                             return this.idDocAntPap;
                         }
@@ -9769,33 +9968,33 @@ public class TCTe {
                          * 
                          * <p>
                          * Objects of the following type(s) are allowed in the list
-                         * {@link IdDocAntEle }
+                         * {@link TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt.IdDocAntEle }
                          * 
                          * 
                          */
-                        public List<IdDocAntEle> getIdDocAntEle() {
+                        public List<TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt.IdDocAntEle> getIdDocAntEle() {
                             if (idDocAntEle == null) {
-                                idDocAntEle = new ArrayList<IdDocAntEle>();
+                                idDocAntEle = new ArrayList<TCTe.InfCte.InfCTeNorm.DocAnt.EmiDocAnt.IdDocAnt.IdDocAntEle>();
                             }
                             return this.idDocAntEle;
                         }
 
 
                         /**
-                         * <p>Java class for anonymous complex type.
+                         * <p>Classe Java de anonymous complex type.
                          * 
-                         * <p>The following schema fragment specifies the expected content contained within this class.
+                         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                          * 
                          * <pre>
-                         * &lt;complexType&gt;
-                         *   &lt;complexContent&gt;
-                         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                         *       &lt;sequence&gt;
-                         *         &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-                         *       &lt;/sequence&gt;
-                         *     &lt;/restriction&gt;
-                         *   &lt;/complexContent&gt;
-                         * &lt;/complexType&gt;
+                         * &lt;complexType>
+                         *   &lt;complexContent>
+                         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                         *       &lt;sequence>
+                         *         &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+                         *       &lt;/sequence>
+                         *     &lt;/restriction>
+                         *   &lt;/complexContent>
+                         * &lt;/complexType>
                          * </pre>
                          * 
                          * 
@@ -9806,11 +10005,11 @@ public class TCTe {
                         })
                         public static class IdDocAntEle {
 
-                            @XmlElement(required = true)
+                            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                             protected String chCTe;
 
                             /**
-                             * Gets the value of the chCTe property.
+                             * Obtém o valor da propriedade chCTe.
                              * 
                              * @return
                              *     possible object is
@@ -9822,7 +10021,7 @@ public class TCTe {
                             }
 
                             /**
-                             * Sets the value of the chCTe property.
+                             * Define o valor da propriedade chCTe.
                              * 
                              * @param value
                              *     allowed object is
@@ -9837,50 +10036,50 @@ public class TCTe {
 
 
                         /**
-                         * <p>Java class for anonymous complex type.
+                         * <p>Classe Java de anonymous complex type.
                          * 
-                         * <p>The following schema fragment specifies the expected content contained within this class.
+                         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                          * 
                          * <pre>
-                         * &lt;complexType&gt;
-                         *   &lt;complexContent&gt;
-                         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                         *       &lt;sequence&gt;
-                         *         &lt;element name="tpDoc"&gt;
-                         *           &lt;simpleType&gt;
-                         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDocAssoc"&gt;
-                         *             &lt;/restriction&gt;
-                         *           &lt;/simpleType&gt;
-                         *         &lt;/element&gt;
-                         *         &lt;element name="serie"&gt;
-                         *           &lt;simpleType&gt;
-                         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                         *               &lt;minLength value="1"/&gt;
-                         *               &lt;maxLength value="3"/&gt;
-                         *             &lt;/restriction&gt;
-                         *           &lt;/simpleType&gt;
-                         *         &lt;/element&gt;
-                         *         &lt;element name="subser" minOccurs="0"&gt;
-                         *           &lt;simpleType&gt;
-                         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                         *               &lt;minLength value="1"/&gt;
-                         *               &lt;maxLength value="2"/&gt;
-                         *             &lt;/restriction&gt;
-                         *           &lt;/simpleType&gt;
-                         *         &lt;/element&gt;
-                         *         &lt;element name="nDoc"&gt;
-                         *           &lt;simpleType&gt;
-                         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                         *               &lt;minLength value="1"/&gt;
-                         *               &lt;maxLength value="30"/&gt;
-                         *             &lt;/restriction&gt;
-                         *           &lt;/simpleType&gt;
-                         *         &lt;/element&gt;
-                         *         &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-                         *       &lt;/sequence&gt;
-                         *     &lt;/restriction&gt;
-                         *   &lt;/complexContent&gt;
-                         * &lt;/complexType&gt;
+                         * &lt;complexType>
+                         *   &lt;complexContent>
+                         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                         *       &lt;sequence>
+                         *         &lt;element name="tpDoc">
+                         *           &lt;simpleType>
+                         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TDocAssoc">
+                         *             &lt;/restriction>
+                         *           &lt;/simpleType>
+                         *         &lt;/element>
+                         *         &lt;element name="serie">
+                         *           &lt;simpleType>
+                         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                         *               &lt;minLength value="1"/>
+                         *               &lt;maxLength value="3"/>
+                         *             &lt;/restriction>
+                         *           &lt;/simpleType>
+                         *         &lt;/element>
+                         *         &lt;element name="subser" minOccurs="0">
+                         *           &lt;simpleType>
+                         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                         *               &lt;minLength value="1"/>
+                         *               &lt;maxLength value="2"/>
+                         *             &lt;/restriction>
+                         *           &lt;/simpleType>
+                         *         &lt;/element>
+                         *         &lt;element name="nDoc">
+                         *           &lt;simpleType>
+                         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                         *               &lt;minLength value="1"/>
+                         *               &lt;maxLength value="30"/>
+                         *             &lt;/restriction>
+                         *           &lt;/simpleType>
+                         *         &lt;/element>
+                         *         &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+                         *       &lt;/sequence>
+                         *     &lt;/restriction>
+                         *   &lt;/complexContent>
+                         * &lt;/complexType>
                          * </pre>
                          * 
                          * 
@@ -9895,18 +10094,19 @@ public class TCTe {
                         })
                         public static class IdDocAntPap {
 
-                            @XmlElement(required = true)
+                            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                             protected String tpDoc;
-                            @XmlElement(required = true)
+                            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                             protected String serie;
+                            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                             protected String subser;
-                            @XmlElement(required = true)
+                            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                             protected String nDoc;
-                            @XmlElement(required = true)
+                            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                             protected String dEmi;
 
                             /**
-                             * Gets the value of the tpDoc property.
+                             * Obtém o valor da propriedade tpDoc.
                              * 
                              * @return
                              *     possible object is
@@ -9918,7 +10118,7 @@ public class TCTe {
                             }
 
                             /**
-                             * Sets the value of the tpDoc property.
+                             * Define o valor da propriedade tpDoc.
                              * 
                              * @param value
                              *     allowed object is
@@ -9930,7 +10130,7 @@ public class TCTe {
                             }
 
                             /**
-                             * Gets the value of the serie property.
+                             * Obtém o valor da propriedade serie.
                              * 
                              * @return
                              *     possible object is
@@ -9942,7 +10142,7 @@ public class TCTe {
                             }
 
                             /**
-                             * Sets the value of the serie property.
+                             * Define o valor da propriedade serie.
                              * 
                              * @param value
                              *     allowed object is
@@ -9954,7 +10154,7 @@ public class TCTe {
                             }
 
                             /**
-                             * Gets the value of the subser property.
+                             * Obtém o valor da propriedade subser.
                              * 
                              * @return
                              *     possible object is
@@ -9966,7 +10166,7 @@ public class TCTe {
                             }
 
                             /**
-                             * Sets the value of the subser property.
+                             * Define o valor da propriedade subser.
                              * 
                              * @param value
                              *     allowed object is
@@ -9978,7 +10178,7 @@ public class TCTe {
                             }
 
                             /**
-                             * Gets the value of the nDoc property.
+                             * Obtém o valor da propriedade nDoc.
                              * 
                              * @return
                              *     possible object is
@@ -9990,7 +10190,7 @@ public class TCTe {
                             }
 
                             /**
-                             * Sets the value of the nDoc property.
+                             * Define o valor da propriedade nDoc.
                              * 
                              * @param value
                              *     allowed object is
@@ -10002,7 +10202,7 @@ public class TCTe {
                             }
 
                             /**
-                             * Gets the value of the dEmi property.
+                             * Obtém o valor da propriedade dEmi.
                              * 
                              * @return
                              *     possible object is
@@ -10014,7 +10214,7 @@ public class TCTe {
                             }
 
                             /**
-                             * Sets the value of the dEmi property.
+                             * Define o valor da propriedade dEmi.
                              * 
                              * @param value
                              *     allowed object is
@@ -10035,69 +10235,69 @@ public class TCTe {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="vCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/&gt;
-             *         &lt;element name="proPred"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *               &lt;minLength value="1"/&gt;
-             *               &lt;maxLength value="60"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *         &lt;element name="xOutCat" minOccurs="0"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *               &lt;minLength value="1"/&gt;
-             *               &lt;maxLength value="30"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *         &lt;element name="infQ" maxOccurs="unbounded"&gt;
-             *           &lt;complexType&gt;
-             *             &lt;complexContent&gt;
-             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                 &lt;sequence&gt;
-             *                   &lt;element name="cUnid"&gt;
-             *                     &lt;simpleType&gt;
-             *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *                         &lt;whiteSpace value="preserve"/&gt;
-             *                         &lt;enumeration value="00"/&gt;
-             *                         &lt;enumeration value="01"/&gt;
-             *                         &lt;enumeration value="02"/&gt;
-             *                         &lt;enumeration value="03"/&gt;
-             *                         &lt;enumeration value="04"/&gt;
-             *                         &lt;enumeration value="05"/&gt;
-             *                       &lt;/restriction&gt;
-             *                     &lt;/simpleType&gt;
-             *                   &lt;/element&gt;
-             *                   &lt;element name="tpMed"&gt;
-             *                     &lt;simpleType&gt;
-             *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                         &lt;minLength value="1"/&gt;
-             *                         &lt;maxLength value="20"/&gt;
-             *                       &lt;/restriction&gt;
-             *                     &lt;/simpleType&gt;
-             *                   &lt;/element&gt;
-             *                   &lt;element name="qCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1104"/&gt;
-             *                 &lt;/sequence&gt;
-             *               &lt;/restriction&gt;
-             *             &lt;/complexContent&gt;
-             *           &lt;/complexType&gt;
-             *         &lt;/element&gt;
-             *         &lt;element name="vCargaAverb" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="vCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
+             *         &lt;element name="proPred">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *               &lt;minLength value="1"/>
+             *               &lt;maxLength value="60"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *         &lt;element name="xOutCat" minOccurs="0">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *               &lt;minLength value="1"/>
+             *               &lt;maxLength value="30"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *         &lt;element name="infQ" maxOccurs="unbounded">
+             *           &lt;complexType>
+             *             &lt;complexContent>
+             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                 &lt;sequence>
+             *                   &lt;element name="cUnid">
+             *                     &lt;simpleType>
+             *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *                         &lt;whiteSpace value="preserve"/>
+             *                         &lt;enumeration value="00"/>
+             *                         &lt;enumeration value="01"/>
+             *                         &lt;enumeration value="02"/>
+             *                         &lt;enumeration value="03"/>
+             *                         &lt;enumeration value="04"/>
+             *                         &lt;enumeration value="05"/>
+             *                       &lt;/restriction>
+             *                     &lt;/simpleType>
+             *                   &lt;/element>
+             *                   &lt;element name="tpMed">
+             *                     &lt;simpleType>
+             *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                         &lt;minLength value="1"/>
+             *                         &lt;maxLength value="20"/>
+             *                       &lt;/restriction>
+             *                     &lt;/simpleType>
+             *                   &lt;/element>
+             *                   &lt;element name="qCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1104"/>
+             *                 &lt;/sequence>
+             *               &lt;/restriction>
+             *             &lt;/complexContent>
+             *           &lt;/complexType>
+             *         &lt;/element>
+             *         &lt;element name="vCargaAverb" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -10112,16 +10312,19 @@ public class TCTe {
             })
             public static class InfCarga {
 
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String vCarga;
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String proPred;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String xOutCat;
-                @XmlElement(required = true)
-                protected List<InfQ> infQ;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+                protected List<TCTe.InfCte.InfCTeNorm.InfCarga.InfQ> infQ;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String vCargaAverb;
 
                 /**
-                 * Gets the value of the vCarga property.
+                 * Obtém o valor da propriedade vCarga.
                  * 
                  * @return
                  *     possible object is
@@ -10133,7 +10336,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the vCarga property.
+                 * Define o valor da propriedade vCarga.
                  * 
                  * @param value
                  *     allowed object is
@@ -10145,7 +10348,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the proPred property.
+                 * Obtém o valor da propriedade proPred.
                  * 
                  * @return
                  *     possible object is
@@ -10157,7 +10360,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the proPred property.
+                 * Define o valor da propriedade proPred.
                  * 
                  * @param value
                  *     allowed object is
@@ -10169,7 +10372,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the xOutCat property.
+                 * Obtém o valor da propriedade xOutCat.
                  * 
                  * @return
                  *     possible object is
@@ -10181,7 +10384,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the xOutCat property.
+                 * Define o valor da propriedade xOutCat.
                  * 
                  * @param value
                  *     allowed object is
@@ -10210,19 +10413,19 @@ public class TCTe {
                  * 
                  * <p>
                  * Objects of the following type(s) are allowed in the list
-                 * {@link InfQ }
+                 * {@link TCTe.InfCte.InfCTeNorm.InfCarga.InfQ }
                  * 
                  * 
                  */
-                public List<InfQ> getInfQ() {
+                public List<TCTe.InfCte.InfCTeNorm.InfCarga.InfQ> getInfQ() {
                     if (infQ == null) {
-                        infQ = new ArrayList<InfQ>();
+                        infQ = new ArrayList<TCTe.InfCte.InfCTeNorm.InfCarga.InfQ>();
                     }
                     return this.infQ;
                 }
 
                 /**
-                 * Gets the value of the vCargaAverb property.
+                 * Obtém o valor da propriedade vCargaAverb.
                  * 
                  * @return
                  *     possible object is
@@ -10234,7 +10437,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the vCargaAverb property.
+                 * Define o valor da propriedade vCargaAverb.
                  * 
                  * @param value
                  *     allowed object is
@@ -10247,41 +10450,41 @@ public class TCTe {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="cUnid"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-                 *               &lt;whiteSpace value="preserve"/&gt;
-                 *               &lt;enumeration value="00"/&gt;
-                 *               &lt;enumeration value="01"/&gt;
-                 *               &lt;enumeration value="02"/&gt;
-                 *               &lt;enumeration value="03"/&gt;
-                 *               &lt;enumeration value="04"/&gt;
-                 *               &lt;enumeration value="05"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="tpMed"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                 *               &lt;minLength value="1"/&gt;
-                 *               &lt;maxLength value="20"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="qCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1104"/&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="cUnid">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+                 *               &lt;whiteSpace value="preserve"/>
+                 *               &lt;enumeration value="00"/>
+                 *               &lt;enumeration value="01"/>
+                 *               &lt;enumeration value="02"/>
+                 *               &lt;enumeration value="03"/>
+                 *               &lt;enumeration value="04"/>
+                 *               &lt;enumeration value="05"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="tpMed">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                 *               &lt;minLength value="1"/>
+                 *               &lt;maxLength value="20"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="qCarga" type="{http://www.portalfiscal.inf.br/cte}TDec_1104"/>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -10294,15 +10497,15 @@ public class TCTe {
                 })
                 public static class InfQ {
 
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String cUnid;
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String tpMed;
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String qCarga;
 
                     /**
-                     * Gets the value of the cUnid property.
+                     * Obtém o valor da propriedade cUnid.
                      * 
                      * @return
                      *     possible object is
@@ -10314,7 +10517,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the cUnid property.
+                     * Define o valor da propriedade cUnid.
                      * 
                      * @param value
                      *     allowed object is
@@ -10326,7 +10529,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the tpMed property.
+                     * Obtém o valor da propriedade tpMed.
                      * 
                      * @return
                      *     possible object is
@@ -10338,7 +10541,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the tpMed property.
+                     * Define o valor da propriedade tpMed.
                      * 
                      * @param value
                      *     allowed object is
@@ -10350,7 +10553,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the qCarga property.
+                     * Obtém o valor da propriedade qCarga.
                      * 
                      * @return
                      *     possible object is
@@ -10362,7 +10565,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the qCarga property.
+                     * Define o valor da propriedade qCarga.
                      * 
                      * @param value
                      *     allowed object is
@@ -10379,33 +10582,33 @@ public class TCTe {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="chCte"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *               &lt;pattern value="[0-9]{44}"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *         &lt;element name="indAlteraToma" minOccurs="0"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *               &lt;enumeration value="1"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="chCte">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *               &lt;pattern value="[0-9]{44}"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *         &lt;element name="indAlteraToma" minOccurs="0">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *               &lt;enumeration value="1"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -10417,12 +10620,13 @@ public class TCTe {
             })
             public static class InfCteSub {
 
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String chCte;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                 protected String indAlteraToma;
 
                 /**
-                 * Gets the value of the chCte property.
+                 * Obtém o valor da propriedade chCte.
                  * 
                  * @return
                  *     possible object is
@@ -10434,7 +10638,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the chCte property.
+                 * Define o valor da propriedade chCte.
                  * 
                  * @param value
                  *     allowed object is
@@ -10446,7 +10650,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the indAlteraToma property.
+                 * Obtém o valor da propriedade indAlteraToma.
                  * 
                  * @return
                  *     possible object is
@@ -10458,7 +10662,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the indAlteraToma property.
+                 * Define o valor da propriedade indAlteraToma.
                  * 
                  * @param value
                  *     allowed object is
@@ -10473,159 +10677,170 @@ public class TCTe {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;choice&gt;
-             *           &lt;element name="infNF" maxOccurs="unbounded"&gt;
-             *             &lt;complexType&gt;
-             *               &lt;complexContent&gt;
-             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                   &lt;sequence&gt;
-             *                     &lt;element name="nRoma" minOccurs="0"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                           &lt;minLength value="1"/&gt;
-             *                           &lt;maxLength value="20"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                     &lt;element name="nPed" minOccurs="0"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                           &lt;minLength value="1"/&gt;
-             *                           &lt;maxLength value="20"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                     &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModNF"/&gt;
-             *                     &lt;element name="serie"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                           &lt;minLength value="1"/&gt;
-             *                           &lt;maxLength value="3"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                     &lt;element name="nDoc"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                           &lt;minLength value="1"/&gt;
-             *                           &lt;maxLength value="20"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                     &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-             *                     &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-             *                     &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-             *                     &lt;element name="vBCST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-             *                     &lt;element name="vST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-             *                     &lt;element name="vProd" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-             *                     &lt;element name="vNF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-             *                     &lt;element name="nCFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/&gt;
-             *                     &lt;element name="nPeso" type="{http://www.portalfiscal.inf.br/cte}TDec_1203Opc" minOccurs="0"/&gt;
-             *                     &lt;element name="PIN" minOccurs="0"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *                           &lt;whiteSpace value="preserve"/&gt;
-             *                           &lt;minLength value="2"/&gt;
-             *                           &lt;maxLength value="9"/&gt;
-             *                           &lt;pattern value="[1-9]{1}[0-9]{1,8}"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                     &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-             *                     &lt;choice&gt;
-             *                       &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
-             *                       &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
-             *                     &lt;/choice&gt;
-             *                   &lt;/sequence&gt;
-             *                 &lt;/restriction&gt;
-             *               &lt;/complexContent&gt;
-             *             &lt;/complexType&gt;
-             *           &lt;/element&gt;
-             *           &lt;element name="infNFe" maxOccurs="unbounded"&gt;
-             *             &lt;complexType&gt;
-             *               &lt;complexContent&gt;
-             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                   &lt;sequence&gt;
-             *                     &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-             *                     &lt;element name="PIN" minOccurs="0"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *                           &lt;whiteSpace value="preserve"/&gt;
-             *                           &lt;minLength value="2"/&gt;
-             *                           &lt;maxLength value="9"/&gt;
-             *                           &lt;pattern value="[1-9]{1}[0-9]{1,8}"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                     &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-             *                     &lt;choice&gt;
-             *                       &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
-             *                       &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
-             *                     &lt;/choice&gt;
-             *                   &lt;/sequence&gt;
-             *                 &lt;/restriction&gt;
-             *               &lt;/complexContent&gt;
-             *             &lt;/complexType&gt;
-             *           &lt;/element&gt;
-             *           &lt;element name="infOutros" maxOccurs="unbounded"&gt;
-             *             &lt;complexType&gt;
-             *               &lt;complexContent&gt;
-             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                   &lt;sequence&gt;
-             *                     &lt;element name="tpDoc"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *                           &lt;whiteSpace value="preserve"/&gt;
-             *                           &lt;enumeration value="00"/&gt;
-             *                           &lt;enumeration value="10"/&gt;
-             *                           &lt;enumeration value="59"/&gt;
-             *                           &lt;enumeration value="65"/&gt;
-             *                           &lt;enumeration value="99"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                     &lt;element name="descOutros" minOccurs="0"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                           &lt;minLength value="1"/&gt;
-             *                           &lt;maxLength value="100"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                     &lt;element name="nDoc" minOccurs="0"&gt;
-             *                       &lt;simpleType&gt;
-             *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *                           &lt;minLength value="1"/&gt;
-             *                           &lt;maxLength value="20"/&gt;
-             *                         &lt;/restriction&gt;
-             *                       &lt;/simpleType&gt;
-             *                     &lt;/element&gt;
-             *                     &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-             *                     &lt;element name="vDocFisc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-             *                     &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-             *                     &lt;choice&gt;
-             *                       &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
-             *                       &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
-             *                     &lt;/choice&gt;
-             *                   &lt;/sequence&gt;
-             *                 &lt;/restriction&gt;
-             *               &lt;/complexContent&gt;
-             *             &lt;/complexType&gt;
-             *           &lt;/element&gt;
-             *         &lt;/choice&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;choice>
+             *           &lt;element name="infNF" maxOccurs="unbounded">
+             *             &lt;complexType>
+             *               &lt;complexContent>
+             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                   &lt;sequence>
+             *                     &lt;element name="nRoma" minOccurs="0">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                           &lt;minLength value="1"/>
+             *                           &lt;maxLength value="20"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                     &lt;element name="nPed" minOccurs="0">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                           &lt;minLength value="1"/>
+             *                           &lt;maxLength value="20"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                     &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModNF"/>
+             *                     &lt;element name="serie">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                           &lt;minLength value="1"/>
+             *                           &lt;maxLength value="3"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                     &lt;element name="nDoc">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                           &lt;minLength value="1"/>
+             *                           &lt;maxLength value="20"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                     &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+             *                     &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+             *                     &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+             *                     &lt;element name="vBCST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+             *                     &lt;element name="vST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+             *                     &lt;element name="vProd" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+             *                     &lt;element name="vNF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+             *                     &lt;element name="nCFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/>
+             *                     &lt;element name="nPeso" type="{http://www.portalfiscal.inf.br/cte}TDec_1203Opc" minOccurs="0"/>
+             *                     &lt;element name="PIN" minOccurs="0">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *                           &lt;whiteSpace value="preserve"/>
+             *                           &lt;minLength value="2"/>
+             *                           &lt;maxLength value="9"/>
+             *                           &lt;pattern value="[1-9]{1}[0-9]{1,8}"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                     &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+             *                     &lt;choice>
+             *                       &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+             *                       &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+             *                     &lt;/choice>
+             *                   &lt;/sequence>
+             *                 &lt;/restriction>
+             *               &lt;/complexContent>
+             *             &lt;/complexType>
+             *           &lt;/element>
+             *           &lt;element name="infNFe" maxOccurs="unbounded">
+             *             &lt;complexType>
+             *               &lt;complexContent>
+             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                   &lt;sequence>
+             *                     &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+             *                     &lt;element name="PIN" minOccurs="0">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *                           &lt;whiteSpace value="preserve"/>
+             *                           &lt;minLength value="2"/>
+             *                           &lt;maxLength value="9"/>
+             *                           &lt;pattern value="[1-9]{1}[0-9]{1,8}"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                     &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+             *                     &lt;choice>
+             *                       &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+             *                       &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+             *                     &lt;/choice>
+             *                   &lt;/sequence>
+             *                 &lt;/restriction>
+             *               &lt;/complexContent>
+             *             &lt;/complexType>
+             *           &lt;/element>
+             *           &lt;element name="infOutros" maxOccurs="unbounded">
+             *             &lt;complexType>
+             *               &lt;complexContent>
+             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                   &lt;sequence>
+             *                     &lt;element name="tpDoc">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *                           &lt;whiteSpace value="preserve"/>
+             *                           &lt;enumeration value="00"/>
+             *                           &lt;enumeration value="10"/>
+             *                           &lt;enumeration value="59"/>
+             *                           &lt;enumeration value="65"/>
+             *                           &lt;enumeration value="99"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                     &lt;element name="descOutros" minOccurs="0">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                           &lt;minLength value="1"/>
+             *                           &lt;maxLength value="100"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                     &lt;element name="nDoc" minOccurs="0">
+             *                       &lt;simpleType>
+             *                         &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *                           &lt;minLength value="1"/>
+             *                           &lt;maxLength value="20"/>
+             *                         &lt;/restriction>
+             *                       &lt;/simpleType>
+             *                     &lt;/element>
+             *                     &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+             *                     &lt;element name="vDocFisc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+             *                     &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+             *                     &lt;choice>
+             *                       &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+             *                       &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+             *                     &lt;/choice>
+             *                   &lt;/sequence>
+             *                 &lt;/restriction>
+             *               &lt;/complexContent>
+             *             &lt;/complexType>
+             *           &lt;/element>
+             *           &lt;element name="infDCe" maxOccurs="unbounded">
+             *             &lt;complexType>
+             *               &lt;complexContent>
+             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                   &lt;sequence>
+             *                     &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+             *                   &lt;/sequence>
+             *                 &lt;/restriction>
+             *               &lt;/complexContent>
+             *             &lt;/complexType>
+             *           &lt;/element>
+             *         &lt;/choice>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -10634,13 +10849,19 @@ public class TCTe {
             @XmlType(name = "", propOrder = {
                 "infNF",
                 "infNFe",
-                "infOutros"
+                "infOutros",
+                "infDCe"
             })
             public static class InfDoc {
 
-                protected List<InfNF> infNF;
-                protected List<InfNFe> infNFe;
-                protected List<InfOutros> infOutros;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                protected List<TCTe.InfCte.InfCTeNorm.InfDoc.InfNF> infNF;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                protected List<TCTe.InfCte.InfCTeNorm.InfDoc.InfNFe> infNFe;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                protected List<TCTe.InfCte.InfCTeNorm.InfDoc.InfOutros> infOutros;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                protected List<TCTe.InfCte.InfCTeNorm.InfDoc.InfDCe> infDCe;
 
                 /**
                  * Gets the value of the infNF property.
@@ -10660,13 +10881,13 @@ public class TCTe {
                  * 
                  * <p>
                  * Objects of the following type(s) are allowed in the list
-                 * {@link InfNF }
+                 * {@link TCTe.InfCte.InfCTeNorm.InfDoc.InfNF }
                  * 
                  * 
                  */
-                public List<InfNF> getInfNF() {
+                public List<TCTe.InfCte.InfCTeNorm.InfDoc.InfNF> getInfNF() {
                     if (infNF == null) {
-                        infNF = new ArrayList<InfNF>();
+                        infNF = new ArrayList<TCTe.InfCte.InfCTeNorm.InfDoc.InfNF>();
                     }
                     return this.infNF;
                 }
@@ -10689,13 +10910,13 @@ public class TCTe {
                  * 
                  * <p>
                  * Objects of the following type(s) are allowed in the list
-                 * {@link InfNFe }
+                 * {@link TCTe.InfCte.InfCTeNorm.InfDoc.InfNFe }
                  * 
                  * 
                  */
-                public List<InfNFe> getInfNFe() {
+                public List<TCTe.InfCte.InfCTeNorm.InfDoc.InfNFe> getInfNFe() {
                     if (infNFe == null) {
-                        infNFe = new ArrayList<InfNFe>();
+                        infNFe = new ArrayList<TCTe.InfCte.InfCTeNorm.InfDoc.InfNFe>();
                     }
                     return this.infNFe;
                 }
@@ -10718,89 +10939,173 @@ public class TCTe {
                  * 
                  * <p>
                  * Objects of the following type(s) are allowed in the list
-                 * {@link InfOutros }
+                 * {@link TCTe.InfCte.InfCTeNorm.InfDoc.InfOutros }
                  * 
                  * 
                  */
-                public List<InfOutros> getInfOutros() {
+                public List<TCTe.InfCte.InfCTeNorm.InfDoc.InfOutros> getInfOutros() {
                     if (infOutros == null) {
-                        infOutros = new ArrayList<InfOutros>();
+                        infOutros = new ArrayList<TCTe.InfCte.InfCTeNorm.InfDoc.InfOutros>();
                     }
                     return this.infOutros;
                 }
 
+                /**
+                 * Gets the value of the infDCe property.
+                 * 
+                 * <p>
+                 * This accessor method returns a reference to the live list,
+                 * not a snapshot. Therefore any modification you make to the
+                 * returned list will be present inside the JAXB object.
+                 * This is why there is not a <CODE>set</CODE> method for the infDCe property.
+                 * 
+                 * <p>
+                 * For example, to add a new item, do as follows:
+                 * <pre>
+                 *    getInfDCe().add(newItem);
+                 * </pre>
+                 * 
+                 * 
+                 * <p>
+                 * Objects of the following type(s) are allowed in the list
+                 * {@link TCTe.InfCte.InfCTeNorm.InfDoc.InfDCe }
+                 * 
+                 * 
+                 */
+                public List<TCTe.InfCte.InfCTeNorm.InfDoc.InfDCe> getInfDCe() {
+                    if (infDCe == null) {
+                        infDCe = new ArrayList<TCTe.InfCte.InfCTeNorm.InfDoc.InfDCe>();
+                    }
+                    return this.infDCe;
+                }
+
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="nRoma" minOccurs="0"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                 *               &lt;minLength value="1"/&gt;
-                 *               &lt;maxLength value="20"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="nPed" minOccurs="0"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                 *               &lt;minLength value="1"/&gt;
-                 *               &lt;maxLength value="20"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModNF"/&gt;
-                 *         &lt;element name="serie"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                 *               &lt;minLength value="1"/&gt;
-                 *               &lt;maxLength value="3"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="nDoc"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                 *               &lt;minLength value="1"/&gt;
-                 *               &lt;maxLength value="20"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/&gt;
-                 *         &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-                 *         &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-                 *         &lt;element name="vBCST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-                 *         &lt;element name="vST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-                 *         &lt;element name="vProd" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-                 *         &lt;element name="vNF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-                 *         &lt;element name="nCFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/&gt;
-                 *         &lt;element name="nPeso" type="{http://www.portalfiscal.inf.br/cte}TDec_1203Opc" minOccurs="0"/&gt;
-                 *         &lt;element name="PIN" minOccurs="0"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-                 *               &lt;whiteSpace value="preserve"/&gt;
-                 *               &lt;minLength value="2"/&gt;
-                 *               &lt;maxLength value="9"/&gt;
-                 *               &lt;pattern value="[1-9]{1}[0-9]{1,8}"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-                 *         &lt;choice&gt;
-                 *           &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
-                 *           &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
-                 *         &lt;/choice&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
+                 * </pre>
+                 * 
+                 * 
+                 */
+                @XmlAccessorType(XmlAccessType.FIELD)
+                @XmlType(name = "", propOrder = {
+                    "chave"
+                })
+                public static class InfDCe {
+
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+                    protected String chave;
+
+                    /**
+                     * Obtém o valor da propriedade chave.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link String }
+                     *     
+                     */
+                    public String getChave() {
+                        return chave;
+                    }
+
+                    /**
+                     * Define o valor da propriedade chave.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link String }
+                     *     
+                     */
+                    public void setChave(String value) {
+                        this.chave = value;
+                    }
+
+                }
+
+
+                /**
+                 * <p>Classe Java de anonymous complex type.
+                 * 
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+                 * 
+                 * <pre>
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="nRoma" minOccurs="0">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                 *               &lt;minLength value="1"/>
+                 *               &lt;maxLength value="20"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="nPed" minOccurs="0">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                 *               &lt;minLength value="1"/>
+                 *               &lt;maxLength value="20"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="mod" type="{http://www.portalfiscal.inf.br/cte}TModNF"/>
+                 *         &lt;element name="serie">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                 *               &lt;minLength value="1"/>
+                 *               &lt;maxLength value="3"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="nDoc">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                 *               &lt;minLength value="1"/>
+                 *               &lt;maxLength value="20"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData"/>
+                 *         &lt;element name="vBC" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+                 *         &lt;element name="vICMS" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+                 *         &lt;element name="vBCST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+                 *         &lt;element name="vST" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+                 *         &lt;element name="vProd" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+                 *         &lt;element name="vNF" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+                 *         &lt;element name="nCFOP" type="{http://www.portalfiscal.inf.br/cte}TCfop"/>
+                 *         &lt;element name="nPeso" type="{http://www.portalfiscal.inf.br/cte}TDec_1203Opc" minOccurs="0"/>
+                 *         &lt;element name="PIN" minOccurs="0">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+                 *               &lt;whiteSpace value="preserve"/>
+                 *               &lt;minLength value="2"/>
+                 *               &lt;maxLength value="9"/>
+                 *               &lt;pattern value="[1-9]{1}[0-9]{1,8}"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+                 *         &lt;choice>
+                 *           &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+                 *           &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+                 *         &lt;/choice>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -10828,39 +11133,45 @@ public class TCTe {
                 })
                 public static class InfNF {
 
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String nRoma;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String nPed;
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String mod;
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String serie;
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String nDoc;
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String dEmi;
-                    @XmlElement(name = "vBC", required = true)
+                    @XmlElement(name = "vBC", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String vbc;
-                    @XmlElement(name = "vICMS", required = true)
+                    @XmlElement(name = "vICMS", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String vicms;
-                    @XmlElement(name = "vBCST", required = true)
+                    @XmlElement(name = "vBCST", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String vbcst;
-                    @XmlElement(name = "vST", required = true)
+                    @XmlElement(name = "vST", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String vst;
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String vProd;
-                    @XmlElement(name = "vNF", required = true)
+                    @XmlElement(name = "vNF", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String vnf;
-                    @XmlElement(name = "nCFOP", required = true)
+                    @XmlElement(name = "nCFOP", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String ncfop;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String nPeso;
-                    @XmlElement(name = "PIN")
+                    @XmlElement(name = "PIN", namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String pin;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String dPrev;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected List<TUnidCarga> infUnidCarga;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected List<TUnidadeTransp> infUnidTransp;
 
                     /**
-                     * Gets the value of the nRoma property.
+                     * Obtém o valor da propriedade nRoma.
                      * 
                      * @return
                      *     possible object is
@@ -10872,7 +11183,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the nRoma property.
+                     * Define o valor da propriedade nRoma.
                      * 
                      * @param value
                      *     allowed object is
@@ -10884,7 +11195,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the nPed property.
+                     * Obtém o valor da propriedade nPed.
                      * 
                      * @return
                      *     possible object is
@@ -10896,7 +11207,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the nPed property.
+                     * Define o valor da propriedade nPed.
                      * 
                      * @param value
                      *     allowed object is
@@ -10908,7 +11219,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the mod property.
+                     * Obtém o valor da propriedade mod.
                      * 
                      * @return
                      *     possible object is
@@ -10920,7 +11231,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the mod property.
+                     * Define o valor da propriedade mod.
                      * 
                      * @param value
                      *     allowed object is
@@ -10932,7 +11243,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the serie property.
+                     * Obtém o valor da propriedade serie.
                      * 
                      * @return
                      *     possible object is
@@ -10944,7 +11255,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the serie property.
+                     * Define o valor da propriedade serie.
                      * 
                      * @param value
                      *     allowed object is
@@ -10956,7 +11267,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the nDoc property.
+                     * Obtém o valor da propriedade nDoc.
                      * 
                      * @return
                      *     possible object is
@@ -10968,7 +11279,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the nDoc property.
+                     * Define o valor da propriedade nDoc.
                      * 
                      * @param value
                      *     allowed object is
@@ -10980,7 +11291,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the dEmi property.
+                     * Obtém o valor da propriedade dEmi.
                      * 
                      * @return
                      *     possible object is
@@ -10992,7 +11303,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the dEmi property.
+                     * Define o valor da propriedade dEmi.
                      * 
                      * @param value
                      *     allowed object is
@@ -11004,7 +11315,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the vbc property.
+                     * Obtém o valor da propriedade vbc.
                      * 
                      * @return
                      *     possible object is
@@ -11016,7 +11327,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the vbc property.
+                     * Define o valor da propriedade vbc.
                      * 
                      * @param value
                      *     allowed object is
@@ -11028,7 +11339,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the vicms property.
+                     * Obtém o valor da propriedade vicms.
                      * 
                      * @return
                      *     possible object is
@@ -11040,7 +11351,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the vicms property.
+                     * Define o valor da propriedade vicms.
                      * 
                      * @param value
                      *     allowed object is
@@ -11052,7 +11363,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the vbcst property.
+                     * Obtém o valor da propriedade vbcst.
                      * 
                      * @return
                      *     possible object is
@@ -11064,7 +11375,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the vbcst property.
+                     * Define o valor da propriedade vbcst.
                      * 
                      * @param value
                      *     allowed object is
@@ -11076,7 +11387,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the vst property.
+                     * Obtém o valor da propriedade vst.
                      * 
                      * @return
                      *     possible object is
@@ -11088,7 +11399,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the vst property.
+                     * Define o valor da propriedade vst.
                      * 
                      * @param value
                      *     allowed object is
@@ -11100,7 +11411,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the vProd property.
+                     * Obtém o valor da propriedade vProd.
                      * 
                      * @return
                      *     possible object is
@@ -11112,7 +11423,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the vProd property.
+                     * Define o valor da propriedade vProd.
                      * 
                      * @param value
                      *     allowed object is
@@ -11124,7 +11435,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the vnf property.
+                     * Obtém o valor da propriedade vnf.
                      * 
                      * @return
                      *     possible object is
@@ -11136,7 +11447,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the vnf property.
+                     * Define o valor da propriedade vnf.
                      * 
                      * @param value
                      *     allowed object is
@@ -11148,7 +11459,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the ncfop property.
+                     * Obtém o valor da propriedade ncfop.
                      * 
                      * @return
                      *     possible object is
@@ -11160,7 +11471,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the ncfop property.
+                     * Define o valor da propriedade ncfop.
                      * 
                      * @param value
                      *     allowed object is
@@ -11172,7 +11483,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the nPeso property.
+                     * Obtém o valor da propriedade nPeso.
                      * 
                      * @return
                      *     possible object is
@@ -11184,7 +11495,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the nPeso property.
+                     * Define o valor da propriedade nPeso.
                      * 
                      * @param value
                      *     allowed object is
@@ -11196,7 +11507,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the pin property.
+                     * Obtém o valor da propriedade pin.
                      * 
                      * @return
                      *     possible object is
@@ -11208,7 +11519,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the pin property.
+                     * Define o valor da propriedade pin.
                      * 
                      * @param value
                      *     allowed object is
@@ -11220,7 +11531,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the dPrev property.
+                     * Obtém o valor da propriedade dPrev.
                      * 
                      * @return
                      *     possible object is
@@ -11232,7 +11543,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the dPrev property.
+                     * Define o valor da propriedade dPrev.
                      * 
                      * @param value
                      *     allowed object is
@@ -11305,35 +11616,35 @@ public class TCTe {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-                 *         &lt;element name="PIN" minOccurs="0"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-                 *               &lt;whiteSpace value="preserve"/&gt;
-                 *               &lt;minLength value="2"/&gt;
-                 *               &lt;maxLength value="9"/&gt;
-                 *               &lt;pattern value="[1-9]{1}[0-9]{1,8}"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-                 *         &lt;choice&gt;
-                 *           &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
-                 *           &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
-                 *         &lt;/choice&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+                 *         &lt;element name="PIN" minOccurs="0">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+                 *               &lt;whiteSpace value="preserve"/>
+                 *               &lt;minLength value="2"/>
+                 *               &lt;maxLength value="9"/>
+                 *               &lt;pattern value="[1-9]{1}[0-9]{1,8}"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+                 *         &lt;choice>
+                 *           &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+                 *           &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+                 *         &lt;/choice>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -11348,16 +11659,19 @@ public class TCTe {
                 })
                 public static class InfNFe {
 
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String chave;
-                    @XmlElement(name = "PIN")
+                    @XmlElement(name = "PIN", namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String pin;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String dPrev;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected List<TUnidCarga> infUnidCarga;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected List<TUnidadeTransp> infUnidTransp;
 
                     /**
-                     * Gets the value of the chave property.
+                     * Obtém o valor da propriedade chave.
                      * 
                      * @return
                      *     possible object is
@@ -11369,7 +11683,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the chave property.
+                     * Define o valor da propriedade chave.
                      * 
                      * @param value
                      *     allowed object is
@@ -11381,7 +11695,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the pin property.
+                     * Obtém o valor da propriedade pin.
                      * 
                      * @return
                      *     possible object is
@@ -11393,7 +11707,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the pin property.
+                     * Define o valor da propriedade pin.
                      * 
                      * @param value
                      *     allowed object is
@@ -11405,7 +11719,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the dPrev property.
+                     * Obtém o valor da propriedade dPrev.
                      * 
                      * @return
                      *     possible object is
@@ -11417,7 +11731,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the dPrev property.
+                     * Define o valor da propriedade dPrev.
                      * 
                      * @param value
                      *     allowed object is
@@ -11490,54 +11804,54 @@ public class TCTe {
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="tpDoc"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-                 *               &lt;whiteSpace value="preserve"/&gt;
-                 *               &lt;enumeration value="00"/&gt;
-                 *               &lt;enumeration value="10"/&gt;
-                 *               &lt;enumeration value="59"/&gt;
-                 *               &lt;enumeration value="65"/&gt;
-                 *               &lt;enumeration value="99"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="descOutros" minOccurs="0"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                 *               &lt;minLength value="1"/&gt;
-                 *               &lt;maxLength value="100"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="nDoc" minOccurs="0"&gt;
-                 *           &lt;simpleType&gt;
-                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-                 *               &lt;minLength value="1"/&gt;
-                 *               &lt;maxLength value="20"/&gt;
-                 *             &lt;/restriction&gt;
-                 *           &lt;/simpleType&gt;
-                 *         &lt;/element&gt;
-                 *         &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-                 *         &lt;element name="vDocFisc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/&gt;
-                 *         &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/&gt;
-                 *         &lt;choice&gt;
-                 *           &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
-                 *           &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/&gt;
-                 *         &lt;/choice&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="tpDoc">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+                 *               &lt;whiteSpace value="preserve"/>
+                 *               &lt;enumeration value="00"/>
+                 *               &lt;enumeration value="10"/>
+                 *               &lt;enumeration value="59"/>
+                 *               &lt;enumeration value="65"/>
+                 *               &lt;enumeration value="99"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="descOutros" minOccurs="0">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                 *               &lt;minLength value="1"/>
+                 *               &lt;maxLength value="100"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="nDoc" minOccurs="0">
+                 *           &lt;simpleType>
+                 *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+                 *               &lt;minLength value="1"/>
+                 *               &lt;maxLength value="20"/>
+                 *             &lt;/restriction>
+                 *           &lt;/simpleType>
+                 *         &lt;/element>
+                 *         &lt;element name="dEmi" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+                 *         &lt;element name="vDocFisc" type="{http://www.portalfiscal.inf.br/cte}TDec_1302Opc" minOccurs="0"/>
+                 *         &lt;element name="dPrev" type="{http://www.portalfiscal.inf.br/cte}TData" minOccurs="0"/>
+                 *         &lt;choice>
+                 *           &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+                 *           &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
+                 *         &lt;/choice>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -11555,18 +11869,25 @@ public class TCTe {
                 })
                 public static class InfOutros {
 
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String tpDoc;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String descOutros;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String nDoc;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String dEmi;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String vDocFisc;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected String dPrev;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected List<TUnidCarga> infUnidCarga;
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                     protected List<TUnidadeTransp> infUnidTransp;
 
                     /**
-                     * Gets the value of the tpDoc property.
+                     * Obtém o valor da propriedade tpDoc.
                      * 
                      * @return
                      *     possible object is
@@ -11578,7 +11899,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the tpDoc property.
+                     * Define o valor da propriedade tpDoc.
                      * 
                      * @param value
                      *     allowed object is
@@ -11590,7 +11911,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the descOutros property.
+                     * Obtém o valor da propriedade descOutros.
                      * 
                      * @return
                      *     possible object is
@@ -11602,7 +11923,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the descOutros property.
+                     * Define o valor da propriedade descOutros.
                      * 
                      * @param value
                      *     allowed object is
@@ -11614,7 +11935,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the nDoc property.
+                     * Obtém o valor da propriedade nDoc.
                      * 
                      * @return
                      *     possible object is
@@ -11626,7 +11947,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the nDoc property.
+                     * Define o valor da propriedade nDoc.
                      * 
                      * @param value
                      *     allowed object is
@@ -11638,7 +11959,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the dEmi property.
+                     * Obtém o valor da propriedade dEmi.
                      * 
                      * @return
                      *     possible object is
@@ -11650,7 +11971,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the dEmi property.
+                     * Define o valor da propriedade dEmi.
                      * 
                      * @param value
                      *     allowed object is
@@ -11662,7 +11983,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the vDocFisc property.
+                     * Obtém o valor da propriedade vDocFisc.
                      * 
                      * @return
                      *     possible object is
@@ -11674,7 +11995,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the vDocFisc property.
+                     * Define o valor da propriedade vDocFisc.
                      * 
                      * @param value
                      *     allowed object is
@@ -11686,7 +12007,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Gets the value of the dPrev property.
+                     * Obtém o valor da propriedade dPrev.
                      * 
                      * @return
                      *     possible object is
@@ -11698,7 +12019,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the dPrev property.
+                     * Define o valor da propriedade dPrev.
                      * 
                      * @param value
                      *     allowed object is
@@ -11773,27 +12094,27 @@ public class TCTe {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="xObs"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *               &lt;minLength value="15"/&gt;
-             *               &lt;maxLength value="256"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="xObs">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *               &lt;minLength value="15"/>
+             *               &lt;maxLength value="256"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -11804,11 +12125,11 @@ public class TCTe {
             })
             public static class InfGlobalizado {
 
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String xObs;
 
                 /**
-                 * Gets the value of the xObs property.
+                 * Obtém o valor da propriedade xObs.
                  * 
                  * @return
                  *     possible object is
@@ -11820,7 +12141,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the xObs property.
+                 * Define o valor da propriedade xObs.
                  * 
                  * @param value
                  *     allowed object is
@@ -11835,28 +12156,28 @@ public class TCTe {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;any processContents='skip'/&gt;
-             *       &lt;/sequence&gt;
-             *       &lt;attribute name="versaoModal" use="required"&gt;
-             *         &lt;simpleType&gt;
-             *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *             &lt;whiteSpace value="preserve"/&gt;
-             *             &lt;pattern value="4\.(0[0-9]|[1-9][0-9])"/&gt;
-             *           &lt;/restriction&gt;
-             *         &lt;/simpleType&gt;
-             *       &lt;/attribute&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;any processContents='skip'/>
+             *       &lt;/sequence>
+             *       &lt;attribute name="versaoModal" use="required">
+             *         &lt;simpleType>
+             *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *             &lt;whiteSpace value="preserve"/>
+             *             &lt;pattern value="4\.(0[0-9]|[1-9][0-9])"/>
+             *           &lt;/restriction>
+             *         &lt;/simpleType>
+             *       &lt;/attribute>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -11873,7 +12194,7 @@ public class TCTe {
                 protected String versaoModal;
 
                 /**
-                 * Gets the value of the any property.
+                 * Obtém o valor da propriedade any.
                  * 
                  * @return
                  *     possible object is
@@ -11885,7 +12206,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the any property.
+                 * Define o valor da propriedade any.
                  * 
                  * @param value
                  *     allowed object is
@@ -11897,7 +12218,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the versaoModal property.
+                 * Obtém o valor da propriedade versaoModal.
                  * 
                  * @return
                  *     possible object is
@@ -11909,7 +12230,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the versaoModal property.
+                 * Define o valor da propriedade versaoModal.
                  * 
                  * @param value
                  *     allowed object is
@@ -11924,30 +12245,30 @@ public class TCTe {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="infCTeMultimodal" maxOccurs="unbounded"&gt;
-             *           &lt;complexType&gt;
-             *             &lt;complexContent&gt;
-             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *                 &lt;sequence&gt;
-             *                   &lt;element name="chCTeMultimodal" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-             *                 &lt;/sequence&gt;
-             *               &lt;/restriction&gt;
-             *             &lt;/complexContent&gt;
-             *           &lt;/complexType&gt;
-             *         &lt;/element&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="infCTeMultimodal" maxOccurs="unbounded">
+             *           &lt;complexType>
+             *             &lt;complexContent>
+             *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                 &lt;sequence>
+             *                   &lt;element name="chCTeMultimodal" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+             *                 &lt;/sequence>
+             *               &lt;/restriction>
+             *             &lt;/complexContent>
+             *           &lt;/complexType>
+             *         &lt;/element>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -11958,8 +12279,8 @@ public class TCTe {
             })
             public static class InfServVinc {
 
-                @XmlElement(required = true)
-                protected List<InfCTeMultimodal> infCTeMultimodal;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+                protected List<TCTe.InfCte.InfCTeNorm.InfServVinc.InfCTeMultimodal> infCTeMultimodal;
 
                 /**
                  * Gets the value of the infCTeMultimodal property.
@@ -11979,33 +12300,33 @@ public class TCTe {
                  * 
                  * <p>
                  * Objects of the following type(s) are allowed in the list
-                 * {@link InfCTeMultimodal }
+                 * {@link TCTe.InfCte.InfCTeNorm.InfServVinc.InfCTeMultimodal }
                  * 
                  * 
                  */
-                public List<InfCTeMultimodal> getInfCTeMultimodal() {
+                public List<TCTe.InfCte.InfCTeNorm.InfServVinc.InfCTeMultimodal> getInfCTeMultimodal() {
                     if (infCTeMultimodal == null) {
-                        infCTeMultimodal = new ArrayList<InfCTeMultimodal>();
+                        infCTeMultimodal = new ArrayList<TCTe.InfCte.InfCTeNorm.InfServVinc.InfCTeMultimodal>();
                     }
                     return this.infCTeMultimodal;
                 }
 
 
                 /**
-                 * <p>Java class for anonymous complex type.
+                 * <p>Classe Java de anonymous complex type.
                  * 
-                 * <p>The following schema fragment specifies the expected content contained within this class.
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
                  * 
                  * <pre>
-                 * &lt;complexType&gt;
-                 *   &lt;complexContent&gt;
-                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-                 *       &lt;sequence&gt;
-                 *         &lt;element name="chCTeMultimodal" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-                 *       &lt;/sequence&gt;
-                 *     &lt;/restriction&gt;
-                 *   &lt;/complexContent&gt;
-                 * &lt;/complexType&gt;
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="chCTeMultimodal" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
                  * </pre>
                  * 
                  * 
@@ -12016,11 +12337,11 @@ public class TCTe {
                 })
                 public static class InfCTeMultimodal {
 
-                    @XmlElement(required = true)
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                     protected String chCTeMultimodal;
 
                     /**
-                     * Gets the value of the chCTeMultimodal property.
+                     * Obtém o valor da propriedade chCTeMultimodal.
                      * 
                      * @return
                      *     possible object is
@@ -12032,7 +12353,7 @@ public class TCTe {
                     }
 
                     /**
-                     * Sets the value of the chCTeMultimodal property.
+                     * Define o valor da propriedade chCTeMultimodal.
                      * 
                      * @param value
                      *     allowed object is
@@ -12049,54 +12370,54 @@ public class TCTe {
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="chassi"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-             *               &lt;whiteSpace value="preserve"/&gt;
-             *               &lt;length value="17"/&gt;
-             *               &lt;pattern value="[A-Z0-9]+"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *         &lt;element name="cCor"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *               &lt;minLength value="1"/&gt;
-             *               &lt;maxLength value="4"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *         &lt;element name="xCor"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *               &lt;minLength value="1"/&gt;
-             *               &lt;maxLength value="40"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *         &lt;element name="cMod"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *               &lt;minLength value="1"/&gt;
-             *               &lt;maxLength value="6"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *         &lt;element name="vUnit" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-             *         &lt;element name="vFrete" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="chassi">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+             *               &lt;whiteSpace value="preserve"/>
+             *               &lt;length value="17"/>
+             *               &lt;pattern value="[A-Z0-9]+"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *         &lt;element name="cCor">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *               &lt;minLength value="1"/>
+             *               &lt;maxLength value="4"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *         &lt;element name="xCor">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *               &lt;minLength value="1"/>
+             *               &lt;maxLength value="40"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *         &lt;element name="cMod">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *               &lt;minLength value="1"/>
+             *               &lt;maxLength value="6"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *         &lt;element name="vUnit" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+             *         &lt;element name="vFrete" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -12112,21 +12433,21 @@ public class TCTe {
             })
             public static class VeicNovos {
 
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String chassi;
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String cCor;
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String xCor;
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String cMod;
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String vUnit;
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String vFrete;
 
                 /**
-                 * Gets the value of the chassi property.
+                 * Obtém o valor da propriedade chassi.
                  * 
                  * @return
                  *     possible object is
@@ -12138,7 +12459,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the chassi property.
+                 * Define o valor da propriedade chassi.
                  * 
                  * @param value
                  *     allowed object is
@@ -12150,7 +12471,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the cCor property.
+                 * Obtém o valor da propriedade cCor.
                  * 
                  * @return
                  *     possible object is
@@ -12162,7 +12483,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the cCor property.
+                 * Define o valor da propriedade cCor.
                  * 
                  * @param value
                  *     allowed object is
@@ -12174,7 +12495,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the xCor property.
+                 * Obtém o valor da propriedade xCor.
                  * 
                  * @return
                  *     possible object is
@@ -12186,7 +12507,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the xCor property.
+                 * Define o valor da propriedade xCor.
                  * 
                  * @param value
                  *     allowed object is
@@ -12198,7 +12519,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the cMod property.
+                 * Obtém o valor da propriedade cMod.
                  * 
                  * @return
                  *     possible object is
@@ -12210,7 +12531,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the cMod property.
+                 * Define o valor da propriedade cMod.
                  * 
                  * @param value
                  *     allowed object is
@@ -12222,7 +12543,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the vUnit property.
+                 * Obtém o valor da propriedade vUnit.
                  * 
                  * @return
                  *     possible object is
@@ -12234,7 +12555,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the vUnit property.
+                 * Define o valor da propriedade vUnit.
                  * 
                  * @param value
                  *     allowed object is
@@ -12246,7 +12567,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the vFrete property.
+                 * Obtém o valor da propriedade vFrete.
                  * 
                  * @return
                  *     possible object is
@@ -12258,7 +12579,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the vFrete property.
+                 * Define o valor da propriedade vFrete.
                  * 
                  * @param value
                  *     allowed object is
@@ -12275,32 +12596,87 @@ public class TCTe {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <p>Classe Java de anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
          * 
          * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;element name="CNPJPAA" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/&gt;
-         *         &lt;element name="PAASignature"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;element name="SignatureValue" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/&gt;
-         *                   &lt;element name="RSAKeyValue" type="{http://www.portalfiscal.inf.br/cte}TRSAKeyValueType"/&gt;
-         *                 &lt;/sequence&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
+         * </pre>
+         * 
+         * 
+         */
+        @XmlAccessorType(XmlAccessType.FIELD)
+        @XmlType(name = "", propOrder = {
+            "chCTe"
+        })
+        public static class InfCteComp {
+
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+            protected String chCTe;
+
+            /**
+             * Obtém o valor da propriedade chCTe.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getChCTe() {
+                return chCTe;
+            }
+
+            /**
+             * Define o valor da propriedade chCTe.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setChCTe(String value) {
+                this.chCTe = value;
+            }
+
+        }
+
+
+        /**
+         * <p>Classe Java de anonymous complex type.
+         * 
+         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+         * 
+         * <pre>
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;element name="CNPJPAA" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/>
+         *         &lt;element name="PAASignature">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;element name="SignatureValue" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/>
+         *                   &lt;element name="RSAKeyValue" type="{http://www.portalfiscal.inf.br/cte}TRSAKeyValueType"/>
+         *                 &lt;/sequence>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
          * </pre>
          * 
          * 
@@ -12312,13 +12688,13 @@ public class TCTe {
         })
         public static class InfPAA {
 
-            @XmlElement(name = "CNPJPAA", required = true)
+            @XmlElement(name = "CNPJPAA", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String cnpjpaa;
-            @XmlElement(name = "PAASignature", required = true)
-            protected PAASignature paaSignature;
+            @XmlElement(name = "PAASignature", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+            protected TCTe.InfCte.InfPAA.PAASignature paaSignature;
 
             /**
-             * Gets the value of the cnpjpaa property.
+             * Obtém o valor da propriedade cnpjpaa.
              * 
              * @return
              *     possible object is
@@ -12330,7 +12706,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cnpjpaa property.
+             * Define o valor da propriedade cnpjpaa.
              * 
              * @param value
              *     allowed object is
@@ -12342,46 +12718,46 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the paaSignature property.
+             * Obtém o valor da propriedade paaSignature.
              * 
              * @return
              *     possible object is
-             *     {@link PAASignature }
+             *     {@link TCTe.InfCte.InfPAA.PAASignature }
              *     
              */
-            public PAASignature getPAASignature() {
+            public TCTe.InfCte.InfPAA.PAASignature getPAASignature() {
                 return paaSignature;
             }
 
             /**
-             * Sets the value of the paaSignature property.
+             * Define o valor da propriedade paaSignature.
              * 
              * @param value
              *     allowed object is
-             *     {@link PAASignature }
+             *     {@link TCTe.InfCte.InfPAA.PAASignature }
              *     
              */
-            public void setPAASignature(PAASignature value) {
+            public void setPAASignature(TCTe.InfCte.InfPAA.PAASignature value) {
                 this.paaSignature = value;
             }
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="SignatureValue" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/&gt;
-             *         &lt;element name="RSAKeyValue" type="{http://www.portalfiscal.inf.br/cte}TRSAKeyValueType"/&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="SignatureValue" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/>
+             *         &lt;element name="RSAKeyValue" type="{http://www.portalfiscal.inf.br/cte}TRSAKeyValueType"/>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -12393,13 +12769,13 @@ public class TCTe {
             })
             public static class PAASignature {
 
-                @XmlElement(name = "SignatureValue", required = true)
+                @XmlElement(name = "SignatureValue", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected byte[] signatureValue;
-                @XmlElement(name = "RSAKeyValue", required = true)
+                @XmlElement(name = "RSAKeyValue", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected TRSAKeyValueType rsaKeyValue;
 
                 /**
-                 * Gets the value of the signatureValue property.
+                 * Obtém o valor da propriedade signatureValue.
                  * 
                  * @return
                  *     possible object is
@@ -12410,7 +12786,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the signatureValue property.
+                 * Define o valor da propriedade signatureValue.
                  * 
                  * @param value
                  *     allowed object is
@@ -12421,7 +12797,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the rsaKeyValue property.
+                 * Obtém o valor da propriedade rsaKeyValue.
                  * 
                  * @return
                  *     possible object is
@@ -12433,7 +12809,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the rsaKeyValue property.
+                 * Define o valor da propriedade rsaKeyValue.
                  * 
                  * @param value
                  *     allowed object is
@@ -12450,27 +12826,27 @@ public class TCTe {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <p>Classe Java de anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
          * 
          * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;element name="xSolic"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;minLength value="2"/&gt;
-         *               &lt;maxLength value="8000"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;element name="xSolic">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;minLength value="2"/>
+         *               &lt;maxLength value="8000"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
          * </pre>
          * 
          * 
@@ -12481,11 +12857,11 @@ public class TCTe {
         })
         public static class InfSolicNFF {
 
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String xSolic;
 
             /**
-             * Gets the value of the xSolic property.
+             * Obtém o valor da propriedade xSolic.
              * 
              * @return
              *     possible object is
@@ -12497,7 +12873,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xSolic property.
+             * Define o valor da propriedade xSolic.
              * 
              * @param value
              *     allowed object is
@@ -12512,40 +12888,40 @@ public class TCTe {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <p>Classe Java de anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
          * 
          * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;choice&gt;
-         *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-         *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-         *         &lt;/choice&gt;
-         *         &lt;element name="IE" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="xNome"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;maxLength value="60"/&gt;
-         *               &lt;minLength value="2"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
-         *         &lt;element name="enderReceb" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
-         *         &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;choice>
+         *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+         *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+         *         &lt;/choice>
+         *         &lt;element name="IE" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="xNome">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;maxLength value="60"/>
+         *               &lt;minLength value="2"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+         *         &lt;element name="enderReceb" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+         *         &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail" minOccurs="0"/>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
          * </pre>
          * 
          * 
@@ -12562,21 +12938,23 @@ public class TCTe {
         })
         public static class Receb {
 
-            @XmlElement(name = "CNPJ")
+            @XmlElement(name = "CNPJ", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String cnpj;
-            @XmlElement(name = "CPF")
+            @XmlElement(name = "CPF", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String cpf;
-            @XmlElement(name = "IE")
+            @XmlElement(name = "IE", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String ie;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String xNome;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String fone;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected TEndereco enderReceb;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String email;
 
             /**
-             * Gets the value of the cnpj property.
+             * Obtém o valor da propriedade cnpj.
              * 
              * @return
              *     possible object is
@@ -12588,7 +12966,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cnpj property.
+             * Define o valor da propriedade cnpj.
              * 
              * @param value
              *     allowed object is
@@ -12600,7 +12978,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the cpf property.
+             * Obtém o valor da propriedade cpf.
              * 
              * @return
              *     possible object is
@@ -12612,7 +12990,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cpf property.
+             * Define o valor da propriedade cpf.
              * 
              * @param value
              *     allowed object is
@@ -12624,7 +13002,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the ie property.
+             * Obtém o valor da propriedade ie.
              * 
              * @return
              *     possible object is
@@ -12636,7 +13014,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the ie property.
+             * Define o valor da propriedade ie.
              * 
              * @param value
              *     allowed object is
@@ -12648,7 +13026,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xNome property.
+             * Obtém o valor da propriedade xNome.
              * 
              * @return
              *     possible object is
@@ -12660,7 +13038,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xNome property.
+             * Define o valor da propriedade xNome.
              * 
              * @param value
              *     allowed object is
@@ -12672,7 +13050,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the fone property.
+             * Obtém o valor da propriedade fone.
              * 
              * @return
              *     possible object is
@@ -12684,7 +13062,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the fone property.
+             * Define o valor da propriedade fone.
              * 
              * @param value
              *     allowed object is
@@ -12696,7 +13074,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the enderReceb property.
+             * Obtém o valor da propriedade enderReceb.
              * 
              * @return
              *     possible object is
@@ -12708,7 +13086,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the enderReceb property.
+             * Define o valor da propriedade enderReceb.
              * 
              * @param value
              *     allowed object is
@@ -12720,7 +13098,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the email property.
+             * Obtém o valor da propriedade email.
              * 
              * @return
              *     possible object is
@@ -12732,7 +13110,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the email property.
+             * Define o valor da propriedade email.
              * 
              * @param value
              *     allowed object is
@@ -12747,53 +13125,53 @@ public class TCTe {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <p>Classe Java de anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
          * 
          * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;choice&gt;
-         *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/&gt;
-         *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
-         *         &lt;/choice&gt;
-         *         &lt;element name="IE" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest"&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="xNome"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;maxLength value="60"/&gt;
-         *               &lt;minLength value="2"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="xFant" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *               &lt;maxLength value="60"/&gt;
-         *               &lt;minLength value="2"/&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *         &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/&gt;
-         *         &lt;element name="enderReme" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/&gt;
-         *         &lt;element name="email" minOccurs="0"&gt;
-         *           &lt;simpleType&gt;
-         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TEmail"&gt;
-         *             &lt;/restriction&gt;
-         *           &lt;/simpleType&gt;
-         *         &lt;/element&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;choice>
+         *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpjOpc"/>
+         *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+         *         &lt;/choice>
+         *         &lt;element name="IE" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TIeDest">
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="xNome">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;maxLength value="60"/>
+         *               &lt;minLength value="2"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="xFant" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *               &lt;maxLength value="60"/>
+         *               &lt;minLength value="2"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *         &lt;element name="fone" type="{http://www.portalfiscal.inf.br/cte}TFone" minOccurs="0"/>
+         *         &lt;element name="enderReme" type="{http://www.portalfiscal.inf.br/cte}TEndereco"/>
+         *         &lt;element name="email" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TEmail">
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
          * </pre>
          * 
          * 
@@ -12811,22 +13189,25 @@ public class TCTe {
         })
         public static class Rem {
 
-            @XmlElement(name = "CNPJ")
+            @XmlElement(name = "CNPJ", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String cnpj;
-            @XmlElement(name = "CPF")
+            @XmlElement(name = "CPF", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String cpf;
-            @XmlElement(name = "IE")
+            @XmlElement(name = "IE", namespace = "http://www.portalfiscal.inf.br/cte")
             protected String ie;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String xNome;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String xFant;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String fone;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected TEndereco enderReme;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String email;
 
             /**
-             * Gets the value of the cnpj property.
+             * Obtém o valor da propriedade cnpj.
              * 
              * @return
              *     possible object is
@@ -12838,7 +13219,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cnpj property.
+             * Define o valor da propriedade cnpj.
              * 
              * @param value
              *     allowed object is
@@ -12850,7 +13231,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the cpf property.
+             * Obtém o valor da propriedade cpf.
              * 
              * @return
              *     possible object is
@@ -12862,7 +13243,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the cpf property.
+             * Define o valor da propriedade cpf.
              * 
              * @param value
              *     allowed object is
@@ -12874,7 +13255,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the ie property.
+             * Obtém o valor da propriedade ie.
              * 
              * @return
              *     possible object is
@@ -12886,7 +13267,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the ie property.
+             * Define o valor da propriedade ie.
              * 
              * @param value
              *     allowed object is
@@ -12898,7 +13279,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xNome property.
+             * Obtém o valor da propriedade xNome.
              * 
              * @return
              *     possible object is
@@ -12910,7 +13291,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xNome property.
+             * Define o valor da propriedade xNome.
              * 
              * @param value
              *     allowed object is
@@ -12922,7 +13303,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the xFant property.
+             * Obtém o valor da propriedade xFant.
              * 
              * @return
              *     possible object is
@@ -12934,7 +13315,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the xFant property.
+             * Define o valor da propriedade xFant.
              * 
              * @param value
              *     allowed object is
@@ -12946,7 +13327,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the fone property.
+             * Obtém o valor da propriedade fone.
              * 
              * @return
              *     possible object is
@@ -12958,7 +13339,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the fone property.
+             * Define o valor da propriedade fone.
              * 
              * @param value
              *     allowed object is
@@ -12970,7 +13351,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the enderReme property.
+             * Obtém o valor da propriedade enderReme.
              * 
              * @return
              *     possible object is
@@ -12982,7 +13363,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the enderReme property.
+             * Define o valor da propriedade enderReme.
              * 
              * @param value
              *     allowed object is
@@ -12994,7 +13375,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the email property.
+             * Obtém o valor da propriedade email.
              * 
              * @return
              *     possible object is
@@ -13006,7 +13387,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the email property.
+             * Define o valor da propriedade email.
              * 
              * @param value
              *     allowed object is
@@ -13021,40 +13402,40 @@ public class TCTe {
 
 
         /**
-         * <p>Java class for anonymous complex type.
+         * <p>Classe Java de anonymous complex type.
          * 
-         * <p>The following schema fragment specifies the expected content contained within this class.
+         * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
          * 
          * <pre>
-         * &lt;complexType&gt;
-         *   &lt;complexContent&gt;
-         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *       &lt;sequence&gt;
-         *         &lt;element name="vTPrest" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *         &lt;element name="vRec" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *         &lt;element name="Comp" maxOccurs="unbounded" minOccurs="0"&gt;
-         *           &lt;complexType&gt;
-         *             &lt;complexContent&gt;
-         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-         *                 &lt;sequence&gt;
-         *                   &lt;element name="xNome"&gt;
-         *                     &lt;simpleType&gt;
-         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-         *                         &lt;maxLength value="15"/&gt;
-         *                         &lt;minLength value="1"/&gt;
-         *                       &lt;/restriction&gt;
-         *                     &lt;/simpleType&gt;
-         *                   &lt;/element&gt;
-         *                   &lt;element name="vComp" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-         *                 &lt;/sequence&gt;
-         *               &lt;/restriction&gt;
-         *             &lt;/complexContent&gt;
-         *           &lt;/complexType&gt;
-         *         &lt;/element&gt;
-         *       &lt;/sequence&gt;
-         *     &lt;/restriction&gt;
-         *   &lt;/complexContent&gt;
-         * &lt;/complexType&gt;
+         * &lt;complexType>
+         *   &lt;complexContent>
+         *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *       &lt;sequence>
+         *         &lt;element name="vTPrest" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *         &lt;element name="vRec" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *         &lt;element name="Comp" maxOccurs="unbounded" minOccurs="0">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence>
+         *                   &lt;element name="xNome">
+         *                     &lt;simpleType>
+         *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+         *                         &lt;maxLength value="15"/>
+         *                         &lt;minLength value="1"/>
+         *                       &lt;/restriction>
+         *                     &lt;/simpleType>
+         *                   &lt;/element>
+         *                   &lt;element name="vComp" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+         *                 &lt;/sequence>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
+         *       &lt;/sequence>
+         *     &lt;/restriction>
+         *   &lt;/complexContent>
+         * &lt;/complexType>
          * </pre>
          * 
          * 
@@ -13067,15 +13448,15 @@ public class TCTe {
         })
         public static class VPrest {
 
-            @XmlElement(name = "vTPrest", required = true)
+            @XmlElement(name = "vTPrest", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String vtPrest;
-            @XmlElement(required = true)
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
             protected String vRec;
-            @XmlElement(name = "Comp")
-            protected List<Comp> comp;
+            @XmlElement(name = "Comp", namespace = "http://www.portalfiscal.inf.br/cte")
+            protected List<TCTe.InfCte.VPrest.Comp> comp;
 
             /**
-             * Gets the value of the vtPrest property.
+             * Obtém o valor da propriedade vtPrest.
              * 
              * @return
              *     possible object is
@@ -13087,7 +13468,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the vtPrest property.
+             * Define o valor da propriedade vtPrest.
              * 
              * @param value
              *     allowed object is
@@ -13099,7 +13480,7 @@ public class TCTe {
             }
 
             /**
-             * Gets the value of the vRec property.
+             * Obtém o valor da propriedade vRec.
              * 
              * @return
              *     possible object is
@@ -13111,7 +13492,7 @@ public class TCTe {
             }
 
             /**
-             * Sets the value of the vRec property.
+             * Define o valor da propriedade vRec.
              * 
              * @param value
              *     allowed object is
@@ -13140,41 +13521,41 @@ public class TCTe {
              * 
              * <p>
              * Objects of the following type(s) are allowed in the list
-             * {@link Comp }
+             * {@link TCTe.InfCte.VPrest.Comp }
              * 
              * 
              */
-            public List<Comp> getComp() {
+            public List<TCTe.InfCte.VPrest.Comp> getComp() {
                 if (comp == null) {
-                    comp = new ArrayList<Comp>();
+                    comp = new ArrayList<TCTe.InfCte.VPrest.Comp>();
                 }
                 return this.comp;
             }
 
 
             /**
-             * <p>Java class for anonymous complex type.
+             * <p>Classe Java de anonymous complex type.
              * 
-             * <p>The following schema fragment specifies the expected content contained within this class.
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
              * 
              * <pre>
-             * &lt;complexType&gt;
-             *   &lt;complexContent&gt;
-             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-             *       &lt;sequence&gt;
-             *         &lt;element name="xNome"&gt;
-             *           &lt;simpleType&gt;
-             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-             *               &lt;maxLength value="15"/&gt;
-             *               &lt;minLength value="1"/&gt;
-             *             &lt;/restriction&gt;
-             *           &lt;/simpleType&gt;
-             *         &lt;/element&gt;
-             *         &lt;element name="vComp" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/&gt;
-             *       &lt;/sequence&gt;
-             *     &lt;/restriction&gt;
-             *   &lt;/complexContent&gt;
-             * &lt;/complexType&gt;
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence>
+             *         &lt;element name="xNome">
+             *           &lt;simpleType>
+             *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+             *               &lt;maxLength value="15"/>
+             *               &lt;minLength value="1"/>
+             *             &lt;/restriction>
+             *           &lt;/simpleType>
+             *         &lt;/element>
+             *         &lt;element name="vComp" type="{http://www.portalfiscal.inf.br/cte}TDec_1302"/>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
              * </pre>
              * 
              * 
@@ -13186,13 +13567,13 @@ public class TCTe {
             })
             public static class Comp {
 
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String xNome;
-                @XmlElement(required = true)
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
                 protected String vComp;
 
                 /**
-                 * Gets the value of the xNome property.
+                 * Obtém o valor da propriedade xNome.
                  * 
                  * @return
                  *     possible object is
@@ -13204,7 +13585,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the xNome property.
+                 * Define o valor da propriedade xNome.
                  * 
                  * @param value
                  *     allowed object is
@@ -13216,7 +13597,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Gets the value of the vComp property.
+                 * Obtém o valor da propriedade vComp.
                  * 
                  * @return
                  *     possible object is
@@ -13228,7 +13609,7 @@ public class TCTe {
                 }
 
                 /**
-                 * Sets the value of the vComp property.
+                 * Define o valor da propriedade vComp.
                  * 
                  * @param value
                  *     allowed object is
@@ -13241,70 +13622,6 @@ public class TCTe {
 
             }
 
-        }
-
-    }
-
-
-    /**
-     * <p>Java class for anonymous complex type.
-     * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
-     * 
-     * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;element name="qrCodCTe"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *               &lt;whiteSpace value="preserve"/&gt;
-     *               &lt;minLength value="50"/&gt;
-     *               &lt;maxLength value="1000"/&gt;
-     *               &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{44}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *       &lt;/sequence&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
-     * </pre>
-     * 
-     * 
-     */
-    @XmlAccessorType(XmlAccessType.FIELD)
-    @XmlType(name = "", propOrder = {
-        "qrCodCTe"
-    })
-    public static class InfCTeSupl {
-
-        @XmlElement(required = true)
-        protected String qrCodCTe;
-
-        /**
-         * Gets the value of the qrCodCTe property.
-         * 
-         * @return
-         *     possible object is
-         *     {@link String }
-         *     
-         */
-        public String getQrCodCTe() {
-            return qrCodCTe;
-        }
-
-        /**
-         * Sets the value of the qrCodCTe property.
-         * 
-         * @param value
-         *     allowed object is
-         *     {@link String }
-         *     
-         */
-        public void setQrCodCTe(String value) {
-            this.qrCodCTe = value;
         }
 
     }

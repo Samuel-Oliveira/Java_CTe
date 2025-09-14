@@ -1,7 +1,12 @@
 
 package br.com.swconsultoria.cte.schema_400.consSitCTe;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
 
 /**
  * Tipo Pedido de Consulta da Situação Atual do Conhecimento de Transporte eletrônico
@@ -38,7 +43,6 @@ import javax.xml.bind.annotation.*;
     "xServ",
     "chCTe"
 })
-@XmlRootElement(name = "consSitCTe",namespace = "http://www.portalfiscal.inf.br/cte")
 public class TConsSitCTe {
 
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)

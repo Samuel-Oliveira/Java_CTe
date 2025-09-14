@@ -1,21 +1,16 @@
 
-
-
 package br.com.swconsultoria.cte.schema_400.procCTeSimp;
 
-import org.w3c.dom.Element;
-
 import javax.xml.bind.JAXBElement;
-import javax.xml.bind.annotation.*;
-
-
+import javax.xml.bind.annotation.XmlElementDecl;
+import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
 
 
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the com.bcap.me.JaxB package. 
+ * generated in the br.com.swconsultoria.cte.schema_400.procCTeSimp package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -32,7 +27,7 @@ public class ObjectFactory {
     private final static QName _Signature_QNAME = new QName("http://www.w3.org/2000/09/xmldsig#", "Signature");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: com.bcap.me.JaxB
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: br.com.swconsultoria.cte.schema_400.procCTeSimp
      * 
      */
     public ObjectFactory() {
@@ -55,11 +50,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TUnidCarga }
+     * Create an instance of {@link TImp }
      * 
      */
-    public TUnidCarga createTUnidCarga() {
-        return new TUnidCarga();
+    public TImp createTImp() {
+        return new TImp();
+    }
+
+    /**
+     * Create an instance of {@link TIBSCBSMonoTot }
+     * 
+     */
+    public TIBSCBSMonoTot createTIBSCBSMonoTot() {
+        return new TIBSCBSMonoTot();
+    }
+
+    /**
+     * Create an instance of {@link TIBSCBSMonoTot.GIBS }
+     * 
+     */
+    public TIBSCBSMonoTot.GIBS createTIBSCBSMonoTotGIBS() {
+        return new TIBSCBSMonoTot.GIBS();
     }
 
     /**
@@ -71,99 +82,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TImpOS }
+     * Create an instance of {@link TProtCTeOS }
      * 
      */
-    public TImpOS createTImpOS() {
-        return new TImpOS();
+    public TProtCTeOS createTProtCTeOS() {
+        return new TProtCTeOS();
     }
 
     /**
-     * Create an instance of {@link TImp }
+     * Create an instance of {@link TProtGTVe }
      * 
      */
-    public TImp createTImp() {
-        return new TImp();
+    public TProtGTVe createTProtGTVe() {
+        return new TProtGTVe();
     }
 
     /**
-     * Create an instance of {@link TCTeOS }
+     * Create an instance of {@link TIBSCBSTot }
      * 
      */
-    public TCTeOS createTCTeOS() {
-        return new TCTeOS();
+    public TIBSCBSTot createTIBSCBSTot() {
+        return new TIBSCBSTot();
     }
 
     /**
-     * Create an instance of {@link TCTeOS.InfCte }
+     * Create an instance of {@link TIBSCBSTot.GIBS }
      * 
      */
-    public TCTeOS.InfCte createTCTeOSInfCte() {
-        return new TCTeOS.InfCte();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm }
-     * 
-     */
-    public TCTeOS.InfCte.InfCTeNorm createTCTeOSInfCteInfCTeNorm() {
-        return new TCTeOS.InfCte.InfCTeNorm();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfGTVe }
-     * 
-     */
-    public TCTeOS.InfCte.InfCTeNorm.InfGTVe createTCTeOSInfCteInfCTeNormInfGTVe() {
-        return new TCTeOS.InfCte.InfCTeNorm.InfGTVe();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.Cobr }
-     * 
-     */
-    public TCTeOS.InfCte.InfCTeNorm.Cobr createTCTeOSInfCteInfCTeNormCobr() {
-        return new TCTeOS.InfCte.InfCTeNorm.Cobr();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfServico }
-     * 
-     */
-    public TCTeOS.InfCte.InfCTeNorm.InfServico createTCTeOSInfCteInfCTeNormInfServico() {
-        return new TCTeOS.InfCte.InfCTeNorm.InfServico();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.Imp }
-     * 
-     */
-    public TCTeOS.InfCte.Imp createTCTeOSInfCteImp() {
-        return new TCTeOS.InfCte.Imp();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.VPrest }
-     * 
-     */
-    public TCTeOS.InfCte.VPrest createTCTeOSInfCteVPrest() {
-        return new TCTeOS.InfCte.VPrest();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.Compl }
-     * 
-     */
-    public TCTeOS.InfCte.Compl createTCTeOSInfCteCompl() {
-        return new TCTeOS.InfCte.Compl();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.Ide }
-     * 
-     */
-    public TCTeOS.InfCte.Ide createTCTeOSInfCteIde() {
-        return new TCTeOS.InfCte.Ide();
+    public TIBSCBSTot.GIBS createTIBSCBSTotGIBS() {
+        return new TIBSCBSTot.GIBS();
     }
 
     /**
@@ -303,19 +250,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TProtGTVe }
+     * Create an instance of {@link TMonofasia }
      * 
      */
-    public TProtGTVe createTProtGTVe() {
-        return new TProtGTVe();
+    public TMonofasia createTMonofasia() {
+        return new TMonofasia();
     }
 
     /**
-     * Create an instance of {@link TProtCTeOS }
+     * Create an instance of {@link TCIBS }
      * 
      */
-    public TProtCTeOS createTProtCTeOS() {
-        return new TProtCTeOS();
+    public TCIBS createTCIBS() {
+        return new TCIBS();
+    }
+
+    /**
+     * Create an instance of {@link TImpOS }
+     * 
+     */
+    public TImpOS createTImpOS() {
+        return new TImpOS();
+    }
+
+    /**
+     * Create an instance of {@link TUnidCarga }
+     * 
+     */
+    public TUnidCarga createTUnidCarga() {
+        return new TUnidCarga();
     }
 
     /**
@@ -356,6 +319,86 @@ public class ObjectFactory {
      */
     public TGTVe.InfCte.Ide createTGTVeInfCteIde() {
         return new TGTVe.InfCte.Ide();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS }
+     * 
+     */
+    public TCTeOS createTCTeOS() {
+        return new TCTeOS();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte }
+     * 
+     */
+    public TCTeOS.InfCte createTCTeOSInfCte() {
+        return new TCTeOS.InfCte();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm }
+     * 
+     */
+    public TCTeOS.InfCte.InfCTeNorm createTCTeOSInfCteInfCTeNorm() {
+        return new TCTeOS.InfCte.InfCTeNorm();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfGTVe }
+     * 
+     */
+    public TCTeOS.InfCte.InfCTeNorm.InfGTVe createTCTeOSInfCteInfCTeNormInfGTVe() {
+        return new TCTeOS.InfCte.InfCTeNorm.InfGTVe();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.Cobr }
+     * 
+     */
+    public TCTeOS.InfCte.InfCTeNorm.Cobr createTCTeOSInfCteInfCTeNormCobr() {
+        return new TCTeOS.InfCte.InfCTeNorm.Cobr();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfServico }
+     * 
+     */
+    public TCTeOS.InfCte.InfCTeNorm.InfServico createTCTeOSInfCteInfCTeNormInfServico() {
+        return new TCTeOS.InfCte.InfCTeNorm.InfServico();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.Imp }
+     * 
+     */
+    public TCTeOS.InfCte.Imp createTCTeOSInfCteImp() {
+        return new TCTeOS.InfCte.Imp();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.VPrest }
+     * 
+     */
+    public TCTeOS.InfCte.VPrest createTCTeOSInfCteVPrest() {
+        return new TCTeOS.InfCte.VPrest();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.Compl }
+     * 
+     */
+    public TCTeOS.InfCte.Compl createTCTeOSInfCteCompl() {
+        return new TCTeOS.InfCte.Compl();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.Ide }
+     * 
+     */
+    public TCTeOS.InfCte.Ide createTCTeOSInfCteIde() {
+        return new TCTeOS.InfCte.Ide();
     }
 
     /**
@@ -455,6 +498,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link TCompraGov }
+     * 
+     */
+    public TCompraGov createTCompraGov() {
+        return new TCompraGov();
+    }
+
+    /**
      * Create an instance of {@link TRSAKeyValueType }
      * 
      */
@@ -463,43 +514,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TRetCTeSimp }
+     * Create an instance of {@link TTribCompraGov }
      * 
      */
-    public TRetCTeSimp createTRetCTeSimp() {
-        return new TRetCTeSimp();
+    public TTribCompraGov createTTribCompraGov() {
+        return new TTribCompraGov();
     }
 
     /**
-     * Create an instance of {@link TRetCTe }
+     * Create an instance of {@link TTribNFCom }
      * 
      */
-    public TRetCTe createTRetCTe() {
-        return new TRetCTe();
-    }
-
-    /**
-     * Create an instance of {@link TRetGTVe }
-     * 
-     */
-    public TRetGTVe createTRetGTVe() {
-        return new TRetGTVe();
-    }
-
-    /**
-     * Create an instance of {@link TRetCTeOS }
-     * 
-     */
-    public TRetCTeOS createTRetCTeOS() {
-        return new TRetCTeOS();
-    }
-
-    /**
-     * Create an instance of {@link TEndeEmi }
-     * 
-     */
-    public TEndeEmi createTEndeEmi() {
-        return new TEndeEmi();
+    public TTribNFCom createTTribNFCom() {
+        return new TTribNFCom();
     }
 
     /**
@@ -511,27 +538,51 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TEndernac }
+     * Create an instance of {@link TTribCTe }
      * 
      */
-    public TEndernac createTEndernac() {
-        return new TEndernac();
+    public TTribCTe createTTribCTe() {
+        return new TTribCTe();
     }
 
     /**
-     * Create an instance of {@link TEndOrg }
+     * Create an instance of {@link TCredPresIBSZFM }
      * 
      */
-    public TEndOrg createTEndOrg() {
-        return new TEndOrg();
+    public TCredPresIBSZFM createTCredPresIBSZFM() {
+        return new TCredPresIBSZFM();
     }
 
     /**
-     * Create an instance of {@link TLocal }
+     * Create an instance of {@link TRetCTeOS }
      * 
      */
-    public TLocal createTLocal() {
-        return new TLocal();
+    public TRetCTeOS createTRetCTeOS() {
+        return new TRetCTeOS();
+    }
+
+    /**
+     * Create an instance of {@link TTransfCred }
+     * 
+     */
+    public TTransfCred createTTransfCred() {
+        return new TTransfCred();
+    }
+
+    /**
+     * Create an instance of {@link TISTot }
+     * 
+     */
+    public TISTot createTISTot() {
+        return new TISTot();
+    }
+
+    /**
+     * Create an instance of {@link TRetCTe }
+     * 
+     */
+    public TRetCTe createTRetCTe() {
+        return new TRetCTe();
     }
 
     /**
@@ -543,6 +594,54 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link TIS }
+     * 
+     */
+    public TIS createTIS() {
+        return new TIS();
+    }
+
+    /**
+     * Create an instance of {@link TTribBPe }
+     * 
+     */
+    public TTribBPe createTTribBPe() {
+        return new TTribBPe();
+    }
+
+    /**
+     * Create an instance of {@link TRetCTeSimp }
+     * 
+     */
+    public TRetCTeSimp createTRetCTeSimp() {
+        return new TRetCTeSimp();
+    }
+
+    /**
+     * Create an instance of {@link TCompraGovReduzido }
+     * 
+     */
+    public TCompraGovReduzido createTCompraGovReduzido() {
+        return new TCompraGovReduzido();
+    }
+
+    /**
+     * Create an instance of {@link TTribNFe }
+     * 
+     */
+    public TTribNFe createTTribNFe() {
+        return new TTribNFe();
+    }
+
+    /**
+     * Create an instance of {@link TDif }
+     * 
+     */
+    public TDif createTDif() {
+        return new TDif();
+    }
+
+    /**
      * Create an instance of {@link TRespTec }
      * 
      */
@@ -551,11 +650,107 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link TRed }
+     * 
+     */
+    public TRed createTRed() {
+        return new TRed();
+    }
+
+    /**
+     * Create an instance of {@link TEndernac }
+     * 
+     */
+    public TEndernac createTEndernac() {
+        return new TEndernac();
+    }
+
+    /**
+     * Create an instance of {@link TTribNF3E }
+     * 
+     */
+    public TTribNF3E createTTribNF3E() {
+        return new TTribNF3E();
+    }
+
+    /**
+     * Create an instance of {@link TLocal }
+     * 
+     */
+    public TLocal createTLocal() {
+        return new TLocal();
+    }
+
+    /**
+     * Create an instance of {@link TDevTrib }
+     * 
+     */
+    public TDevTrib createTDevTrib() {
+        return new TDevTrib();
+    }
+
+    /**
+     * Create an instance of {@link TTribNFCe }
+     * 
+     */
+    public TTribNFCe createTTribNFCe() {
+        return new TTribNFCe();
+    }
+
+    /**
+     * Create an instance of {@link TRetGTVe }
+     * 
+     */
+    public TRetGTVe createTRetGTVe() {
+        return new TRetGTVe();
+    }
+
+    /**
+     * Create an instance of {@link TEndeEmi }
+     * 
+     */
+    public TEndeEmi createTEndeEmi() {
+        return new TEndeEmi();
+    }
+
+    /**
+     * Create an instance of {@link TTribRegular }
+     * 
+     */
+    public TTribRegular createTTribRegular() {
+        return new TTribRegular();
+    }
+
+    /**
+     * Create an instance of {@link TCredPres }
+     * 
+     */
+    public TCredPres createTCredPres() {
+        return new TCredPres();
+    }
+
+    /**
+     * Create an instance of {@link TEndOrg }
+     * 
+     */
+    public TEndOrg createTEndOrg() {
+        return new TEndOrg();
+    }
+
+    /**
      * Create an instance of {@link SignatureType }
      * 
      */
     public SignatureType createSignatureType() {
         return new SignatureType();
+    }
+
+    /**
+     * Create an instance of {@link X509DataType }
+     * 
+     */
+    public X509DataType createX509DataType() {
+        return new X509DataType();
     }
 
     /**
@@ -591,14 +786,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link X509DataType }
-     * 
-     */
-    public X509DataType createX509DataType() {
-        return new X509DataType();
-    }
-
-    /**
      * Create an instance of {@link ReferenceType.DigestMethod }
      * 
      */
@@ -620,70 +807,6 @@ public class ObjectFactory {
      */
     public SignedInfoType.SignatureMethod createSignedInfoTypeSignatureMethod() {
         return new SignedInfoType.SignatureMethod();
-    }
-
-    /**
-     * Create an instance of {@link TUnidCarga.LacUnidCarga }
-     * 
-     */
-    public TUnidCarga.LacUnidCarga createTUnidCargaLacUnidCarga() {
-        return new TUnidCarga.LacUnidCarga();
-    }
-
-    /**
-     * Create an instance of {@link TUnidadeTransp.LacUnidTransp }
-     * 
-     */
-    public TUnidadeTransp.LacUnidTransp createTUnidadeTranspLacUnidTransp() {
-        return new TUnidadeTransp.LacUnidTransp();
-    }
-
-    /**
-     * Create an instance of {@link TImpOS.ICMS00 }
-     * 
-     */
-    public TImpOS.ICMS00 createTImpOSICMS00() {
-        return new TImpOS.ICMS00();
-    }
-
-    /**
-     * Create an instance of {@link TImpOS.ICMS20 }
-     * 
-     */
-    public TImpOS.ICMS20 createTImpOSICMS20() {
-        return new TImpOS.ICMS20();
-    }
-
-    /**
-     * Create an instance of {@link TImpOS.ICMS45 }
-     * 
-     */
-    public TImpOS.ICMS45 createTImpOSICMS45() {
-        return new TImpOS.ICMS45();
-    }
-
-    /**
-     * Create an instance of {@link TImpOS.ICMS90 }
-     * 
-     */
-    public TImpOS.ICMS90 createTImpOSICMS90() {
-        return new TImpOS.ICMS90();
-    }
-
-    /**
-     * Create an instance of {@link TImpOS.ICMSOutraUF }
-     * 
-     */
-    public TImpOS.ICMSOutraUF createTImpOSICMSOutraUF() {
-        return new TImpOS.ICMSOutraUF();
-    }
-
-    /**
-     * Create an instance of {@link TImpOS.ICMSSN }
-     * 
-     */
-    public TImpOS.ICMSSN createTImpOSICMSSN() {
-        return new TImpOS.ICMSSN();
     }
 
     /**
@@ -743,155 +866,99 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TCTeOS.InfCTeSupl }
+     * Create an instance of {@link TIBSCBSMonoTot.GCBS }
      * 
      */
-    public TCTeOS.InfCTeSupl createTCTeOSInfCTeSupl() {
-        return new TCTeOS.InfCTeSupl();
+    public TIBSCBSMonoTot.GCBS createTIBSCBSMonoTotGCBS() {
+        return new TIBSCBSMonoTot.GCBS();
     }
 
     /**
-     * Create an instance of {@link TCTeOS.InfCte.Emit }
+     * Create an instance of {@link TIBSCBSMonoTot.GMono }
      * 
      */
-    public TCTeOS.InfCte.Emit createTCTeOSInfCteEmit() {
-        return new TCTeOS.InfCte.Emit();
+    public TIBSCBSMonoTot.GMono createTIBSCBSMonoTotGMono() {
+        return new TIBSCBSMonoTot.GMono();
     }
 
     /**
-     * Create an instance of {@link TCTeOS.InfCte.Toma }
+     * Create an instance of {@link TIBSCBSMonoTot.GIBS.GIBSUF }
      * 
      */
-    public TCTeOS.InfCte.Toma createTCTeOSInfCteToma() {
-        return new TCTeOS.InfCte.Toma();
+    public TIBSCBSMonoTot.GIBS.GIBSUF createTIBSCBSMonoTotGIBSGIBSUF() {
+        return new TIBSCBSMonoTot.GIBS.GIBSUF();
     }
 
     /**
-     * Create an instance of {@link TCTeOS.InfCte.InfCteComp }
+     * Create an instance of {@link TIBSCBSMonoTot.GIBS.GIBSMun }
      * 
      */
-    public TCTeOS.InfCte.InfCteComp createTCTeOSInfCteInfCteComp() {
-        return new TCTeOS.InfCte.InfCteComp();
+    public TIBSCBSMonoTot.GIBS.GIBSMun createTIBSCBSMonoTotGIBSGIBSMun() {
+        return new TIBSCBSMonoTot.GIBS.GIBSMun();
     }
 
     /**
-     * Create an instance of {@link TCTeOS.InfCte.AutXML }
+     * Create an instance of {@link TUnidadeTransp.LacUnidTransp }
      * 
      */
-    public TCTeOS.InfCte.AutXML createTCTeOSInfCteAutXML() {
-        return new TCTeOS.InfCte.AutXML();
+    public TUnidadeTransp.LacUnidTransp createTUnidadeTranspLacUnidTransp() {
+        return new TUnidadeTransp.LacUnidTransp();
     }
 
     /**
-     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfDocRef }
+     * Create an instance of {@link TProtCTeOS.InfProt }
      * 
      */
-    public TCTeOS.InfCte.InfCTeNorm.InfDocRef createTCTeOSInfCteInfCTeNormInfDocRef() {
-        return new TCTeOS.InfCte.InfCTeNorm.InfDocRef();
+    public TProtCTeOS.InfProt createTProtCTeOSInfProt() {
+        return new TProtCTeOS.InfProt();
     }
 
     /**
-     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.Seg }
+     * Create an instance of {@link TProtCTeOS.InfFisco }
      * 
      */
-    public TCTeOS.InfCte.InfCTeNorm.Seg createTCTeOSInfCteInfCTeNormSeg() {
-        return new TCTeOS.InfCte.InfCTeNorm.Seg();
+    public TProtCTeOS.InfFisco createTProtCTeOSInfFisco() {
+        return new TProtCTeOS.InfFisco();
     }
 
     /**
-     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfModal }
+     * Create an instance of {@link TProtGTVe.InfProt }
      * 
      */
-    public TCTeOS.InfCte.InfCTeNorm.InfModal createTCTeOSInfCteInfCTeNormInfModal() {
-        return new TCTeOS.InfCte.InfCTeNorm.InfModal();
+    public TProtGTVe.InfProt createTProtGTVeInfProt() {
+        return new TProtGTVe.InfProt();
     }
 
     /**
-     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub }
+     * Create an instance of {@link TProtGTVe.InfFisco }
      * 
      */
-    public TCTeOS.InfCte.InfCTeNorm.InfCteSub createTCTeOSInfCteInfCTeNormInfCteSub() {
-        return new TCTeOS.InfCte.InfCTeNorm.InfCteSub();
+    public TProtGTVe.InfFisco createTProtGTVeInfFisco() {
+        return new TProtGTVe.InfFisco();
     }
 
     /**
-     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfGTVe.Comp }
+     * Create an instance of {@link TIBSCBSTot.GCBS }
      * 
      */
-    public TCTeOS.InfCte.InfCTeNorm.InfGTVe.Comp createTCTeOSInfCteInfCTeNormInfGTVeComp() {
-        return new TCTeOS.InfCte.InfCTeNorm.InfGTVe.Comp();
+    public TIBSCBSTot.GCBS createTIBSCBSTotGCBS() {
+        return new TIBSCBSTot.GCBS();
     }
 
     /**
-     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.Cobr.Fat }
+     * Create an instance of {@link TIBSCBSTot.GIBS.GIBSUF }
      * 
      */
-    public TCTeOS.InfCte.InfCTeNorm.Cobr.Fat createTCTeOSInfCteInfCTeNormCobrFat() {
-        return new TCTeOS.InfCte.InfCTeNorm.Cobr.Fat();
+    public TIBSCBSTot.GIBS.GIBSUF createTIBSCBSTotGIBSGIBSUF() {
+        return new TIBSCBSTot.GIBS.GIBSUF();
     }
 
     /**
-     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.Cobr.Dup }
+     * Create an instance of {@link TIBSCBSTot.GIBS.GIBSMun }
      * 
      */
-    public TCTeOS.InfCte.InfCTeNorm.Cobr.Dup createTCTeOSInfCteInfCTeNormCobrDup() {
-        return new TCTeOS.InfCte.InfCTeNorm.Cobr.Dup();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ }
-     * 
-     */
-    public TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ createTCTeOSInfCteInfCTeNormInfServicoInfQ() {
-        return new TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.Imp.ICMSUFFim }
-     * 
-     */
-    public TCTeOS.InfCte.Imp.ICMSUFFim createTCTeOSInfCteImpICMSUFFim() {
-        return new TCTeOS.InfCte.Imp.ICMSUFFim();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.Imp.InfTribFed }
-     * 
-     */
-    public TCTeOS.InfCte.Imp.InfTribFed createTCTeOSInfCteImpInfTribFed() {
-        return new TCTeOS.InfCte.Imp.InfTribFed();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.VPrest.Comp }
-     * 
-     */
-    public TCTeOS.InfCte.VPrest.Comp createTCTeOSInfCteVPrestComp() {
-        return new TCTeOS.InfCte.VPrest.Comp();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.Compl.ObsCont }
-     * 
-     */
-    public TCTeOS.InfCte.Compl.ObsCont createTCTeOSInfCteComplObsCont() {
-        return new TCTeOS.InfCte.Compl.ObsCont();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.Compl.ObsFisco }
-     * 
-     */
-    public TCTeOS.InfCte.Compl.ObsFisco createTCTeOSInfCteComplObsFisco() {
-        return new TCTeOS.InfCte.Compl.ObsFisco();
-    }
-
-    /**
-     * Create an instance of {@link TCTeOS.InfCte.Ide.InfPercurso }
-     * 
-     */
-    public TCTeOS.InfCte.Ide.InfPercurso createTCTeOSInfCteIdeInfPercurso() {
-        return new TCTeOS.InfCte.Ide.InfPercurso();
+    public TIBSCBSTot.GIBS.GIBSMun createTIBSCBSTotGIBSGIBSMun() {
+        return new TIBSCBSTot.GIBS.GIBSMun();
     }
 
     /**
@@ -1071,6 +1138,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfDoc.InfDCe }
+     * 
+     */
+    public TCTe.InfCte.InfCTeNorm.InfDoc.InfDCe createTCTeInfCteInfCTeNormInfDocInfDCe() {
+        return new TCTe.InfCte.InfCTeNorm.InfDoc.InfDCe();
+    }
+
+    /**
      * Create an instance of {@link TCTe.InfCte.InfCTeNorm.InfCarga.InfQ }
      * 
      */
@@ -1183,35 +1258,115 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TProtGTVe.InfProt }
+     * Create an instance of {@link TMonofasia.GMonoPadrao }
      * 
      */
-    public TProtGTVe.InfProt createTProtGTVeInfProt() {
-        return new TProtGTVe.InfProt();
+    public TMonofasia.GMonoPadrao createTMonofasiaGMonoPadrao() {
+        return new TMonofasia.GMonoPadrao();
     }
 
     /**
-     * Create an instance of {@link TProtGTVe.InfFisco }
+     * Create an instance of {@link TMonofasia.GMonoReten }
      * 
      */
-    public TProtGTVe.InfFisco createTProtGTVeInfFisco() {
-        return new TProtGTVe.InfFisco();
+    public TMonofasia.GMonoReten createTMonofasiaGMonoReten() {
+        return new TMonofasia.GMonoReten();
     }
 
     /**
-     * Create an instance of {@link TProtCTeOS.InfProt }
+     * Create an instance of {@link TMonofasia.GMonoRet }
      * 
      */
-    public TProtCTeOS.InfProt createTProtCTeOSInfProt() {
-        return new TProtCTeOS.InfProt();
+    public TMonofasia.GMonoRet createTMonofasiaGMonoRet() {
+        return new TMonofasia.GMonoRet();
     }
 
     /**
-     * Create an instance of {@link TProtCTeOS.InfFisco }
+     * Create an instance of {@link TMonofasia.GMonoDif }
      * 
      */
-    public TProtCTeOS.InfFisco createTProtCTeOSInfFisco() {
-        return new TProtCTeOS.InfFisco();
+    public TMonofasia.GMonoDif createTMonofasiaGMonoDif() {
+        return new TMonofasia.GMonoDif();
+    }
+
+    /**
+     * Create an instance of {@link TCIBS.GIBSUF }
+     * 
+     */
+    public TCIBS.GIBSUF createTCIBSGIBSUF() {
+        return new TCIBS.GIBSUF();
+    }
+
+    /**
+     * Create an instance of {@link TCIBS.GIBSMun }
+     * 
+     */
+    public TCIBS.GIBSMun createTCIBSGIBSMun() {
+        return new TCIBS.GIBSMun();
+    }
+
+    /**
+     * Create an instance of {@link TCIBS.GCBS }
+     * 
+     */
+    public TCIBS.GCBS createTCIBSGCBS() {
+        return new TCIBS.GCBS();
+    }
+
+    /**
+     * Create an instance of {@link TImpOS.ICMS00 }
+     * 
+     */
+    public TImpOS.ICMS00 createTImpOSICMS00() {
+        return new TImpOS.ICMS00();
+    }
+
+    /**
+     * Create an instance of {@link TImpOS.ICMS20 }
+     * 
+     */
+    public TImpOS.ICMS20 createTImpOSICMS20() {
+        return new TImpOS.ICMS20();
+    }
+
+    /**
+     * Create an instance of {@link TImpOS.ICMS45 }
+     * 
+     */
+    public TImpOS.ICMS45 createTImpOSICMS45() {
+        return new TImpOS.ICMS45();
+    }
+
+    /**
+     * Create an instance of {@link TImpOS.ICMS90 }
+     * 
+     */
+    public TImpOS.ICMS90 createTImpOSICMS90() {
+        return new TImpOS.ICMS90();
+    }
+
+    /**
+     * Create an instance of {@link TImpOS.ICMSOutraUF }
+     * 
+     */
+    public TImpOS.ICMSOutraUF createTImpOSICMSOutraUF() {
+        return new TImpOS.ICMSOutraUF();
+    }
+
+    /**
+     * Create an instance of {@link TImpOS.ICMSSN }
+     * 
+     */
+    public TImpOS.ICMSSN createTImpOSICMSSN() {
+        return new TImpOS.ICMSSN();
+    }
+
+    /**
+     * Create an instance of {@link TUnidCarga.LacUnidCarga }
+     * 
+     */
+    public TUnidCarga.LacUnidCarga createTUnidCargaLacUnidCarga() {
+        return new TUnidCarga.LacUnidCarga();
     }
 
     /**
@@ -1300,6 +1455,158 @@ public class ObjectFactory {
      */
     public TGTVe.InfCte.Ide.TomaTerceiro createTGTVeInfCteIdeTomaTerceiro() {
         return new TGTVe.InfCte.Ide.TomaTerceiro();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCTeSupl }
+     * 
+     */
+    public TCTeOS.InfCTeSupl createTCTeOSInfCTeSupl() {
+        return new TCTeOS.InfCTeSupl();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.Emit }
+     * 
+     */
+    public TCTeOS.InfCte.Emit createTCTeOSInfCteEmit() {
+        return new TCTeOS.InfCte.Emit();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.Toma }
+     * 
+     */
+    public TCTeOS.InfCte.Toma createTCTeOSInfCteToma() {
+        return new TCTeOS.InfCte.Toma();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.InfCteComp }
+     * 
+     */
+    public TCTeOS.InfCte.InfCteComp createTCTeOSInfCteInfCteComp() {
+        return new TCTeOS.InfCte.InfCteComp();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.AutXML }
+     * 
+     */
+    public TCTeOS.InfCte.AutXML createTCTeOSInfCteAutXML() {
+        return new TCTeOS.InfCte.AutXML();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfDocRef }
+     * 
+     */
+    public TCTeOS.InfCte.InfCTeNorm.InfDocRef createTCTeOSInfCteInfCTeNormInfDocRef() {
+        return new TCTeOS.InfCte.InfCTeNorm.InfDocRef();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.Seg }
+     * 
+     */
+    public TCTeOS.InfCte.InfCTeNorm.Seg createTCTeOSInfCteInfCTeNormSeg() {
+        return new TCTeOS.InfCte.InfCTeNorm.Seg();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfModal }
+     * 
+     */
+    public TCTeOS.InfCte.InfCTeNorm.InfModal createTCTeOSInfCteInfCTeNormInfModal() {
+        return new TCTeOS.InfCte.InfCTeNorm.InfModal();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfCteSub }
+     * 
+     */
+    public TCTeOS.InfCte.InfCTeNorm.InfCteSub createTCTeOSInfCteInfCTeNormInfCteSub() {
+        return new TCTeOS.InfCte.InfCTeNorm.InfCteSub();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfGTVe.Comp }
+     * 
+     */
+    public TCTeOS.InfCte.InfCTeNorm.InfGTVe.Comp createTCTeOSInfCteInfCTeNormInfGTVeComp() {
+        return new TCTeOS.InfCte.InfCTeNorm.InfGTVe.Comp();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.Cobr.Fat }
+     * 
+     */
+    public TCTeOS.InfCte.InfCTeNorm.Cobr.Fat createTCTeOSInfCteInfCTeNormCobrFat() {
+        return new TCTeOS.InfCte.InfCTeNorm.Cobr.Fat();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.Cobr.Dup }
+     * 
+     */
+    public TCTeOS.InfCte.InfCTeNorm.Cobr.Dup createTCTeOSInfCteInfCTeNormCobrDup() {
+        return new TCTeOS.InfCte.InfCTeNorm.Cobr.Dup();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ }
+     * 
+     */
+    public TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ createTCTeOSInfCteInfCTeNormInfServicoInfQ() {
+        return new TCTeOS.InfCte.InfCTeNorm.InfServico.InfQ();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.Imp.ICMSUFFim }
+     * 
+     */
+    public TCTeOS.InfCte.Imp.ICMSUFFim createTCTeOSInfCteImpICMSUFFim() {
+        return new TCTeOS.InfCte.Imp.ICMSUFFim();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.Imp.InfTribFed }
+     * 
+     */
+    public TCTeOS.InfCte.Imp.InfTribFed createTCTeOSInfCteImpInfTribFed() {
+        return new TCTeOS.InfCte.Imp.InfTribFed();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.VPrest.Comp }
+     * 
+     */
+    public TCTeOS.InfCte.VPrest.Comp createTCTeOSInfCteVPrestComp() {
+        return new TCTeOS.InfCte.VPrest.Comp();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.Compl.ObsCont }
+     * 
+     */
+    public TCTeOS.InfCte.Compl.ObsCont createTCTeOSInfCteComplObsCont() {
+        return new TCTeOS.InfCte.Compl.ObsCont();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.Compl.ObsFisco }
+     * 
+     */
+    public TCTeOS.InfCte.Compl.ObsFisco createTCTeOSInfCteComplObsFisco() {
+        return new TCTeOS.InfCte.Compl.ObsFisco();
+    }
+
+    /**
+     * Create an instance of {@link TCTeOS.InfCte.Ide.InfPercurso }
+     * 
+     */
+    public TCTeOS.InfCte.Ide.InfPercurso createTCTeOSInfCteIdeInfPercurso() {
+        return new TCTeOS.InfCte.Ide.InfPercurso();
     }
 
     /**
@@ -1479,12 +1786,8 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SignatureType }{@code >}
+     * Create an instance of {@link JAXBElement }{@code <}{@link SignatureType }{@code >}}
      * 
-     * @param value
-     *     Java instance representing xml element's value.
-     * @return
-     *     the new instance of {@link JAXBElement }{@code <}{@link SignatureType }{@code >}
      */
     @XmlElementDecl(namespace = "http://www.w3.org/2000/09/xmldsig#", name = "Signature")
     public JAXBElement<SignatureType> createSignature(SignatureType value) {

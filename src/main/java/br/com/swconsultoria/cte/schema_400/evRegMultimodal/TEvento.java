@@ -1,7 +1,13 @@
 
 package br.com.swconsultoria.cte.schema_400.evRegMultimodal;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAnyElement;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.w3c.dom.Element;
@@ -112,7 +118,7 @@ import org.w3c.dom.Element;
  *                 &lt;attribute name="Id" use="required">
  *                   &lt;simpleType>
  *                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}ID">
- *                       &lt;pattern value="ID[0-9]{53}"/>
+ *                       &lt;pattern value="ID[0-9]{12}[A-Z0-9]{12}[0-9]{29}"/>
  *                     &lt;/restriction>
  *                   &lt;/simpleType>
  *                 &lt;/attribute>
@@ -135,7 +141,6 @@ import org.w3c.dom.Element;
     "infEvento",
     "signature"
 })
-@XmlRootElement(name = "eventoCTe", namespace = "http://www.portalfiscal.inf.br/cte")
 public class TEvento {
 
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
@@ -316,7 +321,7 @@ public class TEvento {
      *       &lt;attribute name="Id" use="required">
      *         &lt;simpleType>
      *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}ID">
-     *             &lt;pattern value="ID[0-9]{53}"/>
+     *             &lt;pattern value="ID[0-9]{12}[A-Z0-9]{12}[0-9]{29}"/>
      *           &lt;/restriction>
      *         &lt;/simpleType>
      *       &lt;/attribute>

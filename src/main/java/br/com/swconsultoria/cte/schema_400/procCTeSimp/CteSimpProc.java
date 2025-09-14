@@ -1,8 +1,5 @@
 
-
-
 package br.com.swconsultoria.cte.schema_400.procCTeSimp;
-
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -13,31 +10,31 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Classe Java de anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="CTeSimp" type="{http://www.portalfiscal.inf.br/cte}TCTeSimp"/&gt;
- *         &lt;element name="protCTe" type="{http://www.portalfiscal.inf.br/cte}TProtCTe"/&gt;
- *       &lt;/sequence&gt;
- *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/cte}TVerCTe" /&gt;
- *       &lt;attribute name="ipTransmissor" type="{http://www.portalfiscal.inf.br/cte}TIPv4" /&gt;
- *       &lt;attribute name="nPortaCon"&gt;
- *         &lt;simpleType&gt;
- *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *             &lt;pattern value="[0-9]{1,5}"/&gt;
- *           &lt;/restriction&gt;
- *         &lt;/simpleType&gt;
- *       &lt;/attribute&gt;
- *       &lt;attribute name="dhConexao" type="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC" /&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType>
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="CTeSimp" type="{http://www.portalfiscal.inf.br/cte}TCTeSimp"/>
+ *         &lt;element name="protCTe" type="{http://www.portalfiscal.inf.br/cte}TProtCTe"/>
+ *       &lt;/sequence>
+ *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/cte}TVerCTe" />
+ *       &lt;attribute name="ipTransmissor" type="{http://www.portalfiscal.inf.br/cte}TIPv4" />
+ *       &lt;attribute name="nPortaCon">
+ *         &lt;simpleType>
+ *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *             &lt;pattern value="[0-9]{1,5}"/>
+ *           &lt;/restriction>
+ *         &lt;/simpleType>
+ *       &lt;/attribute>
+ *       &lt;attribute name="dhConexao" type="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC" />
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -50,9 +47,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlRootElement(name = "cteSimpProc", namespace = "http://www.portalfiscal.inf.br/cte")
 public class CteSimpProc {
 
-    @XmlElement(name = "CTeSimp", required = true,namespace = "http://www.portalfiscal.inf.br/cte")
+    @XmlElement(name = "CTeSimp", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected TCTeSimp cTeSimp;
-    @XmlElement(required = true,namespace = "http://www.portalfiscal.inf.br/cte")
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected TProtCTe protCTe;
     @XmlAttribute(name = "versao", required = true)
     protected String versao;
@@ -64,7 +61,7 @@ public class CteSimpProc {
     protected String dhConexao;
 
     /**
-     * Gets the value of the cTeSimp property.
+     * Obtém o valor da propriedade cTeSimp.
      * 
      * @return
      *     possible object is
@@ -76,7 +73,7 @@ public class CteSimpProc {
     }
 
     /**
-     * Sets the value of the cTeSimp property.
+     * Define o valor da propriedade cTeSimp.
      * 
      * @param value
      *     allowed object is
@@ -88,7 +85,7 @@ public class CteSimpProc {
     }
 
     /**
-     * Gets the value of the protCTe property.
+     * Obtém o valor da propriedade protCTe.
      * 
      * @return
      *     possible object is
@@ -100,7 +97,7 @@ public class CteSimpProc {
     }
 
     /**
-     * Sets the value of the protCTe property.
+     * Define o valor da propriedade protCTe.
      * 
      * @param value
      *     allowed object is
@@ -112,7 +109,7 @@ public class CteSimpProc {
     }
 
     /**
-     * Gets the value of the versao property.
+     * Obtém o valor da propriedade versao.
      * 
      * @return
      *     possible object is
@@ -124,7 +121,7 @@ public class CteSimpProc {
     }
 
     /**
-     * Sets the value of the versao property.
+     * Define o valor da propriedade versao.
      * 
      * @param value
      *     allowed object is
@@ -136,7 +133,7 @@ public class CteSimpProc {
     }
 
     /**
-     * Gets the value of the ipTransmissor property.
+     * Obtém o valor da propriedade ipTransmissor.
      * 
      * @return
      *     possible object is
@@ -148,7 +145,7 @@ public class CteSimpProc {
     }
 
     /**
-     * Sets the value of the ipTransmissor property.
+     * Define o valor da propriedade ipTransmissor.
      * 
      * @param value
      *     allowed object is
@@ -160,7 +157,7 @@ public class CteSimpProc {
     }
 
     /**
-     * Gets the value of the nPortaCon property.
+     * Obtém o valor da propriedade nPortaCon.
      * 
      * @return
      *     possible object is
@@ -172,7 +169,7 @@ public class CteSimpProc {
     }
 
     /**
-     * Sets the value of the nPortaCon property.
+     * Define o valor da propriedade nPortaCon.
      * 
      * @param value
      *     allowed object is
@@ -184,7 +181,7 @@ public class CteSimpProc {
     }
 
     /**
-     * Gets the value of the dhConexao property.
+     * Obtém o valor da propriedade dhConexao.
      * 
      * @return
      *     possible object is
@@ -196,7 +193,7 @@ public class CteSimpProc {
     }
 
     /**
-     * Sets the value of the dhConexao property.
+     * Define o valor da propriedade dhConexao.
      * 
      * @param value
      *     allowed object is

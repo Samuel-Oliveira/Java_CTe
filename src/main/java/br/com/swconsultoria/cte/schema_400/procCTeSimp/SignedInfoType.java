@@ -1,49 +1,51 @@
 
-
-
 package br.com.swconsultoria.cte.schema_400.procCTeSimp;
 
-
-
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for SignedInfoType complex type.
+ * <p>Classe Java de SignedInfoType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="SignedInfoType"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="CanonicalizationMethod"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="SignatureMethod"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="Reference" type="{http://www.w3.org/2000/09/xmldsig#}ReferenceType"/&gt;
- *       &lt;/sequence&gt;
- *       &lt;attribute name="Id" type="{http://www.w3.org/2001/XMLSchema}ID" /&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="SignedInfoType">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="CanonicalizationMethod">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="SignatureMethod">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="Reference" type="{http://www.w3.org/2000/09/xmldsig#}ReferenceType"/>
+ *       &lt;/sequence>
+ *       &lt;attribute name="Id" type="{http://www.w3.org/2001/XMLSchema}ID" />
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -56,11 +58,11 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 })
 public class SignedInfoType {
 
-    @XmlElement(name = "CanonicalizationMethod", required = true)
+    @XmlElement(name = "CanonicalizationMethod", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected SignedInfoType.CanonicalizationMethod canonicalizationMethod;
-    @XmlElement(name = "SignatureMethod", required = true)
+    @XmlElement(name = "SignatureMethod", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected SignedInfoType.SignatureMethod signatureMethod;
-    @XmlElement(name = "Reference", required = true)
+    @XmlElement(name = "Reference", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected ReferenceType reference;
     @XmlAttribute(name = "Id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
@@ -69,55 +71,55 @@ public class SignedInfoType {
     protected String id;
 
     /**
-     * Gets the value of the canonicalizationMethod property.
+     * Obtém o valor da propriedade canonicalizationMethod.
      * 
      * @return
      *     possible object is
-     *     {@link CanonicalizationMethod }
+     *     {@link SignedInfoType.CanonicalizationMethod }
      *     
      */
-    public CanonicalizationMethod getCanonicalizationMethod() {
+    public SignedInfoType.CanonicalizationMethod getCanonicalizationMethod() {
         return canonicalizationMethod;
     }
 
     /**
-     * Sets the value of the canonicalizationMethod property.
+     * Define o valor da propriedade canonicalizationMethod.
      * 
      * @param value
      *     allowed object is
-     *     {@link CanonicalizationMethod }
+     *     {@link SignedInfoType.CanonicalizationMethod }
      *     
      */
-    public void setCanonicalizationMethod(CanonicalizationMethod value) {
+    public void setCanonicalizationMethod(SignedInfoType.CanonicalizationMethod value) {
         this.canonicalizationMethod = value;
     }
 
     /**
-     * Gets the value of the signatureMethod property.
+     * Obtém o valor da propriedade signatureMethod.
      * 
      * @return
      *     possible object is
-     *     {@link SignatureMethod }
+     *     {@link SignedInfoType.SignatureMethod }
      *     
      */
-    public SignatureMethod getSignatureMethod() {
+    public SignedInfoType.SignatureMethod getSignatureMethod() {
         return signatureMethod;
     }
 
     /**
-     * Sets the value of the signatureMethod property.
+     * Define o valor da propriedade signatureMethod.
      * 
      * @param value
      *     allowed object is
-     *     {@link SignatureMethod }
+     *     {@link SignedInfoType.SignatureMethod }
      *     
      */
-    public void setSignatureMethod(SignatureMethod value) {
+    public void setSignatureMethod(SignedInfoType.SignatureMethod value) {
         this.signatureMethod = value;
     }
 
     /**
-     * Gets the value of the reference property.
+     * Obtém o valor da propriedade reference.
      * 
      * @return
      *     possible object is
@@ -129,7 +131,7 @@ public class SignedInfoType {
     }
 
     /**
-     * Sets the value of the reference property.
+     * Define o valor da propriedade reference.
      * 
      * @param value
      *     allowed object is
@@ -141,7 +143,7 @@ public class SignedInfoType {
     }
 
     /**
-     * Gets the value of the id property.
+     * Obtém o valor da propriedade id.
      * 
      * @return
      *     possible object is
@@ -153,7 +155,7 @@ public class SignedInfoType {
     }
 
     /**
-     * Sets the value of the id property.
+     * Define o valor da propriedade id.
      * 
      * @param value
      *     allowed object is
@@ -166,18 +168,18 @@ public class SignedInfoType {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" /&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
      * </pre>
      * 
      * 
@@ -191,7 +193,7 @@ public class SignedInfoType {
         protected String algorithm;
 
         /**
-         * Gets the value of the algorithm property.
+         * Obtém o valor da propriedade algorithm.
          * 
          * @return
          *     possible object is
@@ -207,7 +209,7 @@ public class SignedInfoType {
         }
 
         /**
-         * Sets the value of the algorithm property.
+         * Define o valor da propriedade algorithm.
          * 
          * @param value
          *     allowed object is
@@ -222,18 +224,18 @@ public class SignedInfoType {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/2000/09/xmldsig#rsa-sha1" /&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;attribute name="Algorithm" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" fixed="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
      * </pre>
      * 
      * 
@@ -247,7 +249,7 @@ public class SignedInfoType {
         protected String algorithm;
 
         /**
-         * Gets the value of the algorithm property.
+         * Obtém o valor da propriedade algorithm.
          * 
          * @return
          *     possible object is
@@ -263,7 +265,7 @@ public class SignedInfoType {
         }
 
         /**
-         * Sets the value of the algorithm property.
+         * Define o valor da propriedade algorithm.
          * 
          * @param value
          *     allowed object is

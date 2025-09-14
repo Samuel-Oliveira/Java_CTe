@@ -201,22 +201,6 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${maven-javadoc-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <failOnError>false</failOnError>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.sonatype.central</groupId>
                 <artifactId>central-publishing-maven-plugin</artifactId>
                 <version>${central-publishing-maven-plugin.version}</version>

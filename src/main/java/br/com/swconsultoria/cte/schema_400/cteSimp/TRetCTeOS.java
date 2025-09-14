@@ -1,40 +1,42 @@
 
-
-
 package br.com.swconsultoria.cte.schema_400.cteSimp;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * Tipo Retorno do Pedido de Autorização de CT-e OS (Modelo 67)
  * 
- * <p>Java class for TRetCTeOS complex type.
+ * <p>Classe Java de TRetCTeOS complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="TRetCTeOS"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/&gt;
- *         &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/cte}TCodUfIBGE"/&gt;
- *         &lt;element name="verAplic" type="{http://www.portalfiscal.inf.br/cte}TVerAplic"/&gt;
- *         &lt;element name="cStat" type="{http://www.portalfiscal.inf.br/cte}TStat"/&gt;
- *         &lt;element name="xMotivo" type="{http://www.portalfiscal.inf.br/cte}TMotivo"/&gt;
- *         &lt;element name="protCTe" type="{http://www.portalfiscal.inf.br/cte}TProtCTeOS" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/cte}TVerCTe" /&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="TRetCTeOS">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/>
+ *         &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/cte}TCodUfIBGE"/>
+ *         &lt;element name="verAplic" type="{http://www.portalfiscal.inf.br/cte}TVerAplic"/>
+ *         &lt;element name="cStat" type="{http://www.portalfiscal.inf.br/cte}TStat"/>
+ *         &lt;element name="xMotivo" type="{http://www.portalfiscal.inf.br/cte}TMotivo"/>
+ *         &lt;element name="protCTe" type="{http://www.portalfiscal.inf.br/cte}TProtCTeOS" minOccurs="0"/>
+ *       &lt;/sequence>
+ *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/cte}TVerCTe" />
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TRetCTeOS", propOrder = {
+@XmlType(name = "TRetCTeOS", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
     "tpAmb",
     "cuf",
     "verAplic",
@@ -44,22 +46,23 @@ import javax.xml.bind.annotation.*;
 })
 public class TRetCTeOS {
 
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String tpAmb;
-    @XmlElement(name = "cUF", required = true)
+    @XmlElement(name = "cUF", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String cuf;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String verAplic;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String cStat;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String xMotivo;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected TProtCTeOS protCTe;
     @XmlAttribute(name = "versao", required = true)
     protected String versao;
 
     /**
-     * Gets the value of the tpAmb property.
+     * Obtém o valor da propriedade tpAmb.
      * 
      * @return
      *     possible object is
@@ -71,7 +74,7 @@ public class TRetCTeOS {
     }
 
     /**
-     * Sets the value of the tpAmb property.
+     * Define o valor da propriedade tpAmb.
      * 
      * @param value
      *     allowed object is
@@ -83,7 +86,7 @@ public class TRetCTeOS {
     }
 
     /**
-     * Gets the value of the cuf property.
+     * Obtém o valor da propriedade cuf.
      * 
      * @return
      *     possible object is
@@ -95,7 +98,7 @@ public class TRetCTeOS {
     }
 
     /**
-     * Sets the value of the cuf property.
+     * Define o valor da propriedade cuf.
      * 
      * @param value
      *     allowed object is
@@ -107,7 +110,7 @@ public class TRetCTeOS {
     }
 
     /**
-     * Gets the value of the verAplic property.
+     * Obtém o valor da propriedade verAplic.
      * 
      * @return
      *     possible object is
@@ -119,7 +122,7 @@ public class TRetCTeOS {
     }
 
     /**
-     * Sets the value of the verAplic property.
+     * Define o valor da propriedade verAplic.
      * 
      * @param value
      *     allowed object is
@@ -131,7 +134,7 @@ public class TRetCTeOS {
     }
 
     /**
-     * Gets the value of the cStat property.
+     * Obtém o valor da propriedade cStat.
      * 
      * @return
      *     possible object is
@@ -143,7 +146,7 @@ public class TRetCTeOS {
     }
 
     /**
-     * Sets the value of the cStat property.
+     * Define o valor da propriedade cStat.
      * 
      * @param value
      *     allowed object is
@@ -155,7 +158,7 @@ public class TRetCTeOS {
     }
 
     /**
-     * Gets the value of the xMotivo property.
+     * Obtém o valor da propriedade xMotivo.
      * 
      * @return
      *     possible object is
@@ -167,7 +170,7 @@ public class TRetCTeOS {
     }
 
     /**
-     * Sets the value of the xMotivo property.
+     * Define o valor da propriedade xMotivo.
      * 
      * @param value
      *     allowed object is
@@ -179,7 +182,7 @@ public class TRetCTeOS {
     }
 
     /**
-     * Gets the value of the protCTe property.
+     * Obtém o valor da propriedade protCTe.
      * 
      * @return
      *     possible object is
@@ -191,7 +194,7 @@ public class TRetCTeOS {
     }
 
     /**
-     * Sets the value of the protCTe property.
+     * Define o valor da propriedade protCTe.
      * 
      * @param value
      *     allowed object is
@@ -203,7 +206,7 @@ public class TRetCTeOS {
     }
 
     /**
-     * Gets the value of the versao property.
+     * Obtém o valor da propriedade versao.
      * 
      * @return
      *     possible object is
@@ -215,7 +218,7 @@ public class TRetCTeOS {
     }
 
     /**
-     * Sets the value of the versao property.
+     * Define o valor da propriedade versao.
      * 
      * @param value
      *     allowed object is

@@ -1,9 +1,13 @@
 
-
-
 package br.com.swconsultoria.cte.schema_400.procCTeSimp;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
@@ -11,137 +15,138 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 /**
  * Tipo Protocolo de status resultado do processamento da GTV-e (Modelo 64)
  * 
- * <p>Java class for TProtGTVe complex type.
+ * <p>Classe Java de TProtGTVe complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="TProtGTVe"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="infProt"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/&gt;
- *                   &lt;element name="verAplic" type="{http://www.portalfiscal.inf.br/cte}TVerAplic"/&gt;
- *                   &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
- *                   &lt;element name="dhRecbto" type="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC"/&gt;
- *                   &lt;element name="nProt" type="{http://www.portalfiscal.inf.br/cte}TProt" minOccurs="0"/&gt;
- *                   &lt;element name="digVal" type="{http://www.w3.org/2000/09/xmldsig#}DigestValueType" minOccurs="0"/&gt;
- *                   &lt;element name="cStat"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TStat"&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="xMotivo" type="{http://www.portalfiscal.inf.br/cte}TMotivo"/&gt;
- *                 &lt;/sequence&gt;
- *                 &lt;attribute name="Id" type="{http://www.w3.org/2001/XMLSchema}ID" /&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="infFisco" minOccurs="0"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;element name="cMsg"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TStat"&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                   &lt;element name="xMsg" type="{http://www.portalfiscal.inf.br/cte}TMotivo"/&gt;
- *                 &lt;/sequence&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element ref="{http://www.w3.org/2000/09/xmldsig#}Signature" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *       &lt;attribute name="versao" use="required"&gt;
- *         &lt;simpleType&gt;
- *           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TVerCTe"&gt;
- *           &lt;/restriction&gt;
- *         &lt;/simpleType&gt;
- *       &lt;/attribute&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="TProtGTVe">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="infProt">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/>
+ *                   &lt;element name="verAplic" type="{http://www.portalfiscal.inf.br/cte}TVerAplic"/>
+ *                   &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+ *                   &lt;element name="dhRecbto" type="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC"/>
+ *                   &lt;element name="nProt" type="{http://www.portalfiscal.inf.br/cte}TProt" minOccurs="0"/>
+ *                   &lt;element name="digVal" type="{http://www.w3.org/2000/09/xmldsig#}DigestValueType" minOccurs="0"/>
+ *                   &lt;element name="cStat">
+ *                     &lt;simpleType>
+ *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TStat">
+ *                       &lt;/restriction>
+ *                     &lt;/simpleType>
+ *                   &lt;/element>
+ *                   &lt;element name="xMotivo" type="{http://www.portalfiscal.inf.br/cte}TMotivo"/>
+ *                 &lt;/sequence>
+ *                 &lt;attribute name="Id" type="{http://www.w3.org/2001/XMLSchema}ID" />
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="infFisco" minOccurs="0">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="cMsg">
+ *                     &lt;simpleType>
+ *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TStat">
+ *                       &lt;/restriction>
+ *                     &lt;/simpleType>
+ *                   &lt;/element>
+ *                   &lt;element name="xMsg" type="{http://www.portalfiscal.inf.br/cte}TMotivo"/>
+ *                 &lt;/sequence>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element ref="{http://www.w3.org/2000/09/xmldsig#}Signature" minOccurs="0"/>
+ *       &lt;/sequence>
+ *       &lt;attribute name="versao" use="required">
+ *         &lt;simpleType>
+ *           &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TVerCTe">
+ *           &lt;/restriction>
+ *         &lt;/simpleType>
+ *       &lt;/attribute>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TProtGTVe", propOrder = {
+@XmlType(name = "TProtGTVe", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
     "infProt",
     "infFisco",
     "signature"
 })
 public class TProtGTVe {
 
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected TProtGTVe.InfProt infProt;
-    protected InfFisco infFisco;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+    protected TProtGTVe.InfFisco infFisco;
     @XmlElement(name = "Signature", namespace = "http://www.w3.org/2000/09/xmldsig#")
     protected SignatureType signature;
     @XmlAttribute(name = "versao", required = true)
     protected String versao;
 
     /**
-     * Gets the value of the infProt property.
+     * Obtém o valor da propriedade infProt.
      * 
      * @return
      *     possible object is
-     *     {@link InfProt }
+     *     {@link TProtGTVe.InfProt }
      *     
      */
-    public InfProt getInfProt() {
+    public TProtGTVe.InfProt getInfProt() {
         return infProt;
     }
 
     /**
-     * Sets the value of the infProt property.
+     * Define o valor da propriedade infProt.
      * 
      * @param value
      *     allowed object is
-     *     {@link InfProt }
+     *     {@link TProtGTVe.InfProt }
      *     
      */
-    public void setInfProt(InfProt value) {
+    public void setInfProt(TProtGTVe.InfProt value) {
         this.infProt = value;
     }
 
     /**
-     * Gets the value of the infFisco property.
+     * Obtém o valor da propriedade infFisco.
      * 
      * @return
      *     possible object is
-     *     {@link InfFisco }
+     *     {@link TProtGTVe.InfFisco }
      *     
      */
-    public InfFisco getInfFisco() {
+    public TProtGTVe.InfFisco getInfFisco() {
         return infFisco;
     }
 
     /**
-     * Sets the value of the infFisco property.
+     * Define o valor da propriedade infFisco.
      * 
      * @param value
      *     allowed object is
-     *     {@link InfFisco }
+     *     {@link TProtGTVe.InfFisco }
      *     
      */
-    public void setInfFisco(InfFisco value) {
+    public void setInfFisco(TProtGTVe.InfFisco value) {
         this.infFisco = value;
     }
 
     /**
-     * Gets the value of the signature property.
+     * Obtém o valor da propriedade signature.
      * 
      * @return
      *     possible object is
@@ -153,7 +158,7 @@ public class TProtGTVe {
     }
 
     /**
-     * Sets the value of the signature property.
+     * Define o valor da propriedade signature.
      * 
      * @param value
      *     allowed object is
@@ -165,7 +170,7 @@ public class TProtGTVe {
     }
 
     /**
-     * Gets the value of the versao property.
+     * Obtém o valor da propriedade versao.
      * 
      * @return
      *     possible object is
@@ -177,7 +182,7 @@ public class TProtGTVe {
     }
 
     /**
-     * Sets the value of the versao property.
+     * Define o valor da propriedade versao.
      * 
      * @param value
      *     allowed object is
@@ -190,26 +195,26 @@ public class TProtGTVe {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;element name="cMsg"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TStat"&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="xMsg" type="{http://www.portalfiscal.inf.br/cte}TMotivo"/&gt;
-     *       &lt;/sequence&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="cMsg">
+     *           &lt;simpleType>
+     *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TStat">
+     *             &lt;/restriction>
+     *           &lt;/simpleType>
+     *         &lt;/element>
+     *         &lt;element name="xMsg" type="{http://www.portalfiscal.inf.br/cte}TMotivo"/>
+     *       &lt;/sequence>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
      * </pre>
      * 
      * 
@@ -221,13 +226,13 @@ public class TProtGTVe {
     })
     public static class InfFisco {
 
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String cMsg;
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String xMsg;
 
         /**
-         * Gets the value of the cMsg property.
+         * Obtém o valor da propriedade cMsg.
          * 
          * @return
          *     possible object is
@@ -239,7 +244,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Sets the value of the cMsg property.
+         * Define o valor da propriedade cMsg.
          * 
          * @param value
          *     allowed object is
@@ -251,7 +256,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Gets the value of the xMsg property.
+         * Obtém o valor da propriedade xMsg.
          * 
          * @return
          *     possible object is
@@ -263,7 +268,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Sets the value of the xMsg property.
+         * Define o valor da propriedade xMsg.
          * 
          * @param value
          *     allowed object is
@@ -278,33 +283,33 @@ public class TProtGTVe {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/&gt;
-     *         &lt;element name="verAplic" type="{http://www.portalfiscal.inf.br/cte}TVerAplic"/&gt;
-     *         &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/&gt;
-     *         &lt;element name="dhRecbto" type="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC"/&gt;
-     *         &lt;element name="nProt" type="{http://www.portalfiscal.inf.br/cte}TProt" minOccurs="0"/&gt;
-     *         &lt;element name="digVal" type="{http://www.w3.org/2000/09/xmldsig#}DigestValueType" minOccurs="0"/&gt;
-     *         &lt;element name="cStat"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TStat"&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *         &lt;element name="xMotivo" type="{http://www.portalfiscal.inf.br/cte}TMotivo"/&gt;
-     *       &lt;/sequence&gt;
-     *       &lt;attribute name="Id" type="{http://www.w3.org/2001/XMLSchema}ID" /&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/>
+     *         &lt;element name="verAplic" type="{http://www.portalfiscal.inf.br/cte}TVerAplic"/>
+     *         &lt;element name="chCTe" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+     *         &lt;element name="dhRecbto" type="{http://www.portalfiscal.inf.br/cte}TDateTimeUTC"/>
+     *         &lt;element name="nProt" type="{http://www.portalfiscal.inf.br/cte}TProt" minOccurs="0"/>
+     *         &lt;element name="digVal" type="{http://www.w3.org/2000/09/xmldsig#}DigestValueType" minOccurs="0"/>
+     *         &lt;element name="cStat">
+     *           &lt;simpleType>
+     *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TStat">
+     *             &lt;/restriction>
+     *           &lt;/simpleType>
+     *         &lt;/element>
+     *         &lt;element name="xMotivo" type="{http://www.portalfiscal.inf.br/cte}TMotivo"/>
+     *       &lt;/sequence>
+     *       &lt;attribute name="Id" type="{http://www.w3.org/2001/XMLSchema}ID" />
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
      * </pre>
      * 
      * 
@@ -322,19 +327,21 @@ public class TProtGTVe {
     })
     public static class InfProt {
 
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String tpAmb;
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String verAplic;
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String chCTe;
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String dhRecbto;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
         protected String nProt;
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
         protected byte[] digVal;
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String cStat;
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String xMotivo;
         @XmlAttribute(name = "Id")
         @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
@@ -343,7 +350,7 @@ public class TProtGTVe {
         protected String id;
 
         /**
-         * Gets the value of the tpAmb property.
+         * Obtém o valor da propriedade tpAmb.
          * 
          * @return
          *     possible object is
@@ -355,7 +362,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Sets the value of the tpAmb property.
+         * Define o valor da propriedade tpAmb.
          * 
          * @param value
          *     allowed object is
@@ -367,7 +374,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Gets the value of the verAplic property.
+         * Obtém o valor da propriedade verAplic.
          * 
          * @return
          *     possible object is
@@ -379,7 +386,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Sets the value of the verAplic property.
+         * Define o valor da propriedade verAplic.
          * 
          * @param value
          *     allowed object is
@@ -391,7 +398,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Gets the value of the chCTe property.
+         * Obtém o valor da propriedade chCTe.
          * 
          * @return
          *     possible object is
@@ -403,7 +410,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Sets the value of the chCTe property.
+         * Define o valor da propriedade chCTe.
          * 
          * @param value
          *     allowed object is
@@ -415,7 +422,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Gets the value of the dhRecbto property.
+         * Obtém o valor da propriedade dhRecbto.
          * 
          * @return
          *     possible object is
@@ -427,7 +434,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Sets the value of the dhRecbto property.
+         * Define o valor da propriedade dhRecbto.
          * 
          * @param value
          *     allowed object is
@@ -439,7 +446,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Gets the value of the nProt property.
+         * Obtém o valor da propriedade nProt.
          * 
          * @return
          *     possible object is
@@ -451,7 +458,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Sets the value of the nProt property.
+         * Define o valor da propriedade nProt.
          * 
          * @param value
          *     allowed object is
@@ -463,7 +470,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Gets the value of the digVal property.
+         * Obtém o valor da propriedade digVal.
          * 
          * @return
          *     possible object is
@@ -474,7 +481,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Sets the value of the digVal property.
+         * Define o valor da propriedade digVal.
          * 
          * @param value
          *     allowed object is
@@ -485,7 +492,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Gets the value of the cStat property.
+         * Obtém o valor da propriedade cStat.
          * 
          * @return
          *     possible object is
@@ -497,7 +504,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Sets the value of the cStat property.
+         * Define o valor da propriedade cStat.
          * 
          * @param value
          *     allowed object is
@@ -509,7 +516,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Gets the value of the xMotivo property.
+         * Obtém o valor da propriedade xMotivo.
          * 
          * @return
          *     possible object is
@@ -521,7 +528,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Sets the value of the xMotivo property.
+         * Define o valor da propriedade xMotivo.
          * 
          * @param value
          *     allowed object is
@@ -533,7 +540,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Gets the value of the id property.
+         * Obtém o valor da propriedade id.
          * 
          * @return
          *     possible object is
@@ -545,7 +552,7 @@ public class TProtGTVe {
         }
 
         /**
-         * Sets the value of the id property.
+         * Define o valor da propriedade id.
          * 
          * @param value
          *     allowed object is

@@ -1,7 +1,12 @@
 
 package br.com.swconsultoria.cte.schema_400.cte;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
+
 
 /**
  * Tipo Retorno do Pedido de Autorização de CT-e (Modelo 57)
@@ -18,7 +23,13 @@ import javax.xml.bind.annotation.*;
  *         &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/>
  *         &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/cte}TCodUfIBGE"/>
  *         &lt;element name="verAplic" type="{http://www.portalfiscal.inf.br/cte}TVerAplic"/>
- *         &lt;element name="cStat" type="{http://www.portalfiscal.inf.br/cte}TStat"/>
+ *         &lt;element name="cStat">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TStat">
+ *               &lt;pattern value="[0-9]{3}"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
  *         &lt;element name="xMotivo" type="{http://www.portalfiscal.inf.br/cte}TMotivo"/>
  *         &lt;element name="protCTe" type="{http://www.portalfiscal.inf.br/cte}TProtCTe" minOccurs="0"/>
  *       &lt;/sequence>
@@ -39,7 +50,6 @@ import javax.xml.bind.annotation.*;
     "xMotivo",
     "protCTe"
 })
-@XmlRootElement(name = "retCTe", namespace = "http://www.portalfiscal.inf.br/cte")
 public class TRetCTe {
 
     @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)

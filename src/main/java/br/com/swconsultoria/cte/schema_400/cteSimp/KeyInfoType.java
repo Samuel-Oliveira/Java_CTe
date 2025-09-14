@@ -1,29 +1,33 @@
 
-
-
 package br.com.swconsultoria.cte.schema_400.cteSimp;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * <p>Java class for KeyInfoType complex type.
+ * <p>Classe Java de KeyInfoType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="KeyInfoType"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="X509Data" type="{http://www.w3.org/2000/09/xmldsig#}X509DataType"/&gt;
- *       &lt;/sequence&gt;
- *       &lt;attribute name="Id" type="{http://www.w3.org/2001/XMLSchema}ID" /&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="KeyInfoType">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="X509Data" type="{http://www.w3.org/2000/09/xmldsig#}X509DataType"/>
+ *       &lt;/sequence>
+ *       &lt;attribute name="Id" type="{http://www.w3.org/2001/XMLSchema}ID" />
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -34,7 +38,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 })
 public class KeyInfoType {
 
-    @XmlElement(name = "X509Data", required = true)
+    @XmlElement(name = "X509Data", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected X509DataType x509Data;
     @XmlAttribute(name = "Id")
     @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
@@ -43,7 +47,7 @@ public class KeyInfoType {
     protected String id;
 
     /**
-     * Gets the value of the x509Data property.
+     * Obtém o valor da propriedade x509Data.
      * 
      * @return
      *     possible object is
@@ -55,7 +59,7 @@ public class KeyInfoType {
     }
 
     /**
-     * Sets the value of the x509Data property.
+     * Define o valor da propriedade x509Data.
      * 
      * @param value
      *     allowed object is
@@ -67,7 +71,7 @@ public class KeyInfoType {
     }
 
     /**
-     * Gets the value of the id property.
+     * Obtém o valor da propriedade id.
      * 
      * @return
      *     possible object is
@@ -79,7 +83,7 @@ public class KeyInfoType {
     }
 
     /**
-     * Sets the value of the id property.
+     * Define o valor da propriedade id.
      * 
      * @param value
      *     allowed object is

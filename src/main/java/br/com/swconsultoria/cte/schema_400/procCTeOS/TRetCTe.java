@@ -23,7 +23,13 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/>
  *         &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/cte}TCodUfIBGE"/>
  *         &lt;element name="verAplic" type="{http://www.portalfiscal.inf.br/cte}TVerAplic"/>
- *         &lt;element name="cStat" type="{http://www.portalfiscal.inf.br/cte}TStat"/>
+ *         &lt;element name="cStat">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TStat">
+ *               &lt;pattern value="[0-9]{3}"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
  *         &lt;element name="xMotivo" type="{http://www.portalfiscal.inf.br/cte}TMotivo"/>
  *         &lt;element name="protCTe" type="{http://www.portalfiscal.inf.br/cte}TProtCTe" minOccurs="0"/>
  *       &lt;/sequence>

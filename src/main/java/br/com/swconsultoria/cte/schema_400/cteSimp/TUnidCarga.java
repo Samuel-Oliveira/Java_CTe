@@ -1,59 +1,57 @@
 
-
-
 package br.com.swconsultoria.cte.schema_400.cteSimp;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
  * Tipo Dados Unidade de Carga
  * 
- * <p>Java class for TUnidCarga complex type.
+ * <p>Classe Java de TUnidCarga complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="TUnidCarga"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="tpUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TtipoUnidCarga"/&gt;
- *         &lt;element name="idUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TContainer"/&gt;
- *         &lt;element name="lacUnidCarga" maxOccurs="unbounded" minOccurs="0"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;element name="nLacre"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                         &lt;minLength value="1"/&gt;
- *                         &lt;maxLength value="20"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                 &lt;/sequence&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="qtdRat" type="{http://www.portalfiscal.inf.br/cte}TDec_0302_0303" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="TUnidCarga">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="tpUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TtipoUnidCarga"/>
+ *         &lt;element name="idUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TContainer"/>
+ *         &lt;element name="lacUnidCarga" maxOccurs="unbounded" minOccurs="0">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="nLacre">
+ *                     &lt;simpleType>
+ *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                         &lt;minLength value="1"/>
+ *                         &lt;maxLength value="20"/>
+ *                       &lt;/restriction>
+ *                     &lt;/simpleType>
+ *                   &lt;/element>
+ *                 &lt;/sequence>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="qtdRat" type="{http://www.portalfiscal.inf.br/cte}TDec_0302_0303" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TUnidCarga", propOrder = {
+@XmlType(name = "TUnidCarga", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
     "tpUnidCarga",
     "idUnidCarga",
     "lacUnidCarga",
@@ -61,15 +59,17 @@ import java.util.List;
 })
 public class TUnidCarga {
 
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String tpUnidCarga;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String idUnidCarga;
-    protected List<LacUnidCarga> lacUnidCarga;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+    protected List<TUnidCarga.LacUnidCarga> lacUnidCarga;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected String qtdRat;
 
     /**
-     * Gets the value of the tpUnidCarga property.
+     * Obtém o valor da propriedade tpUnidCarga.
      * 
      * @return
      *     possible object is
@@ -81,7 +81,7 @@ public class TUnidCarga {
     }
 
     /**
-     * Sets the value of the tpUnidCarga property.
+     * Define o valor da propriedade tpUnidCarga.
      * 
      * @param value
      *     allowed object is
@@ -93,7 +93,7 @@ public class TUnidCarga {
     }
 
     /**
-     * Gets the value of the idUnidCarga property.
+     * Obtém o valor da propriedade idUnidCarga.
      * 
      * @return
      *     possible object is
@@ -105,7 +105,7 @@ public class TUnidCarga {
     }
 
     /**
-     * Sets the value of the idUnidCarga property.
+     * Define o valor da propriedade idUnidCarga.
      * 
      * @param value
      *     allowed object is
@@ -134,19 +134,19 @@ public class TUnidCarga {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link LacUnidCarga }
+     * {@link TUnidCarga.LacUnidCarga }
      * 
      * 
      */
-    public List<LacUnidCarga> getLacUnidCarga() {
+    public List<TUnidCarga.LacUnidCarga> getLacUnidCarga() {
         if (lacUnidCarga == null) {
-            lacUnidCarga = new ArrayList<LacUnidCarga>();
+            lacUnidCarga = new ArrayList<TUnidCarga.LacUnidCarga>();
         }
         return this.lacUnidCarga;
     }
 
     /**
-     * Gets the value of the qtdRat property.
+     * Obtém o valor da propriedade qtdRat.
      * 
      * @return
      *     possible object is
@@ -158,7 +158,7 @@ public class TUnidCarga {
     }
 
     /**
-     * Sets the value of the qtdRat property.
+     * Define o valor da propriedade qtdRat.
      * 
      * @param value
      *     allowed object is
@@ -171,27 +171,27 @@ public class TUnidCarga {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;element name="nLacre"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *               &lt;minLength value="1"/&gt;
-     *               &lt;maxLength value="20"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *       &lt;/sequence&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="nLacre">
+     *           &lt;simpleType>
+     *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *               &lt;minLength value="1"/>
+     *               &lt;maxLength value="20"/>
+     *             &lt;/restriction>
+     *           &lt;/simpleType>
+     *         &lt;/element>
+     *       &lt;/sequence>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
      * </pre>
      * 
      * 
@@ -202,11 +202,11 @@ public class TUnidCarga {
     })
     public static class LacUnidCarga {
 
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String nLacre;
 
         /**
-         * Gets the value of the nLacre property.
+         * Obtém o valor da propriedade nLacre.
          * 
          * @return
          *     possible object is
@@ -218,7 +218,7 @@ public class TUnidCarga {
         }
 
         /**
-         * Sets the value of the nLacre property.
+         * Define o valor da propriedade nLacre.
          * 
          * @param value
          *     allowed object is

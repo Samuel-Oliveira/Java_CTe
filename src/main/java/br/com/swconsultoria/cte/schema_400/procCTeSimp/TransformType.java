@@ -1,30 +1,31 @@
 
-
-
 package br.com.swconsultoria.cte.schema_400.procCTeSimp;
-
-import javax.xml.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for TransformType complex type.
+ * <p>Classe Java de TransformType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="TransformType"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence maxOccurs="unbounded" minOccurs="0"&gt;
- *         &lt;element name="XPath" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *       &lt;/sequence&gt;
- *       &lt;attribute name="Algorithm" use="required" type="{http://www.w3.org/2000/09/xmldsig#}TTransformURI" /&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="TransformType">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence maxOccurs="unbounded" minOccurs="0">
+ *         &lt;element name="XPath" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *       &lt;/sequence>
+ *       &lt;attribute name="Algorithm" use="required" type="{http://www.w3.org/2000/09/xmldsig#}TTransformURI" />
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -35,7 +36,7 @@ import java.util.List;
 })
 public class TransformType {
 
-    @XmlElement(name = "XPath")
+    @XmlElement(name = "XPath", namespace = "http://www.w3.org/2000/09/xmldsig#")
     protected List<String> xPath;
     @XmlAttribute(name = "Algorithm", required = true)
     protected String algorithm;
@@ -46,7 +47,7 @@ public class TransformType {
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the Jakarta XML Binding object.
+     * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the xPath property.
      * 
      * <p>
@@ -70,7 +71,7 @@ public class TransformType {
     }
 
     /**
-     * Gets the value of the algorithm property.
+     * Obtém o valor da propriedade algorithm.
      * 
      * @return
      *     possible object is
@@ -82,7 +83,7 @@ public class TransformType {
     }
 
     /**
-     * Sets the value of the algorithm property.
+     * Define o valor da propriedade algorithm.
      * 
      * @param value
      *     allowed object is
