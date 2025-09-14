@@ -1,11 +1,13 @@
 package br.com.swconsultoria.cte.dom.enuns;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 /**
  * @author Samuel Oliveira - samuk.exe@hotmail.com
  */
 @Getter
+@RequiredArgsConstructor
 public enum ServicosEnum {
 
     STATUS_SERVICO("CTeStatusServico_4.00", "consStatServCTe_v4.00.xsd"),
@@ -30,11 +32,6 @@ public enum ServicosEnum {
 
     private final String servico;
     private final String xsd;
-
-    ServicosEnum(String servico, String xsd) {
-        this.servico = servico;
-        this.xsd = xsd;
-    }
 
     private static class Constants {
         private static final String RECEPCAO_EVENTO_4_00 = "RecepcaoEvento_4.00";

@@ -3,9 +3,11 @@
  */
 package br.com.swconsultoria.cte.util;
 
+import br.com.swconsultoria.cte.dom.enuns.XsdEnum;
+import br.com.swconsultoria.cte.exception.CteException;
 import br.com.swconsultoria.cte.schema_400.cte.TCTe;
-import br.com.swconsultoria.cte.schema_400.cteOS.TCTeOS;
-import br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp;
+import br.com.swconsultoria.cte.schema_400.cte.TCTeOS;
+import br.com.swconsultoria.cte.schema_400.cte.TCTeSimp;
 import br.com.swconsultoria.cte.schema_400.procCTe.CteProc;
 import br.com.swconsultoria.cte.schema_400.procCTeOS.CteOSProc;
 import br.com.swconsultoria.cte.schema_400.procCTeSimp.CteSimpProc;
@@ -21,6 +23,8 @@ import javax.xml.transform.Result;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
@@ -49,40 +53,50 @@ public class XmlCteUtil {
     /**
      * Transforma o Objeto em XML(String)
      *
-     * @param objeto
+     * @param obj
      * @return
      * @throws JAXBException
+     * @throws NfeException
      */
-    public static String objectToXml(Object objeto) throws JAXBException {
-        return objectToXml(objeto, null, null);
+    public static String objectToXml(Object objeto) throws JAXBException, CteException {
+        return objectToXml(objeto, null, null, StandardCharsets.UTF_8);
     }
 
-    /**
-     * Transforma o Objeto em XML(String)
-     *
-     * @param objeto
-     * @return
-     * @throws JAXBException
-     */
-    public static <T> String objectToXml(T objeto, Class<T> clazz, String nomeElemento) throws JAXBException {
+    public static String objectToXml(Object objeto, Charset encode) throws JAXBException, CteException {
+        return objectToXml(objeto, null, null, encode);
+    }
+
+    public static <T> String objectToXml(T objeto, Class<T> clazz, String nomeElemento) throws JAXBException, CteException {
+        return objectToXml(objeto, clazz, nomeElemento, StandardCharsets.UTF_8);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T> String objectToXml(T objeto, Class<T> clazz, String nomeElemento, Charset encode) throws JAXBException, CteException {
 
         JAXBContext context = JAXBContext.newInstance(objeto.getClass());
         Marshaller marshaller = context.createMarshaller();
-        marshaller.setProperty("jaxb.encoding", "UTF-8");
+        marshaller.setProperty("jaxb.encoding", "Unicode");
         marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.FALSE);
         marshaller.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
         StringWriter sw = new StringWriter();
+
+        String encodeXml = encode == null || !Charset.isSupported(encode.displayName()) ? "UTF-8" : encode.displayName();
+        sw.append("<?xml version=\"1.0\" encoding=\"").append(encodeXml).append("\"?>");
+
         Result result = new StreamResult(sw);
 
-        if (nomeElemento != null) {
-            marshaller.marshal(new JAXBElement<>(
-                    new QName("http://www.portalfiscal.inf.br/cte", nomeElemento),
-                    clazz, objeto), result);
-        } else {
-            marshaller.marshal(objeto, result);
+        if (clazz == null) {
+            XsdEnum xsd = XsdEnum.getByClassName(objeto.getClass().getName());
+            clazz = (Class<T>) xsd.getClazz();
+            nomeElemento = xsd.getName();
         }
 
-        return replacesCte("<?xml version=\"1.0\" encoding=\"UTF-8\"?>" + sw);
+        marshaller.marshal(new JAXBElement<>(
+                new QName("http://www.portalfiscal.inf.br/cte", nomeElemento),
+                clazz, objeto), result);
+
+        return replacesCte(sw.toString());
+
     }
 
     public static String gZipToXml(byte[] conteudo) throws IOException {
@@ -117,7 +131,7 @@ public class XmlCteUtil {
     }
 
     public static String criaCteProc(TCTe cte, Object retorno)
-            throws JAXBException {
+            throws JAXBException, CteException {
 
         CteProc cteProc = new CteProc();
         cteProc.setVersao("4.00");
@@ -129,7 +143,7 @@ public class XmlCteUtil {
     }
 
     public static String criaCteOSProc(TCTeOS cteOS, Object retorno)
-            throws JAXBException {
+            throws JAXBException, CteException {
 
         CteOSProc cteProc = new CteOSProc();
         cteProc.setVersao("4.00");
@@ -141,7 +155,7 @@ public class XmlCteUtil {
     }
 
     public static String criaCteSimpProc(TCTeSimp cte, Object retorno)
-            throws JAXBException {
+            throws JAXBException, CteException {
 
         CteSimpProc cteProc = new CteSimpProc();
         cteProc.setVersao("4.00");

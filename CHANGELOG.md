@@ -1,3 +1,4 @@
 # Notas de versão
-
-- Atualizado Cacert
+- Atualizado Schema Reforma Tributaria
+- Remoçao de classes duplicadas
+- Reforacao JAXB

@@ -1,26 +1,27 @@
 
-
-
 package br.com.swconsultoria.cte.schema_400.procCTeSimp;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for X509DataType complex type.
+ * <p>Classe Java de X509DataType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="X509DataType"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="X509Certificate" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="X509DataType">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="X509Certificate" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
@@ -31,11 +32,11 @@ import javax.xml.bind.annotation.*;
 })
 public class X509DataType {
 
-    @XmlElement(name = "X509Certificate", required = true)
+    @XmlElement(name = "X509Certificate", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected byte[] x509Certificate;
 
     /**
-     * Gets the value of the x509Certificate property.
+     * Obtém o valor da propriedade x509Certificate.
      * 
      * @return
      *     possible object is
@@ -46,7 +47,7 @@ public class X509DataType {
     }
 
     /**
-     * Sets the value of the x509Certificate property.
+     * Define o valor da propriedade x509Certificate.
      * 
      * @param value
      *     allowed object is

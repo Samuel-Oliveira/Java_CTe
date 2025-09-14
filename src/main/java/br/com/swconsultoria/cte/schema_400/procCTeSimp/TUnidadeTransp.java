@@ -1,58 +1,58 @@
 
-
-
 package br.com.swconsultoria.cte.schema_400.procCTeSimp;
-
-import javax.xml.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * Tipo Dados Unidade de Transporte
  * 
- * <p>Java class for TUnidadeTransp complex type.
+ * <p>Classe Java de TUnidadeTransp complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="TUnidadeTransp"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="tpUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TtipoUnidTransp"/&gt;
- *         &lt;element name="idUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TContainer"/&gt;
- *         &lt;element name="lacUnidTransp" maxOccurs="unbounded" minOccurs="0"&gt;
- *           &lt;complexType&gt;
- *             &lt;complexContent&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *                 &lt;sequence&gt;
- *                   &lt;element name="nLacre"&gt;
- *                     &lt;simpleType&gt;
- *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *                         &lt;minLength value="1"/&gt;
- *                         &lt;maxLength value="20"/&gt;
- *                       &lt;/restriction&gt;
- *                     &lt;/simpleType&gt;
- *                   &lt;/element&gt;
- *                 &lt;/sequence&gt;
- *               &lt;/restriction&gt;
- *             &lt;/complexContent&gt;
- *           &lt;/complexType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/&gt;
- *         &lt;element name="qtdRat" type="{http://www.portalfiscal.inf.br/cte}TDec_0302_0303" minOccurs="0"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="TUnidadeTransp">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="tpUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TtipoUnidTransp"/>
+ *         &lt;element name="idUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TContainer"/>
+ *         &lt;element name="lacUnidTransp" maxOccurs="unbounded" minOccurs="0">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;element name="nLacre">
+ *                     &lt;simpleType>
+ *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *                         &lt;minLength value="1"/>
+ *                         &lt;maxLength value="20"/>
+ *                       &lt;/restriction>
+ *                     &lt;/simpleType>
+ *                   &lt;/element>
+ *                 &lt;/sequence>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="qtdRat" type="{http://www.portalfiscal.inf.br/cte}TDec_0302_0303" minOccurs="0"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TUnidadeTransp", propOrder = {
+@XmlType(name = "TUnidadeTransp", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
     "tpUnidTransp",
     "idUnidTransp",
     "lacUnidTransp",
@@ -61,16 +61,19 @@ import java.util.List;
 })
 public class TUnidadeTransp {
 
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String tpUnidTransp;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String idUnidTransp;
-    protected List<LacUnidTransp> lacUnidTransp;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+    protected List<TUnidadeTransp.LacUnidTransp> lacUnidTransp;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected List<TUnidCarga> infUnidCarga;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected String qtdRat;
 
     /**
-     * Gets the value of the tpUnidTransp property.
+     * Obtém o valor da propriedade tpUnidTransp.
      * 
      * @return
      *     possible object is
@@ -82,7 +85,7 @@ public class TUnidadeTransp {
     }
 
     /**
-     * Sets the value of the tpUnidTransp property.
+     * Define o valor da propriedade tpUnidTransp.
      * 
      * @param value
      *     allowed object is
@@ -94,7 +97,7 @@ public class TUnidadeTransp {
     }
 
     /**
-     * Gets the value of the idUnidTransp property.
+     * Obtém o valor da propriedade idUnidTransp.
      * 
      * @return
      *     possible object is
@@ -106,7 +109,7 @@ public class TUnidadeTransp {
     }
 
     /**
-     * Sets the value of the idUnidTransp property.
+     * Define o valor da propriedade idUnidTransp.
      * 
      * @param value
      *     allowed object is
@@ -123,7 +126,7 @@ public class TUnidadeTransp {
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the Jakarta XML Binding object.
+     * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the lacUnidTransp property.
      * 
      * <p>
@@ -135,13 +138,13 @@ public class TUnidadeTransp {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link LacUnidTransp }
+     * {@link TUnidadeTransp.LacUnidTransp }
      * 
      * 
      */
-    public List<LacUnidTransp> getLacUnidTransp() {
+    public List<TUnidadeTransp.LacUnidTransp> getLacUnidTransp() {
         if (lacUnidTransp == null) {
-            lacUnidTransp = new ArrayList<LacUnidTransp>();
+            lacUnidTransp = new ArrayList<TUnidadeTransp.LacUnidTransp>();
         }
         return this.lacUnidTransp;
     }
@@ -152,7 +155,7 @@ public class TUnidadeTransp {
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the Jakarta XML Binding object.
+     * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the infUnidCarga property.
      * 
      * <p>
@@ -176,7 +179,7 @@ public class TUnidadeTransp {
     }
 
     /**
-     * Gets the value of the qtdRat property.
+     * Obtém o valor da propriedade qtdRat.
      * 
      * @return
      *     possible object is
@@ -188,7 +191,7 @@ public class TUnidadeTransp {
     }
 
     /**
-     * Sets the value of the qtdRat property.
+     * Define o valor da propriedade qtdRat.
      * 
      * @param value
      *     allowed object is
@@ -201,27 +204,27 @@ public class TUnidadeTransp {
 
 
     /**
-     * <p>Java class for anonymous complex type.
+     * <p>Classe Java de anonymous complex type.
      * 
-     * <p>The following schema fragment specifies the expected content contained within this class.
+     * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
      * 
      * <pre>
-     * &lt;complexType&gt;
-     *   &lt;complexContent&gt;
-     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
-     *       &lt;sequence&gt;
-     *         &lt;element name="nLacre"&gt;
-     *           &lt;simpleType&gt;
-     *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
-     *               &lt;minLength value="1"/&gt;
-     *               &lt;maxLength value="20"/&gt;
-     *             &lt;/restriction&gt;
-     *           &lt;/simpleType&gt;
-     *         &lt;/element&gt;
-     *       &lt;/sequence&gt;
-     *     &lt;/restriction&gt;
-     *   &lt;/complexContent&gt;
-     * &lt;/complexType&gt;
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;element name="nLacre">
+     *           &lt;simpleType>
+     *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+     *               &lt;minLength value="1"/>
+     *               &lt;maxLength value="20"/>
+     *             &lt;/restriction>
+     *           &lt;/simpleType>
+     *         &lt;/element>
+     *       &lt;/sequence>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
      * </pre>
      * 
      * 
@@ -232,11 +235,11 @@ public class TUnidadeTransp {
     })
     public static class LacUnidTransp {
 
-        @XmlElement(required = true)
+        @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
         protected String nLacre;
 
         /**
-         * Gets the value of the nLacre property.
+         * Obtém o valor da propriedade nLacre.
          * 
          * @return
          *     possible object is
@@ -248,7 +251,7 @@ public class TUnidadeTransp {
         }
 
         /**
-         * Sets the value of the nLacre property.
+         * Define o valor da propriedade nLacre.
          * 
          * @param value
          *     allowed object is

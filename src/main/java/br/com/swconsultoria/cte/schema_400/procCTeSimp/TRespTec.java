@@ -1,67 +1,68 @@
 
-
-
 package br.com.swconsultoria.cte.schema_400.procCTeSimp;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * Tipo Dados da Responsável Técnico
  * 
- * <p>Java class for TRespTec complex type.
+ * <p>Classe Java de TRespTec complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="TRespTec"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/&gt;
- *         &lt;element name="xContato"&gt;
- *           &lt;simpleType&gt;
- *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *               &lt;maxLength value="60"/&gt;
- *               &lt;minLength value="2"/&gt;
- *             &lt;/restriction&gt;
- *           &lt;/simpleType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail"/&gt;
- *         &lt;element name="fone"&gt;
- *           &lt;simpleType&gt;
- *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *               &lt;whiteSpace value="preserve"/&gt;
- *               &lt;pattern value="[0-9]{7,12}"/&gt;
- *             &lt;/restriction&gt;
- *           &lt;/simpleType&gt;
- *         &lt;/element&gt;
- *         &lt;sequence minOccurs="0"&gt;
- *           &lt;element name="idCSRT"&gt;
- *             &lt;simpleType&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                 &lt;pattern value="[0-9]{3}"/&gt;
- *               &lt;/restriction&gt;
- *             &lt;/simpleType&gt;
- *           &lt;/element&gt;
- *           &lt;element name="hashCSRT"&gt;
- *             &lt;simpleType&gt;
- *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}base64Binary"&gt;
- *                 &lt;length value="20"/&gt;
- *               &lt;/restriction&gt;
- *             &lt;/simpleType&gt;
- *           &lt;/element&gt;
- *         &lt;/sequence&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="TRespTec">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/>
+ *         &lt;element name="xContato">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *               &lt;maxLength value="60"/>
+ *               &lt;minLength value="2"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
+ *         &lt;element name="email" type="{http://www.portalfiscal.inf.br/cte}TEmail"/>
+ *         &lt;element name="fone">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *               &lt;whiteSpace value="preserve"/>
+ *               &lt;pattern value="[0-9]{7,12}"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
+ *         &lt;sequence minOccurs="0">
+ *           &lt;element name="idCSRT">
+ *             &lt;simpleType>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                 &lt;pattern value="[0-9]{3}"/>
+ *               &lt;/restriction>
+ *             &lt;/simpleType>
+ *           &lt;/element>
+ *           &lt;element name="hashCSRT">
+ *             &lt;simpleType>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}base64Binary">
+ *                 &lt;length value="20"/>
+ *               &lt;/restriction>
+ *             &lt;/simpleType>
+ *           &lt;/element>
+ *         &lt;/sequence>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TRespTec", propOrder = {
+@XmlType(name = "TRespTec", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
     "cnpj",
     "xContato",
     "email",
@@ -71,19 +72,21 @@ import javax.xml.bind.annotation.*;
 })
 public class TRespTec {
 
-    @XmlElement(name = "CNPJ", required = true)
+    @XmlElement(name = "CNPJ", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String cnpj;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String xContato;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String email;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String fone;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected String idCSRT;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected byte[] hashCSRT;
 
     /**
-     * Gets the value of the cnpj property.
+     * Obtém o valor da propriedade cnpj.
      * 
      * @return
      *     possible object is
@@ -95,7 +98,7 @@ public class TRespTec {
     }
 
     /**
-     * Sets the value of the cnpj property.
+     * Define o valor da propriedade cnpj.
      * 
      * @param value
      *     allowed object is
@@ -107,7 +110,7 @@ public class TRespTec {
     }
 
     /**
-     * Gets the value of the xContato property.
+     * Obtém o valor da propriedade xContato.
      * 
      * @return
      *     possible object is
@@ -119,7 +122,7 @@ public class TRespTec {
     }
 
     /**
-     * Sets the value of the xContato property.
+     * Define o valor da propriedade xContato.
      * 
      * @param value
      *     allowed object is
@@ -131,7 +134,7 @@ public class TRespTec {
     }
 
     /**
-     * Gets the value of the email property.
+     * Obtém o valor da propriedade email.
      * 
      * @return
      *     possible object is
@@ -143,7 +146,7 @@ public class TRespTec {
     }
 
     /**
-     * Sets the value of the email property.
+     * Define o valor da propriedade email.
      * 
      * @param value
      *     allowed object is
@@ -155,7 +158,7 @@ public class TRespTec {
     }
 
     /**
-     * Gets the value of the fone property.
+     * Obtém o valor da propriedade fone.
      * 
      * @return
      *     possible object is
@@ -167,7 +170,7 @@ public class TRespTec {
     }
 
     /**
-     * Sets the value of the fone property.
+     * Define o valor da propriedade fone.
      * 
      * @param value
      *     allowed object is
@@ -179,7 +182,7 @@ public class TRespTec {
     }
 
     /**
-     * Gets the value of the idCSRT property.
+     * Obtém o valor da propriedade idCSRT.
      * 
      * @return
      *     possible object is
@@ -191,7 +194,7 @@ public class TRespTec {
     }
 
     /**
-     * Sets the value of the idCSRT property.
+     * Define o valor da propriedade idCSRT.
      * 
      * @param value
      *     allowed object is
@@ -203,7 +206,7 @@ public class TRespTec {
     }
 
     /**
-     * Gets the value of the hashCSRT property.
+     * Obtém o valor da propriedade hashCSRT.
      * 
      * @return
      *     possible object is
@@ -214,7 +217,7 @@ public class TRespTec {
     }
 
     /**
-     * Sets the value of the hashCSRT property.
+     * Define o valor da propriedade hashCSRT.
      * 
      * @param value
      *     allowed object is

@@ -271,6 +271,7 @@ import org.w3c.dom.Element;
  *                                 &lt;/simpleType>
  *                               &lt;/element>
  *                             &lt;/sequence>
+ *                             &lt;element name="gCompraGov" type="{http://www.portalfiscal.inf.br/cte}TCompraGovReduzido" minOccurs="0"/>
  *                           &lt;/sequence>
  *                         &lt;/restriction>
  *                       &lt;/complexContent>
@@ -822,6 +823,8 @@ import org.w3c.dom.Element;
  *                                 &lt;/complexContent>
  *                               &lt;/complexType>
  *                             &lt;/element>
+ *                             &lt;element name="IBSCBS" type="{http://www.portalfiscal.inf.br/cte}TTribCTe" minOccurs="0"/>
+ *                             &lt;element name="vTotDFe" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
  *                           &lt;/sequence>
  *                         &lt;/restriction>
  *                       &lt;/complexContent>
@@ -1032,6 +1035,17 @@ import org.w3c.dom.Element;
  *                                                       &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
  *                                                       &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
  *                                                     &lt;/choice>
+ *                                                   &lt;/sequence>
+ *                                                 &lt;/restriction>
+ *                                               &lt;/complexContent>
+ *                                             &lt;/complexType>
+ *                                           &lt;/element>
+ *                                           &lt;element name="infDCe" maxOccurs="unbounded">
+ *                                             &lt;complexType>
+ *                                               &lt;complexContent>
+ *                                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                                   &lt;sequence>
+ *                                                     &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
  *                                                   &lt;/sequence>
  *                                                 &lt;/restriction>
  *                                               &lt;/complexContent>
@@ -1360,7 +1374,7 @@ import org.w3c.dom.Element;
  *                               &lt;simpleType>
  *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
  *                                   &lt;minLength value="2"/>
- *                                   &lt;maxLength value="2000"/>
+ *                                   &lt;maxLength value="8000"/>
  *                                 &lt;/restriction>
  *                               &lt;/simpleType>
  *                             &lt;/element>
@@ -1402,7 +1416,7 @@ import org.w3c.dom.Element;
  *                 &lt;attribute name="Id" use="required">
  *                   &lt;simpleType>
  *                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}ID">
- *                       &lt;pattern value="CTe[0-9]{44}"/>
+ *                       &lt;pattern value="CTe[0-9]{6}[A-Z0-9]{12}[0-9]{26}"/>
  *                     &lt;/restriction>
  *                   &lt;/simpleType>
  *                 &lt;/attribute>
@@ -1421,7 +1435,7 @@ import org.w3c.dom.Element;
  *                         &lt;whiteSpace value="preserve"/>
  *                         &lt;minLength value="50"/>
  *                         &lt;maxLength value="1000"/>
- *                         &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{44}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/>
+ *                         &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{6}[A-Z0-9]{12}[0-9]{26}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/>
  *                       &lt;/restriction>
  *                     &lt;/simpleType>
  *                   &lt;/element>
@@ -1543,7 +1557,7 @@ public class TCTe {
      *               &lt;whiteSpace value="preserve"/>
      *               &lt;minLength value="50"/>
      *               &lt;maxLength value="1000"/>
-     *               &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{44}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/>
+     *               &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{6}[A-Z0-9]{12}[0-9]{26}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/>
      *             &lt;/restriction>
      *           &lt;/simpleType>
      *         &lt;/element>
@@ -1839,6 +1853,7 @@ public class TCTe {
      *                       &lt;/simpleType>
      *                     &lt;/element>
      *                   &lt;/sequence>
+     *                   &lt;element name="gCompraGov" type="{http://www.portalfiscal.inf.br/cte}TCompraGovReduzido" minOccurs="0"/>
      *                 &lt;/sequence>
      *               &lt;/restriction>
      *             &lt;/complexContent>
@@ -2390,6 +2405,8 @@ public class TCTe {
      *                       &lt;/complexContent>
      *                     &lt;/complexType>
      *                   &lt;/element>
+     *                   &lt;element name="IBSCBS" type="{http://www.portalfiscal.inf.br/cte}TTribCTe" minOccurs="0"/>
+     *                   &lt;element name="vTotDFe" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
      *                 &lt;/sequence>
      *               &lt;/restriction>
      *             &lt;/complexContent>
@@ -2600,6 +2617,17 @@ public class TCTe {
      *                                             &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
      *                                             &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
      *                                           &lt;/choice>
+     *                                         &lt;/sequence>
+     *                                       &lt;/restriction>
+     *                                     &lt;/complexContent>
+     *                                   &lt;/complexType>
+     *                                 &lt;/element>
+     *                                 &lt;element name="infDCe" maxOccurs="unbounded">
+     *                                   &lt;complexType>
+     *                                     &lt;complexContent>
+     *                                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                                         &lt;sequence>
+     *                                           &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
      *                                         &lt;/sequence>
      *                                       &lt;/restriction>
      *                                     &lt;/complexContent>
@@ -2928,7 +2956,7 @@ public class TCTe {
      *                     &lt;simpleType>
      *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
      *                         &lt;minLength value="2"/>
-     *                         &lt;maxLength value="2000"/>
+     *                         &lt;maxLength value="8000"/>
      *                       &lt;/restriction>
      *                     &lt;/simpleType>
      *                   &lt;/element>
@@ -2970,7 +2998,7 @@ public class TCTe {
      *       &lt;attribute name="Id" use="required">
      *         &lt;simpleType>
      *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}ID">
-     *             &lt;pattern value="CTe[0-9]{44}"/>
+     *             &lt;pattern value="CTe[0-9]{6}[A-Z0-9]{12}[0-9]{26}"/>
      *           &lt;/restriction>
      *         &lt;/simpleType>
      *       &lt;/attribute>
@@ -6453,6 +6481,7 @@ public class TCTe {
          *             &lt;/simpleType>
          *           &lt;/element>
          *         &lt;/sequence>
+         *         &lt;element name="gCompraGov" type="{http://www.portalfiscal.inf.br/cte}TCompraGovReduzido" minOccurs="0"/>
          *       &lt;/sequence>
          *     &lt;/restriction>
          *   &lt;/complexContent>
@@ -6496,7 +6525,8 @@ public class TCTe {
             "toma3",
             "toma4",
             "dhCont",
-            "xJust"
+            "xJust",
+            "gCompraGov"
         })
         public static class Ide {
 
@@ -6571,6 +6601,8 @@ public class TCTe {
             protected String dhCont;
             @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
             protected String xJust;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TCompraGovReduzido gCompraGov;
 
             /**
              * Obtém o valor da propriedade cuf.
@@ -7388,6 +7420,30 @@ public class TCTe {
                 this.xJust = value;
             }
 
+            /**
+             * Obtém o valor da propriedade gCompraGov.
+             * 
+             * @return
+             *     possible object is
+             *     {@link TCompraGovReduzido }
+             *     
+             */
+            public TCompraGovReduzido getGCompraGov() {
+                return gCompraGov;
+            }
+
+            /**
+             * Define o valor da propriedade gCompraGov.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link TCompraGovReduzido }
+             *     
+             */
+            public void setGCompraGov(TCompraGovReduzido value) {
+                this.gCompraGov = value;
+            }
+
 
             /**
              * <p>Classe Java de anonymous complex type.
@@ -7802,6 +7858,8 @@ public class TCTe {
          *             &lt;/complexContent>
          *           &lt;/complexType>
          *         &lt;/element>
+         *         &lt;element name="IBSCBS" type="{http://www.portalfiscal.inf.br/cte}TTribCTe" minOccurs="0"/>
+         *         &lt;element name="vTotDFe" type="{http://www.portalfiscal.inf.br/cte}TDec_1302" minOccurs="0"/>
          *       &lt;/sequence>
          *     &lt;/restriction>
          *   &lt;/complexContent>
@@ -7815,7 +7873,9 @@ public class TCTe {
             "icms",
             "vTotTrib",
             "infAdFisco",
-            "icmsufFim"
+            "icmsufFim",
+            "ibscbs",
+            "vTotDFe"
         })
         public static class Imp {
 
@@ -7827,6 +7887,10 @@ public class TCTe {
             protected String infAdFisco;
             @XmlElement(name = "ICMSUFFim", namespace = "http://www.portalfiscal.inf.br/cte")
             protected TCTe.InfCte.Imp.ICMSUFFim icmsufFim;
+            @XmlElement(name = "IBSCBS", namespace = "http://www.portalfiscal.inf.br/cte")
+            protected TTribCTe ibscbs;
+            @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+            protected String vTotDFe;
 
             /**
              * Obtém o valor da propriedade icms.
@@ -7922,6 +7986,54 @@ public class TCTe {
              */
             public void setICMSUFFim(TCTe.InfCte.Imp.ICMSUFFim value) {
                 this.icmsufFim = value;
+            }
+
+            /**
+             * Obtém o valor da propriedade ibscbs.
+             * 
+             * @return
+             *     possible object is
+             *     {@link TTribCTe }
+             *     
+             */
+            public TTribCTe getIBSCBS() {
+                return ibscbs;
+            }
+
+            /**
+             * Define o valor da propriedade ibscbs.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link TTribCTe }
+             *     
+             */
+            public void setIBSCBS(TTribCTe value) {
+                this.ibscbs = value;
+            }
+
+            /**
+             * Obtém o valor da propriedade vTotDFe.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getVTotDFe() {
+                return vTotDFe;
+            }
+
+            /**
+             * Define o valor da propriedade vTotDFe.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setVTotDFe(String value) {
+                this.vTotDFe = value;
             }
 
 
@@ -8359,6 +8471,17 @@ public class TCTe {
          *                                 &lt;element name="infUnidCarga" type="{http://www.portalfiscal.inf.br/cte}TUnidCarga" maxOccurs="unbounded" minOccurs="0"/>
          *                                 &lt;element name="infUnidTransp" type="{http://www.portalfiscal.inf.br/cte}TUnidadeTransp" maxOccurs="unbounded" minOccurs="0"/>
          *                               &lt;/choice>
+         *                             &lt;/sequence>
+         *                           &lt;/restriction>
+         *                         &lt;/complexContent>
+         *                       &lt;/complexType>
+         *                     &lt;/element>
+         *                     &lt;element name="infDCe" maxOccurs="unbounded">
+         *                       &lt;complexType>
+         *                         &lt;complexContent>
+         *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                             &lt;sequence>
+         *                               &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
          *                             &lt;/sequence>
          *                           &lt;/restriction>
          *                         &lt;/complexContent>
@@ -10702,6 +10825,17 @@ public class TCTe {
              *               &lt;/complexContent>
              *             &lt;/complexType>
              *           &lt;/element>
+             *           &lt;element name="infDCe" maxOccurs="unbounded">
+             *             &lt;complexType>
+             *               &lt;complexContent>
+             *                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *                   &lt;sequence>
+             *                     &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+             *                   &lt;/sequence>
+             *                 &lt;/restriction>
+             *               &lt;/complexContent>
+             *             &lt;/complexType>
+             *           &lt;/element>
              *         &lt;/choice>
              *       &lt;/sequence>
              *     &lt;/restriction>
@@ -10715,7 +10849,8 @@ public class TCTe {
             @XmlType(name = "", propOrder = {
                 "infNF",
                 "infNFe",
-                "infOutros"
+                "infOutros",
+                "infDCe"
             })
             public static class InfDoc {
 
@@ -10725,6 +10860,8 @@ public class TCTe {
                 protected List<TCTe.InfCte.InfCTeNorm.InfDoc.InfNFe> infNFe;
                 @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
                 protected List<TCTe.InfCte.InfCTeNorm.InfDoc.InfOutros> infOutros;
+                @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
+                protected List<TCTe.InfCte.InfCTeNorm.InfDoc.InfDCe> infDCe;
 
                 /**
                  * Gets the value of the infNF property.
@@ -10811,6 +10948,90 @@ public class TCTe {
                         infOutros = new ArrayList<TCTe.InfCte.InfCTeNorm.InfDoc.InfOutros>();
                     }
                     return this.infOutros;
+                }
+
+                /**
+                 * Gets the value of the infDCe property.
+                 * 
+                 * <p>
+                 * This accessor method returns a reference to the live list,
+                 * not a snapshot. Therefore any modification you make to the
+                 * returned list will be present inside the JAXB object.
+                 * This is why there is not a <CODE>set</CODE> method for the infDCe property.
+                 * 
+                 * <p>
+                 * For example, to add a new item, do as follows:
+                 * <pre>
+                 *    getInfDCe().add(newItem);
+                 * </pre>
+                 * 
+                 * 
+                 * <p>
+                 * Objects of the following type(s) are allowed in the list
+                 * {@link TCTe.InfCte.InfCTeNorm.InfDoc.InfDCe }
+                 * 
+                 * 
+                 */
+                public List<TCTe.InfCte.InfCTeNorm.InfDoc.InfDCe> getInfDCe() {
+                    if (infDCe == null) {
+                        infDCe = new ArrayList<TCTe.InfCte.InfCTeNorm.InfDoc.InfDCe>();
+                    }
+                    return this.infDCe;
+                }
+
+
+                /**
+                 * <p>Classe Java de anonymous complex type.
+                 * 
+                 * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+                 * 
+                 * <pre>
+                 * &lt;complexType>
+                 *   &lt;complexContent>
+                 *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+                 *       &lt;sequence>
+                 *         &lt;element name="chave" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+                 *       &lt;/sequence>
+                 *     &lt;/restriction>
+                 *   &lt;/complexContent>
+                 * &lt;/complexType>
+                 * </pre>
+                 * 
+                 * 
+                 */
+                @XmlAccessorType(XmlAccessType.FIELD)
+                @XmlType(name = "", propOrder = {
+                    "chave"
+                })
+                public static class InfDCe {
+
+                    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
+                    protected String chave;
+
+                    /**
+                     * Obtém o valor da propriedade chave.
+                     * 
+                     * @return
+                     *     possible object is
+                     *     {@link String }
+                     *     
+                     */
+                    public String getChave() {
+                        return chave;
+                    }
+
+                    /**
+                     * Define o valor da propriedade chave.
+                     * 
+                     * @param value
+                     *     allowed object is
+                     *     {@link String }
+                     *     
+                     */
+                    public void setChave(String value) {
+                        this.chave = value;
+                    }
+
                 }
 
 
@@ -12618,7 +12839,7 @@ public class TCTe {
          *           &lt;simpleType>
          *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
          *               &lt;minLength value="2"/>
-         *               &lt;maxLength value="2000"/>
+         *               &lt;maxLength value="8000"/>
          *             &lt;/restriction>
          *           &lt;/simpleType>
          *         &lt;/element>

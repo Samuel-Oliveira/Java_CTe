@@ -8,9 +8,11 @@ import br.com.swconsultoria.cte.dom.enuns.AmbienteEnum;
 import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
 import br.com.swconsultoria.cte.dom.enuns.StatusCteEnum;
 import br.com.swconsultoria.cte.exception.CteException;
+import br.com.swconsultoria.cte.schema_400.cte.TEndeEmi;
+import br.com.swconsultoria.cte.schema_400.cte.TUFSemEX;
 import br.com.swconsultoria.cte.schema_400.cteModalRodoviario.Rodo;
-import br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp;
-import br.com.swconsultoria.cte.schema_400.cteSimp.TRetCTeSimp;
+import br.com.swconsultoria.cte.schema_400.cte.TCTeSimp;
+import br.com.swconsultoria.cte.schema_400.cte.TRetCTeSimp;
 import br.com.swconsultoria.cte.util.ChaveUtil;
 import br.com.swconsultoria.cte.util.ConstantesCte;
 import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
@@ -30,12 +32,12 @@ class TesteEnvioCteSimplifiado {
     public static void main(String[] args) {
 
         try {
-            ConfiguracoesCte config = TesteConfig.iniciaConfiguracoes(EstadosEnum.SC, AmbienteEnum.HOMOLOGACAO);
+            ConfiguracoesCte config = TesteConfig.iniciaConfiguracoes(EstadosEnum.GO, AmbienteEnum.HOMOLOGACAO);
 
             //TODO: Preencher com o cnpj do emissor
-            String cnpj = "25149469000118";
+            String cnpj = "10732644000128";
             int serie = 4;
-            int numero = 23;
+            int numero = 25;
 
             TCTeSimp cte = preencheObjetoCte(config, cnpj, serie, numero);
 
@@ -80,14 +82,14 @@ class TesteEnvioCteSimplifiado {
 
         String chave = chaveUtil.getChaveCT();
 
-        br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp.InfCte infCTe = new br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp.InfCte();
+        br.com.swconsultoria.cte.schema_400.cte.TCTeSimp.InfCte infCTe = new br.com.swconsultoria.cte.schema_400.cte.TCTeSimp.InfCte();
         infCTe.setId(chave);
         infCTe.setVersao(ConstantesCte.VERSAO.CTE);
 
-        br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp.InfCte.Ide ide = new br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp.InfCte.Ide();
+        br.com.swconsultoria.cte.schema_400.cte.TCTeSimp.InfCte.Ide ide = new br.com.swconsultoria.cte.schema_400.cte.TCTeSimp.InfCte.Ide();
         ide.setCUF(config.getEstado().getCodigoUF());
         ide.setCCT(cct);
-        ide.setCFOP("5351");
+        ide.setCFOP("5932");
         ide.setNatOp("TRANSPORTE INTERNO");
         ide.setMod(modelo);
         ide.setSerie(String.valueOf(serie));
@@ -102,34 +104,34 @@ class TesteEnvioCteSimplifiado {
         ide.setVerProc("1.0");
         ide.setCMunEnv("4204301");
         ide.setXMunEnv("Concordia");
-        ide.setUFEnv(br.com.swconsultoria.cte.schema_400.cteSimp.TUf.valueOf("SC"));
+        ide.setUFEnv(br.com.swconsultoria.cte.schema_400.cte.TUf.valueOf("SC"));
         ide.setModal("01");
         ide.setTpServ("0");
-        ide.setUFIni(br.com.swconsultoria.cte.schema_400.cteSimp.TUf.valueOf("SC"));
-        ide.setUFFim(br.com.swconsultoria.cte.schema_400.cteSimp.TUf.valueOf("SC"));
+        ide.setUFIni(br.com.swconsultoria.cte.schema_400.cte.TUf.valueOf("SC"));
+        ide.setUFFim(br.com.swconsultoria.cte.schema_400.cte.TUf.valueOf("SC"));
         ide.setRetira("1");
         infCTe.setIde(ide);
 
 
-        br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp.InfCte.Compl compl = new br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp.InfCte.Compl();
+        br.com.swconsultoria.cte.schema_400.cte.TCTeSimp.InfCte.Compl compl = new br.com.swconsultoria.cte.schema_400.cte.TCTeSimp.InfCte.Compl();
         compl.setXObs("FORMA DE PAGAMENTO DEPOSITO BANCARIO,FAVOR ENVIAR COPIA DO COMPROVANTE PARA O TRANSPORTADOR E ANEXAR VIA A DA CONTABILIDADE");
         infCTe.setCompl(compl);
 
-        br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp.InfCte.Emit emit = new br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp.InfCte.Emit();
+        br.com.swconsultoria.cte.schema_400.cte.TCTeSimp.InfCte.Emit emit = new br.com.swconsultoria.cte.schema_400.cte.TCTeSimp.InfCte.Emit();
         emit.setCNPJ(cnpj);
-        emit.setIE("251803082");
+        emit.setIE("104519304");
         emit.setXNome("TESTE");
         emit.setXFant("TESTE");
         emit.setCRT("3");
 
-        br.com.swconsultoria.cte.schema_400.cteSimp.TEndeEmi enderEmit = new br.com.swconsultoria.cte.schema_400.cteSimp.TEndeEmi();
+        TEndeEmi enderEmit = new TEndeEmi();
         enderEmit.setXLgr("AV SANTO ANTONIO & CIA");
         enderEmit.setNro("0");
         enderEmit.setXCpl("QD 17 LT 01-02-03");
         enderEmit.setXBairro("PQ STO ANTONIO");
-        enderEmit.setCMun("4204301");
-        enderEmit.setXMun("Concordia");
-        enderEmit.setUF(br.com.swconsultoria.cte.schema_400.cteSimp.TUFSemEX.valueOf("SC"));
+        enderEmit.setCMun("5219753");
+        enderEmit.setXMun("SANTO ANTONIO DO DESCOBERTO");
+        enderEmit.setUF(TUFSemEX.valueOf("GO"));
         enderEmit.setCEP("72900000");
         enderEmit.setFone("6233215175");
 
@@ -143,13 +145,13 @@ class TesteEnvioCteSimplifiado {
         toma.setIE("254804438");
         toma.setXNome("CTE EMITIDO EM AMBIENTE DE HOMOLOGACAO - SEM VALOR FISCAL");
         toma.setEmail("teste@teste.com.br");
-        br.com.swconsultoria.cte.schema_400.cteSimp.TEndereco enderToma = new br.com.swconsultoria.cte.schema_400.cteSimp.TEndereco();
+        br.com.swconsultoria.cte.schema_400.cte.TEndereco enderToma = new br.com.swconsultoria.cte.schema_400.cte.TEndereco();
         enderToma.setXLgr("Rua: Teste");
         enderToma.setNro("0");
         enderToma.setXBairro("TESTE");
         enderToma.setCMun("4204301");
         enderToma.setXMun("SANTO ANTONIO DO DESCOBERTO");
-        enderToma.setUF(br.com.swconsultoria.cte.schema_400.cteSimp.TUf.SC);
+        enderToma.setUF(br.com.swconsultoria.cte.schema_400.cte.TUf.SC);
         enderToma.setCEP("44079002");
         enderToma.setCPais("1058");
         enderToma.setXPais("Brasil");
@@ -176,18 +178,18 @@ class TesteEnvioCteSimplifiado {
         det.setVRec("1.00");
 
 
-        br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp.InfCte.Det.Comp comp = new br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp.InfCte.Det.Comp();
+        br.com.swconsultoria.cte.schema_400.cte.TCTeSimp.InfCte.Det.Comp comp = new br.com.swconsultoria.cte.schema_400.cte.TCTeSimp.InfCte.Det.Comp();
         comp.setVComp("500.00");
         comp.setXNome("TESTE");
 
         det.getComp().add(comp);
 
         TCTeSimp.InfCte.Det.InfNFe infNFe = new TCTeSimp.InfCte.Det.InfNFe();
-        infNFe.setChNFe("42241083011247002346550080018136131182627760");
+        infNFe.setChNFe("52250910732644000128550010000927521413308064");
         det.getInfNFe().add(infNFe);
         infCTe.getDet().add(det);
 
-        br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp.InfCte.InfModal infModal = new br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp.InfCte.InfModal();
+        br.com.swconsultoria.cte.schema_400.cte.TCTeSimp.InfCte.InfModal infModal = new br.com.swconsultoria.cte.schema_400.cte.TCTeSimp.InfCte.InfModal();
         infModal.setVersaoModal(ConstantesCte.VERSAO.CTE);
         Rodo rodo = new Rodo();
         rodo.setRNTRC("47008950");
@@ -195,11 +197,11 @@ class TesteEnvioCteSimplifiado {
         infCTe.setInfModal(infModal);
 
 
-        br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp.InfCte.Imp imp = new br.com.swconsultoria.cte.schema_400.cteSimp.TCTeSimp.InfCte.Imp();
+        br.com.swconsultoria.cte.schema_400.cte.TCTeSimp.InfCte.Imp imp = new br.com.swconsultoria.cte.schema_400.cte.TCTeSimp.InfCte.Imp();
 
-        br.com.swconsultoria.cte.schema_400.cteSimp.TImp icms = new br.com.swconsultoria.cte.schema_400.cteSimp.TImp();
+        br.com.swconsultoria.cte.schema_400.cte.TImp icms = new br.com.swconsultoria.cte.schema_400.cte.TImp();
 
-        br.com.swconsultoria.cte.schema_400.cteSimp.TImp.ICMS45 icms45 = new br.com.swconsultoria.cte.schema_400.cteSimp.TImp.ICMS45();
+        br.com.swconsultoria.cte.schema_400.cte.TImp.ICMS45 icms45 = new br.com.swconsultoria.cte.schema_400.cte.TImp.ICMS45();
         icms45.setCST("40");
         icms45.setCBenef("SC850001");
         icms45.setVICMSDeson("0");

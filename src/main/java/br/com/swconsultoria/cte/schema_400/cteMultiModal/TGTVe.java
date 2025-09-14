@@ -83,8 +83,6 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *                                   &lt;whiteSpace value="preserve"/>
  *                                   &lt;enumeration value="1"/>
  *                                   &lt;enumeration value="2"/>
- *                                   &lt;enumeration value="7"/>
- *                                   &lt;enumeration value="8"/>
  *                                 &lt;/restriction>
  *                               &lt;/simpleType>
  *                             &lt;/element>
@@ -557,7 +555,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *                 &lt;attribute name="Id" use="required">
  *                   &lt;simpleType>
  *                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}ID">
- *                       &lt;pattern value="CTe[0-9]{44}"/>
+ *                       &lt;pattern value="CTe[0-9]{6}[A-Z0-9]{12}[0-9]{26}"/>
  *                     &lt;/restriction>
  *                   &lt;/simpleType>
  *                 &lt;/attribute>
@@ -576,7 +574,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *                         &lt;whiteSpace value="preserve"/>
  *                         &lt;minLength value="50"/>
  *                         &lt;maxLength value="1000"/>
- *                         &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{44}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/>
+ *                         &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{6}[A-Z0-9]{12}[0-9]{26}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/>
  *                       &lt;/restriction>
  *                     &lt;/simpleType>
  *                   &lt;/element>
@@ -730,7 +728,7 @@ public class TGTVe {
      *               &lt;whiteSpace value="preserve"/>
      *               &lt;minLength value="50"/>
      *               &lt;maxLength value="1000"/>
-     *               &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{44}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/>
+     *               &lt;pattern value="((HTTPS?|https?)://.*\?chCTe=[0-9]{6}[A-Z0-9]{12}[0-9]{26}&amp;tpAmb=[1-2](&amp;sign=[!-ÿ]{1}[ -ÿ]{0,}[!-ÿ]{1}|[!-ÿ]{1})?)"/>
      *             &lt;/restriction>
      *           &lt;/simpleType>
      *         &lt;/element>
@@ -840,8 +838,6 @@ public class TGTVe {
      *                         &lt;whiteSpace value="preserve"/>
      *                         &lt;enumeration value="1"/>
      *                         &lt;enumeration value="2"/>
-     *                         &lt;enumeration value="7"/>
-     *                         &lt;enumeration value="8"/>
      *                       &lt;/restriction>
      *                     &lt;/simpleType>
      *                   &lt;/element>
@@ -1314,7 +1310,7 @@ public class TGTVe {
      *       &lt;attribute name="Id" use="required">
      *         &lt;simpleType>
      *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}ID">
-     *             &lt;pattern value="CTe[0-9]{44}"/>
+     *             &lt;pattern value="CTe[0-9]{6}[A-Z0-9]{12}[0-9]{26}"/>
      *           &lt;/restriction>
      *         &lt;/simpleType>
      *       &lt;/attribute>
@@ -3230,8 +3226,6 @@ public class TGTVe {
          *               &lt;whiteSpace value="preserve"/>
          *               &lt;enumeration value="1"/>
          *               &lt;enumeration value="2"/>
-         *               &lt;enumeration value="7"/>
-         *               &lt;enumeration value="8"/>
          *             &lt;/restriction>
          *           &lt;/simpleType>
          *         &lt;/element>

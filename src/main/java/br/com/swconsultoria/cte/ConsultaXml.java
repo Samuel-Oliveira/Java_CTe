@@ -3,7 +3,7 @@ package br.com.swconsultoria.cte;
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
-import br.com.swconsultoria.cte.schema_400.retConsSitCTe.TRetConsSitCTe;
+import br.com.swconsultoria.cte.schema_400.consSitCTe.TRetConsSitCTe;
 import br.com.swconsultoria.cte.schema_400.consSitCTe.TConsSitCTe;
 import br.com.swconsultoria.cte.util.ConstantesCte;
 import br.com.swconsultoria.cte.util.ObjetoCTeUtil;

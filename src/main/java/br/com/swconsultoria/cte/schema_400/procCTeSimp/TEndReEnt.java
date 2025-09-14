@@ -1,88 +1,89 @@
 
-
-
 package br.com.swconsultoria.cte.schema_400.procCTeSimp;
 
-import javax.xml.bind.annotation.*;
-
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  *  Tipo Dados do Local de Retirada ou Entrega
  * 
- * <p>Java class for TEndReEnt complex type.
+ * <p>Classe Java de TEndReEnt complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="TEndReEnt"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;choice&gt;
- *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/&gt;
- *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/&gt;
- *         &lt;/choice&gt;
- *         &lt;element name="xNome"&gt;
- *           &lt;simpleType&gt;
- *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *               &lt;maxLength value="60"/&gt;
- *               &lt;minLength value="1"/&gt;
- *             &lt;/restriction&gt;
- *           &lt;/simpleType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="xLgr"&gt;
- *           &lt;simpleType&gt;
- *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *               &lt;maxLength value="255"/&gt;
- *               &lt;minLength value="1"/&gt;
- *             &lt;/restriction&gt;
- *           &lt;/simpleType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="nro"&gt;
- *           &lt;simpleType&gt;
- *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *               &lt;maxLength value="60"/&gt;
- *               &lt;minLength value="1"/&gt;
- *             &lt;/restriction&gt;
- *           &lt;/simpleType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="xCpl" minOccurs="0"&gt;
- *           &lt;simpleType&gt;
- *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *               &lt;maxLength value="60"/&gt;
- *               &lt;minLength value="1"/&gt;
- *             &lt;/restriction&gt;
- *           &lt;/simpleType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="xBairro"&gt;
- *           &lt;simpleType&gt;
- *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *               &lt;maxLength value="60"/&gt;
- *               &lt;minLength value="1"/&gt;
- *             &lt;/restriction&gt;
- *           &lt;/simpleType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="cMun" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/&gt;
- *         &lt;element name="xMun"&gt;
- *           &lt;simpleType&gt;
- *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString"&gt;
- *               &lt;maxLength value="60"/&gt;
- *               &lt;minLength value="1"/&gt;
- *             &lt;/restriction&gt;
- *           &lt;/simpleType&gt;
- *         &lt;/element&gt;
- *         &lt;element name="UF" type="{http://www.portalfiscal.inf.br/cte}TUf"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="TEndReEnt">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;choice>
+ *           &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/cte}TCnpj"/>
+ *           &lt;element name="CPF" type="{http://www.portalfiscal.inf.br/cte}TCpf"/>
+ *         &lt;/choice>
+ *         &lt;element name="xNome">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *               &lt;maxLength value="60"/>
+ *               &lt;minLength value="1"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
+ *         &lt;element name="xLgr">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *               &lt;maxLength value="255"/>
+ *               &lt;minLength value="1"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
+ *         &lt;element name="nro">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *               &lt;maxLength value="60"/>
+ *               &lt;minLength value="1"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
+ *         &lt;element name="xCpl" minOccurs="0">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *               &lt;maxLength value="60"/>
+ *               &lt;minLength value="1"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
+ *         &lt;element name="xBairro">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *               &lt;maxLength value="60"/>
+ *               &lt;minLength value="1"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
+ *         &lt;element name="cMun" type="{http://www.portalfiscal.inf.br/cte}TCodMunIBGE"/>
+ *         &lt;element name="xMun">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
+ *               &lt;maxLength value="60"/>
+ *               &lt;minLength value="1"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
+ *         &lt;element name="UF" type="{http://www.portalfiscal.inf.br/cte}TUf"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TEndReEnt", propOrder = {
+@XmlType(name = "TEndReEnt", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
     "cnpj",
     "cpf",
     "xNome",
@@ -96,29 +97,30 @@ import javax.xml.bind.annotation.*;
 })
 public class TEndReEnt {
 
-    @XmlElement(name = "CNPJ")
+    @XmlElement(name = "CNPJ", namespace = "http://www.portalfiscal.inf.br/cte")
     protected String cnpj;
-    @XmlElement(name = "CPF")
+    @XmlElement(name = "CPF", namespace = "http://www.portalfiscal.inf.br/cte")
     protected String cpf;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String xNome;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String xLgr;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String nro;
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte")
     protected String xCpl;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String xBairro;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String cMun;
-    @XmlElement(required = true)
+    @XmlElement(namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected String xMun;
-    @XmlElement(name = "UF", required = true)
+    @XmlElement(name = "UF", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     @XmlSchemaType(name = "string")
     protected TUf uf;
 
     /**
-     * Gets the value of the cnpj property.
+     * Obtém o valor da propriedade cnpj.
      * 
      * @return
      *     possible object is
@@ -130,7 +132,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Sets the value of the cnpj property.
+     * Define o valor da propriedade cnpj.
      * 
      * @param value
      *     allowed object is
@@ -142,7 +144,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Gets the value of the cpf property.
+     * Obtém o valor da propriedade cpf.
      * 
      * @return
      *     possible object is
@@ -154,7 +156,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Sets the value of the cpf property.
+     * Define o valor da propriedade cpf.
      * 
      * @param value
      *     allowed object is
@@ -166,7 +168,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Gets the value of the xNome property.
+     * Obtém o valor da propriedade xNome.
      * 
      * @return
      *     possible object is
@@ -178,7 +180,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Sets the value of the xNome property.
+     * Define o valor da propriedade xNome.
      * 
      * @param value
      *     allowed object is
@@ -190,7 +192,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Gets the value of the xLgr property.
+     * Obtém o valor da propriedade xLgr.
      * 
      * @return
      *     possible object is
@@ -202,7 +204,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Sets the value of the xLgr property.
+     * Define o valor da propriedade xLgr.
      * 
      * @param value
      *     allowed object is
@@ -214,7 +216,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Gets the value of the nro property.
+     * Obtém o valor da propriedade nro.
      * 
      * @return
      *     possible object is
@@ -226,7 +228,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Sets the value of the nro property.
+     * Define o valor da propriedade nro.
      * 
      * @param value
      *     allowed object is
@@ -238,7 +240,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Gets the value of the xCpl property.
+     * Obtém o valor da propriedade xCpl.
      * 
      * @return
      *     possible object is
@@ -250,7 +252,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Sets the value of the xCpl property.
+     * Define o valor da propriedade xCpl.
      * 
      * @param value
      *     allowed object is
@@ -262,7 +264,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Gets the value of the xBairro property.
+     * Obtém o valor da propriedade xBairro.
      * 
      * @return
      *     possible object is
@@ -274,7 +276,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Sets the value of the xBairro property.
+     * Define o valor da propriedade xBairro.
      * 
      * @param value
      *     allowed object is
@@ -286,7 +288,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Gets the value of the cMun property.
+     * Obtém o valor da propriedade cMun.
      * 
      * @return
      *     possible object is
@@ -298,7 +300,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Sets the value of the cMun property.
+     * Define o valor da propriedade cMun.
      * 
      * @param value
      *     allowed object is
@@ -310,7 +312,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Gets the value of the xMun property.
+     * Obtém o valor da propriedade xMun.
      * 
      * @return
      *     possible object is
@@ -322,7 +324,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Sets the value of the xMun property.
+     * Define o valor da propriedade xMun.
      * 
      * @param value
      *     allowed object is
@@ -334,7 +336,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Gets the value of the uf property.
+     * Obtém o valor da propriedade uf.
      * 
      * @return
      *     possible object is
@@ -346,7 +348,7 @@ public class TEndReEnt {
     }
 
     /**
-     * Sets the value of the uf property.
+     * Define o valor da propriedade uf.
      * 
      * @param value
      *     allowed object is

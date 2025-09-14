@@ -29,9 +29,9 @@ public class TesteCancelaCte {
             //Foi criado o Objeto Cancela
             Evento cancela = new Evento();
             //Informe a chave da Nota a ser Cancelada
-            cancela.setChave("52230810732644000128570030000000031008968575");
+            cancela.setChave("52250910732644000128570030000000061419489289");
             //Informe o protocolo da Nota a ser Cancelada
-            cancela.setProtocolo("352230000014529");
+            cancela.setProtocolo("352250000094946");
             //Informe o CNPJ do emitente
             cancela.setCnpj("10732644000128");
             //Informe o Motivo do Cancelamento

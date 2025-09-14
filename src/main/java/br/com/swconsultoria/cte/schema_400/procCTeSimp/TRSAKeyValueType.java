@@ -1,47 +1,48 @@
 
-
-
 package br.com.swconsultoria.cte.schema_400.procCTeSimp;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlType;
 
 
 /**
  * Tipo que representa uma chave publica padrão RSA
  * 
- * <p>Java class for TRSAKeyValueType complex type.
+ * <p>Classe Java de TRSAKeyValueType complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="TRSAKeyValueType"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="Modulus" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/&gt;
- *         &lt;element name="Exponent" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="TRSAKeyValueType">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="Modulus" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/>
+ *         &lt;element name="Exponent" type="{http://www.w3.org/2001/XMLSchema}base64Binary"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TRSAKeyValueType", propOrder = {
+@XmlType(name = "TRSAKeyValueType", namespace = "http://www.portalfiscal.inf.br/cte", propOrder = {
     "modulus",
     "exponent"
 })
 public class TRSAKeyValueType {
 
-    @XmlElement(name = "Modulus", required = true)
+    @XmlElement(name = "Modulus", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected byte[] modulus;
-    @XmlElement(name = "Exponent", required = true)
+    @XmlElement(name = "Exponent", namespace = "http://www.portalfiscal.inf.br/cte", required = true)
     protected byte[] exponent;
 
     /**
-     * Gets the value of the modulus property.
+     * Obtém o valor da propriedade modulus.
      * 
      * @return
      *     possible object is
@@ -52,7 +53,7 @@ public class TRSAKeyValueType {
     }
 
     /**
-     * Sets the value of the modulus property.
+     * Define o valor da propriedade modulus.
      * 
      * @param value
      *     allowed object is
@@ -63,7 +64,7 @@ public class TRSAKeyValueType {
     }
 
     /**
-     * Gets the value of the exponent property.
+     * Obtém o valor da propriedade exponent.
      * 
      * @return
      *     possible object is
@@ -74,7 +75,7 @@ public class TRSAKeyValueType {
     }
 
     /**
-     * Sets the value of the exponent property.
+     * Define o valor da propriedade exponent.
      * 
      * @param value
      *     allowed object is
