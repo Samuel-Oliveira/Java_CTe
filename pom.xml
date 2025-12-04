@@ -36,7 +36,7 @@
         <jaxb-impl.version>2.3.1</jaxb-impl.version>
         <jaxb-xjc.version>2.3.1</jaxb-xjc.version>
         <jaxb-core.version>2.3.0.1</jaxb-core.version>
-        <axis2.version>1.7.5</axis2.version>
+        <axis2.version>1.8.0</axis2.version>
         <axiom-api.version>1.2.20</axiom-api.version>
         <junit-jupiter.version>5.13.3</junit-jupiter.version>
         <lombok.version>1.18.38</lombok.version>
