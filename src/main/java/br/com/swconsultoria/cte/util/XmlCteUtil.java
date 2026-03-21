@@ -5,12 +5,7 @@ package br.com.swconsultoria.cte.util;
 
 import br.com.swconsultoria.cte.dom.enuns.XsdEnum;
 import br.com.swconsultoria.cte.exception.CteException;
-import br.com.swconsultoria.cte.schema_400.cte.TCTe;
-import br.com.swconsultoria.cte.schema_400.cte.TCTeOS;
-import br.com.swconsultoria.cte.schema_400.cte.TCTeSimp;
-import br.com.swconsultoria.cte.schema_400.procCTe.CteProc;
-import br.com.swconsultoria.cte.schema_400.procCTeOS.CteOSProc;
-import br.com.swconsultoria.cte.schema_400.procCTeSimp.CteSimpProc;
+import br.com.swconsultoria.cte.schema_400.*;
 import lombok.extern.java.Log;
 
 import javax.xml.bind.*;
@@ -130,38 +125,35 @@ public class XmlCteUtil {
         }
     }
 
-    public static String criaCteProc(TCTe cte, Object retorno)
+    public static String criaCteProc(TCTe cte, TProtCTe retorno)
             throws JAXBException, CteException {
 
         CteProc cteProc = new CteProc();
         cteProc.setVersao("4.00");
-        cteProc.setCTe(xmlToObject(objectToXml(cte), br.com.swconsultoria.cte.schema_400.procCTe.TCTe.class));
-        cteProc.setProtCTe(
-                xmlToObject(objectToXml(retorno), br.com.swconsultoria.cte.schema_400.procCTe.TProtCTe.class));
+        cteProc.setCTe(cte);
+        cteProc.setProtCTe(retorno);
 
         return XmlCteUtil.objectToXml(cteProc);
     }
 
-    public static String criaCteOSProc(TCTeOS cteOS, Object retorno)
+    public static String criaCteOSProc(TCTeOS cteOS, TProtCTeOS retorno)
             throws JAXBException, CteException {
 
         CteOSProc cteProc = new CteOSProc();
         cteProc.setVersao("4.00");
-        cteProc.setCTeOS(xmlToObject(objectToXml(cteOS), br.com.swconsultoria.cte.schema_400.procCTeOS.TCTeOS.class));
-        cteProc.setProtCTe(
-                xmlToObject(objectToXml(retorno), br.com.swconsultoria.cte.schema_400.procCTeOS.TProtCTeOS.class));
+        cteProc.setCTeOS(cteOS);
+        cteProc.setProtCTe(retorno);
 
         return XmlCteUtil.objectToXml(cteProc);
     }
 
-    public static String criaCteSimpProc(TCTeSimp cte, Object retorno)
+    public static String criaCteSimpProc(TCTeSimp cte, TProtCTe retorno)
             throws JAXBException, CteException {
 
         CteSimpProc cteProc = new CteSimpProc();
         cteProc.setVersao("4.00");
-        cteProc.setCTeSimp(xmlToObject(objectToXml(cte), br.com.swconsultoria.cte.schema_400.procCTeSimp.TCTeSimp.class));
-        cteProc.setProtCTe(
-                xmlToObject(objectToXml(retorno), br.com.swconsultoria.cte.schema_400.procCTeSimp.TProtCTe.class));
+        cteProc.setCTeSimp(cte);
+        cteProc.setProtCTe(retorno);
 
         return XmlCteUtil.objectToXml(cteProc);
     }

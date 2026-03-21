@@ -8,8 +8,8 @@ import br.com.swconsultoria.cte.dom.enuns.AmbienteEnum;
 import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
 import br.com.swconsultoria.cte.dom.enuns.StatusCteEnum;
 import br.com.swconsultoria.cte.exception.CteException;
-import br.com.swconsultoria.cte.schema_400.evCancCTe.TEvento;
-import br.com.swconsultoria.cte.schema_400.evCancCTe.TRetEvento;
+import br.com.swconsultoria.cte.schema_400_eventos.TEvento;
+import br.com.swconsultoria.cte.schema_400_eventos.TRetEvento;
 import br.com.swconsultoria.cte.util.CancelamentoUtil;
 
 import java.time.LocalDateTime;
@@ -29,9 +29,9 @@ public class TesteCancelaCte {
             //Foi criado o Objeto Cancela
             Evento cancela = new Evento();
             //Informe a chave da Nota a ser Cancelada
-            cancela.setChave("52250910732644000128570030000000061419489289");
+            cancela.setChave("52260310732644000128570030000000081509702016");
             //Informe o protocolo da Nota a ser Cancelada
-            cancela.setProtocolo("352250000094946");
+            cancela.setProtocolo("352260000015374");
             //Informe o CNPJ do emitente
             cancela.setCnpj("10732644000128");
             //Informe o Motivo do Cancelamento

@@ -1,0 +1,10 @@
+# Normalizar line endings para LF no repositório
+* text=auto eol=lf
+
+# Binários - sem conversão
+*.zip binary
+*.jar binary
+*.class binary
+*.png binary
+*.jpg binary
+*.keystore binary

@@ -6,8 +6,8 @@ package br.com.swconsultoria.cte;
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.AmbienteEnum;
 import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
-import br.com.swconsultoria.cte.schema_400.cte.TProtCTe;
-import br.com.swconsultoria.cte.schema_400.consSitCTe.TRetConsSitCTe;
+import br.com.swconsultoria.cte.schema_400.TProtCTe;
+import br.com.swconsultoria.cte.schema_400.TRetConsSitCTe;
 import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
 import lombok.extern.java.Log;
@@ -26,7 +26,7 @@ public class TesteConsultaCte {
         try {
             ConfiguracoesCte configuracoesCte = TesteConfig.iniciaConfiguracoes(EstadosEnum.GO, AmbienteEnum.HOMOLOGACAO);
 
-            String chave = "52250910732644000128570030000000061419489289";
+            String chave = "52260310732644000128570030000000081509702016";
 
             TRetConsSitCTe retorno = Cte.consultaXml(configuracoesCte, chave);
 
