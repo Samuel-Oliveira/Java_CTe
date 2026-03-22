@@ -6,7 +6,7 @@ package br.com.swconsultoria.cte;
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.*;
 import br.com.swconsultoria.cte.dom.enuns.StatusCteEnum;
-import br.com.swconsultoria.cte.schema_100.retdistdfeint.RetDistDFeInt;
+import br.com.swconsultoria.cte.schema_400.RetDistDFeInt;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
 
 import java.util.List;

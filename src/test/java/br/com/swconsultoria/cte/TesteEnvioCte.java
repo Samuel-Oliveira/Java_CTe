@@ -8,8 +8,8 @@ import br.com.swconsultoria.cte.dom.enuns.AmbienteEnum;
 import br.com.swconsultoria.cte.dom.enuns.EstadosEnum;
 import br.com.swconsultoria.cte.dom.enuns.StatusCteEnum;
 import br.com.swconsultoria.cte.exception.CteException;
-import br.com.swconsultoria.cte.schema_400.cte.*;
-import br.com.swconsultoria.cte.schema_400.cteModalRodoviario.Rodo;
+import br.com.swconsultoria.cte.schema_400.*;
+import br.com.swconsultoria.cte.schema_400.Rodo;
 import br.com.swconsultoria.cte.util.ChaveUtil;
 import br.com.swconsultoria.cte.util.ConstantesCte;
 import br.com.swconsultoria.cte.util.ObjetoCTeUtil;
@@ -33,7 +33,7 @@ class TesteEnvioCte {
 
             String cnpj = "10732644000128";
             int serie = 3;
-            int numero = 6;
+            int numero = 8;
 
             TCTe cte = preencheObjetoCte(config, cnpj, serie, numero);
 

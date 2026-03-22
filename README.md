@@ -1,4 +1,4 @@
-# Java-CTe [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.13/jar)
+# Java-CTe [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.14/jar)
 API Java para consumo do WebService de CTe
 
 ## Dúvidas, Sugestões ou Consultoria
@@ -18,22 +18,69 @@ Para Iniciar :
 <dependency>
     <groupId>br.com.swconsultoria</groupId>
     <artifactId>java-cte</artifactId>
-    <version>4.00.13</version>
+    <version>4.00.14</version>
 </dependency>
 ```
 
 - Gradle :
 ```groovy
 dependencies {
-    implementation "br.com.swconsultoria:java-cte:4.00.13"
+    implementation "br.com.swconsultoria:java-cte:4.00.14"
 }
 ```
 
 Veja a [Wiki](https://Samuel-Oliveira.github.io/Java_CTe/), para ter um Tutorial Completo.
 
+## ⚠️ Breaking Change — Reorganização dos packages de schemas JAXB
+
+Os packages de schemas gerados via JAXB foram completamente reorganizados. Se você usa esta biblioteca como dependência, **é necessário atualizar os imports** nos seus projetos.
+
+#### Packages anteriores (removidos)
+
+```
+br.com.swconsultoria.cte.schema_100.*          (e todos os sub-packages)
+br.com.swconsultoria.cte.schema_400.cte.*
+br.com.swconsultoria.cte.schema_400.cteOS.*
+br.com.swconsultoria.cte.schema_400.evento.*
+br.com.swconsultoria.cte.schema_400.retCte.*
+br.com.swconsultoria.cte.schema_400.*.<demais sub-packages>
+```
+
+#### Novos packages (flat, sem sub-pastas)
+
+| Package novo | Conteúdo |
+|---|---|
+| `br.com.swconsultoria.cte.schema_400` | Classes do CT-e, CT-eOS e tipos básicos (83 classes) |
+| `br.com.swconsultoria.cte.schema_400_eventos` | Classes dos eventos de CT-e (59 classes) |
+
+#### Como migrar
+
+Substitua todos os imports antigos pelos novos packages. Exemplos:
+
+```java
+// ANTES
+import br.com.swconsultoria.cte.schema_400.cte.TCTe;
+import br.com.swconsultoria.cte.schema_400.cteOS.TCTeOS;
+import br.com.swconsultoria.cte.schema_400.evento.evCancCTe.TEvento;
+import br.com.swconsultoria.cte.schema_100.cte.TCTe;
+
+// DEPOIS
+import br.com.swconsultoria.cte.schema_400.TCTe;
+import br.com.swconsultoria.cte.schema_400.TCTeOS;
+import br.com.swconsultoria.cte.schema_400_eventos.TEvento;
+```
+
+> **Regra geral:** qualquer classe relacionada a **eventos** vai para `schema_400_eventos`; todo o restante vai para `schema_400`.
+
 ________________________________________________________________________________________________
 
 # Historico de Versões
+
+## v4.00.14 - 21/03/2026 - Schemas PL. RTC 2026.001 (02/03/2026)
+- Atualização dos schemas XSD para versão 4.00 (novos schemas SEFAZ)
+- Suporte à **Reforma Tributária — IBS/CBS**: novo utilitário `IbsCbsUtil` para cálculo e preenchimento automático do grupo `IBSCBS` no CT-e e CT-eOS
+- Novos DTOs: `CstDTO`, `ClassificacaoTributariaDTO`, `DocumentoCteEnum`
+- Atualizado Cacert e certificados Java
 
 ## v4.00.13 - 13/09/2025 - Schemas PL. RTC 1.07
 - Atualizado Schema Reforma Tributaria

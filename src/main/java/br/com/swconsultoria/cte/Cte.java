@@ -5,17 +5,17 @@ import br.com.swconsultoria.cte.dom.enuns.ConsultaDFeEnum;
 import br.com.swconsultoria.cte.dom.enuns.PessoaEnum;
 import br.com.swconsultoria.cte.eventos.*;
 import br.com.swconsultoria.cte.exception.CteException;
-import br.com.swconsultoria.cte.schema_100.retdistdfeint.RetDistDFeInt;
-import br.com.swconsultoria.cte.schema_400.cte.TCTe;
-import br.com.swconsultoria.cte.schema_400.cte.TRetCTe;
-import br.com.swconsultoria.cte.schema_400.cte.TCTeOS;
-import br.com.swconsultoria.cte.schema_400.cte.TCTeSimp;
-import br.com.swconsultoria.cte.schema_400.cte.TRetCTeSimp;
-import br.com.swconsultoria.cte.schema_400.evEPECCTe.TEvento;
-import br.com.swconsultoria.cte.schema_400.evEPECCTe.TRetEvento;
-import br.com.swconsultoria.cte.schema_400.cte.TRetCTeOS;
-import br.com.swconsultoria.cte.schema_400.consSitCTe.TRetConsSitCTe;
-import br.com.swconsultoria.cte.schema_400.consStatServCTe.TRetConsStatServ;
+import br.com.swconsultoria.cte.schema_400.RetDistDFeInt;
+import br.com.swconsultoria.cte.schema_400.TCTe;
+import br.com.swconsultoria.cte.schema_400.TRetCTe;
+import br.com.swconsultoria.cte.schema_400.TCTeOS;
+import br.com.swconsultoria.cte.schema_400.TCTeSimp;
+import br.com.swconsultoria.cte.schema_400.TRetCTeSimp;
+import br.com.swconsultoria.cte.schema_400_eventos.TEvento;
+import br.com.swconsultoria.cte.schema_400_eventos.TRetEvento;
+import br.com.swconsultoria.cte.schema_400.TRetCTeOS;
+import br.com.swconsultoria.cte.schema_400.TRetConsSitCTe;
+import br.com.swconsultoria.cte.schema_400.TRetConsStatServ;
 import br.com.swconsultoria.cte.util.ConfiguracoesUtil;
 
 /**
@@ -114,8 +114,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static TCTeSimp montaCteSimp(ConfiguracoesCte configuracoesCte,
-                                                                                    TCTeSimp enviCTe, boolean valida) throws CteException {
+    public static TCTeSimp montaCteSimp(ConfiguracoesCte configuracoesCte,TCTeSimp enviCTe, boolean valida) throws CteException {
         return EnvioCteSimp.montaCteSimp(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), enviCTe, valida);
     }
 
@@ -127,8 +126,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static TRetCTe enviarCte(ConfiguracoesCte configuracoesCte,
-                                    TCTe cte) throws CteException {
+    public static TRetCTe enviarCte(ConfiguracoesCte configuracoesCte,TCTe cte) throws CteException {
 
         return EnvioCte.enviaCte(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), cte);
 
@@ -167,9 +165,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_400.evCancCTe.TRetEvento cancelarCte(ConfiguracoesCte configuracoesCte,
-                                                                                       br.com.swconsultoria.cte.schema_400.evCancCTe.TEvento evento,
-                                                                                       boolean valida) throws CteException {
+    public static TRetEvento cancelarCte(ConfiguracoesCte configuracoesCte,TEvento evento,boolean valida) throws CteException {
 
         return Cancelar.eventoCancelamento(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
@@ -184,8 +180,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static TRetEvento epecCte(ConfiguracoesCte configuracoesCte,
-                                     TEvento evento, boolean valida) throws CteException {
+    public static TRetEvento epecCte(ConfiguracoesCte configuracoesCte,TEvento evento, boolean valida) throws CteException {
 
         return Epec.eventoEpec(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
@@ -200,8 +195,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_400.evRegMultimodal.TRetEvento multimodalCte(ConfiguracoesCte configuracoesCte,
-                                                                                               br.com.swconsultoria.cte.schema_400.evRegMultimodal.TEvento evento, boolean valida) throws CteException {
+    public static TRetEvento multimodalCte(ConfiguracoesCte configuracoesCte,TEvento evento, boolean valida) throws CteException {
 
         return Multimodal.eventoMulti(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
@@ -216,8 +210,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_400.evCCeCTe.TRetEvento cceCte(ConfiguracoesCte configuracoesCte,
-                                                                                 br.com.swconsultoria.cte.schema_400.evCCeCTe.TEvento evento, boolean valida) throws CteException {
+    public static TRetEvento cceCte(ConfiguracoesCte configuracoesCte,TEvento evento, boolean valida) throws CteException {
 
         return CartaCorrecao.eventoCCe(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
@@ -232,8 +225,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_400.evPrestDesacordo.TRetEvento prestacaoDesacordoCte(ConfiguracoesCte configuracoesCte,
-                                                                                                        br.com.swconsultoria.cte.schema_400.evPrestDesacordo.TEvento evento, boolean valida) throws CteException {
+    public static TRetEvento prestacaoDesacordoCte(ConfiguracoesCte configuracoesCte,TEvento evento, boolean valida) throws CteException {
 
         return PrestacaoDesacordo.eventoPrestacaoDesacordo(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
@@ -248,8 +240,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_400.evCancPrestDesacordo.TRetEvento cancelamentoPrestacaoDesacordoCte(ConfiguracoesCte configuracoesCte,
-                                                                                                                        br.com.swconsultoria.cte.schema_400.evCancPrestDesacordo.TEvento evento, boolean valida) throws CteException {
+    public static TRetEvento cancelamentoPrestacaoDesacordoCte(ConfiguracoesCte configuracoesCte,TEvento evento, boolean valida) throws CteException {
 
         return CancelamentoPrestacaoDesacordo.eventoCancPrestacaoDesacordo(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
@@ -264,8 +255,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_400.evGTV.TRetEvento gvtCte(ConfiguracoesCte configuracoesCte,
-                                                                              br.com.swconsultoria.cte.schema_400.evGTV.TEvento evento, boolean valida) throws CteException {
+    public static TRetEvento gvtCte(ConfiguracoesCte configuracoesCte,TEvento evento, boolean valida) throws CteException {
 
         return Gvt.eventoGvt(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
@@ -280,8 +270,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_400.evCECTe.TRetEvento comprovanteEntrega(ConfiguracoesCte configuracoesCte,
-                                                                                            br.com.swconsultoria.cte.schema_400.evCECTe.TEvento evento, boolean valida) throws CteException {
+    public static TRetEvento comprovanteEntrega(ConfiguracoesCte configuracoesCte,TEvento evento, boolean valida) throws CteException {
 
         return ComprovanteEntrega.eventoComprovanteEntrega(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
@@ -296,8 +285,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_400.evCancCECTe.TRetEvento cancComprovanteEntrega(ConfiguracoesCte configuracoesCte,
-                                                                                                    br.com.swconsultoria.cte.schema_400.evCancCECTe.TEvento evento, boolean valida) throws CteException {
+    public static TRetEvento cancComprovanteEntrega(ConfiguracoesCte configuracoesCte,TEvento evento, boolean valida) throws CteException {
 
         return CancelamentoComprovanteEntrega.eventoCancComprovanteEntrega(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
@@ -312,8 +300,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_400.evIECTe.TRetEvento insucessoEntrega(ConfiguracoesCte configuracoesCte,
-                                                                                          br.com.swconsultoria.cte.schema_400.evIECTe.TEvento evento, boolean valida) throws CteException {
+    public static TRetEvento insucessoEntrega(ConfiguracoesCte configuracoesCte,TEvento evento, boolean valida) throws CteException {
 
         return InsucessoEntrega.eventoInsucessoEntrega(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 
@@ -328,8 +315,7 @@ public class Cte {
      * @return
      * @throws CteException
      */
-    public static br.com.swconsultoria.cte.schema_400.evCancIECTe.TRetEvento cancelaInsucessoEntrega(ConfiguracoesCte configuracoesCte,
-                                                                                                     br.com.swconsultoria.cte.schema_400.evCancIECTe.TEvento evento, boolean valida) throws CteException {
+    public static TRetEvento cancelaInsucessoEntrega(ConfiguracoesCte configuracoesCte,TEvento evento, boolean valida) throws CteException {
 
         return CancelamentoInsucessoEntrega.eventoCancelamentoInsucessoEntrega(ConfiguracoesUtil.iniciaConfiguracoes(configuracoesCte), evento, valida);
 

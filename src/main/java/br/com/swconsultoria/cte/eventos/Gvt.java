@@ -3,8 +3,8 @@ package br.com.swconsultoria.cte.eventos;
 import br.com.swconsultoria.cte.dom.ConfiguracoesCte;
 import br.com.swconsultoria.cte.dom.enuns.ServicosEnum;
 import br.com.swconsultoria.cte.exception.CteException;
-import br.com.swconsultoria.cte.schema_400.evGTV.TEvento;
-import br.com.swconsultoria.cte.schema_400.evGTV.TRetEvento;
+import br.com.swconsultoria.cte.schema_400_eventos.TEvento;
+import br.com.swconsultoria.cte.schema_400_eventos.TRetEvento;
 import br.com.swconsultoria.cte.util.XmlCteUtil;
 
 import javax.xml.bind.JAXBException;

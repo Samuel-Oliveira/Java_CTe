@@ -21,7 +21,11 @@ public class TesteConfig {
 
         Certificado certificado = CertificadoService.certificadoPfx("d:/teste/certificado.pfx", "123456");
 
-        return ConfiguracoesCte.criarConfiguracoes(estado, ambiente,
+        ConfiguracoesCte config = ConfiguracoesCte.criarConfiguracoes(estado, ambiente,
                 certificado, "schemas");
+
+        //Aqui seta a contingencia SVC, somente pode ser habilitada caso esteja ativa no portal.
+//        config.setContigenciaSVC(true);
+        return config;
     }
 }
