@@ -1,8 +1,8 @@
 //
-// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
-// Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+// Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.3.0 
+// Consulte <a href="https://javaee.github.io/jaxb-v2/">https://javaee.github.io/jaxb-v2/</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2026.03.21 às 07:12:45 PM BRT 
+// Gerado em: 2026.09.16 às 08:55:59 AM BRT 
 //
 
 
@@ -22,27 +22,54 @@ import javax.xml.bind.annotation.XmlType;
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="TDevTrib">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="vDevTrib" type="{http://www.portalfiscal.inf.br/cte}TDec1302RTC"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="TDevTrib"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="pDevTrib" type="{http://www.portalfiscal.inf.br/cte}TDec_0302_04RTC" minOccurs="0"/&gt;
+ *         &lt;element name="vDevTrib" type="{http://www.portalfiscal.inf.br/cte}TDec1302RTC"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "TDevTrib", propOrder = {
+    "pDevTrib",
     "vDevTrib"
 })
 public class TDevTrib {
 
+    protected String pDevTrib;
     @XmlElement(required = true)
     protected String vDevTrib;
+
+    /**
+     * Obtém o valor da propriedade pDevTrib.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPDevTrib() {
+        return pDevTrib;
+    }
+
+    /**
+     * Define o valor da propriedade pDevTrib.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPDevTrib(String value) {
+        this.pDevTrib = value;
+    }
 
     /**
      * Obtém o valor da propriedade vDevTrib.
