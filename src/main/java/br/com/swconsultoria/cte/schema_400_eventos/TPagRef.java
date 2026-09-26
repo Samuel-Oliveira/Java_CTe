@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2026.03.21 às 07:12:02 PM BRT 
+// Gerado em: 2026.09.26 às 07:36:19 PM BRT 
 //
 
 
@@ -17,18 +17,18 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Cada DFe que utilizar deverá utilizar esses tipo no grupo ide
+ * Informado para abater as parcelas de antecipação de pagamento, conforme art. 10 §4
  * 
- * <p>Classe Java de TPagAntecipado complex type.
+ * <p>Classe Java de TPagRef complex type.
  * 
  * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
  * 
  * <pre>
- * &lt;complexType name="TPagAntecipado">
+ * &lt;complexType name="TPagRef">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="refDFe" type="{http://www.w3.org/2001/XMLSchema}anyType" maxOccurs="99"/>
+ *         &lt;element name="refDFe" type="{http://www.portalfiscal.inf.br/cte}TChDFeRTC" maxOccurs="99"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,13 +38,13 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TPagAntecipado", propOrder = {
+@XmlType(name = "TPagRef", propOrder = {
     "refDFe"
 })
-public class TPagAntecipado {
+public class TPagRef {
 
     @XmlElement(required = true)
-    protected List<Object> refDFe;
+    protected List<String> refDFe;
 
     /**
      * Gets the value of the refDFe property.
@@ -64,13 +64,13 @@ public class TPagAntecipado {
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link Object }
+     * {@link String }
      * 
      * 
      */
-    public List<Object> getRefDFe() {
+    public List<String> getRefDFe() {
         if (refDFe == null) {
-            refDFe = new ArrayList<Object>();
+            refDFe = new ArrayList<String>();
         }
         return this.refDFe;
     }

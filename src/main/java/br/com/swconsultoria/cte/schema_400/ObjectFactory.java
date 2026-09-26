@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2026.03.21 às 07:12:45 PM BRT 
+// Gerado em: 2026.09.26 às 07:36:17 PM BRT 
 //
 
 
@@ -34,9 +34,9 @@ public class ObjectFactory {
     private final static QName _CTeOS_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "CTeOS");
     private final static QName _Signature_QNAME = new QName("http://www.w3.org/2000/09/xmldsig#", "Signature");
     private final static QName _RetConsSitCTe_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "retConsSitCTe");
-    private final static QName _RetCTeSimp_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "retCTeSimp");
-    private final static QName _ConsStatServCTe_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "consStatServCTe");
     private final static QName _ConsSitCTe_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "consSitCTe");
+    private final static QName _ConsStatServCTe_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "consStatServCTe");
+    private final static QName _RetCTeSimp_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "retCTeSimp");
     private final static QName _CTeSimp_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "CTeSimp");
     private final static QName _GTVe_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "GTVe");
     private final static QName _RetConsStatServCTe_QNAME = new QName("http://www.portalfiscal.inf.br/cte", "retConsStatServCTe");
@@ -150,6 +150,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link TCIBSNFe }
+     * 
+     */
+    public TCIBSNFe createTCIBSNFe() {
+        return new TCIBSNFe();
+    }
+
+    /**
      * Create an instance of {@link TIBSCBSTot }
      * 
      */
@@ -259,6 +267,22 @@ public class ObjectFactory {
      */
     public Aquav.DetCont.InfDoc createAquavDetContInfDoc() {
         return new Aquav.DetCont.InfDoc();
+    }
+
+    /**
+     * Create an instance of {@link Ferrov.TrafMut }
+     * 
+     */
+    public Ferrov.TrafMut createFerrovTrafMut() {
+        return new Ferrov.TrafMut();
+    }
+
+    /**
+     * Create an instance of {@link TProtCTeOS }
+     * 
+     */
+    public TProtCTeOS createTProtCTeOS() {
+        return new TProtCTeOS();
     }
 
     /**
@@ -398,22 +422,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TProtCTeOS }
-     * 
-     */
-    public TProtCTeOS createTProtCTeOS() {
-        return new TProtCTeOS();
-    }
-
-    /**
-     * Create an instance of {@link Ferrov.TrafMut }
-     * 
-     */
-    public Ferrov.TrafMut createFerrovTrafMut() {
-        return new Ferrov.TrafMut();
-    }
-
-    /**
      * Create an instance of {@link TCTeOS }
      * 
      */
@@ -494,19 +502,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Multimodal.Seg }
-     * 
-     */
-    public Multimodal.Seg createMultimodalSeg() {
-        return new Multimodal.Seg();
-    }
-
-    /**
      * Create an instance of {@link TRetConsSitCTe }
      * 
      */
     public TRetConsSitCTe createTRetConsSitCTe() {
         return new TRetConsSitCTe();
+    }
+
+    /**
+     * Create an instance of {@link Multimodal.Seg }
+     * 
+     */
+    public Multimodal.Seg createMultimodalSeg() {
+        return new Multimodal.Seg();
     }
 
     /**
@@ -638,6 +646,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link TCTeSimp.InfCte.Ide }
+     * 
+     */
+    public TCTeSimp.InfCte.Ide createTCTeSimpInfCteIde() {
+        return new TCTeSimp.InfCte.Ide();
+    }
+
+    /**
      * Create an instance of {@link Duto }
      * 
      */
@@ -646,19 +662,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TRetCTeSimp }
+     * Create an instance of {@link GTVeProc }
      * 
      */
-    public TRetCTeSimp createTRetCTeSimp() {
-        return new TRetCTeSimp();
-    }
-
-    /**
-     * Create an instance of {@link TConsStatServ }
-     * 
-     */
-    public TConsStatServ createTConsStatServ() {
-        return new TConsStatServ();
+    public GTVeProc createGTVeProc() {
+        return new GTVeProc();
     }
 
     /**
@@ -670,11 +678,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GTVeProc }
+     * Create an instance of {@link TConsStatServ }
      * 
      */
-    public GTVeProc createGTVeProc() {
-        return new GTVeProc();
+    public TConsStatServ createTConsStatServ() {
+        return new TConsStatServ();
+    }
+
+    /**
+     * Create an instance of {@link TRetCTeSimp }
+     * 
+     */
+    public TRetCTeSimp createTRetCTeSimp() {
+        return new TRetCTeSimp();
     }
 
     /**
@@ -734,14 +750,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TRetCTe }
-     * 
-     */
-    public TRetCTe createTRetCTe() {
-        return new TRetCTe();
-    }
-
-    /**
      * Create an instance of {@link Aereo.NatCarga }
      * 
      */
@@ -755,6 +763,14 @@ public class ObjectFactory {
      */
     public Aereo.Tarifa createAereoTarifa() {
         return new Aereo.Tarifa();
+    }
+
+    /**
+     * Create an instance of {@link TRetCTe }
+     * 
+     */
+    public TRetCTe createTRetCTe() {
+        return new TRetCTe();
     }
 
     /**
@@ -782,11 +798,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link TPagRef }
+     * 
+     */
+    public TPagRef createTPagRef() {
+        return new TPagRef();
+    }
+
+    /**
      * Create an instance of {@link TTribCompraGov }
      * 
      */
     public TTribCompraGov createTTribCompraGov() {
         return new TTribCompraGov();
+    }
+
+    /**
+     * Create an instance of {@link TALCZFMCBS }
+     * 
+     */
+    public TALCZFMCBS createTALCZFMCBS() {
+        return new TALCZFMCBS();
     }
 
     /**
@@ -798,11 +830,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TPagAntecipado }
+     * Create an instance of {@link TALCZFMCBSNFe }
      * 
      */
-    public TPagAntecipado createTPagAntecipado() {
-        return new TPagAntecipado();
+    public TALCZFMCBSNFe createTALCZFMCBSNFe() {
+        return new TALCZFMCBSNFe();
+    }
+
+    /**
+     * Create an instance of {@link TTribItemSN }
+     * 
+     */
+    public TTribItemSN createTTribItemSN() {
+        return new TTribItemSN();
     }
 
     /**
@@ -963,6 +1003,14 @@ public class ObjectFactory {
      */
     public TEndernac createTEndernac() {
         return new TEndernac();
+    }
+
+    /**
+     * Create an instance of {@link TTotalSN }
+     * 
+     */
+    public TTotalSN createTTotalSN() {
+        return new TTotalSN();
     }
 
     /**
@@ -1222,6 +1270,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link TCIBSNFe.GIBSUF }
+     * 
+     */
+    public TCIBSNFe.GIBSUF createTCIBSNFeGIBSUF() {
+        return new TCIBSNFe.GIBSUF();
+    }
+
+    /**
+     * Create an instance of {@link TCIBSNFe.GIBSMun }
+     * 
+     */
+    public TCIBSNFe.GIBSMun createTCIBSNFeGIBSMun() {
+        return new TCIBSNFe.GIBSMun();
+    }
+
+    /**
+     * Create an instance of {@link TCIBSNFe.GCBS }
+     * 
+     */
+    public TCIBSNFe.GCBS createTCIBSNFeGCBS() {
+        return new TCIBSNFe.GCBS();
+    }
+
+    /**
      * Create an instance of {@link TIBSCBSTot.GCBS }
      * 
      */
@@ -1443,6 +1515,30 @@ public class ObjectFactory {
      */
     public Aquav.DetCont.InfDoc.InfNFe createAquavDetContInfDocInfNFe() {
         return new Aquav.DetCont.InfDoc.InfNFe();
+    }
+
+    /**
+     * Create an instance of {@link Ferrov.TrafMut.FerroEnv }
+     * 
+     */
+    public Ferrov.TrafMut.FerroEnv createFerrovTrafMutFerroEnv() {
+        return new Ferrov.TrafMut.FerroEnv();
+    }
+
+    /**
+     * Create an instance of {@link TProtCTeOS.InfProt }
+     * 
+     */
+    public TProtCTeOS.InfProt createTProtCTeOSInfProt() {
+        return new TProtCTeOS.InfProt();
+    }
+
+    /**
+     * Create an instance of {@link TProtCTeOS.InfFisco }
+     * 
+     */
+    public TProtCTeOS.InfFisco createTProtCTeOSInfFisco() {
+        return new TProtCTeOS.InfFisco();
     }
 
     /**
@@ -1750,27 +1846,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TProtCTeOS.InfProt }
+     * Create an instance of {@link TCTe.InfCte.Ide.GPagAntecipado }
      * 
      */
-    public TProtCTeOS.InfProt createTProtCTeOSInfProt() {
-        return new TProtCTeOS.InfProt();
-    }
-
-    /**
-     * Create an instance of {@link TProtCTeOS.InfFisco }
-     * 
-     */
-    public TProtCTeOS.InfFisco createTProtCTeOSInfFisco() {
-        return new TProtCTeOS.InfFisco();
-    }
-
-    /**
-     * Create an instance of {@link Ferrov.TrafMut.FerroEnv }
-     * 
-     */
-    public Ferrov.TrafMut.FerroEnv createFerrovTrafMutFerroEnv() {
-        return new Ferrov.TrafMut.FerroEnv();
+    public TCTe.InfCte.Ide.GPagAntecipado createTCTeInfCteIdeGPagAntecipado() {
+        return new TCTe.InfCte.Ide.GPagAntecipado();
     }
 
     /**
@@ -1934,11 +2014,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Multimodal.Seg.InfSeg }
+     * Create an instance of {@link TCTeOS.InfCte.Ide.GPagAntecipado }
      * 
      */
-    public Multimodal.Seg.InfSeg createMultimodalSegInfSeg() {
-        return new Multimodal.Seg.InfSeg();
+    public TCTeOS.InfCte.Ide.GPagAntecipado createTCTeOSInfCteIdeGPagAntecipado() {
+        return new TCTeOS.InfCte.Ide.GPagAntecipado();
     }
 
     /**
@@ -1955,6 +2035,14 @@ public class ObjectFactory {
      */
     public TRetConsSitCTe.ProcEventoCTe createTRetConsSitCTeProcEventoCTe() {
         return new TRetConsSitCTe.ProcEventoCTe();
+    }
+
+    /**
+     * Create an instance of {@link Multimodal.Seg.InfSeg }
+     * 
+     */
+    public Multimodal.Seg.InfSeg createMultimodalSegInfSeg() {
+        return new Multimodal.Seg.InfSeg();
     }
 
     /**
@@ -2067,14 +2155,6 @@ public class ObjectFactory {
      */
     public TCTeSimp.InfCTeSupl createTCTeSimpInfCTeSupl() {
         return new TCTeSimp.InfCTeSupl();
-    }
-
-    /**
-     * Create an instance of {@link TCTeSimp.InfCte.Ide }
-     * 
-     */
-    public TCTeSimp.InfCte.Ide createTCTeSimpInfCteIde() {
-        return new TCTeSimp.InfCte.Ide();
     }
 
     /**
@@ -2230,6 +2310,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link TCTeSimp.InfCte.Ide.GPagAntecipado }
+     * 
+     */
+    public TCTeSimp.InfCte.Ide.GPagAntecipado createTCTeSimpInfCteIdeGPagAntecipado() {
+        return new TCTeSimp.InfCte.Ide.GPagAntecipado();
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TCTeOS }{@code >}}
      * 
      */
@@ -2257,12 +2345,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TRetCTeSimp }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link TConsSitCTe }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retCTeSimp")
-    public JAXBElement<TRetCTeSimp> createRetCTeSimp(TRetCTeSimp value) {
-        return new JAXBElement<TRetCTeSimp>(_RetCTeSimp_QNAME, TRetCTeSimp.class, null, value);
+    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "consSitCTe")
+    public JAXBElement<TConsSitCTe> createConsSitCTe(TConsSitCTe value) {
+        return new JAXBElement<TConsSitCTe>(_ConsSitCTe_QNAME, TConsSitCTe.class, null, value);
     }
 
     /**
@@ -2275,12 +2363,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link TConsSitCTe }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link TRetCTeSimp }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "consSitCTe")
-    public JAXBElement<TConsSitCTe> createConsSitCTe(TConsSitCTe value) {
-        return new JAXBElement<TConsSitCTe>(_ConsSitCTe_QNAME, TConsSitCTe.class, null, value);
+    @XmlElementDecl(namespace = "http://www.portalfiscal.inf.br/cte", name = "retCTeSimp")
+    public JAXBElement<TRetCTeSimp> createRetCTeSimp(TRetCTeSimp value) {
+        return new JAXBElement<TRetCTeSimp>(_RetCTeSimp_QNAME, TRetCTeSimp.class, null, value);
     }
 
     /**

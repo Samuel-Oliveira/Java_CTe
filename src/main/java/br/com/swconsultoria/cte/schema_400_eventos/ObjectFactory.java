@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2026.03.21 às 07:12:02 PM BRT 
+// Gerado em: 2026.09.26 às 07:36:19 PM BRT 
 //
 
 
@@ -67,19 +67,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EvGTV }
-     * 
-     */
-    public EvGTV createEvGTV() {
-        return new EvGTV();
-    }
-
-    /**
      * Create an instance of {@link EvEPECCTe }
      * 
      */
     public EvEPECCTe createEvEPECCTe() {
         return new EvEPECCTe();
+    }
+
+    /**
+     * Create an instance of {@link EvGTV }
+     * 
+     */
+    public EvGTV createEvGTV() {
+        return new EvGTV();
     }
 
     /**
@@ -112,6 +112,14 @@ public class ObjectFactory {
      */
     public TIBSCBSMonoTot.GIBS createTIBSCBSMonoTotGIBS() {
         return new TIBSCBSMonoTot.GIBS();
+    }
+
+    /**
+     * Create an instance of {@link TCIBSNFe }
+     * 
+     */
+    public TCIBSNFe createTCIBSNFe() {
+        return new TCIBSNFe();
     }
 
     /**
@@ -187,19 +195,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link EvPrestDesacordo }
-     * 
-     */
-    public EvPrestDesacordo createEvPrestDesacordo() {
-        return new EvPrestDesacordo();
-    }
-
-    /**
      * Create an instance of {@link EvCECTe.InfEntrega }
      * 
      */
     public EvCECTe.InfEntrega createEvCECTeInfEntrega() {
         return new EvCECTe.InfEntrega();
+    }
+
+    /**
+     * Create an instance of {@link EvPrestDesacordo }
+     * 
+     */
+    public EvPrestDesacordo createEvPrestDesacordo() {
+        return new EvPrestDesacordo();
     }
 
     /**
@@ -323,11 +331,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link TPagRef }
+     * 
+     */
+    public TPagRef createTPagRef() {
+        return new TPagRef();
+    }
+
+    /**
      * Create an instance of {@link TTribCompraGov }
      * 
      */
     public TTribCompraGov createTTribCompraGov() {
         return new TTribCompraGov();
+    }
+
+    /**
+     * Create an instance of {@link TALCZFMCBS }
+     * 
+     */
+    public TALCZFMCBS createTALCZFMCBS() {
+        return new TALCZFMCBS();
     }
 
     /**
@@ -339,11 +363,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link TPagAntecipado }
+     * Create an instance of {@link TALCZFMCBSNFe }
      * 
      */
-    public TPagAntecipado createTPagAntecipado() {
-        return new TPagAntecipado();
+    public TALCZFMCBSNFe createTALCZFMCBSNFe() {
+        return new TALCZFMCBSNFe();
+    }
+
+    /**
+     * Create an instance of {@link TTribItemSN }
+     * 
+     */
+    public TTribItemSN createTTribItemSN() {
+        return new TTribItemSN();
     }
 
     /**
@@ -456,6 +488,14 @@ public class ObjectFactory {
      */
     public TTribNFGas createTTribNFGas() {
         return new TTribNFGas();
+    }
+
+    /**
+     * Create an instance of {@link TTotalSN }
+     * 
+     */
+    public TTotalSN createTTotalSN() {
+        return new TTotalSN();
     }
 
     /**
@@ -616,6 +656,30 @@ public class ObjectFactory {
      */
     public TIBSCBSMonoTot.GIBS.GIBSMun createTIBSCBSMonoTotGIBSGIBSMun() {
         return new TIBSCBSMonoTot.GIBS.GIBSMun();
+    }
+
+    /**
+     * Create an instance of {@link TCIBSNFe.GIBSUF }
+     * 
+     */
+    public TCIBSNFe.GIBSUF createTCIBSNFeGIBSUF() {
+        return new TCIBSNFe.GIBSUF();
+    }
+
+    /**
+     * Create an instance of {@link TCIBSNFe.GIBSMun }
+     * 
+     */
+    public TCIBSNFe.GIBSMun createTCIBSNFeGIBSMun() {
+        return new TCIBSNFe.GIBSMun();
+    }
+
+    /**
+     * Create an instance of {@link TCIBSNFe.GCBS }
+     * 
+     */
+    public TCIBSNFe.GCBS createTCIBSNFeGCBS() {
+        return new TCIBSNFe.GCBS();
     }
 
     /**

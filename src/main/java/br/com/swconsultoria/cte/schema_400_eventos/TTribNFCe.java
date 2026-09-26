@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2026.03.21 às 07:12:02 PM BRT 
+// Gerado em: 2026.09.26 às 07:36:19 PM BRT 
 //
 
 
@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="cClassTrib" type="{http://www.portalfiscal.inf.br/cte}TcClassTrib"/>
  *         &lt;element name="indDoacao" type="{http://www.portalfiscal.inf.br/cte}TIndDoacao" minOccurs="0"/>
  *         &lt;choice minOccurs="0">
- *           &lt;element name="gIBSCBS" type="{http://www.portalfiscal.inf.br/cte}TCIBS"/>
+ *           &lt;element name="gIBSCBS" type="{http://www.portalfiscal.inf.br/cte}TCIBS_NFe"/>
  *           &lt;element name="gIBSCBSMono" type="{http://www.portalfiscal.inf.br/cte}TMonofasia"/>
  *         &lt;/choice>
  *       &lt;/sequence>
@@ -57,7 +57,7 @@ public class TTribNFCe {
     protected String cClassTrib;
     protected String indDoacao;
     @XmlElement(name = "gIBSCBS")
-    protected TCIBS gibscbs;
+    protected TCIBSNFe gibscbs;
     @XmlElement(name = "gIBSCBSMono")
     protected TMonofasia gibscbsMono;
 
@@ -138,10 +138,10 @@ public class TTribNFCe {
      * 
      * @return
      *     possible object is
-     *     {@link TCIBS }
+     *     {@link TCIBSNFe }
      *     
      */
-    public TCIBS getGIBSCBS() {
+    public TCIBSNFe getGIBSCBS() {
         return gibscbs;
     }
 
@@ -150,10 +150,10 @@ public class TTribNFCe {
      * 
      * @param value
      *     allowed object is
-     *     {@link TCIBS }
+     *     {@link TCIBSNFe }
      *     
      */
-    public void setGIBSCBS(TCIBS value) {
+    public void setGIBSCBS(TCIBSNFe value) {
         this.gibscbs = value;
     }
 

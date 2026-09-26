@@ -2,12 +2,14 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2026.03.21 às 07:12:02 PM BRT 
+// Gerado em: 2026.09.26 às 07:36:19 PM BRT 
 //
 
 
 package br.com.swconsultoria.cte.schema_400_eventos;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -29,7 +31,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="tpEnteGov" type="{http://www.portalfiscal.inf.br/cte}TEnteGov"/>
  *         &lt;element name="pRedutor" type="{http://www.portalfiscal.inf.br/cte}TDec_0302_04RTC"/>
  *         &lt;element name="tpOperGov" type="{http://www.portalfiscal.inf.br/cte}TOperCompraGov"/>
- *         &lt;element name="refDFeAnt" type="{http://www.w3.org/2001/XMLSchema}anyType" minOccurs="0"/>
+ *         &lt;element name="refDFeAnt" type="{http://www.portalfiscal.inf.br/cte}TChDFeRTC" maxOccurs="99" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -53,7 +55,7 @@ public class TCompraGovReduzido {
     protected String pRedutor;
     @XmlElement(required = true)
     protected String tpOperGov;
-    protected Object refDFeAnt;
+    protected List<String> refDFeAnt;
 
     /**
      * Obtém o valor da propriedade tpEnteGov.
@@ -128,27 +130,32 @@ public class TCompraGovReduzido {
     }
 
     /**
-     * Obtém o valor da propriedade refDFeAnt.
+     * Gets the value of the refDFeAnt property.
      * 
-     * @return
-     *     possible object is
-     *     {@link Object }
-     *     
-     */
-    public Object getRefDFeAnt() {
-        return refDFeAnt;
-    }
-
-    /**
-     * Define o valor da propriedade refDFeAnt.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the refDFeAnt property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link Object }
-     *     
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getRefDFeAnt().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
      */
-    public void setRefDFeAnt(Object value) {
-        this.refDFeAnt = value;
+    public List<String> getRefDFeAnt() {
+        if (refDFeAnt == null) {
+            refDFeAnt = new ArrayList<String>();
+        }
+        return this.refDFeAnt;
     }
 
 }

@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2026.03.21 às 07:12:45 PM BRT 
+// Gerado em: 2026.09.26 às 07:36:17 PM BRT 
 //
 
 
@@ -69,6 +69,7 @@ import javax.xml.bind.annotation.XmlType;
  *                   &lt;element name="gDif" type="{http://www.portalfiscal.inf.br/cte}TDif" minOccurs="0"/>
  *                   &lt;element name="gDevTrib" type="{http://www.portalfiscal.inf.br/cte}TDevTrib" minOccurs="0"/>
  *                   &lt;element name="gRed" type="{http://www.portalfiscal.inf.br/cte}TRed" minOccurs="0"/>
+ *                   &lt;element name="gALCZFMCBS" type="{http://www.portalfiscal.inf.br/cte}TALCZFMCBS" minOccurs="0"/>
  *                   &lt;element name="vCBS" type="{http://www.portalfiscal.inf.br/cte}TDec1302RTC"/>
  *                 &lt;/sequence>
  *               &lt;/restriction>
@@ -293,6 +294,7 @@ public class TCIBS {
      *         &lt;element name="gDif" type="{http://www.portalfiscal.inf.br/cte}TDif" minOccurs="0"/>
      *         &lt;element name="gDevTrib" type="{http://www.portalfiscal.inf.br/cte}TDevTrib" minOccurs="0"/>
      *         &lt;element name="gRed" type="{http://www.portalfiscal.inf.br/cte}TRed" minOccurs="0"/>
+     *         &lt;element name="gALCZFMCBS" type="{http://www.portalfiscal.inf.br/cte}TALCZFMCBS" minOccurs="0"/>
      *         &lt;element name="vCBS" type="{http://www.portalfiscal.inf.br/cte}TDec1302RTC"/>
      *       &lt;/sequence>
      *     &lt;/restriction>
@@ -308,6 +310,7 @@ public class TCIBS {
         "gDif",
         "gDevTrib",
         "gRed",
+        "galczfmcbs",
         "vcbs"
     })
     public static class GCBS {
@@ -317,6 +320,8 @@ public class TCIBS {
         protected TDif gDif;
         protected TDevTrib gDevTrib;
         protected TRed gRed;
+        @XmlElement(name = "gALCZFMCBS")
+        protected TALCZFMCBS galczfmcbs;
         @XmlElement(name = "vCBS", required = true)
         protected String vcbs;
 
@@ -414,6 +419,30 @@ public class TCIBS {
          */
         public void setGRed(TRed value) {
             this.gRed = value;
+        }
+
+        /**
+         * Obtém o valor da propriedade galczfmcbs.
+         * 
+         * @return
+         *     possible object is
+         *     {@link TALCZFMCBS }
+         *     
+         */
+        public TALCZFMCBS getGALCZFMCBS() {
+            return galczfmcbs;
+        }
+
+        /**
+         * Define o valor da propriedade galczfmcbs.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link TALCZFMCBS }
+         *     
+         */
+        public void setGALCZFMCBS(TALCZFMCBS value) {
+            this.galczfmcbs = value;
         }
 
         /**
