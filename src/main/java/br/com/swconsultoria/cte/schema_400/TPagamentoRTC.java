@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2026.03.21 às 07:12:45 PM BRT 
+// Gerado em: 2026.09.26 às 07:36:17 PM BRT 
 //
 
 
@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * Cada DFe que utilizar deverá utilizar esses tipo no grupo ide
+ * Estrutura a ser utilizada no grupo ide
  * 
  * <p>Classe Java de TPagamentoRTC complex type.
  * 
@@ -27,7 +27,14 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="tpMeioPgto" type="{http://www.portalfiscal.inf.br/cte}TMeioPgto"/>
+ *         &lt;element name="tpMeioPgto">
+ *           &lt;simpleType>
+ *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *               &lt;whiteSpace value="preserve"/>
+ *               &lt;pattern value="[0-9]{2}"/>
+ *             &lt;/restriction>
+ *           &lt;/simpleType>
+ *         &lt;/element>
  *         &lt;element name="CNPJReceb" type="{http://www.portalfiscal.inf.br/cte}TCnpjRTC"/>
  *         &lt;element name="CNPJBasePSP" type="{http://www.portalfiscal.inf.br/cte}TCnpjBaseRTC"/>
  *       &lt;/sequence>

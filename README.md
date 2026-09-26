@@ -1,4 +1,4 @@
-# Java-CTe [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.14/jar)
+# Java-CTe [![MIT License](https://img.shields.io/github/license/Samuel-Oliveira/Java_CTe.svg) ](https://github.com/Samuel-Oliveira/Java_CTe/blob/master/LICENSE) [![Maven Central](https://img.shields.io/maven-central/v/br.com.swconsultoria/java-cte.svg?label=Maven%20Central)](https://search.maven.org/artifact/br.com.swconsultoria/java-cte/4.00.15/jar)
 API Java para consumo do WebService de CTe
 
 ## Dúvidas, Sugestões ou Consultoria
@@ -18,14 +18,14 @@ Para Iniciar :
 <dependency>
     <groupId>br.com.swconsultoria</groupId>
     <artifactId>java-cte</artifactId>
-    <version>4.00.14</version>
+    <version>4.00.15</version>
 </dependency>
 ```
 
 - Gradle :
 ```groovy
 dependencies {
-    implementation "br.com.swconsultoria:java-cte:4.00.14"
+    implementation "br.com.swconsultoria:java-cte:4.00.15"
 }
 ```
 
@@ -75,6 +75,10 @@ import br.com.swconsultoria.cte.schema_400_eventos.TEvento;
 ________________________________________________________________________________________________
 
 # Historico de Versões
+
+## v4.00.15 - 21/03/2026 - Schemas PL. RTC 2026.002 v1.01 (24/08/2026)
+- Atualização dos schemas XSD
+- Atualizado Cacert
 
 ## v4.00.14 - 21/03/2026 - Schemas PL. RTC 2026.001 (02/03/2026)
 - Atualização dos schemas XSD para versão 4.00 (novos schemas SEFAZ)

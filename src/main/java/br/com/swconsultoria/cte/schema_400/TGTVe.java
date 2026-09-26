@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2026.03.21 às 07:12:45 PM BRT 
+// Gerado em: 2026.09.26 às 07:33:33 PM BRT 
 //
 
 
@@ -377,6 +377,15 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *                               &lt;/simpleType>
  *                             &lt;/element>
  *                             &lt;element name="enderEmit" type="{http://www.portalfiscal.inf.br/cte}TEndeEmi"/>
+ *                             &lt;element name="ISUFEmit" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                   &lt;minLength value="8"/>
+ *                                   &lt;maxLength value="9"/>
+ *                                   &lt;whiteSpace value="preserve"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
  *                           &lt;/sequence>
  *                         &lt;/restriction>
  *                       &lt;/complexContent>
@@ -1131,6 +1140,15 @@ public class TGTVe {
      *                     &lt;/simpleType>
      *                   &lt;/element>
      *                   &lt;element name="enderEmit" type="{http://www.portalfiscal.inf.br/cte}TEndeEmi"/>
+     *                   &lt;element name="ISUFEmit" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                         &lt;minLength value="8"/>
+     *                         &lt;maxLength value="9"/>
+     *                         &lt;whiteSpace value="preserve"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
      *                 &lt;/sequence>
      *               &lt;/restriction>
      *             &lt;/complexContent>
@@ -2984,6 +3002,15 @@ public class TGTVe {
          *           &lt;/simpleType>
          *         &lt;/element>
          *         &lt;element name="enderEmit" type="{http://www.portalfiscal.inf.br/cte}TEndeEmi"/>
+         *         &lt;element name="ISUFEmit" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *               &lt;minLength value="8"/>
+         *               &lt;maxLength value="9"/>
+         *               &lt;whiteSpace value="preserve"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
          *       &lt;/sequence>
          *     &lt;/restriction>
          *   &lt;/complexContent>
@@ -2999,7 +3026,8 @@ public class TGTVe {
             "iest",
             "xNome",
             "xFant",
-            "enderEmit"
+            "enderEmit",
+            "isufEmit"
         })
         public static class Emit {
 
@@ -3014,6 +3042,8 @@ public class TGTVe {
             protected String xFant;
             @XmlElement(required = true)
             protected TEndeEmi enderEmit;
+            @XmlElement(name = "ISUFEmit")
+            protected String isufEmit;
 
             /**
              * Obtém o valor da propriedade cnpj.
@@ -3157,6 +3187,30 @@ public class TGTVe {
              */
             public void setEnderEmit(TEndeEmi value) {
                 this.enderEmit = value;
+            }
+
+            /**
+             * Obtém o valor da propriedade isufEmit.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getISUFEmit() {
+                return isufEmit;
+            }
+
+            /**
+             * Define o valor da propriedade isufEmit.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setISUFEmit(String value) {
+                this.isufEmit = value;
             }
 
         }

@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2026.03.21 às 07:12:45 PM BRT 
+// Gerado em: 2026.09.26 às 07:36:17 PM BRT 
 //
 
 
@@ -29,10 +29,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="CST" type="{http://www.portalfiscal.inf.br/cte}TCST"/>
  *         &lt;element name="cClassTrib" type="{http://www.portalfiscal.inf.br/cte}TcClassTrib"/>
  *         &lt;element name="indDoacao" type="{http://www.portalfiscal.inf.br/cte}TIndDoacao" minOccurs="0"/>
- *         &lt;choice minOccurs="0">
- *           &lt;element name="gIBSCBS" type="{http://www.portalfiscal.inf.br/cte}TCIBS"/>
- *           &lt;element name="gIBSCBSMono" type="{http://www.portalfiscal.inf.br/cte}TMonofasia"/>
- *         &lt;/choice>
+ *         &lt;element name="gIBSCBS" type="{http://www.portalfiscal.inf.br/cte}TCIBS" minOccurs="0"/>
  *         &lt;element name="gEstornoCred" type="{http://www.portalfiscal.inf.br/cte}TEstornoCred" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -48,7 +45,6 @@ import javax.xml.bind.annotation.XmlType;
     "cClassTrib",
     "indDoacao",
     "gibscbs",
-    "gibscbsMono",
     "gEstornoCred"
 })
 public class TTribNFGas {
@@ -60,8 +56,6 @@ public class TTribNFGas {
     protected String indDoacao;
     @XmlElement(name = "gIBSCBS")
     protected TCIBS gibscbs;
-    @XmlElement(name = "gIBSCBSMono")
-    protected TMonofasia gibscbsMono;
     protected TEstornoCred gEstornoCred;
 
     /**
@@ -158,30 +152,6 @@ public class TTribNFGas {
      */
     public void setGIBSCBS(TCIBS value) {
         this.gibscbs = value;
-    }
-
-    /**
-     * Obtém o valor da propriedade gibscbsMono.
-     * 
-     * @return
-     *     possible object is
-     *     {@link TMonofasia }
-     *     
-     */
-    public TMonofasia getGIBSCBSMono() {
-        return gibscbsMono;
-    }
-
-    /**
-     * Define o valor da propriedade gibscbsMono.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link TMonofasia }
-     *     
-     */
-    public void setGIBSCBSMono(TMonofasia value) {
-        this.gibscbsMono = value;
     }
 
     /**

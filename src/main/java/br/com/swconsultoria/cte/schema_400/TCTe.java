@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2026.03.21 às 07:12:45 PM BRT 
+// Gerado em: 2026.09.26 às 07:33:33 PM BRT 
 //
 
 
@@ -109,7 +109,7 @@ import org.w3c.dom.Element;
  *                             &lt;/element>
  *                             &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/>
  *                             &lt;element name="tpCTe" type="{http://www.portalfiscal.inf.br/cte}TFinCTe"/>
- *                             &lt;element name="procEmi" type="{http://www.portalfiscal.inf.br/cte}TProcEmi"/>
+ *                             &lt;element name="procEmi" type="{http://www.portalfiscal.inf.br/cte}TProcEmiCTe"/>
  *                             &lt;element name="verProc">
  *                               &lt;simpleType>
  *                                 &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
@@ -279,6 +279,18 @@ import org.w3c.dom.Element;
  *                               &lt;/element>
  *                             &lt;/sequence>
  *                             &lt;element name="gCompraGov" type="{http://www.portalfiscal.inf.br/cte}TCompraGovReduzido" minOccurs="0"/>
+ *                             &lt;element name="tpPagAnt" type="{http://www.portalfiscal.inf.br/cte}TPagAnt" minOccurs="0"/>
+ *                             &lt;element name="gPagAntecipado" minOccurs="0">
+ *                               &lt;complexType>
+ *                                 &lt;complexContent>
+ *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                                     &lt;sequence maxOccurs="99">
+ *                                       &lt;element name="chDFePagAnt" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+ *                                     &lt;/sequence>
+ *                                   &lt;/restriction>
+ *                                 &lt;/complexContent>
+ *                               &lt;/complexType>
+ *                             &lt;/element>
  *                           &lt;/sequence>
  *                         &lt;/restriction>
  *                       &lt;/complexContent>
@@ -617,6 +629,15 @@ import org.w3c.dom.Element;
  *                             &lt;/element>
  *                             &lt;element name="enderEmit" type="{http://www.portalfiscal.inf.br/cte}TEndeEmi"/>
  *                             &lt;element name="CRT" type="{http://www.portalfiscal.inf.br/cte}TCRT"/>
+ *                             &lt;element name="ISUFEmit" minOccurs="0">
+ *                               &lt;simpleType>
+ *                                 &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+ *                                   &lt;minLength value="8"/>
+ *                                   &lt;maxLength value="9"/>
+ *                                   &lt;whiteSpace value="preserve"/>
+ *                                 &lt;/restriction>
+ *                               &lt;/simpleType>
+ *                             &lt;/element>
  *                           &lt;/sequence>
  *                         &lt;/restriction>
  *                       &lt;/complexContent>
@@ -1293,13 +1314,7 @@ import org.w3c.dom.Element;
  *                                   &lt;complexContent>
  *                                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                                       &lt;sequence>
- *                                         &lt;element name="chCte">
- *                                           &lt;simpleType>
- *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
- *                                               &lt;pattern value="[0-9]{44}"/>
- *                                             &lt;/restriction>
- *                                           &lt;/simpleType>
- *                                         &lt;/element>
+ *                                         &lt;element name="chCte" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
  *                                         &lt;element name="indAlteraToma" minOccurs="0">
  *                                           &lt;simpleType>
  *                                             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -1701,7 +1716,7 @@ public class TCTe {
      *                   &lt;/element>
      *                   &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/>
      *                   &lt;element name="tpCTe" type="{http://www.portalfiscal.inf.br/cte}TFinCTe"/>
-     *                   &lt;element name="procEmi" type="{http://www.portalfiscal.inf.br/cte}TProcEmi"/>
+     *                   &lt;element name="procEmi" type="{http://www.portalfiscal.inf.br/cte}TProcEmiCTe"/>
      *                   &lt;element name="verProc">
      *                     &lt;simpleType>
      *                       &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
@@ -1871,6 +1886,18 @@ public class TCTe {
      *                     &lt;/element>
      *                   &lt;/sequence>
      *                   &lt;element name="gCompraGov" type="{http://www.portalfiscal.inf.br/cte}TCompraGovReduzido" minOccurs="0"/>
+     *                   &lt;element name="tpPagAnt" type="{http://www.portalfiscal.inf.br/cte}TPagAnt" minOccurs="0"/>
+     *                   &lt;element name="gPagAntecipado" minOccurs="0">
+     *                     &lt;complexType>
+     *                       &lt;complexContent>
+     *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *                           &lt;sequence maxOccurs="99">
+     *                             &lt;element name="chDFePagAnt" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+     *                           &lt;/sequence>
+     *                         &lt;/restriction>
+     *                       &lt;/complexContent>
+     *                     &lt;/complexType>
+     *                   &lt;/element>
      *                 &lt;/sequence>
      *               &lt;/restriction>
      *             &lt;/complexContent>
@@ -2209,6 +2236,15 @@ public class TCTe {
      *                   &lt;/element>
      *                   &lt;element name="enderEmit" type="{http://www.portalfiscal.inf.br/cte}TEndeEmi"/>
      *                   &lt;element name="CRT" type="{http://www.portalfiscal.inf.br/cte}TCRT"/>
+     *                   &lt;element name="ISUFEmit" minOccurs="0">
+     *                     &lt;simpleType>
+     *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+     *                         &lt;minLength value="8"/>
+     *                         &lt;maxLength value="9"/>
+     *                         &lt;whiteSpace value="preserve"/>
+     *                       &lt;/restriction>
+     *                     &lt;/simpleType>
+     *                   &lt;/element>
      *                 &lt;/sequence>
      *               &lt;/restriction>
      *             &lt;/complexContent>
@@ -2885,13 +2921,7 @@ public class TCTe {
      *                         &lt;complexContent>
      *                           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *                             &lt;sequence>
-     *                               &lt;element name="chCte">
-     *                                 &lt;simpleType>
-     *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
-     *                                     &lt;pattern value="[0-9]{44}"/>
-     *                                   &lt;/restriction>
-     *                                 &lt;/simpleType>
-     *                               &lt;/element>
+     *                               &lt;element name="chCte" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
      *                               &lt;element name="indAlteraToma" minOccurs="0">
      *                                 &lt;simpleType>
      *                                   &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -5791,6 +5821,15 @@ public class TCTe {
          *         &lt;/element>
          *         &lt;element name="enderEmit" type="{http://www.portalfiscal.inf.br/cte}TEndeEmi"/>
          *         &lt;element name="CRT" type="{http://www.portalfiscal.inf.br/cte}TCRT"/>
+         *         &lt;element name="ISUFEmit" minOccurs="0">
+         *           &lt;simpleType>
+         *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
+         *               &lt;minLength value="8"/>
+         *               &lt;maxLength value="9"/>
+         *               &lt;whiteSpace value="preserve"/>
+         *             &lt;/restriction>
+         *           &lt;/simpleType>
+         *         &lt;/element>
          *       &lt;/sequence>
          *     &lt;/restriction>
          *   &lt;/complexContent>
@@ -5808,7 +5847,8 @@ public class TCTe {
             "xNome",
             "xFant",
             "enderEmit",
-            "crt"
+            "crt",
+            "isufEmit"
         })
         public static class Emit {
 
@@ -5827,6 +5867,8 @@ public class TCTe {
             protected TEndeEmi enderEmit;
             @XmlElement(name = "CRT", required = true)
             protected String crt;
+            @XmlElement(name = "ISUFEmit")
+            protected String isufEmit;
 
             /**
              * Obtém o valor da propriedade cnpj.
@@ -6018,6 +6060,30 @@ public class TCTe {
              */
             public void setCRT(String value) {
                 this.crt = value;
+            }
+
+            /**
+             * Obtém o valor da propriedade isufEmit.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getISUFEmit() {
+                return isufEmit;
+            }
+
+            /**
+             * Define o valor da propriedade isufEmit.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setISUFEmit(String value) {
+                this.isufEmit = value;
             }
 
         }
@@ -6332,7 +6398,7 @@ public class TCTe {
          *         &lt;/element>
          *         &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/cte}TAmb"/>
          *         &lt;element name="tpCTe" type="{http://www.portalfiscal.inf.br/cte}TFinCTe"/>
-         *         &lt;element name="procEmi" type="{http://www.portalfiscal.inf.br/cte}TProcEmi"/>
+         *         &lt;element name="procEmi" type="{http://www.portalfiscal.inf.br/cte}TProcEmiCTe"/>
          *         &lt;element name="verProc">
          *           &lt;simpleType>
          *             &lt;restriction base="{http://www.portalfiscal.inf.br/cte}TString">
@@ -6502,6 +6568,18 @@ public class TCTe {
          *           &lt;/element>
          *         &lt;/sequence>
          *         &lt;element name="gCompraGov" type="{http://www.portalfiscal.inf.br/cte}TCompraGovReduzido" minOccurs="0"/>
+         *         &lt;element name="tpPagAnt" type="{http://www.portalfiscal.inf.br/cte}TPagAnt" minOccurs="0"/>
+         *         &lt;element name="gPagAntecipado" minOccurs="0">
+         *           &lt;complexType>
+         *             &lt;complexContent>
+         *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+         *                 &lt;sequence maxOccurs="99">
+         *                   &lt;element name="chDFePagAnt" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+         *                 &lt;/sequence>
+         *               &lt;/restriction>
+         *             &lt;/complexContent>
+         *           &lt;/complexType>
+         *         &lt;/element>
          *       &lt;/sequence>
          *     &lt;/restriction>
          *   &lt;/complexContent>
@@ -6546,7 +6624,9 @@ public class TCTe {
             "toma4",
             "dhCont",
             "xJust",
-            "gCompraGov"
+            "gCompraGov",
+            "tpPagAnt",
+            "gPagAntecipado"
         })
         public static class Ide {
 
@@ -6616,6 +6696,8 @@ public class TCTe {
             protected String dhCont;
             protected String xJust;
             protected TCompraGovReduzido gCompraGov;
+            protected String tpPagAnt;
+            protected TCTe.InfCte.Ide.GPagAntecipado gPagAntecipado;
 
             /**
              * Obtém o valor da propriedade cuf.
@@ -7455,6 +7537,114 @@ public class TCTe {
              */
             public void setGCompraGov(TCompraGovReduzido value) {
                 this.gCompraGov = value;
+            }
+
+            /**
+             * Obtém o valor da propriedade tpPagAnt.
+             * 
+             * @return
+             *     possible object is
+             *     {@link String }
+             *     
+             */
+            public String getTpPagAnt() {
+                return tpPagAnt;
+            }
+
+            /**
+             * Define o valor da propriedade tpPagAnt.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link String }
+             *     
+             */
+            public void setTpPagAnt(String value) {
+                this.tpPagAnt = value;
+            }
+
+            /**
+             * Obtém o valor da propriedade gPagAntecipado.
+             * 
+             * @return
+             *     possible object is
+             *     {@link TCTe.InfCte.Ide.GPagAntecipado }
+             *     
+             */
+            public TCTe.InfCte.Ide.GPagAntecipado getGPagAntecipado() {
+                return gPagAntecipado;
+            }
+
+            /**
+             * Define o valor da propriedade gPagAntecipado.
+             * 
+             * @param value
+             *     allowed object is
+             *     {@link TCTe.InfCte.Ide.GPagAntecipado }
+             *     
+             */
+            public void setGPagAntecipado(TCTe.InfCte.Ide.GPagAntecipado value) {
+                this.gPagAntecipado = value;
+            }
+
+
+            /**
+             * <p>Classe Java de anonymous complex type.
+             * 
+             * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.
+             * 
+             * <pre>
+             * &lt;complexType>
+             *   &lt;complexContent>
+             *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+             *       &lt;sequence maxOccurs="99">
+             *         &lt;element name="chDFePagAnt" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
+             *       &lt;/sequence>
+             *     &lt;/restriction>
+             *   &lt;/complexContent>
+             * &lt;/complexType>
+             * </pre>
+             * 
+             * 
+             */
+            @XmlAccessorType(XmlAccessType.FIELD)
+            @XmlType(name = "", propOrder = {
+                "chDFePagAnt"
+            })
+            public static class GPagAntecipado {
+
+                @XmlElement(required = true)
+                protected List<String> chDFePagAnt;
+
+                /**
+                 * Gets the value of the chDFePagAnt property.
+                 * 
+                 * <p>
+                 * This accessor method returns a reference to the live list,
+                 * not a snapshot. Therefore any modification you make to the
+                 * returned list will be present inside the JAXB object.
+                 * This is why there is not a <CODE>set</CODE> method for the chDFePagAnt property.
+                 * 
+                 * <p>
+                 * For example, to add a new item, do as follows:
+                 * <pre>
+                 *    getChDFePagAnt().add(newItem);
+                 * </pre>
+                 * 
+                 * 
+                 * <p>
+                 * Objects of the following type(s) are allowed in the list
+                 * {@link String }
+                 * 
+                 * 
+                 */
+                public List<String> getChDFePagAnt() {
+                    if (chDFePagAnt == null) {
+                        chDFePagAnt = new ArrayList<String>();
+                    }
+                    return this.chDFePagAnt;
+                }
+
             }
 
 
@@ -8718,13 +8908,7 @@ public class TCTe {
          *             &lt;complexContent>
          *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
          *                 &lt;sequence>
-         *                   &lt;element name="chCte">
-         *                     &lt;simpleType>
-         *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
-         *                         &lt;pattern value="[0-9]{44}"/>
-         *                       &lt;/restriction>
-         *                     &lt;/simpleType>
-         *                   &lt;/element>
+         *                   &lt;element name="chCte" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
          *                   &lt;element name="indAlteraToma" minOccurs="0">
          *                     &lt;simpleType>
          *                       &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
@@ -10576,13 +10760,7 @@ public class TCTe {
              *   &lt;complexContent>
              *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
              *       &lt;sequence>
-             *         &lt;element name="chCte">
-             *           &lt;simpleType>
-             *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
-             *               &lt;pattern value="[0-9]{44}"/>
-             *             &lt;/restriction>
-             *           &lt;/simpleType>
-             *         &lt;/element>
+             *         &lt;element name="chCte" type="{http://www.portalfiscal.inf.br/cte}TChDFe"/>
              *         &lt;element name="indAlteraToma" minOccurs="0">
              *           &lt;simpleType>
              *             &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string">
