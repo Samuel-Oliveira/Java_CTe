@@ -16,9 +16,9 @@ mvn test --no-transfer-progress
 mvn test --no-transfer-progress "-Dtest=IbsCbsUtilTest"
 ```
 
-- A CI roda `mvn clean compile test -B`.
+- A CI roda `mvn clean compile test -B` (`release-maven.yml`) e `mvn -B package -Passembly` (`release.yml`).
 - `mvn test` roda `util/IbsCbsUtilTest` e `util/WebServiceCteUtilTest` (JUnit 5, surefire sem exclusão). O segundo usa `AmbienteEnum.PRODUCAO` só para montar a configuração, sem chamar serviço.
-- Os `Teste*.java` da raiz de `src/test/.../cte/` são programas com `main`, sem `@Test`, que falam com a SEFAZ (GO) usando certificado real. O padrão `Test*` do surefire casa com eles, mas sem `@Test` o JUnit não os executa. `TesteConfig` é apenas apoio, com certificado e senha de exemplo.
+- Os `Teste*.java` da raiz de `src/test/.../cte/` são programas com `main`, sem `@Test`. Exceto `TesteValida` (validação local de schema), falam com a SEFAZ (GO) usando certificado real. O padrão `Test*` do surefire casa com eles, mas sem `@Test` o JUnit não os executa. `TesteConfig` é apenas apoio, com certificado e senha de exemplo.
 
 ## Segurança dos programas com `main`
 
