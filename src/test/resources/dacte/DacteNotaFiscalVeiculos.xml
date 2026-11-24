@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- CT-e fictício de homologação para os testes do DACTE: notas fiscais em papel (modelo 01) como documentos
+     originários, veículos novos, tomador "outros" (toma4), ICMS com redução de base e sem expedidor/recebedor. -->
+<cteProc xmlns="http://www.portalfiscal.inf.br/cte" versao="4.00">
+    <CTe xmlns="http://www.portalfiscal.inf.br/cte">
+        <infCte versao="4.00" Id="CTe52261112345678000195570010000012351000123461">
+            <ide>
+                <cUF>52</cUF>
+                <cCT>00012346</cCT>
+                <CFOP>5353</CFOP>
+                <natOp>PRESTACAO DE SERVICO DE TRANSPORTE DE VEICULOS</natOp>
+                <mod>57</mod>
+                <serie>1</serie>
+                <nCT>1235</nCT>
+                <dhEmi>2026-11-21T08:00:00-03:00</dhEmi>
+                <tpImp>1</tpImp>
+                <tpEmis>1</tpEmis>
+                <cDV>1</cDV>
+                <tpAmb>2</tpAmb>
+                <tpCTe>0</tpCTe>
+                <procEmi>0</procEmi>
+                <verProc>JAVA_CTE 4.00.15</verProc>
+                <cMunEnv>5208707</cMunEnv>
+                <xMunEnv>GOIANIA</xMunEnv>
+                <UFEnv>GO</UFEnv>
+                <modal>01</modal>
+                <tpServ>1</tpServ>
+                <cMunIni>5208707</cMunIni>
+                <xMunIni>GOIANIA</xMunIni>
+                <UFIni>GO</UFIni>
+                <cMunFim>5201108</cMunFim>
+                <xMunFim>ANAPOLIS</xMunFim>
+                <UFFim>GO</UFFim>
+                <retira>1</retira>
+                <indIEToma>1</indIEToma>
+                <toma4>
+                    <toma>4</toma>
+                    <CNPJ>44555666000181</CNPJ>
+                    <IE>104455566</IE>
+                    <xNome>TOMADOR EXEMPLO SERVICOS LTDA</xNome>
+                    <fone>62987650000</fone>
+                    <enderToma>
+                        <xLgr>RUA DO TOMADOR</xLgr>
+                        <nro>77</nro>
+                        <xCpl>SALA 12</xCpl>
+                        <xBairro>SETOR CENTRAL</xBairro>
+                        <cMun>5208707</cMun>
+                        <xMun>GOIANIA</xMun>
+                        <CEP>74003000</CEP>
+                        <UF>GO</UF>
+                        <cPais>1058</cPais>
+                        <xPais>BRASIL</xPais>
+                    </enderToma>
+                    <email>tomador@exemplo.com.br</email>
+                </toma4>
+            </ide>
+            <compl>
+                <xObs>TRANSPORTE DE VEICULOS NOVOS EM CAMINHAO CEGONHA.</xObs>
+            </compl>
+            <emit>
+                <CNPJ>12345678000195</CNPJ>
+                <IE>101234567</IE>
+                <xNome>TRANSPORTADORA EXEMPLO LTDA</xNome>
+                <enderEmit>
+                    <xLgr>AVENIDA DAS CARGAS</xLgr>
+                    <nro>1000</nro>
+                    <xBairro>SETOR INDUSTRIAL</xBairro>
+                    <cMun>5208707</cMun>
+                    <xMun>GOIANIA</xMun>
+                    <CEP>74000000</CEP>
+                    <UF>GO</UF>
+                    <fone>6232100000</fone>
+                </enderEmit>
+                <CRT>3</CRT>
+            </emit>
+            <rem>
+                <CNPJ>98765432000198</CNPJ>
+                <IE>109876543</IE>
+                <xNome>MONTADORA REMETENTE EXEMPLO LTDA</xNome>
+                <fone>6233330000</fone>
+                <enderReme>
+                    <xLgr>RUA DA MONTADORA</xLgr>
+                    <nro>1</nro>
+                    <xBairro>POLO AUTOMOTIVO</xBairro>
+                    <cMun>5208707</cMun>
+                    <xMun>GOIANIA</xMun>
+                    <CEP>74900000</CEP>
+                    <UF>GO</UF>
+                    <cPais>1058</cPais>
+                    <xPais>BRASIL</xPais>
+                </enderReme>
+            </rem>
+            <dest>
+                <CNPJ>11222333000181</CNPJ>
+                <IE>112223330</IE>
+                <xNome>CONCESSIONARIA DESTINATARIA EXEMPLO LTDA</xNome>
+                <fone>6239990000</fone>
+                <enderDest>
+                    <xLgr>AVENIDA BRASIL</xLgr>
+                    <nro>500</nro>
+                    <xBairro>JUNDIAI</xBairro>
+                    <cMun>5201108</cMun>
+                    <xMun>ANAPOLIS</xMun>
+                    <CEP>75110000</CEP>
+                    <UF>GO</UF>
+                    <cPais>1058</cPais>
+                    <xPais>BRASIL</xPais>
+                </enderDest>
+            </dest>
+            <vPrest>
+                <vTPrest>2400.00</vTPrest>
+                <vRec>2400.00</vRec>
+                <Comp>
+                    <xNome>FRETE VEICULOS</xNome>
+                    <vComp>2200.00</vComp>
+                </Comp>
+                <Comp>
+                    <xNome>SEGURO</xNome>
+                    <vComp>200.00</vComp>
+                </Comp>
+            </vPrest>
+            <imp>
+                <ICMS>
+                    <ICMS20>
+                        <CST>20</CST>
+                        <pRedBC>20.00</pRedBC>
+                        <vBC>1920.00</vBC>
+                        <pICMS>12.00</pICMS>
+                        <vICMS>230.40</vICMS>
+                        <vICMSDeson>57.60</vICMSDeson>
+                        <cBenef>GO000001</cBenef>
+                    </ICMS20>
+                </ICMS>
+            </imp>
+            <infCTeNorm>
+                <infCarga>
+                    <vCarga>320000.00</vCarga>
+                    <proPred>VEICULOS NOVOS</proPred>
+                    <infQ>
+                        <cUnid>03</cUnid>
+                        <tpMed>99</tpMed>
+                        <qCarga>2.0000</qCarga>
+                    </infQ>
+                    <infQ>
+                        <cUnid>01</cUnid>
+                        <tpMed>02</tpMed>
+                        <qCarga>2600.0000</qCarga>
+                    </infQ>
+                </infCarga>
+                <infDoc>
+                    <infNF>
+                        <nRoma>R-10</nRoma>
+                        <nPed>P-20</nPed>
+                        <mod>01</mod>
+                        <serie>1</serie>
+                        <nDoc>8801</nDoc>
+                        <dEmi>2026-11-19</dEmi>
+                        <vBC>160000.00</vBC>
+                        <vICMS>19200.00</vICMS>
+                        <vBCST>0.00</vBCST>
+                        <vST>0.00</vST>
+                        <vProd>160000.00</vProd>
+                        <vNF>160000.00</vNF>
+                        <nCFOP>5101</nCFOP>
+                        <nPeso>1300.000</nPeso>
+                    </infNF>
+                    <infNF>
+                        <mod>01</mod>
+                        <serie>1</serie>
+                        <nDoc>8802</nDoc>
+                        <dEmi>2026-11-19</dEmi>
+                        <vBC>160000.00</vBC>
+                        <vICMS>19200.00</vICMS>
+                        <vBCST>0.00</vBCST>
+                        <vST>0.00</vST>
+                        <vProd>160000.00</vProd>
+                        <vNF>160000.00</vNF>
+                        <nCFOP>5101</nCFOP>
+                    </infNF>
+                </infDoc>
+                <infModal versaoModal="4.00">
+                    <rodo>
+                        <RNTRC>12345678</RNTRC>
+                    </rodo>
+                </infModal>
+                <veicNovos>
+                    <chassi>9BWZZZ377VT004251</chassi>
+                    <cCor>01</cCor>
+                    <xCor>BRANCO</xCor>
+                    <cMod>001234</cMod>
+                    <vUnit>160000.00</vUnit>
+                    <vFrete>1100.00</vFrete>
+                </veicNovos>
+                <veicNovos>
+                    <chassi>9BWZZZ377VT004252</chassi>
+                    <cCor>02</cCor>
+                    <xCor>PRATA</xCor>
+                    <cMod>001235</cMod>
+                    <vUnit>160000.00</vUnit>
+                    <vFrete>1100.00</vFrete>
+                </veicNovos>
+            </infCTeNorm>
+        </infCte>
+        <infCTeSupl>
+            <qrCodCTe><![CDATA[https://dfe-portal.svrs.rs.gov.br/cte/qrCode?chCTe=52261112345678000195570010000012351000123461&tpAmb=2]]></qrCodCTe>
+        </infCTeSupl>
+    </CTe>
+    <protCTe versao="4.00">
+        <infProt Id="CTe152260000012346">
+            <tpAmb>2</tpAmb>
+            <verAplic>RS20261101</verAplic>
+            <chCTe>52261112345678000195570010000012351000123461</chCTe>
+            <dhRecbto>2026-11-21T08:00:40-03:00</dhRecbto>
+            <nProt>152260000012346</nProt>
+            <cStat>100</cStat>
+            <xMotivo>Autorizado o uso do CT-e</xMotivo>
+        </infProt>
+    </protCTe>
+</cteProc>

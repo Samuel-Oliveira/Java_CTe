@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- CT-e fictício de homologação para os testes do DACTE: modal rodoviário, NF-e como documentos originários,
+     remetente, expedidor, recebedor e destinatário, IBS/CBS e protocolo. Sem assinatura. -->
+<cteProc xmlns="http://www.portalfiscal.inf.br/cte" versao="4.00">
+    <CTe xmlns="http://www.portalfiscal.inf.br/cte">
+        <infCte versao="4.00" Id="CTe52261112345678000195570010000012341000123456">
+            <ide>
+                <cUF>52</cUF>
+                <cCT>00012345</cCT>
+                <CFOP>6353</CFOP>
+                <natOp>PRESTACAO DE SERVICO DE TRANSPORTE A ESTABELECIMENTO COMERCIAL</natOp>
+                <mod>57</mod>
+                <serie>1</serie>
+                <nCT>1234</nCT>
+                <dhEmi>2026-11-20T10:15:30-03:00</dhEmi>
+                <tpImp>1</tpImp>
+                <tpEmis>1</tpEmis>
+                <cDV>6</cDV>
+                <tpAmb>2</tpAmb>
+                <tpCTe>0</tpCTe>
+                <procEmi>0</procEmi>
+                <verProc>JAVA_CTE 4.00.15</verProc>
+                <cMunEnv>5208707</cMunEnv>
+                <xMunEnv>GOIANIA</xMunEnv>
+                <UFEnv>GO</UFEnv>
+                <modal>01</modal>
+                <tpServ>0</tpServ>
+                <cMunIni>5208707</cMunIni>
+                <xMunIni>GOIANIA</xMunIni>
+                <UFIni>GO</UFIni>
+                <cMunFim>3550308</cMunFim>
+                <xMunFim>SAO PAULO</xMunFim>
+                <UFFim>SP</UFFim>
+                <retira>1</retira>
+                <indIEToma>1</indIEToma>
+                <toma3>
+                    <toma>0</toma>
+                </toma3>
+            </ide>
+            <compl>
+                <xCaracAd>ENTREGA AGENDADA</xCaracAd>
+                <xCaracSer>CARGA FRACIONADA</xCaracSer>
+                <xEmi>OPERADOR EXEMPLO</xEmi>
+                <xObs>MERCADORIA COM SEGURO DA TRANSPORTADORA. CONFERIR OS LACRES NA ENTREGA.</xObs>
+                <ObsCont xCampo="PEDIDO">
+                    <xTexto>PED-2026-0042</xTexto>
+                </ObsCont>
+                <ObsFisco xCampo="REGIME">
+                    <xTexto>TERMO DE ACORDO DE REGIME ESPECIAL EXEMPLO 123/2026</xTexto>
+                </ObsFisco>
+            </compl>
+            <emit>
+                <CNPJ>12345678000195</CNPJ>
+                <IE>101234567</IE>
+                <xNome>TRANSPORTADORA EXEMPLO LTDA</xNome>
+                <xFant>EXEMPLO CARGAS</xFant>
+                <enderEmit>
+                    <xLgr>AVENIDA DAS CARGAS</xLgr>
+                    <nro>1000</nro>
+                    <xCpl>GALPAO 2</xCpl>
+                    <xBairro>SETOR INDUSTRIAL</xBairro>
+                    <cMun>5208707</cMun>
+                    <xMun>GOIANIA</xMun>
+                    <CEP>74000000</CEP>
+                    <UF>GO</UF>
+                    <fone>6232100000</fone>
+                </enderEmit>
+                <CRT>3</CRT>
+            </emit>
+            <rem>
+                <CNPJ>98765432000198</CNPJ>
+                <IE>109876543</IE>
+                <xNome>INDUSTRIA REMETENTE EXEMPLO LTDA</xNome>
+                <xFant>REMETENTE EXEMPLO</xFant>
+                <fone>6233330000</fone>
+                <enderReme>
+                    <xLgr>RUA DA INDUSTRIA</xLgr>
+                    <nro>200</nro>
+                    <xBairro>DISTRITO INDUSTRIAL</xBairro>
+                    <cMun>5201405</cMun>
+                    <xMun>APARECIDA DE GOIANIA</xMun>
+                    <CEP>74900000</CEP>
+                    <UF>GO</UF>
+                    <cPais>1058</cPais>
+                    <xPais>BRASIL</xPais>
+                </enderReme>
+                <email>remetente@exemplo.com.br</email>
+            </rem>
+            <exped>
+                <CNPJ>77888999000181</CNPJ>
+                <IE>107788899</IE>
+                <xNome>EXPEDIDOR EXEMPLO LOGISTICA LTDA</xNome>
+                <fone>6234440000</fone>
+                <enderExped>
+                    <xLgr>RODOVIA BR-153</xLgr>
+                    <nro>KM 5</nro>
+                    <xCpl>DOCA 7</xCpl>
+                    <xBairro>ZONA RURAL</xBairro>
+                    <cMun>5208707</cMun>
+                    <xMun>GOIANIA</xMun>
+                    <CEP>74001000</CEP>
+                    <UF>GO</UF>
+                    <cPais>1058</cPais>
+                    <xPais>BRASIL</xPais>
+                </enderExped>
+            </exped>
+            <receb>
+                <CNPJ>55666777000181</CNPJ>
+                <IE>556667770111</IE>
+                <xNome>RECEBEDOR EXEMPLO ARMAZENS LTDA</xNome>
+                <fone>1135550000</fone>
+                <enderReceb>
+                    <xLgr>AVENIDA DOS ARMAZENS</xLgr>
+                    <nro>3000</nro>
+                    <xBairro>VILA LOGISTICA</xBairro>
+                    <cMun>3550308</cMun>
+                    <xMun>SAO PAULO</xMun>
+                    <CEP>02000000</CEP>
+                    <UF>SP</UF>
+                    <cPais>1058</cPais>
+                    <xPais>BRASIL</xPais>
+                </enderReceb>
+            </receb>
+            <dest>
+                <CNPJ>11222333000181</CNPJ>
+                <IE>112223330110</IE>
+                <xNome>COMERCIO DESTINATARIO EXEMPLO LTDA</xNome>
+                <fone>11966660000</fone>
+                <ISUF>123456789</ISUF>
+                <enderDest>
+                    <xLgr>RUA DO COMERCIO</xLgr>
+                    <nro>45</nro>
+                    <xCpl>LOJA 3</xCpl>
+                    <xBairro>CENTRO</xBairro>
+                    <cMun>3550308</cMun>
+                    <xMun>SAO PAULO</xMun>
+                    <CEP>01001000</CEP>
+                    <UF>SP</UF>
+                    <cPais>1058</cPais>
+                    <xPais>BRASIL</xPais>
+                </enderDest>
+                <email>destinatario@exemplo.com.br</email>
+            </dest>
+            <vPrest>
+                <vTPrest>1500.00</vTPrest>
+                <vRec>1500.00</vRec>
+                <Comp>
+                    <xNome>FRETE PESO</xNome>
+                    <vComp>1000.00</vComp>
+                </Comp>
+                <Comp>
+                    <xNome>FRETE VALOR</xNome>
+                    <vComp>300.00</vComp>
+                </Comp>
+                <Comp>
+                    <xNome>PEDAGIO</xNome>
+                    <vComp>80.00</vComp>
+                </Comp>
+                <Comp>
+                    <xNome>GRIS</xNome>
+                    <vComp>70.00</vComp>
+                </Comp>
+                <Comp>
+                    <xNome>TAXA DE ENTREGA</xNome>
+                    <vComp>50.00</vComp>
+                </Comp>
+            </vPrest>
+            <imp>
+                <ICMS>
+                    <ICMS00>
+                        <CST>00</CST>
+                        <vBC>1500.00</vBC>
+                        <pICMS>12.00</pICMS>
+                        <vICMS>180.00</vICMS>
+                    </ICMS00>
+                </ICMS>
+                <vTotTrib>195.00</vTotTrib>
+                <IBSCBS>
+                    <CST>000</CST>
+                    <cClassTrib>000001</cClassTrib>
+                    <gIBSCBS>
+                        <vBC>1500.00</vBC>
+                        <gIBSUF>
+                            <pIBSUF>0.1000</pIBSUF>
+                            <vIBSUF>1.50</vIBSUF>
+                        </gIBSUF>
+                        <gIBSMun>
+                            <pIBSMun>0.0000</pIBSMun>
+                            <vIBSMun>0.00</vIBSMun>
+                        </gIBSMun>
+                        <vIBS>1.50</vIBS>
+                        <gCBS>
+                            <pCBS>0.9000</pCBS>
+                            <vCBS>13.50</vCBS>
+                        </gCBS>
+                    </gIBSCBS>
+                </IBSCBS>
+                <vTotDFe>1515.00</vTotDFe>
+            </imp>
+            <infCTeNorm>
+                <infCarga>
+                    <vCarga>85000.00</vCarga>
+                    <proPred>ELETRODOMESTICOS</proPred>
+                    <xOutCat>CAIXAS PALETIZADAS</xOutCat>
+                    <infQ>
+                        <cUnid>01</cUnid>
+                        <tpMed>02</tpMed>
+                        <qCarga>1250.5000</qCarga>
+                    </infQ>
+                    <infQ>
+                        <cUnid>01</cUnid>
+                        <tpMed>05</tpMed>
+                        <qCarga>1300.0000</qCarga>
+                    </infQ>
+                    <infQ>
+                        <cUnid>00</cUnid>
+                        <tpMed>01</tpMed>
+                        <qCarga>8.4000</qCarga>
+                    </infQ>
+                    <infQ>
+                        <cUnid>03</cUnid>
+                        <tpMed>07</tpMed>
+                        <qCarga>42.0000</qCarga>
+                    </infQ>
+                    <vCargaAverb>85000.00</vCargaAverb>
+                </infCarga>
+                <infDoc>
+                    <infNFe>
+                        <chave>52261198765432000198550010000045611000456712</chave>
+                    </infNFe>
+                    <infNFe>
+                        <chave>52261198765432000198550010000045621000456728</chave>
+                    </infNFe>
+                    <infNFe>
+                        <chave>52261198765432000198550010000045631000456733</chave>
+                    </infNFe>
+                </infDoc>
+                <infModal versaoModal="4.00">
+                    <rodo>
+                        <RNTRC>12345678</RNTRC>
+                    </rodo>
+                </infModal>
+            </infCTeNorm>
+        </infCte>
+        <infCTeSupl>
+            <qrCodCTe><![CDATA[https://dfe-portal.svrs.rs.gov.br/cte/qrCode?chCTe=52261112345678000195570010000012341000123456&tpAmb=2]]></qrCodCTe>
+        </infCTeSupl>
+    </CTe>
+    <protCTe versao="4.00">
+        <infProt Id="CTe152260000012345">
+            <tpAmb>2</tpAmb>
+            <verAplic>RS20261101</verAplic>
+            <chCTe>52261112345678000195570010000012341000123456</chCTe>
+            <dhRecbto>2026-11-20T10:16:02-03:00</dhRecbto>
+            <nProt>152260000012345</nProt>
+            <digVal>3q2+7w0K8fG1bW2bJb3a6ZpVd4E=</digVal>
+            <cStat>100</cStat>
+            <xMotivo>Autorizado o uso do CT-e</xMotivo>
+        </infProt>
+    </protCTe>
+</cteProc>
