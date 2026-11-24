@@ -31,6 +31,80 @@ dependencies {
 
 Veja a [Wiki](https://Samuel-Oliveira.github.io/Java_CTe/), para ter um Tutorial Completo.
 
+## Impressão do DACTE
+
+A impressão do DACTE (Documento Auxiliar do Conhecimento de Transporte Eletrônico) fica no pacote `br.com.swconsultoria.cte.impressao`: template Thymeleaf, HTML e PDF pelo openhtmltopdf, com o código de barras (Code-128C) e o QR Code gerados pelo zxing. Ela substitui o DACTE Jasper da biblioteca [Java_Danfe](https://github.com/Samuel-Oliveira/Java_Danfe), descontinuada, e imprime tudo o que aquele leiaute imprimia, em arranjo equivalente.
+
+```java
+import br.com.swconsultoria.cte.impressao.ImpressaoDacteDTO;
+import br.com.swconsultoria.cte.impressao.ImpressaoDacteUtil;
+
+String xml = XmlCteUtil.leXml("caminho/cte-autorizado.xml");               // cteProc, ou CTe sem protocolo
+
+ImpressaoDacteDTO impressao = ImpressaoDacteUtil.impressaoPadraoCTe(xml);  // logo padrão do CT-e e canhoto
+
+byte[] pdf = ImpressaoDacteUtil.impressaoPdfByte(impressao);               // PDF em memória
+ImpressaoDacteUtil.impressaoPdfArquivo(impressao, "dacte.pdf");            // PDF em arquivo
+ImpressaoDacteUtil.impressaoHtml(impressao, "dacte.html");                 // HTML em arquivo
+String html = ImpressaoDacteUtil.gerarHtml(impressao);                     // HTML em String
+ImpressaoDacteUtil.impressaoDireta(impressao);                             // impressora padrão
+ImpressaoDacteUtil.impressaoDireta(impressao, printService);               // javax.print.PrintService
+```
+
+Todos os erros (XML vazio ou malformado, XML que não é de CT-e modelo 57, template inexistente ou inválido, falha ao gravar o arquivo, impressora não encontrada) saem como `br.com.swconsultoria.cte.exception.DacteException`, que é unchecked e traz a causa original. O XML deve vir como String já decodificada; o BOM de arquivos UTF-8 é descartado. Sem o `protCTe`, a chave vem do `infCte/@Id` e o protocolo sai em branco.
+
+**Personalização**
+
+```java
+impressao.setLogo(inputStream);                     // lê e FECHA o stream; também setLogo(bytes) e setLogoArquivo("c:/logo.png")
+impressao.removerLogo();                            // sem logo
+impressao.setExibirCanhoto(false);                  // sem o canhoto no topo da primeira folha
+impressao.getParametros().put("nome", valor);       // disponível no template como ${parametros.nome}
+impressao.setTemplate("c:/templates/meu-dacte.html");
+```
+
+Os caminhos de `setTemplate` e `setLogoArquivo` são configuração do servidor, nunca entrada do usuário final: o arquivo informado é aberto onde estiver.
+
+**Template próprio.** Parta de uma cópia de `dacte/dacte.html`, que está no jar (no código-fonte, em `src/main/resources/dacte/`). O caminho precisa terminar em `.html`, `.htm` ou `.xhtml`: só esses nomes são procurados no disco. Um nome sem extensão é procurado apenas no jar, e é assim que `setTemplate(ImpressaoDacteUtil.TEMPLATE_PADRAO)` força o leiaute padrão; uma pasta ou arquivo chamado `dacte` no diretório de trabalho não toma o lugar dele.
+
+- Variáveis: `dacte` (`DacteDTO`: Maps com os nomes das tags do XML, como `${dacte.ide.nCT}` e `${dacte.rem.xNome}`; as exceções estão no Javadoc do `LeitorDacte`), `fmt` (`FormatadorDacte`: `valor`, `aliquota`, `quantidade`, `documento`, `cep`, `fone`, `chave`, `dataHora`, `endereco`, os códigos por extenso e outros), `xml` (`XmlDacte`, qualquer campo via XPath sem namespace: `${xml.valor('//infCte/ide/tpEmis')}`), `logo`, `codigoBarras` e `qrCode` (data URI), `exibirCanhoto` e `parametros`.
+- Fragmentos do jar que um template próprio pode usar: `~{fragmentos :: campo('RÓTULO', ${valor}, '25%')}`, `~{fragmentos :: participante('REMETENTE', ${dacte.rem})}`, `~{fragmentos :: cabecalho}` e `~{fragmentos :: canhoto}`.
+- O HTML precisa ser XHTML bem formado (`<br />`, `<img ... />`, sem `&nbsp;`), com CSS 2.1 e tabelas (`table-layout: fixed`): o openhtmltopdf não tem flexbox nem grid. A fonte é a Helvetica do PDF.
+- Não junte códigos numéricos com `+`: o Thymeleaf soma strings que parecem números (`'0' + '00'` dá `0`). Use `fmt.juntar(a, ' / ', b)` ou um texto no meio. Valores do XML concatenados com `+` precisam passar por `fmt.primeiro(valor, '')`, senão uma tag ausente imprime `null`.
+- `th:if` e `th:replace` no mesmo elemento não funcionam juntos (o `th:replace` roda antes): envolva com `<th:block th:if="...">`.
+- Para repetir o cabeçalho de uma lista em cada folha, a tabela precisa de `-fs-table-paginate: paginate` e `border-collapse: separate`, sem `overflow: hidden` nas células; com uma linha de título (colspan) no `thead`, as larguras vão num `<colgroup>`.
+- O bloco do rodapé (modal, uso do emissor e fisco) encosta no pé da última folha quando o template tem um `<div id="espaco-rodape"></div>` vazio logo antes do bloco com `id="rodape"`. O total de folhas do "FL" vai nos elementos de classe `folha-total` (o `counter(pages)` do CSS é diagramado com largura zero e seria cortado pelo `overflow: hidden` da célula); a folha atual sai com `counter(page)`. Os dois ajustes são feitos no PDF; o HTML sai com o total em branco.
+
+**O que o leiaute padrão cobre**
+
+- CT-e modelo 57 (leiaute 4.00) em A4 retrato: normal, substituto e complemento de valores (com as chaves dos CT-e complementados).
+- Canhoto, emitente com logo, identificação (modal, modelo, série, número, folha, emissão), código de barras e chave, QR Code do `infCTeSupl`, protocolo, CFOP e natureza da operação, tipo do CT-e e do serviço, tomador, CT-e globalizado, Suframa do destinatário, início e término da prestação.
+- Remetente, destinatário, expedidor e recebedor (os dois últimos quando houver um deles), tomador do serviço (`toma3` ou `toma4`), carga com todas as quantidades (`infQ`), componentes do valor da prestação, ICMS (todos os grupos), IBS e CBS (quando o XML traz o grupo `IBSCBS`), documentos originários (NF-e, NF em papel, outros documentos e DC-e) e veículos novos, em duas colunas e com o cabeçalho repetido quando passam para outra folha.
+- Modal rodoviário (RNTRC), observações (`xObs` e `ObsCont`) e reservado ao fisco (`ObsFisco` e `infAdFisco`).
+- Marca d'água: CT-e cancelado (`cStat` 101), homologação, contingência FS-DA e "SEM VALOR FISCAL" para o XML de produção sem protocolo (exceto FS-DA e EPEC).
+
+Não cobre: CT-e OS (modelo 67), CT-e Simplificado e GTV-e, que só saem com template próprio; o quadro específico dos modais aéreo, aquaviário, ferroviário, dutoviário e multimodal (sai só o nome do modal); o DACTE em paisagem (`tpImp=2` sai em retrato); documentos anteriores (`docAnt`), cobrança (`cobr`), ordens de coleta, previsão de entrega e os dados da entrada em contingência. O quadro do IBS e da CBS segue o arranjo dos demais quadros; a disposição dele não foi conferida com uma Nota Técnica do DACTE.
+
+**Dependências.** As bibliotecas de impressão vêm por transitividade com o `java-cte` (escopo `compile`): `org.thymeleaf:thymeleaf` 3.1.2.RELEASE, `com.openhtmltopdf:openhtmltopdf-pdfbox` 1.0.10 (com o PDFBox 2.0.24) e `com.google.zxing:core`/`javase` 3.2.1 (sem o `jcommander`, que só a linha de comando do zxing usa). Quem só transmite e não quer o peso delas pode excluí-las:
+
+```xml
+<dependency>
+    <groupId>br.com.swconsultoria</groupId>
+    <artifactId>java-cte</artifactId>
+    <version>...</version>
+    <exclusions>
+        <exclusion><groupId>org.thymeleaf</groupId><artifactId>*</artifactId></exclusion>
+        <exclusion><groupId>com.openhtmltopdf</groupId><artifactId>*</artifactId></exclusion>
+        <exclusion><groupId>com.google.zxing</groupId><artifactId>*</artifactId></exclusion>
+    </exclusions>
+</dependency>
+```
+
+- Spring Boot 2.x traz o Thymeleaf 3.0.x: force o 3.1.2 no `dependencyManagement`. PDFBox 3.x no projeto é incompatível com o openhtmltopdf 1.0.10.
+- O Thymeleaf traz o `slf4j-api` 2.0.7. Sem implementação de SLF4J aparece o aviso `SLF4J: No SLF4J providers were found`, inofensivo. Com um binding SLF4J 1.7 (logback 1.2.x, `slf4j-log4j12`), fixe o `slf4j-api` 1.7.36 no `dependencyManagement` ou migre o binding para a 2.x, senão o log da aplicação some.
+- O openhtmltopdf registra linhas INFO (`java.util.logging`) a cada PDF; a biblioteca não muda isso. Para silenciar: `XRLog.listRegisteredLoggers().forEach(l -> XRLog.setLevel(l, Level.WARNING))` ou `XRLog.setLoggingEnabled(false)`.
+- `ImpressaoDacteUtil` não guarda estado e pode ser chamado em paralelo; crie um `ImpressaoDacteDTO` por impressão.
+
 ## ⚠️ Breaking Change — Reorganização dos packages de schemas JAXB
 
 Os packages de schemas gerados via JAXB foram completamente reorganizados. Se você usa esta biblioteca como dependência, **é necessário atualizar os imports** nos seus projetos.

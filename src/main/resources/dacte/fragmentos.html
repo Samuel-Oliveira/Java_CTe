@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+  Fragmentos do DACTE. Podem ser reaproveitados em templates próprios:
+    th:replace="~{fragmentos :: campo('RÓTULO', ${valor}, '25%')}"
+    th:replace="~{fragmentos :: participante('REMETENTE', ${dacte.rem})}"
+    th:replace="~{fragmentos :: cabecalho}"
+    th:replace="~{fragmentos :: canhoto}"
+  Variáveis disponíveis: dacte, fmt, xml, logo, codigoBarras, qrCode, exibirCanhoto, parametros.
+-->
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<body>
+
+<!-- Célula de campo: rótulo pequeno + valor -->
+<table><tr>
+<td th:fragment="campo(rotulo, valor, largura)" th:style="'width:' + ${largura}">
+    <div class="rot" th:text="${rotulo}">RÓTULO</div>
+    <div class="val" th:text="${valor}">valor</div>
+</td>
+</tr></table>
+
+<!-- Quadro de um participante (remetente, destinatário, expedidor ou recebedor): rótulos à esquerda, como no DACTE Jasper.
+     O Map p tem os campos do participante e do grupo de endereço (ver LeitorDacte). -->
+<table><tr>
+<td th:fragment="participante(titulo, p)" class="participante" style="width:50%">
+    <table><tr>
+        <td class="r" style="width:19%" th:text="${titulo}">REMETENTE</td>
+        <td class="v forte" style="width:81%" th:text="${p.xNome}">NOME</td>
+    </tr></table>
+    <table><tr>
+        <td class="r" style="width:19%">ENDEREÇO</td>
+        <td class="v endereco" style="width:81%" th:text="${fmt.endereco(p)}">Rua, 1, Bairro</td>
+    </tr></table>
+    <table><tr>
+        <td class="r" style="width:19%">MUNICÍPIO</td>
+        <td class="v" style="width:49%" th:text="${fmt.municipio(p)}">Município - UF</td>
+        <td class="r" style="width:8%">CEP</td>
+        <td class="v" style="width:24%" th:text="${fmt.cep(p.CEP)}">00000-000</td>
+    </tr></table>
+    <table><tr>
+        <td class="r" style="width:19%">CNPJ / CPF</td>
+        <td class="v" style="width:33%" th:text="${fmt.documentoParticipante(p)}">00.000.000/0000-00</td>
+        <td class="r" style="width:24%">INSCRIÇÃO ESTADUAL</td>
+        <td class="v" style="width:24%" th:text="${p.IE}">IE</td>
+    </tr></table>
+    <table><tr>
+        <td class="r" style="width:19%">PAÍS</td>
+        <td class="v" style="width:33%" th:text="${p.xPais}">BRASIL</td>
+        <td class="r" style="width:24%">FONE</td>
+        <td class="v" style="width:24%" th:text="${fmt.fone(p.fone)}">(00) 0000-0000</td>
+    </tr></table>
+</td>
+</tr></table>
+
+<!-- Canhoto (recibo de entrega), no topo da primeira folha -->
+<div th:fragment="canhoto" class="canhoto">
+    <table>
+        <tr>
+            <td colspan="4" class="canhoto-texto">DECLARO QUE RECEBI OS VOLUMES DESTE CONHECIMENTO EM PERFEITO ESTADO PELO QUE DOU POR CUMPRIDO O PRESENTE CONTRATO DE TRANSPORTE</td>
+        </tr>
+        <tr>
+            <td style="width:34%">
+                <div class="rot">NOME</div>
+                <div class="canhoto-linha"></div>
+                <div class="rot">DOCUMENTO</div>
+                <div class="canhoto-linha"></div>
+            </td>
+            <td style="width:22%" class="canhoto-assinatura">
+                <div class="canhoto-carimbo"></div>
+                <div class="rot centro">ASSINATURA / CARIMBO</div>
+            </td>
+            <td style="width:26%">
+                <div class="rot">TÉRMINO DA PRESTAÇÃO - DATA/HORA</div>
+                <div class="canhoto-data">____/____/________&#160;&#160;____:____</div>
+                <div class="rot">INÍCIO DA PRESTAÇÃO - DATA/HORA</div>
+                <div class="canhoto-data">____/____/________&#160;&#160;____:____</div>
+            </td>
+            <td style="width:18%" class="canhoto-cte">
+                <div class="canhoto-cte-titulo">CT-e</div>
+                <div th:text="'Nº DOCUMENTO: ' + ${fmt.numeroDocumento(dacte.ide.nCT)}">Nº DOCUMENTO</div>
+                <div th:text="'SÉRIE: ' + ${fmt.serie(dacte.ide.serie)}">SÉRIE</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- Quadro de identificação do emitente / DACTE / chave / QR Code (repetido em todas as folhas) -->
+<div th:fragment="cabecalho" class="bloco cabecalho">
+    <table>
+        <tr class="cabecalho-linha">
+            <td class="emitente" style="width:36%">
+                <!-- Altura fixa: o cabeçalho das folhas seguintes vive numa margem fixa, então o quadro não pode crescer com o texto -->
+                <div class="emitente-caixa">
+                    <div class="logo" th:if="${logo != null}"><img th:src="${logo}" alt="logo" /></div>
+                    <div class="emitente-dados">
+                        <div class="emitente-nome" th:classappend="${dacte.emit.xNome != null and #strings.length(dacte.emit.xNome) > 40} ? 'emitente-nome-longo'" th:text="${dacte.emit.xNome}">EMPRESA</div>
+                        <div class="emitente-fantasia" th:if="${dacte.emit.xFant != null and dacte.emit.xFant != dacte.emit.xNome}" th:text="${dacte.emit.xFant}">FANTASIA</div>
+                        <div th:text="${fmt.endereco(dacte.emit)}">Rua, 100, Bairro</div>
+                        <div th:text="${fmt.municipio(dacte.emit)} + ' - CEP ' + ${fmt.cep(dacte.emit.CEP)}">Cidade - UF - CEP</div>
+                        <div th:text="'CNPJ/CPF: ' + ${fmt.documentoParticipante(dacte.emit)}">CNPJ</div>
+                        <div th:text="'INSCRIÇÃO ESTADUAL: ' + ${fmt.primeiro(dacte.emit.IE, '')}">IE</div>
+                        <div th:if="${dacte.emit.fone != null}" th:text="'FONE: ' + ${fmt.fone(dacte.emit.fone)}">Fone</div>
+                    </div>
+                </div>
+            </td>
+            <td class="dacte-id" style="width:45%">
+                <div class="dacte-titulo">DACTE</div>
+                <div class="dacte-sub">DOCUMENTO AUXILIAR DO CONHECIMENTO DE TRANSPORTE ELETRÔNICO</div>
+                <table class="ident">
+                    <tr>
+                        <td style="width:20%"><div class="rot">MODAL</div><div class="val" th:text="${fmt.modal(dacte.ide.modal)}">RODOVIÁRIO</div></td>
+                        <td style="width:11%"><div class="rot">MODELO</div><div class="val" th:text="${dacte.ide.mod}">57</div></td>
+                        <td style="width:9%"><div class="rot">SÉRIE</div><div class="val" th:text="${fmt.serie(dacte.ide.serie)}">001</div></td>
+                        <td style="width:18%"><div class="rot">NÚMERO</div><div class="val" th:text="${fmt.numeroDocumento(dacte.ide.nCT)}">000.000.001</div></td>
+                        <td style="width:9%"><div class="rot">FL</div><div class="val"><span class="folha-atual"></span>/<span class="folha-total"></span></div></td>
+                        <td style="width:33%"><div class="rot">DATA E HORA DE EMISSÃO</div><div class="val" th:text="${fmt.dataHora(dacte.ide.dhEmi)}">00/00/0000 00:00:00</div></td>
+                    </tr>
+                </table>
+                <div class="barras"><img th:if="${codigoBarras != null}" th:src="${codigoBarras}" alt="código de barras" /></div>
+                <div class="rot">CHAVE DE ACESSO</div>
+                <div class="chave-numero" th:text="${fmt.chave(dacte.chave)}">0000 0000</div>
+                <div class="consulta">Consulta de autenticidade no portal nacional do CT-e www.cte.fazenda.gov.br/portal ou no site da SEFAZ autorizadora</div>
+            </td>
+            <td class="qrcode" style="width:19%">
+                <img th:if="${qrCode != null}" th:src="${qrCode}" alt="QR Code" />
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td th:replace="~{fragmentos :: campo('CFOP - NATUREZA DA OPERAÇÃO', ${fmt.cfopNatureza(dacte.ide.CFOP, dacte.ide.natOp)}, '55%')}"></td>
+            <td style="width:45%">
+                <div class="rot">PROTOCOLO DE AUTORIZAÇÃO DE USO</div>
+                <div class="val" th:text="${dacte.prot.nProt != null} ? ${dacte.prot.nProt} + ' - ' + ${fmt.dataHora(dacte.prot.dhRecbto)} : ''">000 - 00/00/0000</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

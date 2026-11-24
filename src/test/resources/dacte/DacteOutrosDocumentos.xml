@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- CT-e fictício de homologação para os testes do DACTE: outros documentos originários, emitente do Simples
+     Nacional, CT-e globalizado, redespacho, tomador destinatário com CPF e só o expedidor (sem recebedor). -->
+<cteProc xmlns="http://www.portalfiscal.inf.br/cte" versao="4.00">
+    <CTe xmlns="http://www.portalfiscal.inf.br/cte">
+        <infCte versao="4.00" Id="CTe52261112345678000195570010000012361000123477">
+            <ide>
+                <cUF>52</cUF>
+                <cCT>00012347</cCT>
+                <CFOP>5353</CFOP>
+                <natOp>PRESTACAO DE SERVICO DE TRANSPORTE</natOp>
+                <mod>57</mod>
+                <serie>1</serie>
+                <nCT>1236</nCT>
+                <dhEmi>2026-11-22T14:45:00-03:00</dhEmi>
+                <tpImp>1</tpImp>
+                <tpEmis>1</tpEmis>
+                <cDV>7</cDV>
+                <tpAmb>2</tpAmb>
+                <tpCTe>0</tpCTe>
+                <procEmi>0</procEmi>
+                <verProc>JAVA_CTE 4.00.15</verProc>
+                <indGlobalizado>1</indGlobalizado>
+                <cMunEnv>5208707</cMunEnv>
+                <xMunEnv>GOIANIA</xMunEnv>
+                <UFEnv>GO</UFEnv>
+                <modal>01</modal>
+                <tpServ>2</tpServ>
+                <cMunIni>5208707</cMunIni>
+                <xMunIni>GOIANIA</xMunIni>
+                <UFIni>GO</UFIni>
+                <cMunFim>5208707</cMunFim>
+                <xMunFim>GOIANIA</xMunFim>
+                <UFFim>GO</UFFim>
+                <retira>1</retira>
+                <indIEToma>9</indIEToma>
+                <toma3>
+                    <toma>3</toma>
+                </toma3>
+            </ide>
+            <compl>
+                <ObsCont xCampo="ROTA">
+                    <xTexto>ROTA 12 - ZONA SUL</xTexto>
+                </ObsCont>
+                <ObsCont xCampo="MOTORISTA">
+                    <xTexto>MOTORISTA EXEMPLO</xTexto>
+                </ObsCont>
+            </compl>
+            <emit>
+                <CNPJ>12345678000195</CNPJ>
+                <IE>101234567</IE>
+                <xNome>TRANSPORTADORA EXEMPLO LTDA</xNome>
+                <enderEmit>
+                    <xLgr>AVENIDA DAS CARGAS</xLgr>
+                    <nro>1000</nro>
+                    <xBairro>SETOR INDUSTRIAL</xBairro>
+                    <cMun>5208707</cMun>
+                    <xMun>GOIANIA</xMun>
+                    <CEP>74000000</CEP>
+                    <UF>GO</UF>
+                    <fone>6232100000</fone>
+                </enderEmit>
+                <CRT>1</CRT>
+            </emit>
+            <rem>
+                <CNPJ>98765432000198</CNPJ>
+                <IE>109876543</IE>
+                <xNome>LOJA REMETENTE EXEMPLO LTDA</xNome>
+                <enderReme>
+                    <xLgr>RUA DO VAREJO</xLgr>
+                    <nro>10</nro>
+                    <xBairro>SETOR BUENO</xBairro>
+                    <cMun>5208707</cMun>
+                    <xMun>GOIANIA</xMun>
+                    <CEP>74210000</CEP>
+                    <UF>GO</UF>
+                </enderReme>
+            </rem>
+            <exped>
+                <CNPJ>77888999000181</CNPJ>
+                <IE>107788899</IE>
+                <xNome>EXPEDIDOR EXEMPLO LOGISTICA LTDA</xNome>
+                <enderExped>
+                    <xLgr>RODOVIA BR-153</xLgr>
+                    <nro>KM 5</nro>
+                    <xBairro>ZONA RURAL</xBairro>
+                    <cMun>5208707</cMun>
+                    <xMun>GOIANIA</xMun>
+                    <CEP>74001000</CEP>
+                    <UF>GO</UF>
+                </enderExped>
+            </exped>
+            <dest>
+                <CPF>12345678909</CPF>
+                <xNome>CONSUMIDOR FICTICIO DE TESTE</xNome>
+                <fone>62999990000</fone>
+                <enderDest>
+                    <xLgr>RUA DAS FLORES</xLgr>
+                    <nro>S/N</nro>
+                    <xBairro>JARDIM AMERICA</xBairro>
+                    <cMun>5208707</cMun>
+                    <xMun>GOIANIA</xMun>
+                    <CEP>74270000</CEP>
+                    <UF>GO</UF>
+                </enderDest>
+            </dest>
+            <vPrest>
+                <vTPrest>95.90</vTPrest>
+                <vRec>95.90</vRec>
+                <Comp>
+                    <xNome>FRETE</xNome>
+                    <vComp>95.90</vComp>
+                </Comp>
+            </vPrest>
+            <imp>
+                <ICMS>
+                    <ICMSSN>
+                        <CST>90</CST>
+                        <indSN>1</indSN>
+                    </ICMSSN>
+                </ICMS>
+                <infAdFisco>ICMS RECOLHIDO NO REGIME DO SIMPLES NACIONAL</infAdFisco>
+            </imp>
+            <infCTeNorm>
+                <infCarga>
+                    <vCarga>1830.00</vCarga>
+                    <proPred>MOVEIS</proPred>
+                    <infQ>
+                        <cUnid>01</cUnid>
+                        <tpMed>03</tpMed>
+                        <qCarga>85.0000</qCarga>
+                    </infQ>
+                </infCarga>
+                <infDoc>
+                    <infOutros>
+                        <tpDoc>00</tpDoc>
+                        <descOutros>DECLARACAO DE CONTEUDO</descOutros>
+                        <nDoc>DC-77</nDoc>
+                        <dEmi>2026-11-22</dEmi>
+                        <vDocFisc>530.00</vDocFisc>
+                    </infOutros>
+                    <infOutros>
+                        <tpDoc>59</tpDoc>
+                        <nDoc>000123</nDoc>
+                        <dEmi>2026-11-21</dEmi>
+                        <vDocFisc>1300.00</vDocFisc>
+                    </infOutros>
+                    <infOutros>
+                        <tpDoc>99</tpDoc>
+                        <descOutros>ORDEM DE SERVICO</descOutros>
+                    </infOutros>
+                </infDoc>
+                <infModal versaoModal="4.00">
+                    <rodo>
+                        <RNTRC>12345678</RNTRC>
+                    </rodo>
+                </infModal>
+                <infGlobalizado>
+                    <xObs>PROCEDIMENTO EFETUADO CONFORME RESOLUCAO EXEMPLO</xObs>
+                </infGlobalizado>
+            </infCTeNorm>
+        </infCte>
+        <infCTeSupl>
+            <qrCodCTe><![CDATA[https://dfe-portal.svrs.rs.gov.br/cte/qrCode?chCTe=52261112345678000195570010000012361000123477&tpAmb=2]]></qrCodCTe>
+        </infCTeSupl>
+    </CTe>
+    <protCTe versao="4.00">
+        <infProt Id="CTe152260000012347">
+            <tpAmb>2</tpAmb>
+            <verAplic>RS20261101</verAplic>
+            <chCTe>52261112345678000195570010000012361000123477</chCTe>
+            <dhRecbto>2026-11-22T14:45:20-03:00</dhRecbto>
+            <nProt>152260000012347</nProt>
+            <cStat>100</cStat>
+            <xMotivo>Autorizado o uso do CT-e</xMotivo>
+        </infProt>
+    </protCTe>
+</cteProc>

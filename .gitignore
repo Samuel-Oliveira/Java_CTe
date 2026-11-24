@@ -7,5 +7,6 @@
 *.prefs
 .settings/org.eclipse.wst.common.component
 *.xml
+!/src/test/resources/dacte/*.xml
 /.idea/
 /.github/*.md

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<!--
+  DACTE - CT-e modelo 57 (leiaute 4.00), A4 retrato. Leiaute do antigo DACTE Jasper (Java_Danfe), em HTML.
+  O HTML precisa ser XHTML bem formado (tags fechadas) para o openhtmltopdf.
+-->
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="'DACTE ' + ${fmt.primeiro(dacte.chave, '')}">DACTE</title>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 50mm 7mm 7mm 7mm;
+            @top-center { content: element(cabecalho); vertical-align: bottom; }
+        }
+        @page :first {
+            margin-top: 7mm;
+            @top-center { content: none; }
+        }
+        body { font-family: Helvetica, Arial, sans-serif; font-size: 7pt; color: #000; margin: 0; }
+        table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+        /* Sem overflow: hidden em td/th: impede o openhtmltopdf de repetir o thead dos documentos */
+        td, th { padding: 0.3mm 0.8mm; vertical-align: top; }
+
+        /* Blocos: borda superior/esquerda no bloco e direita/inferior nas células, para não duplicar linhas */
+        .bloco { border-top: 0.6pt solid #000; border-left: 0.6pt solid #000; margin-top: 0.8mm; }
+        .bloco td { border-right: 0.6pt solid #000; border-bottom: 0.6pt solid #000; overflow: hidden; }
+        .bloco table table td { border: 0; }
+        /* Bloco que continua o anterior, sem a linha de cima (e sem o respiro) */
+        .bloco.continua { border-top: 0; margin-top: 0; }
+
+        .rot { font-size: 5pt; color: #333; text-transform: uppercase; white-space: nowrap; overflow: hidden; }
+        .val { font-size: 7pt; height: 3.2mm; white-space: nowrap; overflow: hidden; }
+        .direita { text-align: right; }
+        .centro { text-align: center; }
+        .forte { font-weight: bold; }
+        .faixa { text-align: center; font-size: 5.5pt; font-weight: bold; padding: 0.4mm 0.8mm; }
+
+        /* Canhoto */
+        .canhoto { border-bottom: 0.8pt dashed #000; padding-bottom: 1.5mm; margin-bottom: 1.5mm; }
+        .canhoto td { border: 0.6pt solid #000; }
+        .canhoto-texto { font-size: 6pt; font-weight: bold; text-align: center; }
+        .canhoto-linha { height: 3.5mm; border-bottom: 0.5pt solid #000; margin: 0 2mm 0.5mm 0; }
+        .canhoto-carimbo { height: 8.5mm; }
+        .canhoto-data { font-size: 6.5pt; height: 3.5mm; }
+        .canhoto-cte { text-align: center; font-size: 6.5pt; vertical-align: middle; }
+        .canhoto-cte-titulo { font-size: 11pt; font-weight: bold; }
+
+        /* Cabeçalho */
+        .cabecalho-linha > td { height: 35mm; }
+        .emitente-caixa { height: 34mm; overflow: hidden; }
+        .logo { float: left; width: 20mm; height: 20mm; text-align: center; margin-right: 1mm; }
+        .logo img { max-width: 20mm; max-height: 20mm; }
+        .emitente-dados { font-size: 6.5pt; }
+        .emitente-nome { font-size: 9pt; font-weight: bold; margin: 0.5mm 0 0.5mm 0; }
+        .emitente-nome-longo { font-size: 7.5pt; }
+        .emitente-fantasia { font-weight: bold; margin-bottom: 0.5mm; }
+        .dacte-id { text-align: center; }
+        .dacte-titulo { font-size: 12pt; font-weight: bold; }
+        .dacte-sub { font-size: 5.5pt; }
+        .ident { margin-top: 0.8mm; }
+        .ident td { text-align: center; padding: 0.2mm 0.3mm; }
+        .ident .val { font-size: 6.5pt; height: 2.9mm; }
+        .folha-atual::after { content: counter(page); }
+        /* O total de folhas (.folha-total) é escrito por ImpressaoDacteUtil.htmlParaPdf: counter(pages) é diagramado com
+           largura zero (o total ainda não existe) e a célula com overflow: hidden o cortaria */
+        .barras { height: 10mm; padding: 0.8mm 1mm 0.5mm 1mm; }
+        .barras img { width: 100%; height: 9.5mm; }
+        .chave-numero { font-weight: bold; font-size: 7.5pt; }
+        .consulta { font-size: 5.5pt; margin-top: 0.5mm; }
+        .qrcode { text-align: center; vertical-align: middle; }
+        .qrcode img { width: 32mm; height: 32mm; }
+        .cabecalho-continuacao { position: running(cabecalho); width: 100%; }
+
+        /* Participantes e tomador: rótulo à esquerda do valor */
+        .participante, .tomador { padding: 0.3mm 0.5mm; }
+        td.r { font-size: 5pt; color: #333; white-space: nowrap; overflow: hidden; padding: 0.5mm 0.5mm 0.2mm 0.5mm; }
+        td.v { font-size: 6.5pt; white-space: nowrap; overflow: hidden; padding: 0.2mm 0.5mm; }
+        td.v.endereco { white-space: normal; height: 5.6mm; }
+
+        /* Componentes do valor da prestação */
+        .componentes td.n { border-left: 0.6pt solid #000; }
+        .componentes td.v { font-size: 6.5pt; }
+        .totais .val { font-size: 7.5pt; font-weight: bold; text-align: right; height: 3.6mm; }
+
+        /* Documentos originários e veículos novos: -fs-table-paginate (repete o thead em cada folha) só funciona com border-collapse: separate */
+        .lista { margin-top: 0.8mm; -fs-table-paginate: paginate; border-collapse: separate; border-spacing: 0; border-left: 0.6pt solid #000; border-top: 0.6pt solid #000; }
+        .lista > thead > tr > th { border-right: 0.6pt solid #000; border-bottom: 0.6pt solid #000; font-size: 5pt; font-weight: normal; color: #333; text-align: left; padding: 0.4mm 0.6mm; }
+        .lista > thead > tr > th.faixa { font-size: 5.5pt; font-weight: bold; color: #000; text-align: center; }
+        /* Texto longo (descrição, número de outros documentos) quebra a linha em vez de invadir a coluna ao lado */
+        .lista > tbody > tr > td { border-right: 0.6pt solid #000; border-bottom: 0.3pt solid #999; font-size: 6pt; padding: 0.4mm 0.6mm; word-wrap: break-word; }
+        .lista > tbody > tr:last-child > td { border-bottom: 0.6pt solid #000; }
+        .lista > tbody > tr { page-break-inside: avoid; }
+
+        /* Rodapé: o espaçador #espaco-rodape recebe, em ImpressaoDacteUtil.htmlParaPdf, a altura que sobra na folha,
+           para o bloco #rodape encostar no pé da última folha (como no DACTE Jasper). Por isso o bloco não pode ter
+           margem superior própria: o respiro fica no espaçador. */
+        #espaco-rodape { height: 0.8mm; }
+        .rodape { page-break-inside: avoid; }
+        .rodape > .bloco:first-child { margin-top: 0; }
+        .legislacao { font-size: 6.5pt; vertical-align: middle; }
+        .observacoes td { height: 26mm; }
+        .observacoes .faixa { border-bottom: 0.6pt solid #000; margin: 0 -0.8mm 0.5mm -0.8mm; }
+        .observacoes .texto { font-size: 6.5pt; white-space: pre-wrap; }
+        .ver-proc { font-size: 5pt; text-align: right; margin-top: 0.3mm; }
+
+        .marca-dagua { position: fixed; z-index: -1; top: 105mm; left: 0; width: 100%; text-align: center; font-size: 34pt; font-weight: bold; color: #e2e2e2; transform: rotate(-30deg); }
+    </style>
+</head>
+<body>
+
+<div class="marca-dagua" th:if="${dacte.marcaDagua != null}" th:text="${dacte.marcaDagua}">SEM VALOR FISCAL</div>
+
+<!-- Cabeçalho repetido a partir da 2ª folha (margem superior das páginas seguintes) -->
+<div class="cabecalho-continuacao" th:insert="~{fragmentos :: cabecalho}"></div>
+
+<th:block th:if="${exibirCanhoto}"><div th:replace="~{fragmentos :: canhoto}"></div></th:block>
+
+<div th:replace="~{fragmentos :: cabecalho}"></div>
+
+<!-- Tipo do CT-e e do serviço, tomador, globalizado e prestação (só na primeira folha) -->
+<div class="bloco continua">
+    <table><tr>
+        <td th:replace="~{fragmentos :: campo('TIPO DO CT-e', ${fmt.tipoCte(dacte.ide.tpCTe)}, '16%')}"></td>
+        <td th:replace="~{fragmentos :: campo('TIPO DO SERVIÇO', ${fmt.tipoServico(dacte.ide.tpServ)}, '24%')}"></td>
+        <td th:replace="~{fragmentos :: campo('TOMADOR DO SERVIÇO', ${fmt.tomador(dacte.toma.toma)}, '16%')}"></td>
+        <td th:replace="~{fragmentos :: campo('INDICADOR DO CT-e GLOBALIZADO', ${fmt.simNao(dacte.globalizado)}, '17%')}"></td>
+        <td th:replace="~{fragmentos :: campo('INSCRIÇÃO SUFRAMA DO DESTINATÁRIO', ${dacte.dest.ISUF}, '27%')}"></td>
+    </tr></table>
+    <table th:if="${dacte.globalizado}"><tr>
+        <td th:replace="~{fragmentos :: campo('INFORMAÇÕES DO CT-e GLOBALIZADO', ${dacte.infGlobalizado.xObs}, '100%')}"></td>
+    </tr></table>
+    <table><tr>
+        <td th:replace="~{fragmentos :: campo('INÍCIO DA PRESTAÇÃO', ${fmt.municipioUf(dacte.ide.xMunIni, dacte.ide.UFIni)}, '50%')}"></td>
+        <td th:replace="~{fragmentos :: campo('TÉRMINO DA PRESTAÇÃO', ${fmt.municipioUf(dacte.ide.xMunFim, dacte.ide.UFFim)}, '50%')}"></td>
+    </tr></table>
+</div>
+
+<!-- Remetente / destinatário e expedidor / recebedor -->
+<div class="bloco">
+    <table><tr>
+        <td th:replace="~{fragmentos :: participante('REMETENTE', ${dacte.rem})}"></td>
+        <td th:replace="~{fragmentos :: participante('DESTINATÁRIO', ${dacte.dest})}"></td>
+    </tr></table>
+    <table th:if="${dacte.exibirExpedidorRecebedor}"><tr>
+        <td th:replace="~{fragmentos :: participante('EXPEDIDOR', ${dacte.exped})}"></td>
+        <td th:replace="~{fragmentos :: participante('RECEBEDOR', ${dacte.receb})}"></td>
+    </tr></table>
+</div>
+
+<!-- Tomador do serviço -->
+<div class="bloco">
+    <table><tr><td class="tomador">
+        <table><tr>
+            <td class="r" style="width:13%">TOMADOR DO SERVIÇO</td>
+            <td class="v forte" style="width:47%" th:text="${dacte.toma.xNome}">NOME</td>
+            <td class="r" style="width:8%">MUNICÍPIO</td>
+            <td class="v" style="width:18%" th:text="${fmt.municipio(dacte.toma)}">Município - UF</td>
+            <td class="r" style="width:3%">CEP</td>
+            <td class="v" style="width:11%" th:text="${fmt.cep(dacte.toma.CEP)}">00000-000</td>
+        </tr></table>
+        <table><tr>
+            <td class="r" style="width:13%">ENDEREÇO</td>
+            <td class="v" style="width:73%" th:text="${fmt.endereco(dacte.toma)}">Rua, 1, Bairro</td>
+            <td class="r" style="width:3%">PAÍS</td>
+            <td class="v" style="width:11%" th:text="${dacte.toma.xPais}">BRASIL</td>
+        </tr></table>
+        <table><tr>
+            <td class="r" style="width:13%">CNPJ / CPF</td>
+            <td class="v" style="width:22%" th:text="${fmt.documentoParticipante(dacte.toma)}">00.000.000/0000-00</td>
+            <td class="r" style="width:13%">INSCRIÇÃO ESTADUAL</td>
+            <td class="v" style="width:16%" th:text="${dacte.toma.IE}">IE</td>
+            <td class="r" style="width:5%">FONE</td>
+            <td class="v" style="width:31%" th:text="${fmt.fone(dacte.toma.fone)}">(00) 0000-0000</td>
+        </tr></table>
+    </td></tr></table>
+</div>
+
+<!-- Informações da carga (CT-e normal e substituto) -->
+<div class="bloco" th:if="${dacte.exibirCarga}">
+    <table><tr>
+        <td th:replace="~{fragmentos :: campo('PRODUTO PREDOMINANTE', ${dacte.carga.proPred}, '38%')}"></td>
+        <td th:replace="~{fragmentos :: campo('OUTRAS CARACTERÍSTICAS DA CARGA', ${dacte.carga.xOutCat}, '30%')}"></td>
+        <td th:replace="~{fragmentos :: campo('VALOR TOTAL DA CARGA', ${fmt.valor(dacte.carga.vCarga)}, '16%')}"></td>
+        <td th:replace="~{fragmentos :: campo('VALOR DA CARGA AVERBADA', ${fmt.valor(dacte.carga.vCargaAverb)}, '16%')}"></td>
+    </tr></table>
+    <table th:each="linha : ${dacte.quantidadesLinhas}"><tr>
+        <th:block th:each="q : ${linha}">
+            <td th:replace="~{fragmentos :: campo(${fmt.rotuloQuantidade(q)}, ${q != null ? fmt.quantidade(q.qCarga) : ''}, '20%')}"></td>
+        </th:block>
+    </tr></table>
+</div>
+
+<!-- Componentes do valor da prestação do serviço -->
+<div class="bloco">
+    <table><tr><td class="faixa">COMPONENTES DO VALOR DA PRESTAÇÃO DO SERVIÇO</td></tr></table>
+    <table><tr>
+        <td style="width:79%">
+            <table class="componentes">
+                <tr>
+                    <th:block th:each="coluna : ${#numbers.sequence(1, 4)}">
+                        <td class="r" th:classappend="${coluna > 1} ? 'n'" style="width:15%">NOME</td>
+                        <td class="r direita" style="width:10%">VALOR</td>
+                    </th:block>
+                </tr>
+                <tr th:each="linha : ${dacte.componentesLinhas}">
+                    <th:block th:each="comp, coluna : ${linha}">
+                        <td class="v" th:classappend="${coluna.index > 0} ? 'n'" th:text="${comp != null ? comp.xNome : ''}">FRETE</td>
+                        <td class="v direita" th:text="${comp != null ? fmt.valor(comp.vComp) : ''}">0,00</td>
+                    </th:block>
+                </tr>
+            </table>
+        </td>
+        <td style="width:21%" class="totais">
+            <div class="rot">VALOR TOTAL DO SERVIÇO</div>
+            <div class="val" th:text="${fmt.valor(dacte.vPrest.vTPrest)}">0,00</div>
+            <div class="rot">VALOR A RECEBER</div>
+            <div class="val" th:text="${fmt.valor(dacte.vPrest.vRec)}">0,00</div>
+        </td>
+    </tr></table>
+</div>
+
+<!-- Informações relativas ao imposto -->
+<div class="bloco">
+    <table><tr><td class="faixa">INFORMAÇÕES RELATIVAS AO IMPOSTO</td></tr></table>
+    <table><tr>
+        <td th:replace="~{fragmentos :: campo('CLASSIFICAÇÃO TRIBUTÁRIA DO SERVIÇO', ${fmt.classificacaoIcms(dacte.icms)}, '34%')}"></td>
+        <td th:replace="~{fragmentos :: campo('BASE DE CÁLCULO', ${fmt.valor(dacte.icms.vBC)}, '14%')}"></td>
+        <td th:replace="~{fragmentos :: campo('ALÍQUOTA DO ICMS (%)', ${fmt.aliquota(dacte.icms.pICMS)}, '12%')}"></td>
+        <td th:replace="~{fragmentos :: campo('VALOR DO ICMS', ${fmt.valor(dacte.icms.vICMS)}, '13%')}"></td>
+        <td th:replace="~{fragmentos :: campo('% RED. BC. CALC.', ${fmt.aliquota(dacte.icms.pRedBC)}, '11%')}"></td>
+        <td th:replace="~{fragmentos :: campo('VALOR TOTAL DOS TRIBUTOS', ${fmt.valor(dacte.imp.vTotTrib)}, '16%')}"></td>
+    </tr></table>
+</div>
+
+<!-- IBS e CBS (Reforma Tributária): só quando o XML traz o grupo imp/IBSCBS -->
+<div class="bloco" th:if="${dacte.exibirIbsCbs}">
+    <table><tr><td class="faixa">INFORMAÇÕES DO IBS E DA CBS</td></tr></table>
+    <table><tr>
+        <td th:replace="~{fragmentos :: campo('CST / CLASSIF. TRIB.', ${fmt.juntar(dacte.ibsCbs.CST, ' / ', dacte.ibsCbs.cClassTrib)}, '14%')}"></td>
+        <td th:replace="~{fragmentos :: campo('BASE DE CÁLCULO', ${fmt.valor(dacte.ibsCbs.vBC)}, '12%')}"></td>
+        <td th:replace="~{fragmentos :: campo('ALÍQ. IBS UF (%)', ${fmt.aliquota(dacte.ibsCbs.pIBSUF)}, '10%')}"></td>
+        <td th:replace="~{fragmentos :: campo('VALOR IBS UF', ${fmt.valor(dacte.ibsCbs.vIBSUF)}, '10%')}"></td>
+        <td th:replace="~{fragmentos :: campo('ALÍQ. IBS MUN. (%)', ${fmt.aliquota(dacte.ibsCbs.pIBSMun)}, '11%')}"></td>
+        <td th:replace="~{fragmentos :: campo('VALOR IBS MUN.', ${fmt.valor(dacte.ibsCbs.vIBSMun)}, '10%')}"></td>
+        <td th:replace="~{fragmentos :: campo('ALÍQ. CBS (%)', ${fmt.aliquota(dacte.ibsCbs.pCBS)}, '9%')}"></td>
+        <td th:replace="~{fragmentos :: campo('VALOR CBS', ${fmt.valor(dacte.ibsCbs.vCBS)}, '9%')}"></td>
+        <td th:replace="~{fragmentos :: campo('VALOR TOTAL DO DOCUMENTO', ${fmt.valor(dacte.imp.vTotDFe)}, '15%')}"></td>
+    </tr></table>
+</div>
+
+<!-- Documentos originários, em duas colunas; o thead se repete se a lista passar para outra folha -->
+<table class="lista" th:if="${dacte.exibirDocumentos}" th:with="tipo=${dacte.tipoDocumentos}">
+    <!-- Larguras no colgroup: com table-layout: fixed vale a primeira linha, que aqui é a faixa do título (colspan) -->
+    <colgroup th:if="${tipo == 'NFE' or tipo == 'DCE'}">
+        <th:block th:each="coluna : ${#numbers.sequence(1, 2)}">
+            <col style="width:5%" /><col style="width:5%" /><col style="width:9%" /><col style="width:31%" />
+        </th:block>
+    </colgroup>
+    <colgroup th:if="${tipo == 'NF'}">
+        <th:block th:each="coluna : ${#numbers.sequence(1, 2)}">
+            <col style="width:5%" /><col style="width:5%" /><col style="width:11%" /><col style="width:10%" /><col style="width:6%" /><col style="width:13%" />
+        </th:block>
+    </colgroup>
+    <colgroup th:if="${tipo == 'OUTROS'}">
+        <th:block th:each="coluna : ${#numbers.sequence(1, 2)}">
+            <col style="width:12%" /><col style="width:8%" /><col style="width:15%" /><col style="width:7%" /><col style="width:8%" />
+        </th:block>
+    </colgroup>
+    <thead>
+    <tr>
+        <th class="faixa" th:colspan="${tipo == 'NF' ? 12 : (tipo == 'OUTROS' ? 10 : 8)}"
+            th:text="${tipo == 'NFE' ? 'DOCUMENTOS ORIGINÁRIOS (NOTA FISCAL ELETRÔNICA)'
+                    : (tipo == 'NF' ? 'DOCUMENTOS ORIGINÁRIOS (NOTA FISCAL)'
+                    : (tipo == 'DCE' ? 'DOCUMENTOS ORIGINÁRIOS (DECLARAÇÃO DE CONTEÚDO ELETRÔNICA)'
+                    : 'DOCUMENTOS ORIGINÁRIOS (OUTROS DOCUMENTOS)'))}">DOCUMENTOS ORIGINÁRIOS</th>
+    </tr>
+    <tr th:if="${tipo == 'NFE' or tipo == 'DCE'}">
+        <th:block th:each="coluna : ${#numbers.sequence(1, 2)}">
+            <th>MODELO</th>
+            <th>SÉRIE</th>
+            <th>NÚMERO</th>
+            <th>CHAVE DE ACESSO</th>
+        </th:block>
+    </tr>
+    <tr th:if="${tipo == 'NF'}">
+        <th:block th:each="coluna : ${#numbers.sequence(1, 2)}">
+            <th>MODELO</th>
+            <th>SÉRIE</th>
+            <th>NÚMERO</th>
+            <th>DATA DE EMISSÃO</th>
+            <th>CFOP</th>
+            <th>VALOR DA NF</th>
+        </th:block>
+    </tr>
+    <tr th:if="${tipo == 'OUTROS'}">
+        <th:block th:each="coluna : ${#numbers.sequence(1, 2)}">
+            <th>TIPO</th>
+            <th>NÚMERO</th>
+            <th>DESCRIÇÃO</th>
+            <th>EMISSÃO</th>
+            <th>VALOR</th>
+        </th:block>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="linha : ${dacte.documentosLinhas}">
+        <th:block th:each="doc : ${linha}">
+            <th:block th:if="${tipo == 'NFE' or tipo == 'DCE'}">
+                <td th:text="${doc != null ? doc.mod : ''}">55</td>
+                <td th:text="${doc != null ? doc.serie : ''}">001</td>
+                <td th:text="${doc != null ? doc.nDoc : ''}">000000001</td>
+                <td th:text="${doc != null ? doc.chave : ''}">chave</td>
+            </th:block>
+            <th:block th:if="${tipo == 'NF'}">
+                <td th:text="${doc != null ? doc.mod : ''}">01</td>
+                <td th:text="${doc != null ? doc.serie : ''}">1</td>
+                <td th:text="${doc != null ? doc.nDoc : ''}">1</td>
+                <td th:text="${doc != null ? fmt.data(doc.dEmi) : ''}">01/01/2026</td>
+                <td th:text="${doc != null ? doc.nCFOP : ''}">5101</td>
+                <td class="direita" th:text="${doc != null ? fmt.valor(doc.vNF) : ''}">0,00</td>
+            </th:block>
+            <th:block th:if="${tipo == 'OUTROS'}">
+                <td th:text="${doc != null ? fmt.tipoDocumentoOutros(doc.tpDoc) : ''}">99 - OUTROS</td>
+                <td th:text="${doc != null ? doc.nDoc : ''}">1</td>
+                <td th:text="${doc != null ? doc.descOutros : ''}">descrição</td>
+                <td th:text="${doc != null ? fmt.data(doc.dEmi) : ''}">01/01/2026</td>
+                <td class="direita" th:text="${doc != null ? fmt.valor(doc.vDocFisc) : ''}">0,00</td>
+            </th:block>
+        </th:block>
+    </tr>
+    </tbody>
+</table>
+
+<!-- Veículos novos -->
+<table class="lista" th:if="${dacte.exibirVeiculos}">
+    <colgroup>
+        <th:block th:each="coluna : ${#numbers.sequence(1, 2)}">
+            <col style="width:14%" /><col style="width:8%" /><col style="width:10%" /><col style="width:9%" /><col style="width:9%" />
+        </th:block>
+    </colgroup>
+    <thead>
+    <tr><th class="faixa" colspan="10">INFORMAÇÕES SOBRE VEÍCULOS NOVOS</th></tr>
+    <tr>
+        <th:block th:each="coluna : ${#numbers.sequence(1, 2)}">
+            <th>CHASSI</th>
+            <th>COR</th>
+            <th>MARCA / MODELO</th>
+            <th>VALOR UNITÁRIO</th>
+            <th>FRETE UNITÁRIO</th>
+        </th:block>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="linha : ${dacte.veiculosLinhas}">
+        <th:block th:each="veiculo : ${linha}">
+            <td th:text="${veiculo != null ? veiculo.chassi : ''}">chassi</td>
+            <td th:text="${veiculo != null ? veiculo.xCor : ''}">cor</td>
+            <td th:text="${veiculo != null ? veiculo.cMod : ''}">modelo</td>
+            <td class="direita" th:text="${veiculo != null ? fmt.valor(veiculo.vUnit) : ''}">0,00</td>
+            <td class="direita" th:text="${veiculo != null ? fmt.valor(veiculo.vFrete) : ''}">0,00</td>
+        </th:block>
+    </tr>
+    </tbody>
+</table>
+
+<!-- CT-e de complemento de valores: chaves dos CT-e complementados -->
+<div class="bloco" th:if="${dacte.complemento}">
+    <table><tr><td class="faixa">DETALHAMENTO DO CT-e COMPLEMENTADO</td></tr></table>
+    <table th:each="chave : ${dacte.complementados}"><tr>
+        <td th:replace="~{fragmentos :: campo('CHAVE DE ACESSO DO CT-e COMPLEMENTADO', ${fmt.chave(chave)}, '100%')}"></td>
+    </tr></table>
+</div>
+
+<!-- Modal, uso exclusivo do emissor e reservado ao fisco. O espaçador e o id do bloco são os marcadores que
+     ImpressaoDacteUtil.htmlParaPdf usa para encostar o bloco no pé da última folha. -->
+<div id="espaco-rodape"></div>
+<div class="rodape" id="rodape">
+    <div class="bloco" th:if="${dacte.exibirModalRodoviario}">
+        <table><tr><td class="faixa">INFORMAÇÕES ESPECÍFICAS DO MODAL RODOVIÁRIO</td></tr></table>
+        <table><tr>
+            <td th:replace="~{fragmentos :: campo('RNTRC DA EMPRESA', ${dacte.rodo.RNTRC}, '20%')}"></td>
+            <td class="legislacao" style="width:80%">ESTE CONHECIMENTO DE TRANSPORTE ATENDE À LEGISLAÇÃO DE TRANSPORTE RODOVIÁRIO EM VIGOR</td>
+        </tr></table>
+    </div>
+    <div class="bloco observacoes">
+        <table><tr>
+            <td style="width:64%">
+                <div class="faixa">USO EXCLUSIVO DO EMISSOR DO CT-e</div>
+                <div class="texto" th:if="${dacte.compl.xObs != null}" th:text="${dacte.compl.xObs}">observações</div>
+                <div class="texto" th:each="obs : ${dacte.obsCont}" th:text="${fmt.observacao(obs)}">campo: texto</div>
+            </td>
+            <td style="width:36%">
+                <div class="faixa">RESERVADO AO FISCO</div>
+                <div class="texto" th:each="obs : ${dacte.obsFisco}" th:text="${fmt.observacao(obs)}">campo: texto</div>
+                <div class="texto" th:if="${dacte.imp.infAdFisco != null}" th:text="${dacte.imp.infAdFisco}">informações ao fisco</div>
+            </td>
+        </tr></table>
+    </div>
+    <div class="ver-proc" th:text="${dacte.ide.verProc}">versão</div>
+</div>
+
+</body>
+</html>
