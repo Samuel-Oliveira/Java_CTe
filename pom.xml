@@ -40,6 +40,9 @@
         <axiom-api.version>1.2.20</axiom-api.version>
         <junit-jupiter.version>5.13.3</junit-jupiter.version>
         <lombok.version>1.18.38</lombok.version>
+        <zxing.version>3.2.1</zxing.version>
+        <thymeleaf.version>3.1.2.RELEASE</thymeleaf.version>
+        <openhtmltopdf.version>1.0.10</openhtmltopdf.version>
         <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
         <central-publishing-maven-plugin.version>0.8.0</central-publishing-maven-plugin.version>
         <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
@@ -165,6 +168,35 @@
             <artifactId>junit-jupiter</artifactId>
             <version>${junit-jupiter.version}</version>
             <scope>test</scope>
+        </dependency>
+        <!-- Impressão do DACTE (pacote impressao): template Thymeleaf -> HTML -> PDF, com código de barras e QR Code do zxing.
+             Vêm por transitividade para o projeto consumidor; quem só transmite e não quer o peso pode excluí-las -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>${zxing.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>${zxing.version}</version>
+            <exclusions>
+                <!-- Só a linha de comando do zxing usa; a geração de imagem (MatrixToImageWriter) não -->
+                <exclusion>
+                    <groupId>com.beust</groupId>
+                    <artifactId>jcommander</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf</artifactId>
+            <version>${thymeleaf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.openhtmltopdf</groupId>
+            <artifactId>openhtmltopdf-pdfbox</artifactId>
+            <version>${openhtmltopdf.version}</version>
         </dependency>
     </dependencies>
 
