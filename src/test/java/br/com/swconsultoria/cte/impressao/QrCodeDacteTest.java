@@ -1,28 +1,31 @@
 package br.com.swconsultoria.cte.impressao;
 
+import br.com.swconsultoria.cte.exception.DacteException;
 import org.junit.jupiter.api.Test;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.Base64;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
- * Zona de silêncio do QR Code do DACTE (ISO/IEC 18004: 4 módulos) dentro da imagem, sem sobra de arredondamento.
+ * Zona de silêncio do QR Code do DACTE dentro da imagem, sem sobra de arredondamento: 4 módulos no mínimo
+ * (ISO/IEC 18004) e as duas margens somando 10% do lado ou mais (margem segura do MOC).
  */
 class QrCodeDacteTest {
 
     private static final String QR_NORMAL = "https://dfe-portal.svrs.rs.gov.br/cte/qrCode?chCTe="
             + "52261112345678000195570010000001231000001234&tpAmb=2";
-    /** Contingência: o QR leva a assinatura, conteúdo longo e mais módulos. */
-    private static final String QR_CONTINGENCIA = QR_NORMAL
-            + "&sign=QUJDREVGR0hJSktMTU5PUFFSU1RVVldYWVphYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3h5ejAxMjM0NTY3ODkrLw==";
+    /** Contingência: o sign é SHA1withRSA em Base64; com chave RSA de 2048 bits, 256 bytes e 344 caracteres. */
+    private static final String QR_CONTINGENCIA = QR_NORMAL + "&sign=" + Base64.getEncoder().encodeToString(bytes(256));
 
     @Test
-    void imagemTemExatamenteQuatroModulosDeMargemSemSobra() throws IOException {
+    void margemDentroDaImagemSemSobra() throws IOException {
         // 0: um pixel por módulo; 360: múltiplo exato de 41 + 4, onde a margem 2 caberia sem sobra; 400: o tamanho
         // usado pelo ImpressaoDacteUtil
         for (String conteudo : new String[]{QR_NORMAL, QR_CONTINGENCIA}) {
@@ -32,16 +35,43 @@ class QrCodeDacteTest {
                 int[] caixa = caixaEscura(imagem);
                 int modulo = moduloEmPixels(imagem, caixa);
                 int modulos = (caixa[2] - caixa[0] + 1) / modulo;
+                int margem = caixa[0] / modulo;
 
                 assertTrue(imagem.getWidth() >= tamanho, caso + ": pelo menos o tamanho pedido");
                 assertEquals(imagem.getWidth(), imagem.getHeight(), caso);
-                assertEquals((modulos + 8) * modulo, imagem.getWidth(), caso + ": código mais 8 módulos, sem sobra");
-                assertEquals(4 * modulo, caixa[0], caso + ": margem esquerda");
-                assertEquals(4 * modulo, caixa[1], caso + ": margem de cima");
-                assertEquals(4 * modulo, imagem.getWidth() - 1 - caixa[2], caso + ": margem direita");
-                assertEquals(4 * modulo, imagem.getHeight() - 1 - caixa[3], caso + ": margem de baixo");
+                assertEquals((modulos + 2 * margem) * modulo, imagem.getWidth(), caso + ": código mais as margens, sem sobra");
+                assertEquals(margem * modulo, caixa[1], caso + ": margem de cima igual à esquerda");
+                assertEquals(margem * modulo, imagem.getWidth() - 1 - caixa[2], caso + ": margem direita");
+                assertEquals(margem * modulo, imagem.getHeight() - 1 - caixa[3], caso + ": margem de baixo");
+                assertTrue(margem >= 4, caso + ": zona de silêncio de " + margem + " módulos (ISO/IEC 18004)");
+                assertTrue(2.0 * margem / (modulos + 2 * margem) >= 0.10, caso + ": margem segura de 10% do lado");
+                assertEquals(Math.max(4, (int) Math.ceil(modulos / 18.0)), margem, caso + ": sem margem a mais que o necessário");
             }
         }
+    }
+
+    @Test
+    void contingenciaComAssinaturaRealPedeMaisQueQuatroModulos() throws IOException {
+        BufferedImage imagem = ImageIO.read(new ByteArrayInputStream(ImagemDacteUtil.qrCode(QR_CONTINGENCIA, 400)));
+        int[] caixa = caixaEscura(imagem);
+        int modulo = moduloEmPixels(imagem, caixa);
+        int modulos = (caixa[2] - caixa[0] + 1) / modulo;
+
+        assertTrue(modulos > 72, "o sign de 344 caracteres leva o código além de 72 módulos: " + modulos);
+        assertTrue(caixa[0] / modulo > 4, "com 4 módulos a margem ficaria abaixo de 10% do lado");
+    }
+
+    @Test
+    void tamanhoNegativoEhRecusado() {
+        assertThrows(DacteException.class, () -> ImagemDacteUtil.qrCode(QR_NORMAL, -1));
+    }
+
+    private static byte[] bytes(int quantidade) {
+        byte[] bytes = new byte[quantidade];
+        for (int i = 0; i < quantidade; i++) {
+            bytes[i] = (byte) (i * 37 + 11);
+        }
+        return bytes;
     }
 
     /** minX, minY, maxX e maxY dos pixels escuros. */

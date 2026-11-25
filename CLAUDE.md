@@ -18,7 +18,7 @@ mvn test --no-transfer-progress "-Dtest=IbsCbsUtilTest"
 ```
 
 - A CI roda `mvn clean compile test -B` (`release-maven.yml`) e `mvn -B package -Passembly` (`release.yml`).
-- `mvn test` roda `util/IbsCbsUtilTest`, `util/WebServiceCteUtilTest`, `impressao/ImpressaoDacteUtilTest` e `impressao/FormatadorDacteTest` (JUnit 5, surefire sem exclusão). O `WebServiceCteUtilTest` usa `AmbienteEnum.PRODUCAO` só para montar a configuração, sem chamar serviço. Os de impressão geram o DACTE dos CT-e fictícios de `src/test/resources/dacte/`, sem rede nem certificado.
+- `mvn test` roda `util/IbsCbsUtilTest`, `util/WebServiceCteUtilTest`, `impressao/ImpressaoDacteUtilTest`, `impressao/FormatadorDacteTest` e `impressao/QrCodeDacteTest` (JUnit 5, surefire sem exclusão). O `WebServiceCteUtilTest` usa `AmbienteEnum.PRODUCAO` só para montar a configuração, sem chamar serviço. Os de impressão geram o DACTE dos CT-e fictícios de `src/test/resources/dacte/` (o `QrCodeDacteTest`, só a imagem do QR Code), sem rede nem certificado.
 - O `.gitignore` ignora `*.xml`; só os XMLs de `src/test/resources/dacte/` têm exceção. Um XML de teste em outra pasta precisa de exceção própria (ou de `git add -f`).
 - Os `Teste*.java` da raiz de `src/test/.../cte/` são programas com `main`, sem `@Test`. Exceto `TesteValida` (validação local de schema), falam com a SEFAZ (GO) usando certificado real. O padrão `Test*` do surefire casa com eles, mas sem `@Test` o JUnit não os executa. `TesteConfig` é apenas apoio, com certificado e senha de exemplo.
 
