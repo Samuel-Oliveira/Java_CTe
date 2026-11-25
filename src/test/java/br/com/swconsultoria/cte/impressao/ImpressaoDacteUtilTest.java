@@ -66,6 +66,18 @@ class ImpressaoDacteUtilTest {
     }
 
     @Test
+    void cnpjAlfanumericoSaiComAsLetras() {
+        // CNPJ alfanumérico do emitente na tag e dentro da chave (Id e protocolo); o DV não é conferido na impressão
+        String alfanumerico = rodoviario.replace("12345678000195", "12ABC345000195");
+        assertNotEquals(rodoviario, alfanumerico);
+
+        String html = ImpressaoDacteUtil.gerarHtml(ImpressaoDacteUtil.impressaoPadraoCTe(alfanumerico));
+
+        assertTrue(html.contains("12.ABC.345/0001-95"), "CNPJ do emitente com a máscara de CNPJ");
+        assertTrue(html.contains("5226 1112 ABC3 4500 0195 5700 1000 0012 3410 0012 3456"), "chave com as letras");
+    }
+
+    @Test
     void htmlComIdentificacaoEParticipantes() {
         String html = ImpressaoDacteUtil.gerarHtml(ImpressaoDacteUtil.impressaoPadraoCTe(rodoviario));
 

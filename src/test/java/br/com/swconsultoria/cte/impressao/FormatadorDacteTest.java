@@ -30,6 +30,10 @@ class FormatadorDacteTest {
     void documentosEContato() {
         assertEquals("12.345.678/0001-95", fmt.documento("12345678000195"));
         assertEquals("123.456.789-09", fmt.documento("12345678909"));
+        assertEquals("12.ABC.345/0001-95", fmt.documento("12ABC345000195"), "CNPJ alfanumérico, não CPF");
+        assertEquals("12.ABC.345/0001-95", fmt.documento("12.abc.345/0001-95"));
+        assertEquals("5226 1112 ABC3 4500 0195 5700 1000 0001 2310 0000 1234",
+                fmt.chave("52261112ABC345000195570010000001231000001234"), "chave com CNPJ alfanumérico, com as letras");
         assertEquals("74000-000", fmt.cep("74000000"));
         assertEquals("(62) 3210-0000", fmt.fone("6232100000"));
         assertEquals("(62) 99999-0000", fmt.fone("62999990000"));
